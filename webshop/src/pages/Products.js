@@ -1,9 +1,13 @@
 import productService from "../service/productService"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ProductList from "../components/ProductList";
 
 const Products = () => {
 
     const [products, setProducts] = useState([]);
+    useEffect(() => {
+        productService.read().then(data => console.log(data))
+    }, [])
 
     function createProducts() {
         const product = {
@@ -28,12 +32,13 @@ const Products = () => {
     return (
         <>
             <p>Termékek</p>
-            <button onClick={listProducts}>Listázás</button>
+            {/*             <button onClick={listProducts}>Listázás</button>
             <button onClick={createProducts}>Termék hozzáadás</button>
             <h2>Terméklista</h2>
             <ul>
-                {products.map(element => <li>{`nev: ${element[1].title}`}</li>)}
-            </ul>
+                {Object.values(products).map(element => <li>{`nev: ${element[1].title}`}</li>)}
+            </ul> */}
+            <ProductList products={products}/>
         </>
     )
 }
