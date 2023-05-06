@@ -11,6 +11,16 @@ function create(product) {
         .then(res => res.json())
 }
 
+function manipulateProductObject (obj) {
+    const newData = Object.entries(obj).map(item => {
+         const dataWithId = {
+            id: item[0],
+            ...item[1]
+        }
+        return dataWithId
+    })
+    return newData
+}
 
 function read() {
     return fetch(`${API_URL}products.json`)
@@ -19,5 +29,6 @@ function read() {
 
 export default {
     create: create,
-    read: read
+    read: read,
+    manipulateProductObject: manipulateProductObject
 }

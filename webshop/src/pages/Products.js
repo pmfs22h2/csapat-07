@@ -1,12 +1,22 @@
 import productService from "../service/productService"
 import { useEffect, useState } from "react";
 import ProductList from "../components/ProductList";
+import SearchComponent from "../components/SearchComponent";
 
 const Products = () => {
 
     const [products, setProducts] = useState([]);
+
+    // useEffect(() => {
+    //     productService.read().then(data => console.log(data))
+    // }, [])
+
     useEffect(() => {
-        productService.read().then(data => console.log(data))
+        products.map(product => console.log(product))
+    }, [])
+
+    useEffect(() => {
+        listProducts();
     }, [])
 
     function createProducts() {
@@ -22,23 +32,19 @@ const Products = () => {
     function listProducts() {
         productService.read()
             .then(product => {
-                console.log(product)
-                let entries = Object.entries(product);
-                console.log(entries);
-                setProducts(entries)
+                let manipulatedProducts = productService.manipulateProductObject(product);
+                setProducts(manipulatedProducts);
             })
     }
 
     return (
         <>
             <p>Termékek</p>
-            {/*             <button onClick={listProducts}>Listázás</button>
+            <button onClick={listProducts}>Listázás</button>
             <button onClick={createProducts}>Termék hozzáadás</button>
             <h2>Terméklista</h2>
-            <ul>
-                {Object.values(products).map(element => <li>{`nev: ${element[1].title}`}</li>)}
-            </ul> */}
-            <ProductList products={products}/>
+            <SearchComponent products={products} />
+            <ProductList products={products} />
         </>
     )
 }
