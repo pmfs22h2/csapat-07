@@ -8,9 +8,16 @@ function create(product) {
         },
         body: JSON.stringify(product)
     })
-    .then(res => res.json())
+        .then(res => res.json())
+}
+
+
+function read() {
+    return fetch(`${API_URL}products.json`)
+        .then(res => res.json())
 }
 
 export default {
-    create: create
+    create: create,
+    read: read
 }
