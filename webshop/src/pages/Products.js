@@ -2,6 +2,9 @@ import productService from "../service/productService"
 import { useEffect, useState } from "react";
 import ProductList from "../components/ProductList";
 import SearchComponent from "../components/SearchComponent";
+// import Sort from "../components/Sort";
+import sortProductsFromA from "../utils/sortProductsFromA";
+import sortProductsFromB from "../utils/sortProductsFromB"
 
 const Products = () => {
 
@@ -40,8 +43,9 @@ const Products = () => {
     return (
         <>
             <p>Termékek</p>
-            <button onClick={listProducts}>Listázás</button>
             <button onClick={createProducts}>Termék hozzáadás</button>
+            <button onClick={() => setProducts(sortProductsFromA)}>Rendezés A-Z</button>
+            <button onClick={() => setProducts(sortProductsFromB)}>Rendezés Z-A</button>
             <h2>Terméklista</h2>
             <SearchComponent products={products} />
             <ProductList products={products} />

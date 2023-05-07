@@ -1,3 +1,5 @@
+import Products from "../components/Product"
+
 const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/'
 
 function create(product) {
@@ -11,9 +13,9 @@ function create(product) {
         .then(res => res.json())
 }
 
-function manipulateProductObject (obj) {
+function manipulateProductObject(obj) {
     const newData = Object.entries(obj).map(item => {
-         const dataWithId = {
+        const dataWithId = {
             id: item[0],
             ...item[1]
         }
