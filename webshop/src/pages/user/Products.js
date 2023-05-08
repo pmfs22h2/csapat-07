@@ -11,9 +11,9 @@ const Products = () => {
     //     productService.read().then(data => console.log(data))
     // }, [])
 
-    useEffect(() => {
+   /* useEffect(() => {
         products.map(product => console.log(product))
-    }, [])
+    }, [])*/
 
     useEffect(() => {
         listProducts();
