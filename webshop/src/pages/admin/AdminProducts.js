@@ -6,4 +6,7 @@ const AdminProducts = () => {
     )
 }
 
+// termékek táblázat formájában jelennek meg
+//egy termék egy sor
+
 export default AdminProducts;
