@@ -48,8 +48,12 @@ const Products = () => {
     }
 
     function prevPage() {
-        setFrom(from - 9);
-        setTo(to - 9);
+        let decreasedFrom = from - 9;
+        let decreasedTo = to % 9 === 0 ? to - 9 : to - (to % 9);
+
+        setFrom(decreasedFrom);
+        setTo(decreasedTo);
+        setDisplayedProducts(products.slice(decreasedFrom, decreasedTo));
     }
 
     function nextPage() {
@@ -71,8 +75,8 @@ const Products = () => {
             <SearchComponent products={displayedProducts} />
             <ProductList products={displayedProducts} />
             <div className="pagination-buttons">
-                <button onClick={prevPage}>Vissza</button>
-                <button onClick={nextPage}>Előre</button>
+                <button onClick={prevPage} disabled={from === 0 }>Vissza</button>
+                <button onClick={nextPage} disabled={to === products.length}>Előre</button>
             </div>
         </>
     )
