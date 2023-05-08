@@ -1,10 +1,10 @@
-import productService from "../service/productService"
+import productService from "../../../src/service/productService"
 import { useEffect, useState } from "react";
-import ProductList from "../components/ProductList";
-import SearchComponent from "../components/SearchComponent";
-// import Sort from "../components/Sort";
-import sortProductsFromA from "../utils/sortProductsFromA";
-import sortProductsFromB from "../utils/sortProductsFromB"
+import sortProductsFromA from "../../utils/sortProductsFromA";
+import sortProductsFromB from "../../utils/sortProductsFromB"
+import ProductList from "../../components/user/ProductList";
+import SearchComponent from "../../components/user/SearchComponent";
+
 
 const Products = () => {
 
@@ -14,9 +14,9 @@ const Products = () => {
     //     productService.read().then(data => console.log(data))
     // }, [])
 
-    useEffect(() => {
+   /* useEffect(() => {
         products.map(product => console.log(product))
-    }, [])
+    }, [])*/
 
     useEffect(() => {
         listProducts();
