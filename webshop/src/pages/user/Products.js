@@ -1,7 +1,7 @@
-import productService from "../service/productService"
+import productService from "../../../src/service/productService"
 import { useEffect, useState } from "react";
-import ProductList from "../components/ProductList";
-import SearchComponent from "../components/SearchComponent";
+import ProductList from "../../components/user/ProductList";
+import SearchComponent from "../../components/user/SearchComponent";
 
 const Products = () => {
 
