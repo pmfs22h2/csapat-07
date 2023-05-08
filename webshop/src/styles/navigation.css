@@ -1,0 +1,11 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem;
+    
+}
+
+.navbar > * {
+    text-decoration: none;
+}
