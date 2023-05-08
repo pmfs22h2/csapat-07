@@ -4,7 +4,8 @@ const AdminNavigation = () => {
     return (
         <>
             <Link to='/admin'>Admin</Link>
-            <Link to='/admin/termekek'>Admin termékek</Link>
+            <Link to='/admin/termekek'>Termék lista</Link>
+            <Link to='/admin/termek-felvitel'>Termékfelvitel</Link>
         </>
     )
 }

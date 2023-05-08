@@ -1,7 +1,7 @@
 const AdminProducts = () => {
     return (
         <>
-            <p>Admin termékek oldal</p>
+            <p>Admin termék lista</p>
         </>
     )
 }

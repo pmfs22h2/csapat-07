@@ -6,6 +6,7 @@ import Admin from './pages/admin/Admin';
 import Products from './pages/user/Products';
 import AdminLayout from './components/admin/AdminLayout';
 import AdminProducts from './pages/admin/AdminProducts';
+import AdminAddProduct from './pages/admin/AdminAddProduct';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/admin/termekek',
         element: <AdminProducts />
+      },
+      {
+        path: '/admin/termek-felvitel',
+        element: <AdminAddProduct />
       }
     ]
   }
