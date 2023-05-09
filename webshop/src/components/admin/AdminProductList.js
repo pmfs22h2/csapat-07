@@ -1,5 +1,6 @@
 import AdminProduct from "./AdminProduct"
 import '../../styles/admintable.css';
+import SearchComponent from "../../components/user/SearchComponent";
 
 export default function AdminProductList(props) {
     return (
