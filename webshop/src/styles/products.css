@@ -3,43 +3,25 @@
 }
 
 .all-products {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    margin: 0 auto;
+    justify-items: center;
 }
 
 .product {
-    overflow: hidden;
     background-color: white;
     text-align: center;
     width: 15rem;
     height: 22rem;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
+    padding: 30px;
+    text-align: center;
     align-items: center;
     justify-content: center;
     border-radius: 1.2rem;
     box-shadow: 0 0.5rem 1.5rem lightslategrey;
     margin: 2rem;
 }
-
-/* GRIDES MEGOLDÁS */
-/* .all-products {
-    display: grid;
-    width: 114rem;
-    gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: start;
-}
-
-.product {
-    background-color: antiquewhite;
-    border-radius: 0.4rem;
-    overflow: hidden;
-    box-shadow: 0 3rem 6rem black;
-    cursor: pointer;
-    transition: 0.2s;
-} */
