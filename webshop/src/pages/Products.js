@@ -5,6 +5,7 @@ import SearchComponent from "../components/SearchComponent";
 // import Sort from "../components/Sort";
 import sortProductsFromA from "../utils/sortProductsFromA";
 import sortProductsFromB from "../utils/sortProductsFromB"
+import "../styles/pagination-buttons.css";
 
 const Products = () => {
 
