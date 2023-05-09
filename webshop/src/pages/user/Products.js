@@ -1,10 +1,10 @@
-import productService from "../service/productService"
+import productService from "../../../src/service/productService"
 import { useEffect, useState } from "react";
-import ProductList from "../components/ProductList";
-import SearchComponent from "../components/SearchComponent";
-import sortProductsFromA from "../utils/sortProductsFromA";
-import sortProductsFromB from "../utils/sortProductsFromB"
 import { useSearchParams } from "react-router-dom"
+import sortProductsFromA from "../../utils/sortProductsFromA";
+import sortProductsFromB from "../../utils/sortProductsFromB"
+import ProductList from "../../components/user/ProductList";
+import SearchComponent from "../../components/user/SearchComponent";
 
 const Products = () => {
 
@@ -16,9 +16,9 @@ const Products = () => {
 
     const [sortedItems, setSortedItems] = useState();
 
-    useEffect(() => {
+   /* useEffect(() => {
         products.map(product => console.log(product))
-    }, [])
+    }, [])*/
 
     useEffect(() => {
         listProducts();

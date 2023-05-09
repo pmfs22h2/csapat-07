@@ -1,9 +1,13 @@
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import Admin from './pages/Admin';
-import Products from './pages/Products';
+import Layout from './components/user/Layout';
+import Home from './pages/user/Home';
+import Admin from './pages/admin/Admin';
+import Products from './pages/user/Products';
+import AdminLayout from './components/admin/AdminLayout';
+import AdminProducts from './pages/admin/AdminProducts';
+import AdminAddProduct from './pages/admin/AdminAddProduct';
+
 
 const router = createBrowserRouter([
   {
@@ -17,16 +21,27 @@ const router = createBrowserRouter([
       {
         path: '/termekek',
         element: <Products />
-      },
+      } 
+    ]
+
+  },
+  {
+    path:"/admin",
+    element: <AdminLayout />,
+    children: [
       {
         path: '/admin',
         element: <Admin />
+      },
+      {
+        path: '/admin/termekek',
+        element: <AdminProducts />
+      },
+      {
+        path: '/admin/termek-felvitel',
+        element: <AdminAddProduct />
       }
-
-
-
     ]
-
   }
 ])
 

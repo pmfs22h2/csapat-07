@@ -1,4 +1,4 @@
-import Products from "../components/Product"
+import Products from "../components/user/Product"
 
 const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/'
 
