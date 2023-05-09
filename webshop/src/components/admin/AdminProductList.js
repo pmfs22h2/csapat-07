@@ -1,10 +1,10 @@
 import AdminProduct from "./AdminProduct"
-
+import '../../styles/admintable.css';
 
 export default function AdminProductList(props) {
     return (
         <>
-        <table>
+        <table className= "admintable">
             <thead>
             <tr>
                 <th>Terméknév</th>
