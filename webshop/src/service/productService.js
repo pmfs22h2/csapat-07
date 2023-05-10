@@ -10,7 +10,18 @@ function create(product) {
         },
         body: JSON.stringify(product)
     })
-        .then(res => res.json())
+        .then(res => res.json()) 
+        .then(product => setProductId(product.name))
+}
+
+function setProductId(id) {
+    fetch(`${API_URL}products/${id}.json`, {
+        method: 'PATCH',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({id})
+    })
 }
 
 function manipulateProductObject(obj) {
@@ -29,8 +40,21 @@ function read() {
         .then(res => res.json())
 }
 
+function del(id, successCalback) {
+    if (!id) {
+      return null;
+    }
+  
+    return fetch(`${API_URL}products/${id}.json`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(json => successCalback(json))
+  }
+
 export default {
     create: create,
     read: read,
-    manipulateProductObject: manipulateProductObject
+    manipulateProductObject: manipulateProductObject,
+    del: del
 }

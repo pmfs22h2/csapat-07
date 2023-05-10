@@ -1,10 +1,11 @@
 import AdminProduct from "./AdminProduct"
-
+import '../../styles/admintable.css';
+import SearchComponent from "../../components/user/SearchComponent";
 
 export default function AdminProductList(props) {
     return (
         <>
-        <table>
+        <table className= "admintable">
             <thead>
             <tr>
                 <th>Terméknév</th>
@@ -14,10 +15,10 @@ export default function AdminProductList(props) {
            
         <tbody>
         {props.products.map(product => <AdminProduct key={crypto.randomUUID()} product={product} /> )}
-    
+        
         </tbody>
         </table>
-           
+          
         </>
     )
 }

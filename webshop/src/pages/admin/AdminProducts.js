@@ -2,6 +2,7 @@ import productService from "../../../src/service/productService"
 import { useEffect, useState } from "react";
 import ProductList from "../../components/user/ProductList";
 import AdminProductList from "../../components/admin/AdminProductList";
+import SearchComponent from "../../components/user/SearchComponent";
 
 
 const AdminProducts = () => {
@@ -21,7 +22,9 @@ const AdminProducts = () => {
     return (
         <>
         <p>Admin termék lista</p> 
-        <AdminProductList products= {products}/>    
+        <SearchComponent products={products} />
+        <AdminProductList products= {products}/>
+           
         </>
     )
 }
