@@ -15,10 +15,10 @@ export default function AdminProductList(props) {
            
         <tbody>
         {props.products.map(product => <AdminProduct key={crypto.randomUUID()} product={product} /> )}
-    
+        
         </tbody>
         </table>
-           
+          
         </>
     )
 }

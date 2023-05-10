@@ -26,7 +26,7 @@ const Products = () => {
         }
 
         productService.create(product)
-            .then(product => console.log(product))
+            
     }
 
     function listProducts() {
