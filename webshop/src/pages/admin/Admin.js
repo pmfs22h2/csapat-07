@@ -1,7 +1,9 @@
+import '../../styles/admin.css';
+
 const Admin = () => {
     return (
         <>
-            <p>Admin oldal</p>   
+            <p>Admin kezdőoldal</p>   
         </>
     )
 }

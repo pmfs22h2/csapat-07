@@ -1,7 +1,11 @@
+import EditProduct from "../../components/admin/EditProduct";
+
+
 const AdminEditProduct = () => {
     return (
         <>
             <p>Admin termékmódosítás</p>
+            <EditProduct />
         </>
     )
 }

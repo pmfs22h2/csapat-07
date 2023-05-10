@@ -12,6 +12,24 @@ function create(product) {
         .then(product => setProductId(product.name))
 }
 
+function update(id, product) {
+    if (!id) {
+      return null;
+    }
+    const url = API_URL+'products/'+id+'.json'; 
+    console.log(url)
+    return fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    })
+    .then(res => res.json())
+    .then(product => setProductId(product.name))
+  }
+
+
 function setProductId(id) {
     fetch(`${API_URL}products/${id}.json`, {
         method: 'PATCH',
@@ -54,5 +72,6 @@ export default {
     create: create,
     read: read,
     manipulateProductObject: manipulateProductObject,
-    del: del
+    del: del,
+    update:update
 }

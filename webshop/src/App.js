@@ -8,6 +8,7 @@ import AdminLayout from './components/admin/AdminLayout';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminAddProduct from './pages/admin/AdminAddProduct';
 import AdminDeleteProduct from './pages/admin/AdminDeleteProduct';
+import AdminEditProduct from  './pages/admin/AdminEditProduct';
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         path: '/admin/termek-felvitel',
         element: <AdminAddProduct />
       },
+      {
+        path: '/admin/termekek/:id/modositas',
+        element: <AdminEditProduct />
+      }
     
     ]
   }
