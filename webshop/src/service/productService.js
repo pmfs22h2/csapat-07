@@ -26,7 +26,16 @@ function manipulateProductObject(obj) {
 
 function read() {
     return fetch(`${API_URL}products.json`)
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                console.error(`Sikertelen terméklekérés! Hiba oka: ${res.statusText}`);
+            }
+            console.log("Sikeres terméklekérés!")
+            return res.json();
+        })
+        .catch((error) => {
+            console.error(error.message);
+        });
 }
 
 export default {
