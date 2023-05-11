@@ -1,9 +1,10 @@
 import Product from './Product'
+import '../../styles/products.css';
 
 export default function ProductList(props) {
     return (
-        <>
-            {props.products.map(product => <Product key={crypto.randomUUID()} product={product} /> )}
-        </>
+        <div className="all-products">
+            {props.products.map(product => <Product key={crypto.randomUUID()} product={product} />)}
+        </div>
     )
 }
