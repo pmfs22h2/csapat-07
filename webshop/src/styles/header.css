@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./making-funny-faces-during-skincare-routine.jpg");
+    background-position: bottom;
+    background-size: contain;
+    position: relative;
+}
+
+.header-text {
+    position: absolute;
+    right: 3rem;
+    top: -2rem;
+}

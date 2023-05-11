@@ -1,0 +1,11 @@
+.footer {
+    width: 100%;
+    min-height: 10vh;
+    background-color: #D9B6A4;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    color: #3E312A;
+}
