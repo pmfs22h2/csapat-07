@@ -18,7 +18,6 @@ export default function AdminProductList(props) {
         
         </tbody>
         </table>
-          
         </>
     )
 }
