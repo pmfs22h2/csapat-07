@@ -8,4 +8,9 @@
     display: flex;
     justify-content: space-evenly;
     color: #3E312A;
+    
+}
+.footer-container p{
+    font-size:20px;
+    margin-top:40px;
 }
