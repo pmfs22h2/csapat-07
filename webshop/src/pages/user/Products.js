@@ -16,10 +16,6 @@ const Products = () => {
 
     const [sortedItems, setSortedItems] = useState();
 
-   /* useEffect(() => {
-        products.map(product => console.log(product))
-    }, [])*/
-
     useEffect(() => {
         listProducts();
         if (sortByTitle.sort == "asc" || sortByTitle.sort == "") {
@@ -33,16 +29,6 @@ const Products = () => {
             setSortedItems(sortProductsFromB(products))
         }
     }, [])
-
-    function createProducts() {
-        const product = {
-            title: prompt("Adj meg egy nevet!"),
-            price: prompt("Adj meg egy árat!"),
-        }
-
-        productService.create(product)
-            .then(product => console.log(product))
-    }
 
     function listProducts() {
         productService.read()
@@ -79,7 +65,6 @@ const Products = () => {
     return (
         <>
             <p>Termékek</p>
-            <button onClick={createProducts}>Termék hozzáadás</button>
             <button onClick={handleSortButtonOnClickAsc}>
                 Rendezés A-Z
             </button>
