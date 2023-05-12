@@ -21,7 +21,7 @@ function update(id, product) {
     const url = API_URL+'products/'+id+'.json'; 
     console.log(url)
     return fetch(url, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-type': 'application/json'
       },
@@ -70,10 +70,16 @@ function del(id, successCalback) {
     .then(json => successCalback(json))
   }
 
+  export function getProducts(id) {
+    return fetch(`${API_URL}products/${id}.json`)
+    .then(res => res.json())
+  }
+
 export default {
     create: create,
     read: read,
     manipulateProductObject: manipulateProductObject,
     del: del,
-    update:update
+    update:update,
+    getProducts
 }
