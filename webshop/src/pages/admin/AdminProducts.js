@@ -122,7 +122,10 @@ const AdminProducts = () => {
             <p>Admin termék lista</p>
             <SearchComponent products={displayedProducts} />
             <AdminProductList products={displayedProducts} />
-
+            <div className="pagination-buttons">
+                <button onClick={prevPage} disabled={from === 0 }>Vissza</button>
+                <button onClick={nextPage} disabled={to === displayedProducts.length}>Előre</button>
+            </div>
         </>
     )
 }
