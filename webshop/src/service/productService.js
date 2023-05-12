@@ -1,5 +1,3 @@
-import Products from "../components/user/Product"
-
 const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/'
 
 function create(product) {
@@ -10,7 +8,36 @@ function create(product) {
         },
         body: JSON.stringify(product)
     })
-        .then(res => res.json())
+        .then(res => res.json()) 
+        .then(product => setProductId(product.name))
+}
+
+function update(id, product) {
+    if (!id) {
+      return null;
+    }
+    const url = API_URL+'products/'+id+'.json'; 
+    console.log(url)
+    return fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    })
+    .then(res => res.json())
+    .then(product => setProductId(product.name))
+  }
+
+
+function setProductId(id) {
+    fetch(`${API_URL}products/${id}.json`, {
+        method: 'PATCH',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({id})
+    })
 }
 
 function manipulateProductObject(obj) {
@@ -29,8 +56,22 @@ function read() {
         .then(res => res.json())
 }
 
+function del(id, successCalback) {
+    if (!id) {
+      return null;
+    }
+  
+    return fetch(`${API_URL}products/${id}.json`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(json => successCalback(json))
+  }
+
 export default {
     create: create,
     read: read,
-    manipulateProductObject: manipulateProductObject
+    manipulateProductObject: manipulateProductObject,
+    del: del,
+    update:update
 }

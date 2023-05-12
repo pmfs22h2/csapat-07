@@ -1,7 +1,6 @@
 import productService from "../../../src/service/productService";
 import { useEffect, useState } from "react";
 import AdminProductList from "../../components/admin/AdminProductList";
-import AdminAddProduct from "./AdminAddProduct";
 
 const AdminProducts = () => {
 
@@ -19,7 +18,6 @@ const AdminProducts = () => {
     return (
         <>
             <p>Admin termék lista</p>
-            <AdminAddProduct />
             <AdminProductList products={products} />
         </>
     )
