@@ -3,7 +3,7 @@
 }
 
 .all-products {
-    width: 50%;
+    width: 65%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
