@@ -1,63 +1,37 @@
 import productService from "../../service/productService";
-import {useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import '../../styles/admin.css';
 import ProductForm from "./ProductForm";
-import { getProducts } from "../../service/productService";
+import { getProduct } from "../../service/productService";
+import { useEffect, useState } from "react";
 
 
 const EditProduct = () => {
-  const {id}=useParams()
-  console.log(id);
+  const { id } = useParams()
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    setProduct(getProduct(id));
+  }, [])
+
   const navigate = useNavigate()
 
-   function productEdit(id) {
-     {productService
-         .update(id, (json) => {
-          navigate('/admin/termekek','PUT', json);
-         })}
-   }
-
-  function getProductsbyID() {
-    productService.getProducts()
-    .then(productID => console.log(productID))
+  function productEdit(id) {
+    {
+      productService
+        .update(id, (json) => {
+          navigate('/admin/termekek', 'PUT', json);
+        })
+    }
   }
-/*
-  const pathParameters = useParams();
-    const id = pathParameters.productId;
-    const products = getProducts();
-    const edited = products.find(p => p.id == id);
 
-    */
+  return (
+    <div>
+      <ProductForm product={product} id={id} />
+      <button onClick={() => productEdit(id)} className="button">Mentés</button>
+      <button onClick={() => navigate('/admin/termekek')} className="button">Mégsem</button>
+    </div>
+  );
+}
 
-      return (
-         <div className="App">
-          <ProductForm product={getProducts}  />
-          <button onClick={()=>productEdit(id)} className="button">Mentés</button>
-          <button onClick={() => navigate('/admin/termekek')} className="button">Mégsem</button>
-         </div>
-       );
-      }
-
-     
-  
- 
-     export default EditProduct;
-
-     
-
-
-     /*
-     const EditProduct = () => {
-        const {id}=useParams()
-        console.log(id);
-        const navigate = useNavigate()
-        const productEdit = {
-          name: 'Termek UJ neve ',
-          description: 'Termek UJ leiras',
-          price: ''
-        }
-        productService
-        .update(id)
-        .then(json => console.log('UPDATE',json))
-      
-   */  
+export default EditProduct;

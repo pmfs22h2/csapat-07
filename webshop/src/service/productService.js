@@ -70,7 +70,7 @@ function del(id, successCalback) {
     .then(json => successCalback(json))
   }
 
-  export function getProducts(id) {
+  export function getProduct(id) {
     return fetch(`${API_URL}products/${id}.json`)
     .then(res => res.json())
   }
@@ -81,5 +81,5 @@ export default {
     manipulateProductObject: manipulateProductObject,
     del: del,
     update:update,
-    getProducts
+    getProduct
 }
