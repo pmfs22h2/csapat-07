@@ -11,7 +11,7 @@ export default function ProductForm({id, product}) {
 
 
     const [formData, setFormData] = useState({
-        id: formProduct.id,
+        id: product.id,
         title: product.title,
         price: product.price
     });
@@ -30,7 +30,7 @@ export default function ProductForm({id, product}) {
             <p>Termék azonosítója: {id} </p>
             <p>Termék neve: {product.title} </p>
             <p>Termék ára: {product.price} </p>
-            <p>Termék új neve: <input type="text" onChange={(e) => setFormData({...formData,title:e.target.value})} value={formData.name} placeholder='Termék új neve' /></p>
+            <p>Termék új neve: <input type="text" onChange={(e) => setFormData({...formData,title:e.target.value})} value={formData.title} placeholder='Termék új neve' /></p>
             <p>Termék új ára: <input type="text" onChange={(e) => setFormData({...formData,price:e.target.value})} value={formData.price} placeholder='Termék új ára' /></p>
             <button onClick={(e) => clickUpdateProduct(e)} className ="button">Mentés</button>
         </>
