@@ -21,7 +21,7 @@ import {useNavigate, useParams} from "react-router-dom";
         <div className="App">
          <button onClick={()=>productDelete(id)}>Delete</button>
          <p>Biztosan törölni szeretnéd?</p>
-         <button>Mégse</button>
+         <button onClick={() => navigate('/admin/termekek')} className="button">Mégsem</button>
         </div>
       );
     }
