@@ -1,11 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .navbar {
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin: 1rem;
-    
+
+    background-color: #F6EDE8;
+    padding: 1rem;
 }
 
-.navbar > * {
+.navbar>* {
     text-decoration: none;
+}
+
+.navbar .link {
+    color: black;
+    background-color: #F6EDE8;
+
 }
