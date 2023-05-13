@@ -25,10 +25,10 @@ function update(id, product) {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify(product)
+      body: JSON.stringify({id:product.id,title:product.title,price:product.price})
     })
     .then(res => res.json())
-    .then(product => setProductId(product.name))
+   /* .then(product => setProductId(product.name)) */
   }
 
 

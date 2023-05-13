@@ -9,26 +9,20 @@ import { useEffect, useState } from "react";
 const EditProduct = () => {
   const { id } = useParams()
   const [product, setProduct] = useState({});
+  const [editedProduct, setEditedProduct] = useState();
 
   useEffect(() => {
-    setProduct(getProduct(id));
-  }, [])
+    getProduct(id).then(data => setProduct(data))
+    
+  }, [id])
 
   const navigate = useNavigate()
 
-  function productEdit(id) {
-    {
-      productService
-        .update(id, (json) => {
-          navigate('/admin/termekek', 'PUT', json);
-        })
-    }
-  }
+ 
 
   return (
     <div>
       <ProductForm product={product} id={id} />
-      <button onClick={() => productEdit(id)} className="button">Mentés</button>
       <button onClick={() => navigate('/admin/termekek')} className="button">Mégsem</button>
     </div>
   );
