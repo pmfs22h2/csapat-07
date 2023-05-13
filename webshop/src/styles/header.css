@@ -8,8 +8,9 @@ header {
     width: 98vw;
     height: 100vh;
     background-image: url("./making-funny-faces-during-skincare-routine.jpg");
-    background-position: bottom;
-    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
 }
 
