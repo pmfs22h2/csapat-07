@@ -10,27 +10,18 @@ import "../../styles/pagination-buttons.css";
 const Products = () => {
 
     const [products, setProducts] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();
     const [from, setFrom] = useState(0);
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
-
-    const [sortByTitle, setSortByTitle] = useState({ sort: searchParams.get("sort") || "" });
+    const [selectValue, setSelectValue] = useState("order");
+    
+    // const [searchParams, setSearchParams] = useSearchParams();
+    // const [sortByTitle, setSortByTitle] = useState({ sort: searchParams.get("sort") || "" });
 
     const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
 
     useEffect(() => {
         listProducts();
-        if (sortByTitle.sort === "asc" || sortByTitle.sort === "") {
-            setSortedItems(sortProductsFromA(products))
-        }
-    }, [])
-
-    useEffect(() => {
-        listProducts();
-        if (sortByTitle.sort === "desc" || sortByTitle.sort === "") {
-            setSortedItems(sortProductsFromB(products))
-        }
     }, [])
 
     function createProducts() {
@@ -47,13 +38,8 @@ const Products = () => {
         productService.read()
             .then(product => {
                 let manipulatedProducts = productService.manipulateProductObject(product);
-                if (searchParams.get("sort") === "asc") {
-                    manipulatedProducts.sort((a, b) => a.title.localeCompare(b.title, 'hu-HU'));
-                }
-                if (searchParams.get("sort") === "desc") {
-                    manipulatedProducts.sort((a, b) => b.title.localeCompare(a.title, 'hu-HU'));
-                }
                 setProducts(manipulatedProducts);
+                setSortedItems(manipulatedProducts)
                 const manProdLenght = manipulatedProducts.length;
 
                 if (manProdLenght < to) {
@@ -71,46 +57,50 @@ const Products = () => {
 
         setFrom(decreasedFrom);
         setTo(decreasedTo);
-        setDisplayedProducts(products.slice(decreasedFrom, decreasedTo));
+        setDisplayedProducts(sortedItems.slice(decreasedFrom, decreasedTo));
     }
 
     function nextPage() {
         let increasedFrom = from + 9;
-        let increasedTo = products.length >= to + 9 ? to + 9 : products.length;
+        let increasedTo = sortedItems.length >= to + 9 ? to + 9 : sortedItems.length;
 
         setFrom(increasedFrom);
         setTo(increasedTo);
-        setDisplayedProducts(products.slice(increasedFrom, increasedTo));
+        setDisplayedProducts(sortedItems.slice(increasedFrom, increasedTo));
     }
 
-    function handleSortButtonOnClickAsc() {
-        setSearchParams({ "sort": "asc" })
-        console.log(sortByTitle.sort)
-        if (sortByTitle.sort === "asc" || sortByTitle.sort === "") {
-            setSortedItems(sortProductsFromA(displayedProducts))
-        }
-        setDisplayedProducts(sortProductsFromA)
+    function sliceprod(array) {
+        let increasedFrom = 0;
+        let increasedTo = 9;
+        setFrom(increasedFrom);
+        setTo(increasedTo);
+        setDisplayedProducts(array.slice(increasedFrom, increasedTo));
     }
 
-    function handleSortButtonOnClickDesc() {
-        setSearchParams({ "sort": "desc" })
-        console.log(sortByTitle.sort)
-        if (sortByTitle.sort === "desc" || sortByTitle.sort === "") {
-            setSortedItems(sortProductsFromB(displayedProducts))
+    useEffect(() => {
+        if (selectValue === "name-desc") {
+            const prod = sortProductsFromB(products)
+            setSortedItems(sortProductsFromB(products))
+            sliceprod(prod)
+
+        } else if (selectValue === "name-asc") {
+            const prod = sortProductsFromA(products)
+            setSortedItems(sortProductsFromA(products))
+            sliceprod(prod)
+        } else {
+            setSortedItems(products)
         }
-        setDisplayedProducts(sortProductsFromB)
-    }
+    }, [selectValue]);
 
     return (
         <>
-            <p>Termékek</p>
-            <button onClick={createProducts}>Termék hozzáadás</button>
-            <button onClick={handleSortButtonOnClickAsc}>
-                Rendezés A-Z
-            </button>
-            <button onClick={handleSortButtonOnClickDesc}>
-                Rendezés Z-A
-            </button>
+            <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
+                <option value="order">Rendezés</option>
+                <option value="name-asc">Név szerint növekvő</option>
+                <option value="name-desc">Név szerint csökkenő</option>
+                <option value="price-asc">Ár szerint növekvő</option>
+                <option value="price-desc">Ár szerint csökkenő</option>
+            </select>
             <h2>Terméklista</h2>
             <SearchComponent products={displayedProducts} />
             <ProductList products={displayedProducts} />

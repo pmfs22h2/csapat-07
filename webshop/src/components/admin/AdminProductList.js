@@ -14,7 +14,7 @@ export default function AdminProductList(props) {
             </thead>
            
         <tbody>
-        {props.products.map(product => <AdminProduct key={crypto.randomUUID()} product={product} /> )}
+        {props.products?.map(product => <AdminProduct key={crypto.randomUUID()} product={product} /> )}
         
         </tbody>
         </table>
