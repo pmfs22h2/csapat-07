@@ -7,6 +7,7 @@ const Navigation = () => {
             <Link to='/'>Kezdőoldal</Link>
             <Link to='/termekek'>Termékek</Link>
             <Link to='/admin'>Admin</Link>
+            <Link to='/kosar'>Cart</Link>
         </div>
     )
 }
