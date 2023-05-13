@@ -1,4 +1,4 @@
-import productService from "../../../src/service/productService"
+import productService from "../../../src/service/productService";
 import { useEffect, useState } from "react";
 import AdminProductList from "../../components/admin/AdminProductList";
 import SearchComponent from "../../components/user/SearchComponent";
