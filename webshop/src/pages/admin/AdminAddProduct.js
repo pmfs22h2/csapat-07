@@ -13,6 +13,7 @@ export default function AdminAddProduct(props) {
 
     function onSubmit(event) {
         event.preventDefault();
+      	if (validateTitle() && validatePrice())
         {
             productService.create(formData)
             return fetch(`${ API_URL }products.json`)
@@ -34,22 +35,40 @@ export default function AdminAddProduct(props) {
         })
     }
 
-    // function validateTitle(e) {
-    //     if (/^\d+$/(formData.price)) alert("Nem tartalmazhat csak számokat!");
-    //     else if (formData.price === "") alert("Nem lehet üres!");
-    //     else if (formData.price.length < 2) alert("Minimum két karakter hosszúnak lennie kell!")
-    //     else {
-    //         updateTitle();
-    //     }
-    // }
+    function validateTitle() {
+      	const title = formData.title;
+        if (title.match(/^\d+$/)) 
+        {
+          alert("Nem tartalmazhat csak számokat!");
+          return false;
+        }
+        
+      	if (title === "") {
+            alert("Nem lehet üres!");
+      		return false;
+        }
+        if (title.length < 2) {
+          alert("Minimum két karakter hosszúnak lennie kell!") 
+          return false;
+        }
 
-    // function validatePrice(e) {
-    //     if (isNaN(formData.price)) alert("Csak számokat tartalmazhat!");
-    //     else if (formData.price === "") alert("Nem lehet üres!");
-    //     else {
-    //         updatePrice();
-    //     }
-    // }
+      	return true;
+    }
+
+    function validatePrice() {
+      const price = formData.price;
+        if (isNaN(price)) {
+          alert("Csak számokat tartalmazhat!");
+        	return false;
+        }
+        if (price === "") {
+          alert("Nem lehet üres!");
+          return false;
+        }
+        
+      
+      	return true;
+    }
 
     return (
         <>
