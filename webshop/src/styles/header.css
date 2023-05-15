@@ -16,6 +16,7 @@ header {
 
 .header-text {
     position: absolute;
+    color: #3E312A;
     right: 3rem;
     top: -2rem;
 }

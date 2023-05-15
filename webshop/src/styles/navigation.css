@@ -12,12 +12,13 @@
     padding: 1rem;
 }
 
-.navbar>* {
+.navbar > * {
     text-decoration: none;
+    color: #3E312A;
 }
 
 .navbar .link {
-    color: black;
+    color: #3E312A;
     background-color: #F6EDE8;
 
 }
