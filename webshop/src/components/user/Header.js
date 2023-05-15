@@ -5,8 +5,7 @@ const Header = () => {
         <header>
             <div className="header-content">
                 <div className="header-text">
-                    <h2>SkinCare</h2>
-                    <h1>Junkie</h1>
+                    <img className="logo-img" src="https://imagizer.imageshack.com/img924/8272/POA4hi.png" alt="BigCo Inc. logo"/>
                 </div>
             </div>
         </header>
