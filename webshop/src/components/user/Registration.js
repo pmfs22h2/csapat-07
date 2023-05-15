@@ -1,25 +1,27 @@
 
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { registerUser } from "../../service/auth-service";
 import { useContext, useState } from "react";
-import { createNewUser } from "../../service/user-service";
+import {registerUserAuth} from "../../service/auth-service";
 
 export default function Registration() {
 
-    const [user, setUser] = useContext(AuthContext);
-    const navigate = useNavigate();
+    // const [user, setUser] = useContext(AuthContext);
+    // const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         email: "",
         password: "",
-        birthDate: ""
+        name: ""
     });
 
     return (
         <>
-            <h1>register</h1>
+            <h1>Regisztráció</h1>
             <p>
+                <label>
+                E-mail: 
+                </label>
                 <input
                         type="text"
                         value={formData.email}
@@ -27,6 +29,9 @@ export default function Registration() {
                     />
                 </p>
                 <p>
+                <label>
+                Jelszó: 
+                </label>
                     <input
                         type="text"
                         value={formData.password}
@@ -34,38 +39,20 @@ export default function Registration() {
                     />
                 </p>
                 <p>
+                <label>
+                Név:
+                </label>
                     <input
                         type="text"
-                        value={formData.birthDate}
-                        onChange={(e) => setFormData({...formData, birthDate: e.target.value})}
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
                     />
                 </p>
-                <p><button onClick={register}>register</button></p>
+                <p><button onClick={register}>regisztráció</button></p>
         </>
     );
 
-    function register() {
-        registerUser(formData.email, formData.password)
-        .then(registerResp => {
-            console.log(registerResp)
-            if (registerResp.idToken) {
-              
-
-                createNewUser(registerResp.localId, { birthDate: formData.birthDate })
-                .then(createResponse => {
-                    if (true) {
-                        
-                        setUser({ email: registerResp.email })
-                        navigate("/protected");
-                    } else {
-                        
-                    }
-                })
-
-
-            } else {
-                alert(registerResp.error.message)
-            }
-        });
-    }
+   function register() {
+    registerUserAuth(formData);
+   }
 }
