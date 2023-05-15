@@ -1,20 +1,16 @@
 import { useEffect, useState } from "react";
-import productService, { getProducts } from "../../service/productService";
 import { useNavigate } from "react-router";
-import { getProduct } from "../../service/productService";
-
+import productService from "../../service/productService";
 
 export default function ProductForm({id, product}) {
-   
-    const formProduct = product? product : { id: null, title: "", price: null};
-  
 
+    const formProduct = product ? product : { id: null, title: "", price: null};
 
-    const [formData, setFormData] = useState({
-        id: product.id,
-        title: product.title,
-        price: product.price
-    });
+    useEffect(() => {
+        setFormData(() =>formProduct)
+    }, [product])   
+    
+    const [formData, setFormData] = useState(formProduct)
 
     const navigate = useNavigate()
 
