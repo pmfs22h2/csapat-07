@@ -11,6 +11,7 @@ import AdminDeleteProduct from './pages/admin/AdminDeleteProduct';
 import AdminEditProduct from  './pages/admin/AdminEditProduct';
 import Cartpage from './pages/user/Cartpage';
 import UserRegistration from './pages/user/UserRegistration';
+import Login from './components/user/Login';
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path:'/regisztracio',
         element: <UserRegistration />
+      },
+      {
+        path:'/belepes',
+        element: <Login />
       }
     ]
 

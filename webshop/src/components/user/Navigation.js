@@ -9,6 +9,7 @@ const Navigation = () => {
             <Link to='/admin'>Admin</Link>
             <Link to='/kosar'>Kosár</Link>
             <Link to='/regisztracio'>Regisztráció</Link>
+            <Link to='/belepes'>Bejelentkezés</Link>
         </div>
     )
 }
