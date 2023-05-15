@@ -14,25 +14,25 @@ const Footer = () => {
   	 <div class="container">
   	 	<div class="row">
   	 		<div class="footer-col">
-  	 			<h4>company</h4>
+  	 			<h4>rólunk</h4>
   	 			<ul>
-  	 				<li><a href="#">about us</a></li>
-  	 				<li><a href="#">our services</a></li>
-  	 				<li><a href="#">privacy policy</a></li>
-  	 				<li><a href="#">affiliate program</a></li>
+  	 				<li><a href="#">rólunk</a></li>
+  	 				<li><a href="#">impresszum</a></li>
+  	 				<li><a href="#">adatvédelmi nyilatkozat</a></li>
+  	 				<li><a href="#">kapcsolat</a></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
-  	 			<h4>online shop</h4>
+  	 			<h4>webáruház</h4>
   	 			<ul>
-  	 				<li><a href="#">watch</a></li>
-  	 				<li><a href="#">bag</a></li>
-  	 				<li><a href="#">shoes</a></li>
-  	 				<li><a href="#">dress</a></li>
+  	 				<li><a href="#">fizetési módok</a></li>
+  	 				<li><a href="#">szállítási információk</a></li>
+  	 				<li><a href="#">GYIK</a></li>
+  	 				<li><a href="#">információk</a></li>
   	 			</ul>
   	 		</div>
                <div class="footer-col">
-  	 			<h4>follow us</h4>
+  	 			<h4>kövess minket</h4>
   	 			<div class="social-links">
   	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
   	 				<a href="#"><i class="fab fa-twitter"></i></a>
