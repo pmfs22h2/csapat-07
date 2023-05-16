@@ -1,26 +1,16 @@
 const Login = () => {
+    
+    
     return (
         <>
             <h1> Bejelenkezés </h1>
             <p>
-                <label>
-                    E-mail:
-                </label>
-                <input
-                    type="text"
-                    value=""
-                    onChange=""
-                />
+                <label for="email"> E-mail: </label>
+                <input type="email" />
             </p>
             <p>
-                <label>
-                    Jelszó:
-                </label>
-                <input
-                    type="text"
-                    value=""
-                    onChange=""
-                />
+                <label for="password"> Jelszó: </label>
+                <input type="password" />
             </p>
             <p><button>Belépés</button></p>
         </>

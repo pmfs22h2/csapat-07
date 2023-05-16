@@ -33,3 +33,19 @@ function databaseUserRegister(id, name) {
         .then(resp => resp.json())
         .then(data => console.log(data))
 }
+
+function userLoginAuth(email, password) {
+    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            returnSecureToken: true
+        })
+    })
+        .then(resp => resp.json())
+        .then(authResp => console.log(authResp))
+}
