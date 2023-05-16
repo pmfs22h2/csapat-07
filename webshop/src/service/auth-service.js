@@ -47,5 +47,5 @@ export function userLoginAuth(email, password) {
         })
     })
         .then(resp => resp.json())
-        // .then(authResp => console.log(authResp)) ezt kiviszem a serviceből, felh. helyén thenelek rá mégegyszer
+    // .then(authResp => console.log(authResp)) ezt kiviszem a serviceből, felh. helyén thenelek rá mégegyszer
 }

@@ -11,7 +11,7 @@ import AdminDeleteProduct from './pages/admin/AdminDeleteProduct';
 import AdminEditProduct from './pages/admin/AdminEditProduct';
 import Cartpage from './pages/user/Cartpage';
 import UserRegistration from './pages/user/UserRegistration';
-import Login from './components/user/Login';
+import Login from './pages/user/Login';
 import { AuthContext } from './context/AuthContext';
 import { useState } from 'react';
 

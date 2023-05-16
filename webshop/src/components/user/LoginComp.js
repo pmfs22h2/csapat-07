@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { userLoginAuth } from "../../service/auth-service";
 
-const Login = () => {
+const LoginComp = () => {
 
     const { userData, setUserData } = useContext(AuthContext);
 
@@ -11,7 +11,8 @@ const Login = () => {
         password: ""
     })
 
-    function login() {
+    function login(e) {
+        e.preventDefault();
         userLoginAuth(formData.email, formData.password)
             .then(authResp => {
                 if (authResp.registered) {
@@ -31,19 +32,22 @@ const Login = () => {
             :
             <>
                 <h1> Bejelenkezés </h1>
-                <p>
-                    <label htmlFor="email"> E-mail: </label>
-                    <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-                </p>
-                <p>
-                    <label htmlFor="password"> Jelszó: </label>
-                    <input type="password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
-                </p>
-                <p><button onClick={login}>Belépés</button></p>
+
+                <form>
+                    <p>
+                        <label htmlFor="email"> E-mail: </label>
+                        <input type="email" value={formData.email} required onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                    </p>
+                    <p>
+                        <label htmlFor="password"> Jelszó: </label>
+                        <input type="password" value={formData.password} required minLength={6} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+                    </p>
+                    <p><button type="submit" onClick={login}>Belépés</button></p>
+                </form>
             </>
         }
         </>
     )
 }
 
-export default Login;
+export default LoginComp;
