@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { userLoginAuth, getNameFromDatabase } from "../../service/auth-service";
 import { Link } from "react-router-dom";
+import Logout from "./Logout";
+import UserProfile from "./UserProfile";
 
 const LoginComp = () => {
 
@@ -31,12 +33,8 @@ const LoginComp = () => {
             })
     }
 
-    function logout() {
-        setUserData(null);
-    }
-
     return (
-        <> {userData ? <button onClick={logout}>Kijelentkezés</button>
+        <> {userData ? <UserProfile />
             :
             <>
                 <h1> Bejelenkezés </h1>

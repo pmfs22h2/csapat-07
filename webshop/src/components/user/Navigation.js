@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../../styles/navigation.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 const Navigation = () => {
-    const { userData } = useContext(AuthContext);
+    const { userData, setUserData } = useContext(AuthContext);
 
     return (
         <div className='header-container'>
@@ -17,8 +17,8 @@ const Navigation = () => {
                 <Link to='/belepes'>Bejelentkezés</Link>
             </div>
             <div className='user-login'>
-            {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
-            </div>
+                {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
+                {userData ? <button onClick={() => setUserData(null)}>Kijelentkezés</button> : <></>}</div>
         </div>
     )
 }

@@ -75,10 +75,7 @@ const router = createBrowserRouter([
 
 
 function App() {
-  const [userData, setUserData] = useState({
-    email: "",
-    password: ""
-  });
+  const [userData, setUserData] = useState(null);
 
   return (
     <div className="App">
