@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import '../../styles/navigation.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 const Navigation = () => {
+    const { userData } = useContext(AuthContext);
+
     return (
         <div className='header-container'>
             <div className='navbar'>
@@ -13,7 +17,7 @@ const Navigation = () => {
                 <Link to='/belepes'>Bejelentkezés</Link>
             </div>
             <div className='user-login'>
-            Bejelentkezve, mint:
+            {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
             </div>
         </div>
     )

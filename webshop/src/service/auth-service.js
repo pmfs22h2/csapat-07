@@ -49,3 +49,8 @@ export function userLoginAuth(email, password) {
         .then(resp => resp.json())
     // .then(authResp => console.log(authResp)) ezt kiviszem a serviceből, felh. helyén thenelek rá mégegyszer
 }
+
+export function getNameFromDatabase(id) {
+    return fetch(`https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/vasarlok/${id}.json`)
+    .then(resp => resp.json())
+}

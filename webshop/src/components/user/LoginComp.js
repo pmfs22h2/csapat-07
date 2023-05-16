@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { userLoginAuth } from "../../service/auth-service";
+import { userLoginAuth, getNameFromDatabase } from "../../service/auth-service";
+import { Link } from "react-router-dom";
 
 const LoginComp = () => {
 
@@ -17,6 +18,13 @@ const LoginComp = () => {
             .then(authResp => {
                 if (authResp.registered) {
                     setUserData({ email: authResp.email });
+                    getNameFromDatabase(authResp.localId)
+                    .then(data => setUserData({
+                        email: formData.email,
+                        password: formData.password,
+                        name: data.name,
+                        uid: data.uid
+                    }))
                 } else {
                     console.error(authResp.error.message);
                 }
@@ -42,6 +50,7 @@ const LoginComp = () => {
                         <label htmlFor="password"> Jelszó: </label>
                         <input type="password" value={formData.password} required minLength={6} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
                     </p>
+                    <p>Még nincs fiókod? <Link to="/regisztracio">Regisztrálj!</Link></p>
                     <p><button type="submit" onClick={login}>Belépés</button></p>
                 </form>
             </>
