@@ -9,6 +9,8 @@ import AdminProducts from './pages/admin/AdminProducts';
 import AdminAddProduct from './pages/admin/AdminAddProduct';
 import AdminDeleteProduct from './pages/admin/AdminDeleteProduct';
 import AdminEditProduct from  './pages/admin/AdminEditProduct';
+import Cartpage from './pages/user/Cartpage';
+import UserRegistration from './pages/user/UserRegistration';
 
 
 const router = createBrowserRouter([
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: '/termekek/:id/torles',
         element: <AdminDeleteProduct />
+      },
+      {
+        path: '/kosar',
+        element: <Cartpage />
+      },
+      {
+        path:'/regisztracio',
+        element: <UserRegistration />
       }
     ]
 

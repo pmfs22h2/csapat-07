@@ -1,8 +1,11 @@
+import Header from "../../components/user/Header";
+
 const Home = () => {
     return (
         <>
-            <h2>Welcome Home</h2>
-            <p>Kezdőoldal</p>
+            <Header />
+            <h1>Homepage content</h1>
+            <p>Lorem ipsum dolor sit amet</p>
         </>
     )
 }
