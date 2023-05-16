@@ -21,7 +21,6 @@ export default function Registration() {
         <div className="registration-form">
        
             <h1>Regisztráció</h1>
-            <br></br>
             <p>
                 <label>
                 E-mail: 
@@ -32,7 +31,6 @@ export default function Registration() {
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                     />
                 </p>
-                <br></br>
                 <p>
                 <label>
                 Jelszó: 
@@ -44,7 +42,6 @@ export default function Registration() {
                     />
                 </p>
                 <p>
-                <br></br>
                 <label>
                 Név:
                 </label>
@@ -54,7 +51,6 @@ export default function Registration() {
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                     />
                 </p>
-                <br></br>
                 <p><button className="regbutton" onClick={register}>küldés</button></p>
                 </div>       
               
