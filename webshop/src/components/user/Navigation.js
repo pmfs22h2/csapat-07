@@ -13,8 +13,8 @@ const Navigation = () => {
                 <Link to='/termekek'>Termékek</Link>
                 <Link to='/admin'>Admin</Link>
                 <Link to='/kosar'>Kosár</Link>
-                <Link to='/regisztracio'>Regisztráció</Link>
-                <Link to='/belepes'>Bejelentkezés</Link>
+                {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>} 
+                {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>}
             </div>
             <div className='user-login'>
                 {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
