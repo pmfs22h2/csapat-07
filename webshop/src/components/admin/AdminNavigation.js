@@ -8,6 +8,7 @@ const AdminNavigation = () => {
             <Link to='/admin/termekek'>Termék lista</Link>
             <Link to='/admin/termek-felvitel'>Termékfelvitel</Link>
             <Link to='/'>Vissza</Link>
+            <Link to='/admin/vasarlok'>Felhasználók lista</Link>
         </div>
     )
 }
