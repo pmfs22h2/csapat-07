@@ -34,8 +34,8 @@ function databaseUserRegister(id, name) {
         .then(data => console.log(data))
 }
 
-function userLoginAuth(email, password) {
-    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`, {
+export function userLoginAuth(email, password) {
+    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -47,5 +47,5 @@ function userLoginAuth(email, password) {
         })
     })
         .then(resp => resp.json())
-        .then(authResp => console.log(authResp))
+        // .then(authResp => console.log(authResp)) ezt kiviszem a serviceből, felh. helyén thenelek rá mégegyszer
 }
