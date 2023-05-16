@@ -10,7 +10,7 @@ import AdminAddProduct from './pages/admin/AdminAddProduct';
 import AdminDeleteProduct from './pages/admin/AdminDeleteProduct';
 import AdminEditProduct from  './pages/admin/AdminEditProduct';
 import Cartpage from './pages/user/Cartpage';
-
+import AdminUserList from './pages/admin/AdminUserList';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: '/admin/termekek/:id/modositas',
         element: <AdminEditProduct />
+      },
+      {
+        path: '/admin/vasarlok',
+        element: <AdminUserList />
       }
     
     ]
