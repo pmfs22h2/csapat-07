@@ -14,10 +14,10 @@ export function registerUserAuth(formdata) {
         })
     })
         .then(resp => resp.json())
-        .then(data => databaseUserRegister(data.localId, formdata.name))
+        .then(data => databaseUserRegister(data.localId, formdata.name, formdata.email))
 }
 
-function databaseUserRegister(id, name) {
+function databaseUserRegister(id, name, email) {
     return fetch(`${API_URL}vasarlok/${id}.json`, {
         method: "PATCH",
         headers: {
@@ -26,7 +26,8 @@ function databaseUserRegister(id, name) {
         body: JSON.stringify(
             {
                 uid: id,
-                name: name
+                name: name,
+                email: email
             }
         )
     })
