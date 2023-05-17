@@ -8,9 +8,12 @@ import AdminLayout from './components/admin/AdminLayout';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminAddProduct from './pages/admin/AdminAddProduct';
 import AdminDeleteProduct from './pages/admin/AdminDeleteProduct';
-import AdminEditProduct from  './pages/admin/AdminEditProduct';
+import AdminEditProduct from './pages/admin/AdminEditProduct';
 import Cartpage from './pages/user/Cartpage';
 import UserRegistration from './pages/user/UserRegistration';
+import Login from './pages/user/Login';
+import { AuthContext } from './context/AuthContext';
+import { useState } from 'react';
 
 import AdminUserList from './pages/admin/AdminUserList';
 
@@ -26,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: '/termekek',
         element: <Products />
-      } ,
+      },
       {
         path: '/termekek/:id/torles',
         element: <AdminDeleteProduct />
@@ -36,14 +39,18 @@ const router = createBrowserRouter([
         element: <Cartpage />
       },
       {
-        path:'/regisztracio',
+        path: '/regisztracio',
         element: <UserRegistration />
+      },
+      {
+        path: '/belepes',
+        element: <Login />
       }
     ]
 
   },
   {
-    path:"/admin",
+    path: "/admin",
     element: <AdminLayout />,
     children: [
       {
@@ -66,17 +73,21 @@ const router = createBrowserRouter([
         path: '/admin/vasarlok',
         element: <AdminUserList />
       }
-    
+
     ]
   }
 ])
 
 
 function App() {
+  const [userData, setUserData] = useState(null);
+
   return (
     <div className="App">
-      <RouterProvider router={router}>
-      </RouterProvider>
+      <AuthContext.Provider value={{ userData, setUserData }}>
+        <RouterProvider router={router}>
+        </RouterProvider>
+      </AuthContext.Provider>
     </div>
   );
 }

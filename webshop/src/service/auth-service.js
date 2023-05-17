@@ -14,10 +14,10 @@ export function registerUserAuth(formdata) {
         })
     })
         .then(resp => resp.json())
-        .then(data => databaseUserRegister(data.localId, formdata.name))
+        .then(data => databaseUserRegister(data.localId, formdata.name, formdata.email))
 }
 
-function databaseUserRegister(id, name) {
+function databaseUserRegister(id, name, email) {
     return fetch(`${API_URL}vasarlok/${id}.json`, {
         method: "PATCH",
         headers: {
@@ -26,10 +26,32 @@ function databaseUserRegister(id, name) {
         body: JSON.stringify(
             {
                 uid: id,
-                name: name
+                name: name,
+                email: email
             }
         )
     })
         .then(resp => resp.json())
         .then(data => console.log(data))
+}
+
+export function userLoginAuth(email, password) {
+    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            returnSecureToken: true
+        })
+    })
+        .then(resp => resp.json())
+    // .then(authResp => console.log(authResp)) ezt kiviszem a serviceből, felh. helyén thenelek rá mégegyszer
+}
+
+export function getNameFromDatabase(id) {
+    return fetch(`https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/vasarlok/${id}.json`)
+    .then(resp => resp.json())
 }
