@@ -18,21 +18,36 @@ const Products = () => {
     // const [searchParams, setSearchParams] = useSearchParams();
     // const [sortByTitle, setSortByTitle] = useState({ sort: searchParams.get("sort") || "" });
 
-    const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
+    const [sortedItems, setSortedItems] = useState();
 
     useEffect(() => {
         listProducts();
     }, [])
 
-    function createProducts() {
-        const product = {
-            title: prompt("Adj meg egy nevet!"),
-            price: prompt("Adj meg egy árat!"),
+    useEffect(() => {
+        if (selectValue === "name-desc") {
+            const prod = sortProductsFromB(products)
+            setSortedItems(sortProductsFromB(products))
+            sliceprod(prod)
+
+        } else if (selectValue === "name-asc") {
+            const prod = sortProductsFromA(products)
+            setSortedItems(sortProductsFromA(products))
+            sliceprod(prod)
+        } else {
+            setSortedItems(products)
         }
+    }, [selectValue]);
 
-        productService.create(product)
+    // function createProducts() {
+    //     const product = {
+    //         title: prompt("Adj meg egy nevet!"),
+    //         price: prompt("Adj meg egy árat!"),
+    //     }
 
-    }
+    //     productService.create(product)
+
+    // }
 
     function listProducts() {
         productService.read()
@@ -77,21 +92,6 @@ const Products = () => {
         setDisplayedProducts(array.slice(increasedFrom, increasedTo));
     }
 
-    useEffect(() => {
-        if (selectValue === "name-desc") {
-            const prod = sortProductsFromB(products)
-            setSortedItems(sortProductsFromB(products))
-            sliceprod(prod)
-
-        } else if (selectValue === "name-asc") {
-            const prod = sortProductsFromA(products)
-            setSortedItems(sortProductsFromA(products))
-            sliceprod(prod)
-        } else {
-            setSortedItems(products)
-        }
-    }, [selectValue]);
-
     return (
         <div className="page-container">
             <div className="top-bar">
@@ -105,7 +105,7 @@ const Products = () => {
                     </select>
                 </div>
                 <div className="searchbar">
-                    <SearchComponent products={displayedProducts} />
+                    <SearchComponent products={products} />
                 </div>
             </div>
             <h2>Terméklista</h2>

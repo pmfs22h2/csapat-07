@@ -19,7 +19,7 @@ const SearchComponent = (props) => {
 
     const deleteSearchProducts = () => {
         setFilteredProducts(null);
-        setSearchValue("");
+        setSearchValue('');
     }
 
     return (
@@ -27,7 +27,7 @@ const SearchComponent = (props) => {
             <div>
                 Keresés: <input type="text" onChange={searchedProduct} value={searchValue} />
                 <button onClick={filter}>Keresés</button>
-                <button onclick={deleteSearchProducts}>x</button>
+                <button onClick={deleteSearchProducts}>x</button>
             </div>
 
             <div>
@@ -37,7 +37,7 @@ const SearchComponent = (props) => {
                             ?
                             <><h1>Találatok:</h1> {filteredProducts?.map(products => <div key={crypto.randomUUID()}>{products.title}</div>)}</>
                             :
-                            "nincs ilyen termék"
+                            "Nincs ilyen termék!"
                     )
                 }
             </div>
