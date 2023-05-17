@@ -21,8 +21,9 @@ const SearchComponent = (props) => {
         <div>
             <div>
                 Keresés: <input type="text" onChange={searchedProduct} value={searcValue} />
+                <button onClick={filter}>Keresés</button>
             </div>
-            <button onClick={filter}>Keresés</button>
+
 
             <div>
                 Találatok: {filteredProducts && filteredProducts.map(products => <div key={crypto.randomUUID()}>{products.title}</div>)}

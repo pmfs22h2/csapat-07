@@ -14,7 +14,7 @@ const Products = () => {
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
-    
+
     // const [searchParams, setSearchParams] = useSearchParams();
     // const [sortByTitle, setSortByTitle] = useState({ sort: searchParams.get("sort") || "" });
 
@@ -31,7 +31,7 @@ const Products = () => {
         }
 
         productService.create(product)
-            
+
     }
 
     function listProducts() {
@@ -93,22 +93,29 @@ const Products = () => {
     }, [selectValue]);
 
     return (
-        <>
-            <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
-                <option value="order">Rendezés</option>
-                <option value="name-asc">Név szerint növekvő</option>
-                <option value="name-desc">Név szerint csökkenő</option>
-                <option value="price-asc">Ár szerint növekvő</option>
-                <option value="price-desc">Ár szerint csökkenő</option>
-            </select>
+        <div className="page-container">
+            <div className="top-bar">
+                <div className="sort-menu">
+                    <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
+                        <option value="order">Rendezés</option>
+                        <option value="name-asc">Név szerint növekvő</option>
+                        <option value="name-desc">Név szerint csökkenő</option>
+                        <option value="price-asc">Ár szerint növekvő</option>
+                        <option value="price-desc">Ár szerint csökkenő</option>
+                    </select>
+                </div>
+                <div className="searchbar">
+                    <SearchComponent products={displayedProducts} />
+                </div>
+            </div>
             <h2>Terméklista</h2>
-            <SearchComponent products={displayedProducts} />
+
             <ProductList products={displayedProducts} />
             <div className="pagination-buttons">
-                <button onClick={prevPage} disabled={from === 0 }>Vissza</button>
+                <button onClick={prevPage} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} disabled={to === products.length}>Előre</button>
             </div>
-        </>
+        </div>
     )
 }
 
