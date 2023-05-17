@@ -21,9 +21,9 @@ const Navigation = () => {
                 {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
                 {userData ? <button onClick={() => setUserData(null)}>Kijelentkezés</button> : <></>}</div>
             <div className='nav-icons'>
-                <FaUserAlt />
-                <FaHeart />
-                <FaShoppingBag />
+                <Link to="#"><FaUserAlt /></Link>
+                <Link to="#"><FaHeart /></Link>
+                <Link to="#"><FaShoppingBag /></Link>
             </div>
         </div>
     )
