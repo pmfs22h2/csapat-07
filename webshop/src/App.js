@@ -14,6 +14,7 @@ import UserRegistration from './pages/user/UserRegistration';
 import Login from './pages/user/Login';
 import { AuthContext } from './context/AuthContext';
 import { useState } from 'react';
+import { CartContext } from './context/cartContext';
 
 import AdminUserList from './pages/admin/AdminUserList';
 
@@ -81,12 +82,15 @@ const router = createBrowserRouter([
 
 function App() {
   const [userData, setUserData] = useState(null);
+  const [cart, setCart] = useState([]);
 
   return (
     <div className="App">
       <AuthContext.Provider value={{ userData, setUserData }}>
-        <RouterProvider router={router}>
-        </RouterProvider>
+        <CartContext.Provider value={{ cart, setCart }}>
+          <RouterProvider router={router}>
+          </RouterProvider>
+        </CartContext.Provider>
       </AuthContext.Provider>
     </div>
   );
