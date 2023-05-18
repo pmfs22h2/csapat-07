@@ -4,6 +4,7 @@ const getCart = (userID) => {
     return (
         fetch(`${API_URL}/customers/${userID}/cart.json`)
             .then(resp => resp.json())
+
     )
 }
 
@@ -12,7 +13,7 @@ const addToCart = (productId, userID) => {
         .then(cartItems => {
             if (cartItems != null) {                // ha cartItems = null: akkor nincs a usernek kosara
                 if (productId in cartItems) {
-                    // console.log(cartItems);
+                    console.log(cartItems);
                     let piecesByProductIdInCart = cartItems[productId];             // objektum[kulcs]
                     updateItem(productId, piecesByProductIdInCart, userID);
                 } else {

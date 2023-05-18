@@ -72,6 +72,8 @@ function del(id, successCalback) {
     return fetch(`${API_URL}products/${id}.json`)
     .then(res => res.json())
   }
+  // Promise.all(data)
+  // .then(res => console.log(res))
 
 export default {
     create: create,

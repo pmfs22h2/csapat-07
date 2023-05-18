@@ -13,11 +13,11 @@ function Cart () {
   return(
     <div>
     <h2>Felhasználó kosara</h2>
-    {cart?.map((item) => (
+    {/* {cart?.map((item) => (
       <div>
         {item.name} - {item.price}
     </div>
-  ))}
+  ))} */}
   </div>
   );
 };
