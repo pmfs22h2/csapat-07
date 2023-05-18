@@ -12,7 +12,7 @@
   }
   
 
-.input{
+.registration-form input{
     width: 18rem;
     height: 3rem;
     border-radius: 2rem;
@@ -28,7 +28,7 @@
 }
 
 
-.regbutton{
+.reg-button{
     width: 23rem;
     height: 3rem;
     border-radius: 2rem;

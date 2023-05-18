@@ -64,7 +64,7 @@ export default function Registration() {
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
                 </p>
-                <p><button type="submit" onClick={register}>regisztráció</button></p>
+                <p><button className = "reg-button" type="submit" onClick={register}>regisztráció</button></p>
             </form>
             {errorMsg && <div>{errorMsg}</div>}
             </div>
