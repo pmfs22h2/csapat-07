@@ -1,17 +1,13 @@
 import '../../styles/products.css';
 import cartService from '../../service/cartService';
 import { useContext } from 'react';
-import { CartContext } from '../../context/cartContext';
+// import { CartContext } from '../../context/cartContext';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function Products(props) {
 
-    const { cart, setCart } = useContext(CartContext);
-
-    const addToCart = () => {
-        const product = { [props.product.id]: 1 }
-        cartService.create(product, "dVkOeNm798RFb9re9XCIpuYVk2T2")
-        console.log(props.product)
-    }
+    const { userData, setUserData } = useContext(AuthContext)
+    // const { cart, setCart } = useContext(CartContext);
 
     return (
         <>
@@ -19,7 +15,7 @@ export default function Products(props) {
                 <h4>Termék neve:</h4>
                 <p>{props.product.title}</p>
                 <p>Ár: {props.product.price}</p>
-                <button className="cart-button" onClick={addToCart}>Kosárba</button>
+                {userData ? <button className="cart-button" onClick={() => cartService.addToCart(props.product.id, userData.uid)}>Kosárba</button> : <></>}
             </div>
         </>
     )
