@@ -1,5 +1,8 @@
+
 import { useState } from "react";
 import { registerUserAuth } from "../../service/auth-service";
+import "../../styles/registration.css";
+
 
 export default function Registration() {
 
@@ -32,7 +35,9 @@ export default function Registration() {
     }
 
     return (
-        <>
+    
+        <div className="registration-form">
+       
             <h1>Regisztráció</h1>
             <form>
                 <p>
@@ -62,7 +67,6 @@ export default function Registration() {
                 <p><button type="submit" onClick={register}>regisztráció</button></p>
             </form>
             {errorMsg && <div>{errorMsg}</div>}
-        </>
-    );
-
+            </div>
+      )
 }
