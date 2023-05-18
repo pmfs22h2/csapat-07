@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 export default function Products(props) {
 
-    const { userData, setUserData } = useContext(AuthContext)
+    const { userData } = useContext(AuthContext)
     // const { cart, setCart } = useContext(CartContext);
 
     return (
