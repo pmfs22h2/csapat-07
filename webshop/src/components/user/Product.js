@@ -11,11 +11,15 @@ export default function Products(props) {
 
     return (
         <>
-            <div className="product" style={{ backgroundImage: `url(https://images.pexels.com/photos/4938502/pexels-photo-4938502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)` }}>
-                <h4>Termék neve:</h4>
-                <p>{props.product.title}</p>
-                <p>Ár: {props.product.price}</p>
-                {userData ? <button className="cart-button" onClick={() => cartService.addToCart(props.product.id, userData.uid)}>Kosárba</button> : <></>}
+            <div className="product">
+                <div className='product-img'>
+                    <img src={props.product.img} alt='' />
+                </div>
+                <div className='product-details'>
+                    <div className='product-title'>{props.product.title}</div>
+                    <div className='product-price'>Ár: {props.product.price}</div>
+                    {userData ? <button className="cart-button" onClick={() => cartService.addToCart(props.product.id, userData.uid)}>Kosárba</button> : <></>}
+                </div>
             </div>
         </>
     )
