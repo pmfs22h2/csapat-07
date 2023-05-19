@@ -37,36 +37,37 @@ export default function Registration() {
     return (
     
         <div className="registration-form">
-       
+         
             <h1>Regisztráció</h1>
             <form>
-                <p>
-                    <label> Név: </label>
+                <p className="reg-text">
                     <input
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     />
+                    <label> Név: </label>
                 </p>
-                <p>
-                    <label> E-mail: </label>
+                <p className="reg-text">
                     <input
                         type="text"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
+                    <label> E-mail: </label>
                 </p>
-                <p>
-                    <label> Jelszó: </label>
+                <p className="reg-text">
                     <input
                         type="text"
                         value={formData.password}
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
+                    <label> Jelszó: </label>
                 </p>
-                <p><button className = "reg-button" type="submit" onClick={register}>regisztráció</button></p>
+                <p><button className = "reg-button" type="submit" onClick={register}>küldés</button></p>
             </form>
             {errorMsg && <div>{errorMsg}</div>}
             </div>
+         
       )
 }
