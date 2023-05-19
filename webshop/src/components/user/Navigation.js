@@ -23,7 +23,7 @@ const Navigation = () => {
             <div className='nav-icons'>
                 <Link to="#"><FaUserAlt /></Link>
                 <Link to="#"><FaHeart /></Link>
-                <Link to="#"><FaShoppingBag /></Link>
+                <Link to="/kosar"><FaShoppingBag /></Link>
             </div>
         </div>
     )
