@@ -17,8 +17,8 @@ export default function Products(props) {
                 </div>
                 <div className='product-details'>
                     <div className='product-title'>{props.product.title}</div>
-                    <div className='product-price'>Ár: {props.product.price}</div>
-                    {userData ? <button className="cart-button" onClick={() => cartService.addToCart(props.product.id, userData.uid)}>Kosárba</button> : <></>}
+                    <div className='product-price'>{props.product.price} HUF</div>
+                    <button className="cart-button" onClick={() => cartService.addToCart(props.product.id, userData.uid)}>Kosárba</button>
                 </div>
             </div>
         </>
