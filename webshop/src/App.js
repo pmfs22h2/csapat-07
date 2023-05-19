@@ -15,6 +15,7 @@ import Login from './pages/user/Login';
 import { AuthContext } from './context/AuthContext';
 import { useState } from 'react';
 import { CartContext } from './context/cartContext';
+import AdminLogin from './pages/admin/AdminLogin';
 
 import AdminUserList from './pages/admin/AdminUserList';
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/belepes',
         element: <Login />
+      },
+      {
+        path: '/admin/belepes',
+        element: <AdminLogin />
       }
     ]
 
@@ -74,7 +79,6 @@ const router = createBrowserRouter([
         path: '/admin/vasarlok',
         element: <AdminUserList />
       }
-
     ]
   }
 ])
