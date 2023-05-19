@@ -1,13 +1,18 @@
 import '../../styles/products.css';
 import cartService from '../../service/cartService';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 // import { CartContext } from '../../context/cartContext';
 import { AuthContext } from '../../context/AuthContext';
 
 export default function Products(props) {
 
     const { userData } = useContext(AuthContext)
-    // const { cart, setCart } = useContext(CartContext);
+    const [isAddedToCart, setIsAddedToCart] = useState(false);
+
+    function addItemToCart() {
+        cartService.addToCart(props.product.id, userData.uid);
+        setIsAddedToCart(true);
+    }
 
     return (
         <>
@@ -18,7 +23,8 @@ export default function Products(props) {
                 <div className='product-details'>
                     <div className='product-title'>{props.product.title}</div>
                     <div className='product-price'>{props.product.price} HUF</div>
-                    <button className="cart-button" onClick={() => cartService.addToCart(props.product.id, userData.uid)}>Kosárba</button>
+                    <button className="cart-button" onClick={addItemToCart}>Kosárba</button>
+                    {isAddedToCart && <div className='added-success'>A termék bekerült a kosárba!</div>}
                 </div>
             </div>
         </>

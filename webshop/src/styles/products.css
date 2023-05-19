@@ -62,6 +62,9 @@ img {
     padding: 5px;
 }
 
+.added-success {
+    font-size: 12px;
+}
 
 /* .top-bar {
     display: flex;
