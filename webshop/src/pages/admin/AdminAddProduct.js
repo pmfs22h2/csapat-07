@@ -1,6 +1,7 @@
 import productService from "../../../src/service/productService";
 import API_URL from "../../../src/service/productService";
 import { useState } from "react";
+import UploadProdImg from "../../components/admin/UploadProdImg";
 
 export default function AdminAddProduct(props) {
 
@@ -55,6 +56,7 @@ export default function AdminAddProduct(props) {
         <>
             <p>Terméknév: <input type="text" value={formData.title} onChange={updateTitle} /></p>
             <p>Ár: <input type="text" value={formData.price} onChange={updatePrice} /></p>
+            <UploadProdImg />
             <button onClick={onSubmit}>Termék hozzáadása</button>
         </>
     )
