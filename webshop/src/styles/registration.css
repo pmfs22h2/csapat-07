@@ -19,8 +19,9 @@
 
   .registration-form h1{
     text-align: center;
-    padding: 30px 0;
+    padding: 40px 0;
     pointer-events: none;
+    margin-top:30px;
   }
 
 .registration-form form{
@@ -73,7 +74,7 @@
   cursor: pointer;
   outline: none;
   border-color: #cec6c2;
-  margin-top:150px;
+  margin-top:140px;
 }
 
 .reg-button:hover{
