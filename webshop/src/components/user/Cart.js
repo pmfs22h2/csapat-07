@@ -1,29 +1,25 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
-import { useState, useEffect } from "react";
-import cartService from "../../service/cartService";
-
-
+import { AuthContext } from "../../context/AuthContext";
 
 function Cart () {
   const { cart, setCart } = useContext(CartContext);
+  const { userData } = useContext(AuthContext)
 
   console.log('cart', cart);
 
   return(
-    <div>
-    <h2>Felhasználó kosara</h2>
-    {/* {cart?.map((item) => (
-      <div>
-        {item.name} - {item.price}
-    </div>
-  ))} */}
-  </div>
-  );
-};
+    
+      userData ? (
+        cart ? cart.map(p => <div>
+          {p.productId} - {p.title} - {p.amount} - {p.price} - {p.amount * p.price}
+        </div>) 
+        : "kosara üres"
+      )
+     : 
+        "jelentkezzen be a kosár megtekintéséhez" 
+  )
 
-
-
-
+  }
 
 export default Cart;
