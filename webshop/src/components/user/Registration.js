@@ -59,14 +59,17 @@ export default function Registration() {
                 <p>
                     <label> Jelszó: </label>
                     <input
-                        type="text"
+                        type="password"
                         value={formData.password}
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
                 </p>
                 <p><button className = "reg-button" type="submit" onClick={register}>regisztráció</button></p>
             </form>
+            <br/>
             {errorMsg && <div>{errorMsg}</div>}
+            <br/>
+            {registrationSuccess && <h2>Sikeres regisztráció! Mostmár beléphetsz. </h2>}
             </div>
       )
 }
