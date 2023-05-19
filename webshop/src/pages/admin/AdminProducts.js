@@ -4,6 +4,8 @@ import AdminProductList from "../../components/admin/AdminProductList";
 import SearchComponent from "../../components/user/SearchComponent";
 import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB";
+import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
+import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
 
 const AdminProducts = () => {
 
@@ -72,6 +74,17 @@ const AdminProducts = () => {
             const prod = sortProductsFromA(products)
             setSortedItems(sortProductsFromA(products))
             sliceprod(prod)
+
+        } else if (selectValue === "price-desc") {
+            const prod = sortProductsFromHighest(products)
+            setSortedItems(sortProductsFromHighest(products))
+            sliceprod(prod)
+
+        } else if (selectValue === "price-asc") {
+            const prod = sortProductsFromLowest(products)
+            setSortedItems(sortProductsFromLowest(products))
+            sliceprod(prod)
+
         } else {
             setSortedItems(products)
         }
