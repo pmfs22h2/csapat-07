@@ -1,30 +1,44 @@
-import { useState } from "react"
+import { useState } from "react";
+import { app } from "../../firebase/firebaseConfig";
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
+import '../../styles/adminAddProduct.css';
 
 const UploadProdImg = () => {
 
     const [file, setFile] = useState(null);
+    const [uploadedUrl, setUploadedUrl] = useState(null);
 
-    // file adatokat elmenti a state-be
+    // visszaad egy tömbszerű objektumot (a feltölteni kívánt fájl adataival), ezt el kell tárolnunk egy state-be
     const fileChange = (e) => {
         console.log(e.target.files);
         setFile(e.target.files[0]);
     }
 
-    // ez tölti fel a storage-be a file-t
     const fileUpload = () => {
         if (!file) {
             return;
         }
-
-        const storage = getStorage(app);
-        const fileRef = ref(storage, "images/" + file.name)
+        const storage = getStorage(app);        // 1. hozzá csatlakoztunk a storage szolgáltatáshoz (fent importok is)
+        const fileRef = ref(storage, "prod-images/" + file.name);   // 2. fájlnév + könyvtár alapján létrehoz egy szándékot
+        uploadBytes(fileRef, file)              // fájl és referencia megadása a feltöltő függvénynek    
+            .then(uploadResult => {
+                console.log(uploadResult);
+                const imgUrl = getDownloadURL(uploadResult?.ref)
+                    .then(url => {
+                        setUploadedUrl(url);
+                    })
+            })
     }
 
     return (
         <div className="upload-img">
             <h3>Kép feltöltése a termékhez</h3>
-            <p><input type="file" name="image" onChange={fileChange}/></p>
-            <button type="button" >Feltolt</button>
+            <p><input type="file" name="product-images" onChange={fileChange} /></p>
+            <button type="button" onClick={fileUpload}>Feltöltés</button>
+            <div className="uploaded-img">
+                {uploadedUrl && 
+                <><p>A termékhez feltöltött kép: </p><img src={uploadedUrl} alt="" style={{ width: "300px" }} /></>}
+            </div>
         </div>
     )
 }

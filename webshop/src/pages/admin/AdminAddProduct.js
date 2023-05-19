@@ -2,6 +2,7 @@ import productService from "../../../src/service/productService";
 import API_URL from "../../../src/service/productService";
 import { useState } from "react";
 import UploadProdImg from "../../components/admin/UploadProdImg";
+import '../../styles/adminAddProduct.css';
 
 export default function AdminAddProduct(props) {
 
@@ -53,12 +54,15 @@ export default function AdminAddProduct(props) {
     // }
 
     return (
-        <>
+        <div className="add-product">
+            <h2>Új termék hozzáadása</h2>
             <p>Terméknév: <input type="text" value={formData.title} onChange={updateTitle} /></p>
             <p>Ár: <input type="text" value={formData.price} onChange={updatePrice} /></p>
+            <br/>
             <UploadProdImg />
+            <br/>
             <button onClick={onSubmit}>Termék hozzáadása</button>
-        </>
+        </div>
     )
 
 }
