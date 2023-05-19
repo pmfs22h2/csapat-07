@@ -24,6 +24,7 @@ export default function Products(props) {
                     <div className='product-title'>{props.product.title}</div>
                     <div className='product-price'>{props.product.price} HUF</div>
                     <button className="cart-button" onClick={addItemToCart}>Kosárba</button>
+                    {/* Innen hiányzik még a feltételes megjelenítés, ha nincs bejelentkezve és úgy akar a kosárba tenni! */}
                     {isAddedToCart && <div className='added-success'>A termék bekerült a kosárba!</div>}
                 </div>
             </div>
