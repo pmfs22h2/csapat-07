@@ -3,25 +3,26 @@
     margin: 0 auto;
     font-size: 0.9em;
     min-width:600px;
-    border: 1px solid black;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
     box-shadow:0 0 20px #eeddd3;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
 }
-th {
-    background-color: whitesmoke;  /* fejléc*/
-    color: #2A211C;
+.cart-order th {
+    background-color: #FAF6F4;  /* fejléc*/
+    color: #3E312A;
     text-align:middle;
     font-weight: bold;
     padding: 12px 15px;
     font-size:20px;
+    width:300px;
+   
 }
 tr:hover {
-    background-color: #E8D2C6;               /* sorok színezése*/
+    background-color: #FAF6F4;               /* sorok színezése*/
 }
-td{
-    padding: 12px 15px;                  /* thead*/
+.cart-order td{
+    padding: 50px 20px;                  /* thead*/
 }
 
 .cart-order tbody tr{
@@ -34,4 +35,30 @@ td{
 .order-button{
     padding:10px;
     border-radius: 5px;
+    margin-top:50px;
+    margin-bottom:50px;
+    height: 50px;
+    width: 250px;
+    border: 1px solid;
+    background: #FAF6F4;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #3E312A;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    border-color: #cec6c2;
+}
+
+.order-button:hover{
+    border-color: white;
+    transition: .5s;
+    }
+
+h2{
+    padding:20px;
+    border:1px solid #e8d1c5;
+    margin-bottom:50px;
+    margin-top:50px;
+    background-color: #FAF6F4;
 }
