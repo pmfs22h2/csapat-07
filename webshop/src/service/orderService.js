@@ -1,4 +1,5 @@
 const API_URL_ORDERS = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/orders'
+const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app'
 
 const sendOrder = (cart, userID) => {
     return fetch(`${API_URL_ORDERS}.json`, {
@@ -28,14 +29,22 @@ const sendOrder = (cart, userID) => {
     }
 
     function deleteCart(id, cart) {
-        return fetch(`${API_URL_ORDERS}/customers/${id}/cart.json`, {
+        return fetch(`${API_URL}/customers/${id}/cart.json`, {
           method: 'DELETE'
         })
+        .then(res => res.json())
+      }
+
+      function getOrders() {
+            return fetch(`${API_URL_ORDERS}.json`)
+            .then(res => res.json())
+    
       }
     
 
 
 export default {
     sendOrder,
-    deleteCart
+    deleteCart,
+    getOrders
 }
