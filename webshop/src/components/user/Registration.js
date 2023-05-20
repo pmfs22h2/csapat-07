@@ -67,6 +67,7 @@ export default function Registration() {
                 <p><button className = "reg-button" type="submit" onClick={register}>Küldés</button></p>
             </form>
             <br/>
+            <br/>
             {errorMsg && <div>{errorMsg}</div>}
             <br/>
             {registrationSuccess && <h2>Sikeres regisztráció! Mostmár beléphetsz. </h2>}
