@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import '../../styles/navigation.css';
+import { useContext } from 'react';
+import { AdminAuthContext } from '../../context/AdminAuthContext';
 
 const AdminNavigation = () => {
+
+    const {setAdmin} = useContext(AdminAuthContext)
 
     return (
         <>
@@ -10,7 +14,7 @@ const AdminNavigation = () => {
                 <Link to='/admin/termekek'>Termék lista</Link>
                 <Link to='/admin/termek-felvitel'>Termékfelvitel</Link>
                 <Link to='/admin/vasarlok'>Felhasználók lista</Link>
-                <Link to='/'>Vissza</Link>
+                <Link to='/'><button onClick={() => setAdmin(false)}>Vissza</button></Link>
             </div>
         </>
     )
