@@ -44,7 +44,7 @@ const AdminUserSearchComponent = (props) => {
                     filteredUsers && (
                         filteredUsers?.length !== 0
                             ?
-                            <><h1>Találatok:</h1> {filteredUsers?.map(users => <div key={crypto.randomUUID()}>{users.name}</div>)}</>
+                            <><h1>Találatok:</h1> {filteredUsers?.map(users => <div key={users.uid}>{users.name}</div>)}</>
                             :
                             "Nincs ilyen felhasználó!"
                     )
