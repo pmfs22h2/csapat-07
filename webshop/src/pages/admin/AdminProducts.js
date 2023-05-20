@@ -1,23 +1,21 @@
 import productService from "../../../src/service/productService";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import AdminProductList from "../../components/admin/AdminProductList";
 import SearchComponent from "../../components/user/SearchComponent";
 import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
-import { AuthContext } from "../../context/AuthContext";
 
 const AdminProducts = () => {
-    const { userData, setUserData } = useContext(AuthContext);
 
     const [products, setProducts] = useState([]);
     const [from, setFrom] = useState(0);
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
-    const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
-    
+    const [sortedItems, setSortedItems] = useState();
+
     useEffect(() => {
         listProducts();
     }, [])
@@ -93,9 +91,7 @@ const AdminProducts = () => {
     }, [selectValue]);
 
     return (
-        <> {userData && userData.isAdmin ?
-            <>
-
+        <>
             <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                 <option value="order">Rendezés</option>
                 <option value="name-asc">Név szerint növekvő</option>
@@ -110,12 +106,6 @@ const AdminProducts = () => {
                 <button onClick={prevPage} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} disabled={to === products.length}>Előre</button>
             </div>
-            </>
-            :
-            <>
-            <p>Ez az oldal csak admini jogosultsággal tekinthető meg.</p>
-            </>
-        }
         </>
     )
 }

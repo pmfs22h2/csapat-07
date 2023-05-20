@@ -1,12 +1,9 @@
 import productService from "../../../src/service/productService";
 import API_URL from "../../../src/service/productService";
-import { useState, useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
-
+import { useState } from "react";
 export default function AdminAddProduct(props) {
 
     const product = props.product ? props.product : { name: "", price: null };
-    const { userData, setUserData } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         title: product.title,
@@ -37,17 +34,10 @@ export default function AdminAddProduct(props) {
     }
 
     return (
-        <> {userData && userData.isAdmin ?
-            <>
-                <p>Terméknév: <input type="text" value={formData.title} onChange={updateTitle} /></p>
-                <p>Ár: <input type="text" value={formData.price} onChange={updatePrice} /></p>
-                <button onClick={onSubmit}>Termék hozzáadása</button>
-            </>
-            :
-            <>
-                <p>Ez az oldal csak admini jogosultsággal tekinthető meg.</p>
-            </>
-        }
+        <>
+            <p>Terméknév: <input type="text" value={formData.title} onChange={updateTitle} /></p>
+            <p>Ár: <input type="text" value={formData.price} onChange={updatePrice} /></p>
+            <button onClick={onSubmit}>Termék hozzáadása</button>
         </>
     )
 

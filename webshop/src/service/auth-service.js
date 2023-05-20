@@ -51,10 +51,6 @@ export function userLoginAuth(email, password) {
     // .then(authResp => console.log(authResp)) ezt kiviszem a serviceből, felh. helyén thenelek rá mégegyszer
 }
 
-export function mockAdminLoginAuth() {
-    userLoginAuth("admin@admin.com", "123456");
-}
-
 export function getNameFromDatabase(id) {
     return fetch(`https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/customers/${id}.json`)
         .then(resp => resp.json())
