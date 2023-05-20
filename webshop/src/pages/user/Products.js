@@ -121,7 +121,7 @@ const Products = () => {
                     <SearchComponent products={products} />
                 </div>
             </div>
-            <h2>Terméklista</h2>
+            <h2 className="product-h2">Terméklista</h2>
 
             <ProductList products={displayedProducts} />
             <div className="pagination-buttons">

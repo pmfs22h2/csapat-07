@@ -31,3 +31,12 @@ td{
 .ordertable tbody tr:last-of-type {                    /* alsó színes sáv táblázat alján*/
     border-bottom:5px solid  #e8d1c5 ;
 }
+.order-h2{
+    padding:30px;
+    margin-bottom:50px;
+    margin-top:50px;
+    border-bottom:1px solid #3E312A;
+    font-size:30px;
+    border-top:1px solid #3E312A;
+    background-color: #FAF6F4;
+}

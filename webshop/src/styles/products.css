@@ -66,6 +66,16 @@ img {
     font-size: 12px;
 }
 
+.product-h2{
+    padding:30px;
+    margin-bottom:50px;
+    margin-top:50px;
+    border-bottom:1px solid #3E312A;
+    font-size:40px;
+    border-top:1px solid #3E312A;
+    background-color: #FAF6F4;
+}
+
 /* .top-bar {
     display: flex;
     gap: 2rem;

@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import '../../styles/cart.css';
 import orderService from '../../service/orderService';
 
+
 function Cart () {
   const { cart, setCart } = useContext(CartContext);
   const { userData } = useContext(AuthContext)
@@ -20,7 +21,7 @@ function Cart () {
   }
   return(
     <div>
-      <h2>Kosár</h2>
+      <h2 className="cart-h2">Kosár</h2>
     <table className="cart-order">
     <tr>
     <th>Terméknév</th>
@@ -28,10 +29,11 @@ function Cart () {
     <th>Termék ár</th>
     <th>Termék ár összesen</th>
     </tr>
+    
      { userData ? (cart ? cart.map(p =>                        
       <>
       <tr>
-      <td>{p.title}</td>
+      <td>{p.title}<img src=""/></td>
       <td>{p.amount}</td>
       <td>{p.price}</td>
       <td>{p.amount * p.price}</td>
