@@ -6,6 +6,8 @@ import sortProductsFromB from "../../utils/sortProductsFromB"
 import ProductList from "../../components/user/ProductList";
 import SearchComponent from "../../components/user/SearchComponent";
 import "../../styles/pagination-buttons.css";
+import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
+import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
 
 const Products = () => {
 
@@ -34,6 +36,17 @@ const Products = () => {
             const prod = sortProductsFromA(products)
             setSortedItems(sortProductsFromA(products))
             sliceprod(prod)
+
+        } else if (selectValue === "price-desc") {
+            const prod = sortProductsFromHighest(products)
+            setSortedItems(sortProductsFromHighest(products))
+            sliceprod(prod)
+
+        } else if (selectValue === "price-asc") {
+            const prod = sortProductsFromLowest(products)
+            setSortedItems(sortProductsFromLowest(products))
+            sliceprod(prod)
+
         } else {
             setSortedItems(products)
         }
