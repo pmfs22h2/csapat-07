@@ -3,7 +3,7 @@ import { app } from "../../firebase/firebaseConfig";
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import '../../styles/adminAddProduct.css';
 
-const UploadProdImg = () => {
+const UploadProdImg = ({imageUpload}) => {
 
     const [file, setFile] = useState(null);
     const [uploadedUrl, setUploadedUrl] = useState(null);
@@ -25,7 +25,9 @@ const UploadProdImg = () => {
                 console.log(uploadResult);
                 const imgUrl = getDownloadURL(uploadResult?.ref)
                     .then(url => {
+                        console.log(url);
                         setUploadedUrl(url);
+                        imageUpload(url);
                     })
             })
     }

@@ -12,14 +12,27 @@ export default function AdminAddProduct(props) {
         title: product.title,
         price: product.price
     });
+    const [imgURL, setImgURL] = useState(null);
+
+    function handleImgUpload(url) {
+        setImgURL(url);
+    }
 
     function onSubmit(event) {
         event.preventDefault();
-        {
-            productService.create(formData)
-            return fetch(`${ API_URL }products.json`)
-                .then(res => console.log(res))
+        const newProduct = {
+            title: formData.title,
+            price: formData.price,
+            img: imgURL
         }
+        // {
+        productService.create(newProduct)
+            .then(() => {
+                return fetch(`${API_URL}products.json`)
+                    .then(res => console.log(res))
+            });
+
+        // }
     }
 
     function updateTitle(e) {
@@ -58,9 +71,9 @@ export default function AdminAddProduct(props) {
             <h2>Új termék hozzáadása</h2>
             <p>Terméknév: <input type="text" value={formData.title} onChange={updateTitle} /></p>
             <p>Ár: <input type="text" value={formData.price} onChange={updatePrice} /></p>
-            <br/>
-            <UploadProdImg />
-            <br/>
+            <br />
+            <UploadProdImg imageUpload={handleImgUpload} />
+            <br />
             <button onClick={onSubmit}>Termék hozzáadása</button>
         </div>
     )
