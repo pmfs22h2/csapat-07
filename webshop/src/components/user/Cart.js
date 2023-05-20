@@ -12,12 +12,12 @@ function Cart () {
     
       userData ? (
         cart ? cart.map(p => <div>
-          {p.productId} - {p.title} - {p.amount} - {p.price} - {p.amount * p.price}
+          {/* {p.productId} -  */}{p.title} - {p.amount} - {p.price} - {p.amount * p.price}
         </div>) 
-        : "kosara üres"
+        : "Nincs termék a kosarában."
       )
      : 
-        "jelentkezzen be a kosár megtekintéséhez" 
+        "Jelentkezzen be a kosár megtekintéséhez!" 
   )
 
   }
