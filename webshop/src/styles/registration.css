@@ -53,14 +53,10 @@
   transform: translateY(-50%);
   font-size: 16px;
   pointer-events: none;
-  transition: .5s;
   color:black;
+  top: -5px;
 }
-  .reg-text input:focus ~ label,
-  .reg-text input:valid ~ label{
-    top: -5px;
-    color:#595451;
-  }
+
   
 .reg-button{
     width: 100%;

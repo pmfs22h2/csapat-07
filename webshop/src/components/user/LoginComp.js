@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { userLoginAuth, getNameFromDatabase } from "../../service/auth-service";
 import { Link } from "react-router-dom";
 import UserProfile from "./UserProfile";
+import "../../styles/login.css";
 
 const LoginComp = () => {
 
@@ -36,20 +37,30 @@ const LoginComp = () => {
         <> {userData ? <UserProfile />
             :
             <>
-                <h1> Bejelenkezés </h1>
+            <div className="login-form">
+                <h1> Bejelentkezés </h1>
 
                 <form>
-                    <p>
-                        <label htmlFor="email"> E-mail: </label>
-                        <input type="email" value={formData.email} required onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                    <p className="log-text">
+                       
+                        <input type="email" 
+                        value={formData.email} 
+                        required onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
+                        />
+                         <label htmlFor="email"> E-mail: </label>
                     </p>
-                    <p>
+                    <p className="log-text">
+                        
+                        <input type="password" 
+                        value={formData.password} 
+                        required minLength={6} onChange={(e) => setFormData({ ...formData, password: e.target.value })} 
+                        />
                         <label htmlFor="password"> Jelszó: </label>
-                        <input type="password" value={formData.password} required minLength={6} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
                     </p>
-                    <p>Még nincs fiókod? <Link to="/regisztracio">Regisztrálj!</Link></p>
-                    <p><button type="submit" onClick={login}>Belépés</button></p>
+                    <p>Még nincs fiókod? <Link className="login-link" to="/regisztracio">Regisztrálj!</Link></p>
+                    <p><button className="log-button" type="submit" onClick={login}>Belépés</button></p>
                 </form>
+                </div>
             </>
         }
         </>
