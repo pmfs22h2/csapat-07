@@ -1,14 +1,17 @@
 import { useState, useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import { userLoginAuth, getNameFromDatabase } from "../../service/auth-service";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { CartContext } from "../../context/cartContext";
+import { userLoginAuth, getNameFromDatabase } from "../../service/auth-service";
+import cartService from "../../service/cartService";
+import getCartList from "../../utils/getCartList";
 import UserProfile from "./UserProfile";
 import "../../styles/login.css";
 
 const LoginComp = () => {
 
     const { userData, setUserData } = useContext(AuthContext);
-
+    const { setCart } = useContext(CartContext);
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -17,16 +20,23 @@ const LoginComp = () => {
     function login(e) {
         e.preventDefault();
         userLoginAuth(formData.email, formData.password)
-            .then(authResp => {
+            .then(authResp => { 
                 if (authResp.registered) {
                     setUserData({ email: authResp.email });
                     getNameFromDatabase(authResp.localId)
-                    .then(data => setUserData({
-                        email: formData.email,
-                        password: formData.password,
-                        name: data.name,
-                        uid: data.uid
-                    }))
+                        .then(data => {
+                            setUserData({
+                                email: formData.email,
+                                password: formData.password,
+                                name: data.name,
+                                uid: data.uid
+                            })
+                        }
+                        )
+                        cartService.getCart(authResp.localId)
+                        .then((cartlist) => {
+                            setCart(getCartList(cartlist))                            
+                        })
                 } else {
                     console.error(authResp.error.message);
                 }

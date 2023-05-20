@@ -18,7 +18,7 @@ export function registerUserAuth(formdata) {
 }
 
 function databaseUserRegister(id, name, email) {
-    return fetch(`${API_URL}vasarlok/${id}.json`, {
+    return fetch(`${API_URL}customers/${id}.json`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
@@ -52,6 +52,6 @@ export function userLoginAuth(email, password) {
 }
 
 export function getNameFromDatabase(id) {
-    return fetch(`https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/vasarlok/${id}.json`)
+    return fetch(`https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/customers/${id}.json`)
     .then(resp => resp.json())
 }
