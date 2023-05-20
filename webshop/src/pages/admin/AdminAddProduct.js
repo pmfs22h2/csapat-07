@@ -1,38 +1,29 @@
 import productService from "../../../src/service/productService";
-import API_URL from "../../../src/service/productService";
-import { useState } from "react";
-import UploadProdImg from "../../components/admin/UploadProdImg";
+import { useEffect, useState } from "react";
 import '../../styles/adminAddProduct.css';
+import { fileUpload } from "../../utils/fileUpload";
 
 export default function AdminAddProduct(props) {
 
-    const product = props.product ? props.product : { name: "", price: null };
+    const product = props.product ? props.product : { name: "", price: "", title: "" };
 
     const [formData, setFormData] = useState({
         title: product.title,
-        price: product.price
+        price: product.price,
+        imgURL: ""
     });
-    const [imgURL, setImgURL] = useState(null);
+    const [file, setFile] = useState(null);
+    const [uploadedUrl, setUploadedUrl] = useState(null);
 
-    function handleImgUpload(url) {
-        setImgURL(url);
-    }
+    const [previewImg, setPreviewImg] = useState("")
 
-    function onSubmit(event) {
-        event.preventDefault();
-        const newProduct = {
-            title: formData.title,
-            price: formData.price,
-            img: imgURL
-        }
-        // {
-        productService.create(newProduct)
-            .then(() => {
-                return fetch(`${API_URL}products.json`)
-                    .then(res => console.log(res))
-            });
-
-        // }
+    function handleImgUpload(e) {
+        setFormData({
+            ...formData,
+            imgURL: e.target.files[0].name
+        })
+        setFile(e.target.files[0])
+        previewImage(e.target.files[0])
     }
 
     function updateTitle(e) {
@@ -48,6 +39,20 @@ export default function AdminAddProduct(props) {
             price: e.target.value
         })
     }
+
+    function onSubmit(event) {
+        event.preventDefault();
+
+        // 1. létrehozza a terméket firebase-n (url nélkül)
+        productService.create(formData.title, formData.price)
+        .then(data => {
+            // 2. feltölti a képet storage-be, feltöltéskor visszaadja a kép azonosítóját ('url'), beállítja useState-nek
+            // 3. feltölti a visszakapott azonosítót az 1.lépésben postolt termékhez (data.id -> post által létrehozott id)
+            // (harmadik lépés a fileUpload függvényen belül)
+            fileUpload(file, setUploadedUrl, data.id)    
+        })
+    }
+    
 
     // function validateTitle(e) {
     //     if (/^\d+$/(formData.price)) alert("Nem tartalmazhat csak számokat!");
@@ -66,13 +71,47 @@ export default function AdminAddProduct(props) {
     //     }
     // }
 
+    // képfeltöltéskor egyből megjeleníti a képet, még a végleges feltöltés előtt
+    function previewImage(filetest) {
+        const fileReader = new FileReader()
+        fileReader.onload = () => {
+            setPreviewImg(fileReader.result)
+        }
+        if(filetest) {
+            fileReader.readAsDataURL(filetest);
+        }        
+    }
+
     return (
         <div className="add-product">
             <h2>Új termék hozzáadása</h2>
-            <p>Terméknév: <input type="text" value={formData.title} onChange={updateTitle} /></p>
-            <p>Ár: <input type="text" value={formData.price} onChange={updatePrice} /></p>
-            <br />
-            <UploadProdImg imageUpload={handleImgUpload} />
+            <label htmlFor="title">Terméknév:</label>
+            <input 
+                type="text" 
+                name="title" 
+                value={formData.title} 
+                onChange={(e) => updateTitle(e)} 
+            />
+            <br/>
+            <label htmlFor="price">Ár:</label>
+            <input 
+                type="text" 
+                name="price"
+                value={formData.price} 
+                onChange={(e) => updatePrice(e)} 
+            />
+            <br/>
+            <label htmlFor="imgUrl">Képt feltöltése a termékhez:</label>
+            <input 
+                type="file" 
+                name="imgUrl"
+                onChange={(e) => handleImgUpload(e)} 
+            />
+            
+            <div className="uploaded-img">
+                {file && 
+                <><p>termék kép: </p><img src={previewImg} alt="" style={{ width: "300px" }} /></>}
+            </div>
             <br />
             <button onClick={onSubmit}>Termék hozzáadása</button>
         </div>
