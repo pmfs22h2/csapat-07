@@ -64,7 +64,7 @@ export default function Registration() {
                     />
                     <label> Jelszó: </label>
                 </p>
-                <p><button className = "reg-button" type="submit" onClick={register}>küldés</button></p>
+                <p><button className = "reg-button" type="submit" onClick={register}>Küldés</button></p>
             </form>
             {errorMsg && <div>{errorMsg}</div>}
             </div>
