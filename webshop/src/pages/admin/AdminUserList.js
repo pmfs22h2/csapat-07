@@ -18,25 +18,28 @@ const AdminUserList = () => {
         listUsers();
     }, [])
 
-    useEffect(() => {
-        userService.read()
-            .then(users => setWebshopUsers(users))
-    }, [])
+    // ez nem kell
+
+    // useEffect(() => {
+    //     userService.read()
+    //         .then(users => setWebshopUsers(users))
+    // }, [])
 
     function listUsers() {
         userService.read()
             .then(users => {
-                let manipulatedUsers = userService.manipulateUserObject(users);
+                // objec.values
+                let manipulatedUsers = Object.values(users);
                 setWebshopUsers(manipulatedUsers);
                 setSortedItems(manipulatedUsers)
                 const manUsLength = manipulatedUsers.length;
 
-                if (manUsLength < to) {
+                 if (manUsLength < to) {
                     setTo(manUsLength);
                     setdisplayedUsers(manipulatedUsers);
-                } else {
+                 } else {
                     setdisplayedUsers(manipulatedUsers.slice(from, to));
-                }
+                 }
             })
     }
 
@@ -50,7 +53,6 @@ const AdminUserList = () => {
     }
 
     function nextPage() {
-        console.log("next");
         let increasedFrom = from + 9;
         let increasedTo = sortedItems.length >= to + 9 ? to + 9 : sortedItems.length;
 
@@ -82,7 +84,6 @@ const AdminUserList = () => {
             setSortedItems(webshopUsers)
         }
     }, [selectValue]);
-console.log(webshopUsers)
 
 
     return (
