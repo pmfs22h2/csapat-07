@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { registerUserAuth } from "../../service/auth-service";
 import "../../styles/registration.css";
@@ -14,7 +13,6 @@ export default function Registration() {
     });
 
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
-    // const [errorMsg, setErrorMsg] = useState("");
 
     function register(e) {
         e.preventDefault();
