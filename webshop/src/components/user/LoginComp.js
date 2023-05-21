@@ -7,6 +7,8 @@ import cartService from "../../service/cartService";
 import getCartList from "../../utils/getCartList";
 import UserProfile from "./UserProfile";
 import "../../styles/login.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginComp = () => {
 
@@ -20,7 +22,7 @@ const LoginComp = () => {
     function login(e) {
         e.preventDefault();
         userLoginAuth(formData.email, formData.password)
-            .then(authResp => { 
+            .then(authResp => {
                 if (authResp.registered) {
                     setUserData({ email: authResp.email });
                     getNameFromDatabase(authResp.localId)
@@ -33,12 +35,12 @@ const LoginComp = () => {
                             })
                         }
                         )
-                        cartService.getCart(authResp.localId)
+                    cartService.getCart(authResp.localId)
                         .then((cartlist) => {
-                            setCart(getCartList(cartlist))                            
+                            setCart(getCartList(cartlist))
                         })
                 } else {
-                    console.error(authResp.error.message);
+                    toast.error(authResp.error.message);
                 }
             })
     }
@@ -47,32 +49,33 @@ const LoginComp = () => {
         <> {userData ? <UserProfile />
             :
             <>
-            <div className="login-form">
-                <h1> Bejelentkezés </h1>
+                <div className="login-form">
+                    <h1> Bejelentkezés </h1>
 
-                <form>
-                    <p className="log-text">
-                       
-                        <input type="email" 
-                        value={formData.email} 
-                        required onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
-                        />
-                         <label htmlFor="email"> E-mail: </label>
-                    </p>
-                    <p className="log-text">
-                        
-                        <input type="password" 
-                        value={formData.password} 
-                        required minLength={6} onChange={(e) => setFormData({ ...formData, password: e.target.value })} 
-                        />
-                        <label htmlFor="password"> Jelszó: </label>
-                    </p>
-                    <p>Még nincs fiókod? <Link className="login-link" to="/regisztracio">Regisztrálj!</Link></p>
-                    <p><button className="log-button" type="submit" onClick={login}>Belépés</button></p>
-                </form>
+                    <form>
+                        <p className="log-text">
+
+                            <input type="email"
+                                value={formData.email}
+                                required onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            />
+                            <label htmlFor="email"> E-mail: </label>
+                        </p>
+                        <p className="log-text">
+
+                            <input type="password"
+                                value={formData.password}
+                                required minLength={6} onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                            />
+                            <label htmlFor="password"> Jelszó: </label>
+                        </p>
+                        <p>Még nincs fiókod? <Link className="login-link" to="/regisztracio">Regisztrálj!</Link></p>
+                        <p><button className="log-button" type="submit" onClick={login}>Belépés</button></p>
+                    </form>
                 </div>
             </>
         }
+            <ToastContainer />
         </>
     )
 }
