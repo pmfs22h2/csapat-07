@@ -3,6 +3,7 @@ import '../../styles/navigation.css';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { FaUserAlt, FaShoppingBag, FaHeart } from "react-icons/fa";
+import CartTotal from "./CartTotal";
 
 const Navigation = () => {
     const { userData, setUserData } = useContext(AuthContext);
@@ -23,7 +24,12 @@ const Navigation = () => {
             <div className='nav-icons'>
                 <Link to="#"><FaUserAlt /></Link>
                 <Link to="#"><FaHeart /></Link>
-                <Link to="/kosar"><FaShoppingBag /></Link>
+                <Link to="/kosar" style={{textDecoration: 'none'}}><FaShoppingBag />
+                <div className='badge'>
+                    <CartTotal />
+                </div>
+                
+                </Link>
             </div>
         </div>
     )
