@@ -28,13 +28,13 @@ function update(id, product) {
    /* .then(product => setProductId(product.name)) */
   }
 
-  function updateImg(id, imgurl) {
+  function updateImg(id, img) {
     return fetch(`${API_URL}products/${id}.json`, {
       method: 'PATCH',
       headers: {
           'Content-type': 'application/json'
       },
-      body: JSON.stringify({imgurl})
+      body: JSON.stringify({img})
   })
   .then(resp => resp.json())
   }

@@ -10,7 +10,7 @@ export default function AdminAddProduct(props) {
     const [formData, setFormData] = useState({
         title: product.title,
         price: product.price,
-        imgURL: ""
+        img: ""
     });
     const [file, setFile] = useState(null);
     const [uploadedUrl, setUploadedUrl] = useState(null);
@@ -20,7 +20,7 @@ export default function AdminAddProduct(props) {
     function handleImgUpload(e) {
         setFormData({
             ...formData,
-            imgURL: e.target.files[0].name
+            img: e.target.files[0].name
         })
         setFile(e.target.files[0])
         previewImage(e.target.files[0])
@@ -101,10 +101,10 @@ export default function AdminAddProduct(props) {
                 onChange={(e) => updatePrice(e)} 
             />
             <br/>
-            <label htmlFor="imgUrl">Képt feltöltése a termékhez:</label>
+            <label htmlFor="img">Képt feltöltése a termékhez:</label>
             <input 
                 type="file" 
-                name="imgUrl"
+                name="img"
                 onChange={(e) => handleImgUpload(e)} 
             />
             
