@@ -14,10 +14,10 @@ function Cart () {
         cart ? cart.map(p => <div>
           {/* {p.productId} -  */}{p.title} - {p.amount} - {p.price} - {p.amount * p.price}
         </div>) 
-        : "Nincs termék a kosarában."
+        : "Nincs termék a kosaradban."
       )
      : 
-        "Jelentkezzen be a kosár megtekintéséhez!" 
+        "Jelentkezz be a kosár megtekintéséhez!" 
   )
 
   }
