@@ -1,12 +1,12 @@
 const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/'
 
-function create(product) {
+function create(title, price) {
     return fetch(`${API_URL}products.json`, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify(product)
+        body: JSON.stringify({title, price})
     })
         .then(res => res.json()) 
         .then(product => setProductId(product.name))
@@ -16,9 +16,8 @@ function update(id, product) {
     if (!id) {
       return null;
     }
-    const url = API_URL+'products/'+id+'.json'; 
-    console.log(url)
-    return fetch(url, {
+ 
+    return fetch(`${API_URL}products/${id}.json`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json'
@@ -29,15 +28,27 @@ function update(id, product) {
    /* .then(product => setProductId(product.name)) */
   }
 
+  function updateImg(id, img) {
+    return fetch(`${API_URL}products/${id}.json`, {
+      method: 'PATCH',
+      headers: {
+          'Content-type': 'application/json'
+      },
+      body: JSON.stringify({img})
+  })
+  .then(resp => resp.json())
+  }
+
 
 function setProductId(id) {
-    fetch(`${API_URL}products/${id}.json`, {
+    return fetch(`${API_URL}products/${id}.json`, {
         method: 'PATCH',
         headers: {
             'Content-type': 'application/json'
         },
         body: JSON.stringify({id})
     })
+    .then(resp => resp.json())
 }
 
 function manipulateProductObject(obj) {
@@ -81,5 +92,6 @@ export default {
     manipulateProductObject: manipulateProductObject,
     del: del,
     update:update,
-    getProduct
+    getProduct,
+    updateImg
 }

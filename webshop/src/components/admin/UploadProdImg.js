@@ -36,7 +36,7 @@ const UploadProdImg = ({imageUpload}) => {
         <div className="upload-img">
             <h3>Kép feltöltése a termékhez</h3>
             <p><input type="file" name="product-images" onChange={fileChange} /></p>
-            <button type="button" onClick={fileUpload}>Feltöltés</button>
+            {/* <button type="button" onClick={fileUpload}>Feltöltés</button> */}
             <div className="uploaded-img">
                 {uploadedUrl && 
                 <><p>A termékhez feltöltött kép: </p><img src={uploadedUrl} alt="" style={{ width: "300px" }} /></>}
