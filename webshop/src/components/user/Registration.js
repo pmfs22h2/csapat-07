@@ -14,24 +14,32 @@ export default function Registration() {
     });
 
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
-    const [errorMsg, setErrorMsg] = useState("");
+    // const [errorMsg, setErrorMsg] = useState("");
 
     function register(e) {
         e.preventDefault();
         if (!formData.name || !formData.email || !formData.password) {
-            toast.error('Minden mezőt kötelező kitölteni!');
+            toast.error('Minden mezőt kötelező kitölteni!', {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
             return;
         } else if (!formData.email.includes('@') || !formData.email.includes('.')) {
-            toast.error('Az e-mail cím formátuma érvénytelen!');
+            toast.error('Az e-mail cím formátuma érvénytelen!', {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
             return;
         }
 
         try {
             registerUserAuth(formData);
             setRegistrationSuccess(true);
-            toast.success("Sikeres regisztráció!");
+            toast.success("Sikeres regisztráció!", {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
         } catch (error) {
-            toast.error('Hiba a regisztráció során!');
+            toast.error('Hiba a regisztráció során!', {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
             console.error(error);
         }
     }
