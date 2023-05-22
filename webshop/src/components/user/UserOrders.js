@@ -2,69 +2,70 @@ import { useContext, useEffect, useState } from "react";
 import orderService from "../../service/orderService";
 import '../../styles/ordertable.css';
 import { AuthContext } from "../../context/AuthContext";
+import productService from "../../service/productService";
 
-function UserOrders () {
+function UserOrders() {
 
-    const [orderList, setOrderList] = useState ([]);
-    const {userData, setUserData} = useContext(AuthContext);
-    
+    const [orderList, setOrderList] = useState([]);
+    const { userData, setUserData } = useContext(AuthContext);
+    const [products, setProducts] = useState([]);
+
 
     useEffect(() => {
         orderService.getOrders()
-        .then(list => setOrderList(Object.values(list).filter(order => order.uid==userData.uid)))
-    },[]);
+            .then(list => {
+                let filteredOrderList = Object.values(list).filter(order => order.uid == userData.uid);
+                setOrderList(filteredOrderList);
+                console.log("orderList");
+                console.log(filteredOrderList.length);
+                console.log(filteredOrderList);
+            });
+    }, []);
 
-    console.log(orderList);
-    console.log(userData);
+    useEffect(() => {
+        productService.read()
+            .then(products2 => {
+                setProducts(products2);
+                console.log("products");
+                console.log(products2);
+                console.log(products2.length);
+            }
+            );
+    }, []);
 
     return (
         <div>
-           
+
             <h2>Felhasználó megrendelései</h2>
             <table className="ordertable">
-             <thead>
+                <thead>
                     <tr>
                         <th>Megrendelés #</th>
                         <th>Megrendelés ideje</th>
-                        <th>Termékek</th>
                         <th>Mennyiség</th>
                         <th>Összeg</th>
                     </tr>
-            </thead>
-                    { userData ? (orderList ? orderList.map ((order) =>                        
-      <>
-      <tr>
-      <td>{order.id}</td>
-      <td>{order.timestamp}</td>
-      <tbody>
-        {/* <td>
-      {Object.values(order.products).map((products, idx) => {
-        <tr key={idx}>
-            <td>{products.title}</td>
-            <td>{products.amount}</td>
-            <td>{products.price}</td>
-        </tr>
-      }
-      )}
-      </td> */}
-      </tbody>
-      <td>{Object.keys(order.products)}</td>
-      <td>{Object.values(order.products)}</td> 
-      </tr>
-     
+                </thead>
+                {userData ? (orderList ? orderList.map((order) =>
+                    <>
+                        <tr>
+                            <td>{order.id}</td>
+                            <td>{order.timestamp}</td>
+                            <td>{Object.values(order.products).reduce((sum, n) => sum + n, 0)}</td>
+                            <td>{Object.keys(order.products).map(id => id in products ? products[id].price : 0).reduce((sum, n) => sum + Number(n), 0)}</td>
+                        </tr>
+                    </>
+                )
+                    : "Még nem rendeltél semmit."
+                )
+                    : "Bejelentkezés szükséges."
+                }
 
-      </>
-       ) 
-        : "Még nem rendeltél semmit."
-      )
-      : "Bejelentkezés szükséges."
-                    }
-                      
             </table>
-    </div>
-  
+        </div>
+
     )
-    
+
 }
 
 export default UserOrders;
