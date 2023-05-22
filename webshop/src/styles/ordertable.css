@@ -1,0 +1,33 @@
+.ordertable {
+    border-collapse: collapse;     /* collapse: A szomszédos cellák keretei összevonásra kerülnek.*/
+    margin: 0 auto;
+    font-size: 0.9em;
+    min-width:600px;
+    border: 1px solid black;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow:0 0 20px #eeddd3;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+th {
+    background-color: whitesmoke;  /* fejléc*/
+    color: #2A211C;
+    text-align:middle;
+    font-weight: bold;
+    padding: 12px 15px;
+    font-size:20px;
+}
+tr:hover {
+    background-color: #E8D2C6;               /* sorok színezése*/
+}
+td{
+    padding: 12px 15px;                  /* thead*/
+}
+
+.ordertable tbody tr{
+    border-bottom: 1px solid #eeddd3;          /* elválasztó vonalak soroknál*/
+    padding: 30px 30px;
+}
+.ordertable tbody tr:last-of-type {                    /* alsó színes sáv táblázat alján*/
+    border-bottom:5px solid  #e8d1c5 ;
+}
