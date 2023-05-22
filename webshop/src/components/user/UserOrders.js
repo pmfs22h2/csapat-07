@@ -40,14 +40,16 @@ function UserOrders () {
       <td>{order.id}</td>
       <td>{order.uid}</td>
       <tbody>
-      {Object.values(order.products).map((order, idx) => {
+        {/* <td>
+      {Object.values(order.products).map((products, idx) => {
         <tr key={idx}>
-            <td>{order.title}</td>
-            <td>{order.amount}</td>
-            <td>{order.price}</td>
+            <td>{products.title}</td>
+            <td>{products.amount}</td>
+            <td>{products.price}</td>
         </tr>
       }
       )}
+      </td> */}
       </tbody>
       <td>{Object.keys(order.products)}</td>
       <td>{Object.values(order.products)}</td> 
