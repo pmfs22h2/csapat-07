@@ -1,9 +1,6 @@
 import productService from "../../service/productService";
 import {useNavigate, useParams} from "react-router-dom";
 
-
-
-
  const DeleteProduct = () => {
    const {id}=useParams()
    console.log(id);
@@ -14,8 +11,6 @@ import {useNavigate, useParams} from "react-router-dom";
            navigate('/admin/termekek','DELETE', json);
           })}
     }
-    
-     
 
      return (
         <div className="App">

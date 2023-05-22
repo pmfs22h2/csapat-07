@@ -5,7 +5,6 @@ import ProductForm from "./ProductForm";
 import { getProduct } from "../../service/productService";
 import { useEffect, useState } from "react";
 
-
 const EditProduct = () => {
   const { id } = useParams()
   const [product, setProduct] = useState({});
@@ -17,8 +16,6 @@ const EditProduct = () => {
   }, [id])
 
   const navigate = useNavigate()
-
- 
 
   return (
     <div>
