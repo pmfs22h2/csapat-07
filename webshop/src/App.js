@@ -18,6 +18,7 @@ import { CartContext } from './context/cartContext';
 import Orders from './pages/user/Orders';
 
 import AdminUserList from './pages/admin/AdminUserList';
+import AdminDisplayOrders from './pages/admin/AdminDisplayOrders';
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: '/admin/vasarlok',
         element: <AdminUserList />
+      },
+      {
+        path: '/admin/megrendelesek',
+        element: <AdminDisplayOrders />
       }
 
     ]
