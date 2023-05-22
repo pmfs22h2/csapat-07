@@ -1,6 +1,11 @@
+import AdminDisplayOrdersComp from "../../components/admin/AdminDisplayOrdersComp";
+import '../../styles/ordertable.css';
+
 const AdminDisplayOrders = () => {
     return (
-        <div>Customers' orders' list</div>
+        <>
+            <AdminDisplayOrdersComp />
+        </>
     )
 }
 
