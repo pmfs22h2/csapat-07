@@ -15,6 +15,7 @@ import Login from './pages/user/Login';
 import { AuthContext } from './context/AuthContext';
 import { useState } from 'react';
 import { CartContext } from './context/cartContext';
+import Orders from './pages/user/Orders';
 
 import AdminUserList from './pages/admin/AdminUserList';
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/belepes',
         element: <Login />
+      },
+      {
+        path:"/megrendeleseim",
+        element: <Orders />
       }
     ]
 

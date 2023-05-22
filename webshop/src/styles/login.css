@@ -12,7 +12,7 @@
     margin: auto;
     margin-top:5rem;
     margin-bottom: 5rem;
-    background-image: url('./hatterkep-regisztracio2.jpg');
+    background-image: url('./kep-bej13.jpeg');
     background-size: cover;
   }
 
@@ -71,6 +71,7 @@
       outline: none;
       border-color: #cec6c2;
       margin-top:190px;
+      opacity:80%;
     }
 
     .log-button:hover{

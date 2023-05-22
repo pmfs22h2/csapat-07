@@ -16,6 +16,7 @@ const Navigation = () => {
                 <Link to='/kosar'>Kosár</Link>
                 {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>}
                 {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>}
+                <Link to='/megrendeleseim'>Megrendelések</Link>
             </div>
             <div className='user-login'>
                 {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
