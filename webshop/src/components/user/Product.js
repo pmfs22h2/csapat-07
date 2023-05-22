@@ -13,6 +13,12 @@ export default function Products(props) {
     const { userData } = useContext(AuthContext)
     const { setCart } = useContext(CartContext);
 
+    const addedToCartSuccess = () => {
+        toast.success('Sikeresen a kosárba tetted a terméket!', {
+            position: toast.POSITION.TOP_CENTER
+        });
+    }
+
     function addToCartClick() {
 
         if (userData === null) {
@@ -23,6 +29,7 @@ export default function Products(props) {
         }
 
         setIsAddedToCart(true);
+        addedToCartSuccess();
         let addToCartProduct;
 
         cartService.getCart(userData.uid)   // lekéri firebase-ről a cart-t 
@@ -36,7 +43,6 @@ export default function Products(props) {
             .then(() => cartService.changeItem(addToCartProduct, userData.uid))     // módosítja a firebase kosár tartalmát  
             .then(() => cartService.getCart(userData.uid))                          // lekéri a módosított kosarat
             .then((cartlist) => setCart(getCartList(cartlist)))         // átadja a módosított kosár tartalmát a kosár context-nek
-
     }
 
     return (
@@ -48,10 +54,7 @@ export default function Products(props) {
                 <div className='product-details'>
                     <div className='product-title'>{props.product.title}</div>
                     <div className='product-price'>{props.product.price} HUF</div>
-
                     <button className="cart-button" onClick={addToCartClick}>Kosárba</button>
-                    {/* Innen hiányzik még a feltételes megjelenítés, ha nincs bejelentkezve és úgy akar a kosárba tenni! */}
-                    {isAddedToCart && <div className='added-success'>A termék bekerült a kosárba!</div>}
                     <ToastContainer />
                 </div>
             </div>
