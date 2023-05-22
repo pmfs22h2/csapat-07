@@ -8,9 +8,6 @@ function Cart() {
   const { cart, setCart } = useContext(CartContext);
   const { userData } = useContext(AuthContext)
 
-  console.log('cart', cart);
-
-
   function sendOrderButton() {
     const now = new Date();
     const year = now.getFullYear();
@@ -22,6 +19,7 @@ function Cart() {
     console.log(list);
     orderService.sendOrder(list, userData.uid, timestamp);
     orderService.deleteCart(userData.uid, cart);
+    setCart(null);
   }
   return (
     <div>

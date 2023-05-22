@@ -29,7 +29,7 @@ const sendOrder = (cart, userID, timestamp) => {
         })
     }
 
-    function deleteCart(id, cart) {
+    function deleteCart(id) {
         return fetch(`${API_URL}/customers/${id}/cart.json`, {
           method: 'DELETE'
         })
