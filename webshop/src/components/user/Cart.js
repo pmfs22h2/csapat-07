@@ -46,7 +46,7 @@ function Cart() {
           :
           "Jelentkezz be a kosár megtekintéséhez!"}
       </table>
-      <button className="order-button" onClick={sendOrderButton}>Megrendelés</button>
+      {userData && cart ? <button className="order-button" onClick={sendOrderButton}>Megrendelés</button> : <></>}
     </div>
   )
 }
