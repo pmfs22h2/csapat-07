@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import { registerUserAuth } from "../../service/auth-service";
 import "../../styles/registration.css";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Registration() {
 
@@ -13,60 +13,68 @@ export default function Registration() {
     });
 
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
-    const [errorMsg, setErrorMsg] = useState("");
 
     function register(e) {
         e.preventDefault();
         if (!formData.name || !formData.email || !formData.password) {
-            setErrorMsg("Minden mezőt kötelező kitölteni!");
+            toast.error('Minden mezőt kötelező kitölteni!', {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
             return;
         } else if (!formData.email.includes('@') || !formData.email.includes('.')) {
-            setErrorMsg("Az e-mail cím formátuma érvénytelen!");
+            toast.error('Az e-mail cím formátuma érvénytelen!', {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
             return;
         }
 
         try {
             registerUserAuth(formData);
             setRegistrationSuccess(true);
+            toast.success("Sikeres regisztráció!", {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
         } catch (error) {
-            setErrorMsg("Hiba a regisztráció során!");
+            toast.error('Hiba a regisztráció során!', {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
             console.error(error);
         }
     }
 
     return (
-    
+
         <div className="registration-form">
-       
+
             <h1>Regisztráció</h1>
             <form>
-                <p>
-                    <label> Név: </label>
+                <p className="reg-text">
                     <input
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     />
+                    <label> Név: </label>
                 </p>
-                <p>
-                    <label> E-mail: </label>
+                <p className="reg-text">
                     <input
                         type="text"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
+                    <label> E-mail: </label>
                 </p>
-                <p>
-                    <label> Jelszó: </label>
+                <p className="reg-text">
                     <input
-                        type="text"
+                        type="password"
                         value={formData.password}
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
+                    <label> Jelszó: </label>
                 </p>
-                <p><button className = "reg-button" type="submit" onClick={register}>regisztráció</button></p>
+                <p><button className="reg-button" type="submit" onClick={register}>Küldés</button></p>
             </form>
-            {errorMsg && <div>{errorMsg}</div>}
-            </div>
-      )
+            <ToastContainer />
+        </div>
+    )
 }

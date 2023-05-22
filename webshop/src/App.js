@@ -17,6 +17,7 @@ import { useState } from 'react';
 import { CartContext } from './context/cartContext';
 import AdminLogin from './pages/admin/AdminLogin';
 import { AdminAuthContext } from './context/AdminAuthContext';
+import Orders from './pages/user/Orders';
 import AdminUserList from './pages/admin/AdminUserList';
 import AdminAuth from './components/admin/AdminAuth';
 
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: '/admin-belepes',
         element: <AdminLogin />
+      },
+      {
+        path:"/megrendeleseim",
+        element: <Orders />
       }
     ]
 

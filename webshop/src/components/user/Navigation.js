@@ -19,6 +19,7 @@ const Navigation = () => {
                 {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>}
                 {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>}
                 {!admin ? <Link to='/admin-belepes'>Admin Bejelentkezés</Link> : <></>}
+                <Link to='/megrendeleseim'>Megrendelések</Link>
             </div>
             <div className='user-login'>
                 {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
@@ -27,7 +28,7 @@ const Navigation = () => {
             <div className='nav-icons'>
                 <Link to="#"><FaUserAlt /></Link>
                 <Link to="#"><FaHeart /></Link>
-                <Link to="#"><FaShoppingBag /></Link>
+                <Link to="/kosar"><FaShoppingBag /></Link>
             </div>
         </div>
     )
