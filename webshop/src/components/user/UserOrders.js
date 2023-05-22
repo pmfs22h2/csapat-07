@@ -3,9 +3,6 @@ import orderService from "../../service/orderService";
 import '../../styles/ordertable.css';
 import { AuthContext } from "../../context/AuthContext";
 
-
-
-
 function UserOrders () {
 
     const [orderList, setOrderList] = useState ([]);
@@ -28,7 +25,7 @@ function UserOrders () {
              <thead>
                     <tr>
                         <th>Megrendelés #</th>
-                        <th>Vásárló id</th>
+                        <th>Megrendelés ideje</th>
                         <th>Termékek</th>
                         <th>Mennyiség</th>
                         <th>Összeg</th>
@@ -38,7 +35,7 @@ function UserOrders () {
       <>
       <tr>
       <td>{order.id}</td>
-      <td>{order.uid}</td>
+      <td>{order.timestamp}</td>
       <tbody>
         {/* <td>
       {Object.values(order.products).map((products, idx) => {
@@ -58,7 +55,7 @@ function UserOrders () {
 
       </>
        ) 
-        : "még nem rendeltél semmit."
+        : "Még nem rendeltél semmit."
       )
       : "Bejelentkezés szükséges."
                     }
