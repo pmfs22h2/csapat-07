@@ -15,34 +15,31 @@ const sendOrder = (cart, userID, timestamp) => {
             }
         )
     })
-        .then(res => res.json()) 
-        .then(data => setOrderId(data.name))  
-    }
-
-    function setOrderId(id) {
-        fetch(`${API_URL_ORDERS}/${id}.json`, {
-            method: 'PATCH',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({id})
-        })
-    }
-
-    function deleteCart(id) {
-        return fetch(`${API_URL}/customers/${id}/cart.json`, {
-          method: 'DELETE'
-        })
         .then(res => res.json())
-      }
+        .then(data => setOrderId(data.name))
+}
 
-      function getOrders() {
-            return fetch(`${API_URL_ORDERS}.json`)
-            .then(res => res.json())
-    
-      }
-    
+function setOrderId(id) {
+    fetch(`${API_URL_ORDERS}/${id}.json`, {
+        method: 'PATCH',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ id })
+    })
+}
 
+function deleteCart(id) {
+    return fetch(`${API_URL}/customers/${id}/cart.json`, {
+        method: 'DELETE'
+    })
+        .then(res => res.json())
+}
+
+function getOrders() {
+    return fetch(`${API_URL_ORDERS}.json`)
+        .then(res => res.json())
+}
 
 export default {
     sendOrder,
