@@ -25,35 +25,35 @@ const deleteProduct = (id) => {
         .then(res => res.json())
 }
 
-const addToCart = (productId, userID) => {
-    getCart(userID)
-        .then(cartItems => {
-            if (cartItems != null) {                // ha cartItems = null: akkor nincs a usernek kosara
-                if (productId in cartItems) {
-                    console.log(cartItems);
-                    let piecesByProductIdInCart = cartItems[productId];             // objektum[kulcs]
-                    updateItem(productId, piecesByProductIdInCart, userID);
-                } else {
-                    addItem(productId, userID);     // ha van kosara, de még az az adott termék nincs benne
-                }
-            } else {
-                addItem(productId, userID);
-            }
-        })
-}
+// const addToCart = (productId, userID) => {
+//     getCart(userID)
+//         .then(cartItems => {
+//             if (cartItems != null) {                // ha cartItems = null: akkor nincs a usernek kosara
+//                 if (productId in cartItems) {
+//                     console.log(cartItems);
+//                     let piecesByProductIdInCart = cartItems[productId];             // objektum[kulcs]
+//                     updateItem(productId, piecesByProductIdInCart, userID);
+//                 } else {
+//                     addItem(productId, userID);     // ha van kosara, de még az az adott termék nincs benne
+//                 }
+//             } else {
+//                 addItem(productId, userID);
+//             }
+//         })
+// }
 
-const addItem = (productId, userID) => {
-    changeItem(productId, userID, 1)        // ha még nincs benne az az adott termék, automatikusan 1 lesz
-}
+// const addItem = (productId, userID) => {
+//     changeItem(productId, userID, 1)        // ha még nincs benne az az adott termék, automatikusan 1 lesz
+// }
 
-const updateItem = (productId, itemPiece, userID) => {
-    itemPiece++;
-    changeItem(productId, userID, itemPiece);
-}
+// const updateItem = (productId, itemPiece, userID) => {
+//     itemPiece++;
+//     changeItem(productId, userID, itemPiece);
+// }
 
 export default {
     changeItem,
-    addToCart,
+    // addToCart,
     getCart,
     deleteProduct,
 }
