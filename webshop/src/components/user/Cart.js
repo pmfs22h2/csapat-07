@@ -16,7 +16,6 @@ function Cart() {
     });
   }
 
-
   function sendOrderButton() {
     const now = new Date();
     const year = now.getFullYear();

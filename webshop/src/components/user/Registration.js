@@ -76,6 +76,5 @@ export default function Registration() {
             </form>
             <ToastContainer />
         </div>
-
     )
 }
