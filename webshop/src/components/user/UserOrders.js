@@ -10,7 +10,6 @@ function UserOrders() {
     const { userData, setUserData } = useContext(AuthContext);
     const [products, setProducts] = useState([]);
 
-
     useEffect(() => {
         orderService.getOrders()
             .then(list => {
