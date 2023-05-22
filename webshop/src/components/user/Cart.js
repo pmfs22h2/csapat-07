@@ -12,10 +12,15 @@ function Cart () {
 
 
   function sendOrderButton () {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const timestamp = `${year}-${month}-${day}`;
     const list = {}
     cart.forEach(p => list[p.productId]=p.amount)
     console.log(list);
-    orderService.sendOrder(list, userData.uid);
+    orderService.sendOrder(list, userData.uid, timestamp);
     orderService.deleteCart(userData.uid, cart);
   }
   return(

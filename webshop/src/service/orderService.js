@@ -1,7 +1,7 @@
 const API_URL_ORDERS = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/orders'
 const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app'
 
-const sendOrder = (cart, userID) => {
+const sendOrder = (cart, userID, timestamp) => {
     return fetch(`${API_URL_ORDERS}.json`, {
         method: 'POST',
         headers: {
@@ -10,7 +10,8 @@ const sendOrder = (cart, userID) => {
         body: JSON.stringify(
             {
                 uid: userID,
-                products: cart
+                products: cart,
+                timestamp: timestamp
             }
         )
     })
