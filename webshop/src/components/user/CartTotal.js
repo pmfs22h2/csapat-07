@@ -1,17 +1,14 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { CartContext } from "../../context/cartContext";
-
-export const sumCart = (cart) => {
-    let sum = 0;
-    if (cart && cart.length > 0) {
-        for (const item of cart) {
-            sum += item.price * item.amount;
-        }
-    }
-    return sum;
-}
+import sumCart from '../../utils/sumCart';
 
 export default function CartTotal() {
     const { cart, setCart } = useContext(CartContext);
-    return (<>{sumCart(cart)}</>)
+    const [sum, setSum] = useState(0);
+    useEffect(() => {
+        if (!cart) return
+        setSum(sumCart(cart))}, [cart])
+    console.log(sum)
+    console.log(cart)
+    return (<>{sum}</>)
 }

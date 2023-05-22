@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
 import { AuthContext } from "../../context/AuthContext";
-import CartTotal, { sumCart } from "./CartTotal";
+import sumCart from "../../utils/sumCart";
 import '../../styles/cart.css';
 import orderService from '../../service/orderService';
 
