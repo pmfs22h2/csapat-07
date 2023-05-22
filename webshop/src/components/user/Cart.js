@@ -3,10 +3,19 @@ import { CartContext } from "../../context/cartContext";
 import { AuthContext } from "../../context/AuthContext";
 import '../../styles/cart.css';
 import orderService from '../../service/orderService';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Cart() {
   const { cart, setCart } = useContext(CartContext);
   const { userData } = useContext(AuthContext)
+
+  const sentOrderSuccess = () => {
+    toast.success('Sikeres megrendelés!', {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
+
 
   function sendOrderButton() {
     const now = new Date();
@@ -20,8 +29,9 @@ function Cart() {
     orderService.sendOrder(list, userData.uid, timestamp);
     orderService.deleteCart(userData.uid, cart);
     setCart(null);
-
+    sentOrderSuccess();
   }
+
   return (
     <div>
       <table className="cart-order">
@@ -47,6 +57,7 @@ function Cart() {
           "Jelentkezz be a kosár megtekintéséhez!"}
       </table>
       {userData && cart ? <button className="order-button" onClick={sendOrderButton}>Megrendelés</button> : <></>}
+      <ToastContainer />
     </div>
   )
 }
