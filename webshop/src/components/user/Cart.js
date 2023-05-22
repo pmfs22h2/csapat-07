@@ -41,15 +41,17 @@ function Cart() {
               <td>{p.price}</td>
               <td>{p.amount * p.price}</td>
             </tr>
-            <h3>
-              Végösszeg: {sumCart(cart)}
-            </h3>
           </>
         )
           : "Nincs termék a kosaradban."
         )
           :
           "Jelentkezz be a kosár megtekintéséhez!"}
+        <>
+          <h3>
+            Végösszeg: {sumCart(cart)}
+          </h3>
+        </>
       </table>
       <button className="order-button" onClick={sendOrderButton}>Megrendelés</button>
       {/* {p.title} - {p.amount} - {p.price} - {p.amount * p.price} */}

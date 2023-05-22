@@ -8,7 +8,6 @@ export const sumCart = (cart) => {
             sum += item.price * item.amount;
         }
     }
-    
     return sum;
 }
 
