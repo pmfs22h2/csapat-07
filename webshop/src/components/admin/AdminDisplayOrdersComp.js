@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import orderService from "../../service/orderService";
+import { Link } from 'react-router-dom';
 
 const AdminDisplayOrdersComp = () => {
 
@@ -26,6 +27,7 @@ const AdminDisplayOrdersComp = () => {
                         <th>Megrendelés ideje</th>
                         <th>Vásárló #</th>
                         <th>Vásárló neve</th>
+                        <th>Részletek</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +37,9 @@ const AdminDisplayOrdersComp = () => {
                             <td>{order.timestamp}</td>
                             <td>{order.uid}</td>
                             <td>sample customer's name</td>
+                            <td>
+                                <Link to={`/admin/megrendelesek/${order.id}`}>Adatlap</Link>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
