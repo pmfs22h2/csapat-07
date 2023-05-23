@@ -31,6 +31,7 @@ body {
 .container {
 	max-width: 73.125rem;
 	margin: auto;
+	
 }
 
 .row {
@@ -46,6 +47,7 @@ ul {
 .footer {
 	background-color: #F6EDE8;
 	padding: 5rem 0;
+	border-top:2px solid #ECDBD1;
 }
 
 .footer-col {

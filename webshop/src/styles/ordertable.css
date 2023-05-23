@@ -7,36 +7,47 @@
     border-radius: 10px 10px 0 0;
     overflow: hidden;
     box-shadow:0 0 20px #eeddd3;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 50px;
 }
 th {
-    background-color: whitesmoke;  /* fejléc*/
-    color: #2A211C;
+    background-color: #FAF6F4;  /* fejléc*/
     text-align:middle;
-    font-weight: bold;
-    padding: 12px 15px;
-    font-size:20px;
+    padding: 10px 30px;
+    font-size:15px;
+    width:250px;
+    border-bottom: 1px solid #3E312A;
+    color: #3E312A;
+    font-weight:lighter;
 }
 tr:hover {
     background-color: #E8D2C6;               /* sorok színezése*/
 }
 td{
-    padding: 12px 15px;                  /* thead*/
+    padding: 20px 20px; 
+    background-color: #F6EDE8;                 /* thead*/
+}
+
+.ordertable tr{
+    border-bottom: 1px solid #FAF6F4;          /* elválasztó vonalak soroknál*/
+    padding: 30px 30px;
 }
 
 .ordertable tbody tr{
-    border-bottom: 1px solid #eeddd3;          /* elválasztó vonalak soroknál*/
+    border-bottom: 1px solid #FAF6F4;          /* elválasztó vonalak soroknál*/
     padding: 30px 30px;
 }
 .ordertable tbody tr:last-of-type {                    /* alsó színes sáv táblázat alján*/
     border-bottom:5px solid  #e8d1c5 ;
 }
 .order-h2{
-    padding:30px;
+    padding:15px;
     margin-bottom:50px;
     margin-top:50px;
-    border-bottom:1px solid #3E312A;
-    font-size:30px;
-    border-top:1px solid #3E312A;
-    background-color: #FAF6F4;
+    /* border-bottom:1px solid #3E312A; */
+    font-size:25px;
+    /* border-top:1px solid #3E312A; */
+    background-color: white;
+    box-shadow:0 0 20px #eeddd3;
+    font-weight:lighter;
 }
