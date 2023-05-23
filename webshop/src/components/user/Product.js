@@ -38,8 +38,8 @@ export default function Products(props) {
         .then(() => cartService.getCart(userData.uid))                          // lekéri a módosított kosarat
         .then((cartlist) => {
             console.log(cartlist, "list");
-            const modifiedcart = getCartList(cartlist)
-            setCart(modifiedcart)})       )  // átadja a módosított kosár tartalmát a kosár context-nek
+            const modifiedcart = getCartList(cartlist).then(modifiedcart => setCart(modifiedcart));
+            })       )  // átadja a módosított kosár tartalmát a kosár context-nek
             
     }
 

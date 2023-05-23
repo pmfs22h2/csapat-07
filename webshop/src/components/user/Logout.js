@@ -9,7 +9,7 @@ const Logout = () => {
 
     function logout() {
         setUserData(null);
-        setCart(null)
+        setCart([])
     }
     
     return (

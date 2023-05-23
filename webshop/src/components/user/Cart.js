@@ -22,7 +22,7 @@ function Cart() {
     console.log(list);
     orderService.sendOrder(list, userData.uid, timestamp);
     orderService.deleteCart(userData.uid, cart);
-    setCart(null);
+    setCart([]);
   }
   return (
     <div>

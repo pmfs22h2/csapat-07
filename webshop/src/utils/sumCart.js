@@ -10,7 +10,7 @@ const sumCart = (cart) => {
         }
     }
 
-
+    if (isNaN(sum)) debugger;
 
     // const sum2 = cart.map(p => p.price) 
     // console.log(sum2, "sum2");

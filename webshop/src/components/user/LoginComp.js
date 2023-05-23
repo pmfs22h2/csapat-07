@@ -35,8 +35,7 @@ const LoginComp = () => {
                         )
                         cartService.getCart(authResp.localId)
                         .then((cartlist) => {
-                            const cart = getCartList(cartlist)
-                            setCart(cart)                            
+                            const cart = getCartList(cartlist).then(cart => setCart(cart))
                         })
                 } else {
                     console.error(authResp.error.message);
