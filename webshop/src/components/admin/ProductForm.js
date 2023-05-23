@@ -12,7 +12,7 @@ export default function ProductForm({ id, product }) {
         readCategories()
             .then(json => setCategoryData(json))
     }, []);
-    console.log(categoryData)
+    
 
     useEffect(() => {
         setFormData(() => formProduct)
@@ -27,7 +27,9 @@ export default function ProductForm({ id, product }) {
         e.preventDefault()
         console.log(formData);
         productService.update(id, formData)
-            .then(() => navigate('/admin/termekek'))
+            .then(() => {
+                navigate('/admin/termekek')
+            })
     }
 
     function updateCategory(e) {
@@ -46,7 +48,7 @@ export default function ProductForm({ id, product }) {
             <p>Termék új neve: <input type="text" onChange={(e) => setFormData({ ...formData, title: e.target.value })} value={formData.title} placeholder='Termék új neve' /></p>
             <p>Termék új ára: <input type="text" onChange={(e) => setFormData({ ...formData, price: e.target.value })} value={formData.price} placeholder='Termék új ára' /></p>
             <p>Termék új kategóriája:
-                <select value={selectValue} id="categories-list" onChange={(e) => updateCategory(e)} >
+                <select  id="categories-list" onChange={(e) => updateCategory(e)} >
                     <option value="">{product.categoryID}</option>
                     {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
                 </select >

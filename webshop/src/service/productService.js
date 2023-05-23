@@ -22,7 +22,7 @@ function update(id, product) {
     headers: {
       'Content-type': 'application/json'
     },
-    body: JSON.stringify({ id: product.id, title: product.title, price: product.price })
+    body: JSON.stringify({ id: product.id, title: product.title, price: product.price, categoryID: product.categoryID })
   })
     .then(res => res.json())
   /* .then(product => setProductId(product.name)) */
