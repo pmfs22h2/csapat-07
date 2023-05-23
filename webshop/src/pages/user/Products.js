@@ -107,6 +107,7 @@ const Products = () => {
 
     return (
         <div className="page-container">
+            <h2 className="product-h2">Terméklista</h2>
             <div className="top-bar">
                 <div className="sort-menu">
                     <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
@@ -121,7 +122,7 @@ const Products = () => {
                     <SearchComponent products={products} />
                 </div>
             </div>
-            <h2 className="product-h2">Terméklista</h2>
+            
 
             <ProductList products={displayedProducts} />
             <div className="pagination-buttons">
