@@ -26,10 +26,11 @@ const Navigation = () => {
                 <Link to="#"><FaUserAlt /></Link>
                 <Link to="#"><FaHeart /></Link>
                 <Link to="/kosar" style={{textDecoration: 'none'}}><FaShoppingBag />
+                {userData && 
                 <div className='badge'>
                     <CartTotal />
                 </div>
-                
+                }                
                 </Link>
             </div>
         </div>
