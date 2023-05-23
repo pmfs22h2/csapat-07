@@ -42,7 +42,9 @@ export default function Products(props) {
             })
             .then(() => cartService.changeItem(addToCartProduct, userData.uid))     // módosítja a firebase kosár tartalmát  
             .then(() => cartService.getCart(userData.uid))                          // lekéri a módosított kosarat
-            .then((cartlist) => setCart(getCartList(cartlist)))         // átadja a módosított kosár tartalmát a kosár context-nek
+            .then((newcartlist) => {
+                const cart = getCartList(newcartlist).then(cart => setCart(cart))
+            })         // átadja a módosított kosár tartalmát a kosár context-nek
     }
 
     return (

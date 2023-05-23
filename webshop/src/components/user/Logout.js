@@ -12,7 +12,7 @@ const Logout = () => {
     function logout() {
         setUserData(null);
         setAdmin(false);
-        setCart(null)
+        setCart([])
     }
 
     return (
