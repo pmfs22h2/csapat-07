@@ -55,9 +55,9 @@ function UserOrders() {
                         </tr>
                     </>
                 )
-                    : "Még nem rendeltél semmit."
+                    : <div className="order-info">Még nem rendeltél semmit.</div>
                 )
-                    : "Bejelentkezés szükséges."
+                    : <div className="order-info">Bejelentkezés szükséges</div>
                 }
 
             </table>
