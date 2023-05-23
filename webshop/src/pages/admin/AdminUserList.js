@@ -15,15 +15,11 @@ const AdminUserList = () => {
     const [sortedItems, setSortedItems] = useState();
 
     useEffect(() => {
+        userService.read()
+            .then(users => setWebshopUsers(users))
+        console.log(webshopUsers)
         listUsers();
     }, [])
-
-    // ez nem kell
-
-    // useEffect(() => {
-    //     userService.read()
-    //         .then(users => setWebshopUsers(users))
-    // }, [])
 
     function listUsers() {
         userService.read()
@@ -85,7 +81,6 @@ const AdminUserList = () => {
         }
     }, [selectValue]);
 
-
     return (
         <>
             <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
@@ -94,6 +89,7 @@ const AdminUserList = () => {
                 <option value="name-desc">Név szerint csökkenő</option>
             </select>
             <p>Admin felhasználók lista</p>
+            <UserList users={webshopUsers} />
             <AdminUserSearchComponent users={displayedUsers} />
             <UserList users={displayedUsers} />
             <div className="pagination-buttons">

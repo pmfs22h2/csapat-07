@@ -1,8 +1,10 @@
 import productService from "../../../src/service/productService";
+import API_URL from "../../../src/service/productService";
 import { useEffect, useState } from "react";
 import '../../styles/adminAddProduct.css';
 import { fileUpload } from "../../utils/fileUpload";
 import readCategories from "../../service/category-service";
+
 export default function AdminAddProduct(props) {
 
     const product = props.product ? props.product : { name: "", price: "", title: "" };
@@ -68,7 +70,9 @@ export default function AdminAddProduct(props) {
                 // (harmadik lépés a fileUpload függvényen belül)
                 fileUpload(file, setUploadedUrl, data.id)
             })
-    }
+    
+
+        }
 
 
     // function validateTitle(e) {
