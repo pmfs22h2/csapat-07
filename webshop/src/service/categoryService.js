@@ -14,7 +14,7 @@ function createCategory(category) {
 }
 
 function setCategoryId(id) {
-    return fetch(`${API_URL}/categories${id}.json`, {
+    return fetch(`${API_URL}/categories/${id}.json`, {
         method: 'PATCH',
         headers: {
             'Content-type': 'application/json'
