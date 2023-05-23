@@ -46,7 +46,7 @@ export default function Registration() {
 
         <div className="registration-form">
 
-            <h1>Regisztráció</h1>
+            <h1 className="registration-title">Regisztráció</h1>
             <form>
                 <p className="reg-text">
                     <input
@@ -72,7 +72,7 @@ export default function Registration() {
                     />
                     <label> Jelszó: </label>
                 </p>
-                <p><button className="reg-button" type="submit" onClick={register}>Küldés</button></p>
+                <button className="reg-button" type="submit" onClick={register}>Küldés</button>
             </form>
             <ToastContainer />
         </div>
