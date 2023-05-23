@@ -1,7 +1,8 @@
 import productService from "../../../src/service/productService";
 import API_URL from "../../../src/service/productService";
 import { useEffect, useState } from "react";
-import '../../styles/adminAddProduct.css';
+import '../../styles/adminaddproduct.css';
+import '../../styles/adminsortsearch.css';
 import { fileUpload } from "../../utils/fileUpload";
 import readCategories from "../../service/category-service";
 
@@ -104,8 +105,9 @@ export default function AdminAddProduct(props) {
     }
 
     return (
-        <div className="add-product">
-            <h2>Új termék hozzáadása</h2>
+        
+        <div className="add-product">  
+        <h2 className="admin-h2">Új termék hozzáadása</h2>
             <label htmlFor="title">Terméknév:</label>
             <input
                 type="text"
@@ -123,10 +125,12 @@ export default function AdminAddProduct(props) {
             />
             <br />
             <label>Kategória kiválasztása: </label>
+            <div className="select-option">
             <select value={formData.categoryID} id="categories-list" onChange={(e) => updateCategory(e)} >
                 <option value="">Válassz egy kategóriát!</option>
                 {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
             </select>
+            </div>
 
             <br />
             <label htmlFor="img">Kép feltöltése a termékhez: </label>
@@ -141,7 +145,7 @@ export default function AdminAddProduct(props) {
                     <><p>termék kép: </p><img src={previewImg} alt="" style={{ width: "300px" }} /></>}
             </div>
             <br />
-            <button onClick={onSubmit}>Termék hozzáadása</button>
+            <button className="addp-button" onClick={onSubmit}>Termék hozzáadása</button>
         </div>
     )
 }

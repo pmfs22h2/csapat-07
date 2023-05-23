@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../../styles/search.css';
 
 const SearchComponent = (props) => {
 
@@ -24,7 +25,7 @@ const SearchComponent = (props) => {
 
     return (
         <div>
-            <div>
+            <div className="search">
                 Keresés: <input type="text" onChange={searchedProduct} value={searchValue} />
                 <button onClick={filter}>Keresés</button>
                 <button onClick={deleteSearchProducts}>x</button>

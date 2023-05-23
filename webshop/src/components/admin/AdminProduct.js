@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
-import '../../styles/admin.css';
+import '../../styles/admintable.css';
 
 export default function AdminProduct(props) {
     return (
         <tr>
             <td>{props.product.title}</td>
             <td>{props.product.price}</td>
-            <button><Link to={`/termekek/${props.product.id}/torles`} className="button">Delete</Link></button>
-            <button><Link to={`/admin/termekek/${props.product.id}/modositas`} className="button">Szerkesztes</Link></button>
+            <button className ="admin-button"><Link className="admin-link" to={`/termekek/${props.product.id}/torles`} >Törlés</Link></button>
+            <button className="admin-button"><Link className="admin-link" to={`/admin/termekek/${props.product.id}/modositas`} >Szerkesztes</Link></button>
         </tr>
     )
 }

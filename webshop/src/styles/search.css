@@ -1,0 +1,17 @@
+.search input{
+    padding: 0 5px;
+    height: 30px;
+    font-size: 16px;
+    border: 1 px solid #F1E4DD;
+    border-radius: 5px;
+    border-color:#F1E4DD;
+    margin-left:20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search input[type=text] {
+    font-family: 'Poppins', sans-serif;
+    color: #3E312A;
+    font-size: 14px;
+
+}
