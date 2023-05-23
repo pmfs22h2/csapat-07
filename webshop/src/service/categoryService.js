@@ -9,20 +9,19 @@ function createCategory(category) {
         body: JSON.stringify({name: category})
     })
         .then(res => res.json()) 
-        // .then(product => setProductId(product.id))
+        .then(data => setCategoryId(data.name))
       
 }
 
-// function setProductId(id) {
-//     return fetch(`${API_URL}categories/${id}.json`, {
-//         method: 'PATCH',
-//         headers: {
-//             'Content-type': 'application/json'
-//         },
-//         body: JSON.stringify({id})
-//     })
-//     .then(resp => resp.json())
-// }
+function setCategoryId(id) {
+    return fetch(`${API_URL}/categories${id}.json`, {
+        method: 'PATCH',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({id})
+    })
+}
 
 
 
