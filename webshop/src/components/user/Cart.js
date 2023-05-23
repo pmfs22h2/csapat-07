@@ -33,6 +33,7 @@ function Cart() {
 
   return (
     <div>
+      <h2 className="cart-h2">Kosár</h2>
       <table className="cart-order">
         <tr>
           <th>Terméknév</th>
