@@ -25,7 +25,7 @@ export default function AdminAddProduct(props) {
         readCategories()
             .then(json => setCategoryData(json))
     }, []);
-    console.log(categoryData)
+    // console.log(categoryData)
 
     function handleImgUpload(e) {
         setFormData({
@@ -119,7 +119,7 @@ export default function AdminAddProduct(props) {
             />
             <br />
             <label>Kategória kiválasztása: </label>
-            <select value={selectValue} id="categories-list" onChange={(e) => updateCategory(e)} >
+            <select value={formData.categoryID} id="categories-list" onChange={(e) => updateCategory(e)} >
                 <option value="">Válassz egy kategóriát!</option>
                 {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
             </select>
