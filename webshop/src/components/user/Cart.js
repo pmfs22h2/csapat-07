@@ -51,10 +51,10 @@ function Cart() {
             </tr>
           </>
         )
-          : "Nincs termék a kosaradban."
+          : <div className="cart-info">Nincs termék a kosaradban.</div>
         )
           :
-          "Jelentkezz be a kosár megtekintéséhez!"}
+          <div className="cart-info">Jelentkezz be a kosár megtekintéséhez!</div>}
       </table>
       {userData && cart ? <button className="order-button" onClick={sendOrderButton}>Megrendelés</button> : <></>}
       <ToastContainer />
