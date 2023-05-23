@@ -21,6 +21,7 @@ import Orders from './pages/user/Orders';
 import AdminUserList from './pages/admin/AdminUserList';
 import AdminCategories from './pages/admin/AdminCategories';
 import AdminAuth from './components/admin/AdminAuth';
+import { SearchValue } from './context/searchValueContext';
 
 const router = createBrowserRouter([
   {
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
         element: <AdminLogin />
       },
       {
-        path:"/megrendeleseim",
+        path: "/megrendeleseim",
         element: <Orders />
       }
     ]
@@ -98,17 +99,20 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [cart, setCart] = useState([]);
   const [admin, setAdmin] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className="App">
-      <AuthContext.Provider value={{ userData, setUserData }}>
-        <AdminAuthContext.Provider value={{ admin, setAdmin }}>
-          <CartContext.Provider value={{ cart, setCart }}>
-            <RouterProvider router={router}>
-            </RouterProvider>
-          </CartContext.Provider>
-        </AdminAuthContext.Provider>
-      </AuthContext.Provider>
+      <SearchValue.Provider value={[searchValue, setSearchValue]}>
+        <AuthContext.Provider value={{ userData, setUserData }}>
+          <AdminAuthContext.Provider value={{ admin, setAdmin }}>
+            <CartContext.Provider value={{ cart, setCart }}>
+              <RouterProvider router={router}>
+              </RouterProvider>
+            </CartContext.Provider>
+          </AdminAuthContext.Provider>
+        </AuthContext.Provider>
+      </SearchValue.Provider>
     </div>
   );
 }

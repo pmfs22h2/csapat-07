@@ -1,5 +1,5 @@
 import productService from "../../../src/service/productService"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom"
 import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB"
@@ -8,6 +8,7 @@ import SearchComponent from "../../components/user/SearchComponent";
 import "../../styles/pagination-buttons.css";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
+import { SearchValue } from "../../context/searchValueContext";
 
 const Products = () => {
 
@@ -16,6 +17,7 @@ const Products = () => {
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
+    const [searchValue, setSearchValue] = useContext(SearchValue);
 
     // const [searchParams, setSearchParams] = useSearchParams();
     // const [sortByTitle, setSortByTitle] = useState({ sort: searchParams.get("sort") || "" });
@@ -124,7 +126,7 @@ const Products = () => {
             </div>
             
 
-            <ProductList products={displayedProducts} />
+            <ProductList products={displayedProducts} searchValue={searchValue} />
             <div className="pagination-buttons">
                 <button onClick={prevPage} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} disabled={to === products.length}>Előre</button>
