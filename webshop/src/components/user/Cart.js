@@ -42,27 +42,29 @@ function Cart() {
           <th>Termék ár</th>
           <th>Termék ár összesen</th>
         </tr>
-        {userData ? (cart ? cart.map(p =>
-          <>
+        {userData ? (cart ? 
+        
+        <>{cart.map(p =>          
             <tr>
               <td>{p.title}</td>
               <td>{p.amount}</td>
               <td>{p.price}</td>
               <td>{p.amount * p.price}</td>
-            </tr>
-          </>
-        )
-          : <div className="cart-info">Nincs termék a kosaradban.</div>
-        )
-          :
-           "Jelentkezz be a kosár megtekintéséhez!"
-      }
-        <>
-          <h3>
-            Végösszeg: {sumCart(cart)}
-          </h3>
+            </tr>     
+        )     
+        }   
+          <tr className="cart-sum">
+            <td></td>
+            <td></td>
+            <td>Végösszeg:</td>
+            <td className="cart-sum">{sumCart(cart)}</td>
+          </tr>
         </>
-          <div className="cart-info">Jelentkezz be a kosár megtekintéséhez!</div>
+        : <div className="cart-info">Nincs termék a kosaradban.</div>
+        )     
+        :
+        <div className="cart-info">Jelentkezz be a kosár megtekintéséhez!</div>
+      }
       </table>
       {userData && cart ? <button className="order-button" onClick={sendOrderButton}>Megrendelés</button> : <></>}
       <ToastContainer />
