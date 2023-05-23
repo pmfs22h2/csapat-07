@@ -4,12 +4,18 @@ import { AuthContext } from "../../context/AuthContext";
 import sumCart from "../../utils/sumCart";
 import '../../styles/cart.css';
 import orderService from '../../service/orderService';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Cart() {
   const { cart, setCart } = useContext(CartContext);
   const { userData } = useContext(AuthContext)
 
-  console.log('cart', cart);
+  const sentOrderSuccess = () => {
+    toast.success('Sikeres megrendelés!', {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
 
   function sendOrderButton() {
     const now = new Date();
@@ -22,10 +28,13 @@ function Cart() {
     console.log(list);
     orderService.sendOrder(list, userData.uid, timestamp);
     orderService.deleteCart(userData.uid, cart);
-    setCart([]);
+    setCart([]);  
+    sentOrderSuccess();
   }
+
   return (
     <div>
+      <h2 className="cart-h2">Kosár</h2>
       <table className="cart-order">
         <tr>
           <th>Terméknév</th>
@@ -43,18 +52,20 @@ function Cart() {
             </tr>
           </>
         )
-          : "Nincs termék a kosaradban."
+          : <div className="cart-info">Nincs termék a kosaradban.</div>
         )
           :
-          "Jelentkezz be a kosár megtekintéséhez!"}
+           "Jelentkezz be a kosár megtekintéséhez!"
+      }
         <>
           <h3>
             Végösszeg: {sumCart(cart)}
           </h3>
         </>
+          <div className="cart-info">Jelentkezz be a kosár megtekintéséhez!</div>
       </table>
-      <button className="order-button" onClick={sendOrderButton}>Megrendelés</button>
-      {/* {p.title} - {p.amount} - {p.price} - {p.amount * p.price} */}
+      {userData && cart ? <button className="order-button" onClick={sendOrderButton}>Megrendelés</button> : <></>}
+      <ToastContainer />
     </div>
   )
 }

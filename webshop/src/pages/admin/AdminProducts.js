@@ -14,8 +14,8 @@ const AdminProducts = () => {
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
-    const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
-    
+    const [sortedItems, setSortedItems] = useState();
+
     useEffect(() => {
         listProducts();
     }, [])

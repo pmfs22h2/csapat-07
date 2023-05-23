@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import '../../styles/admin.css';
 
-
 export default function AdminProduct(props) {
     return (
         <tr>
@@ -12,6 +11,3 @@ export default function AdminProduct(props) {
         </tr>
     )
 }
-
-
-
