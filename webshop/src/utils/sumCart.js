@@ -1,10 +1,19 @@
 const sumCart = (cart) => {
     let sum = 0;
+    console.log(cart, "függvény");
     if (cart && cart.length > 0) {
         for (const item of cart) {
-            sum += item.price * item.amount;
+            // if(item.price) sum += item.price * Number(item.amount);
+
+            // az item.amount undefined            
+            sum += item.price * Number(item.amount);
         }
     }
+
+
+
+    // const sum2 = cart.map(p => p.price) 
+    // console.log(sum2, "sum2");
     return sum;
 }
 

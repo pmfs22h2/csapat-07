@@ -9,7 +9,7 @@ export default function Products(props) {
 
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const { userData } = useContext(AuthContext)
-    const { setCart } = useContext(CartContext);
+    const { cart, setCart } = useContext(CartContext);
 
     // function addItemToCart() {
     //     cartService.addToCart(props.product.id, userData.uid);
@@ -34,12 +34,16 @@ export default function Products(props) {
                 addToCartProduct = {[props.product.id] : cartlist[props.product.id] + 1}                
             }
         })
-        .then(() => cartService.changeItem(addToCartProduct, userData.uid))     // módosítja a firebase kosár tartalmát  
+        .then(() => cartService.changeItem(addToCartProduct, userData.uid)    // módosítja a firebase kosár tartalmát  
         .then(() => cartService.getCart(userData.uid))                          // lekéri a módosított kosarat
-        .then((cartlist) => setCart(getCartList(cartlist)))         // átadja a módosított kosár tartalmát a kosár context-nek
+        .then((cartlist) => {
+            console.log(cartlist, "list");
+            const modifiedcart = getCartList(cartlist)
+            setCart(modifiedcart)})       )  // átadja a módosított kosár tartalmát a kosár context-nek
             
     }
 
+    console.log(cart, "addtocart");
     return (
         <>
             <div className="product">

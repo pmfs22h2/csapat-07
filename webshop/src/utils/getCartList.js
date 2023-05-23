@@ -13,5 +13,6 @@ export default function getCartList(cartlist) {
             return Promise.all(response.map(data => data.json()))})
         .then(data => data.map((p, index) => Object.assign(cart[index], p)))
 
+        console.log(cart, "all");
     return cart
 }
