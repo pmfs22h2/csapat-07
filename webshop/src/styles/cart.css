@@ -6,29 +6,30 @@
     border-radius: 10px 10px 0 0;
     overflow: hidden;
     box-shadow:0 0 20px #eeddd3;
-    background-color:#f0e9e5;
+    background-color:#F6EDE8;
+
     
 }
 .cart-order th {
     background-color: #FAF6F4;  /* fejléc*/
-    /* color: #3E312A; */
     text-align:middle;
-    font-weight: bold;
-    padding: 40px 40px;
-    font-size:20px;
-    width:300px;
+    padding: 10px 30px;
+    font-size:15px;
+    width:250px;
     border-bottom: 1px solid #3E312A;
+    color: #3E312A;
+    
    
 }
 
 .cart-order td{
-    padding: 60px 20px; 
-    background-color: whitesmoke;
+    padding: 20px 20px; 
+    background-color: #F6EDE8;
   
 }
 
 .cart-order tr{
-    border-bottom: 1px solid #3E312A;          /* elválasztó vonalak soroknál*/
+    border-bottom: 1px solid #FAF6F4;          /* elválasztó vonalak soroknál*/
     padding: 30px 30px;
 }
 
@@ -56,16 +57,16 @@
     }
 
 .cart-h2{
-    padding:50px;
+    padding:30px;
     margin-bottom:50px;
-    margin-top:50px;
-    background-image: url('./cart.jpeg');
-    background-size: 200px;
+    margin-top:20px;
+    background-image: url('./kosaruj.png');
+    background-size: 150px;
     background-repeat: no-repeat;
-    background-position:39%;
-    border-bottom:1px solid #3E312A;
-    font-size:40px;
-    border-top:1px solid #3E312A;
+    background-position:45%;
+    /* border-bottom:1px solid #3E312A; */
+    font-size:30px;
+    /* border-top:1px solid #3E312A; */
     background-color: #FAF6F4;
 
 
