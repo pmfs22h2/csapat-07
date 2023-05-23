@@ -1,12 +1,12 @@
 const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/'
 
-function create(title, price) {
+function create(title, price, categoryID) {
   return fetch(`${API_URL}products.json`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json'
     },
-    body: JSON.stringify({ title, price })
+    body: JSON.stringify({ title, price, categoryID })
   })
     .then(res => res.json())
     .then(product => setProductId(product.name))
