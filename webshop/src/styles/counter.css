@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+.counter-round {
+    border: 1px solid black;
+    width: 15em;
+    height: 15rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 3px solid rgb(129, 91, 97);
+    color: rgb(129, 91, 97);
+    background-color: rgba(112, 80, 85, 0.223);
+    position: relative;
+
+}
+
+#productsamount {
+    position: absolute;
+}
+
+.counter-round p {
+    /* color: rgb(129, 91, 97); */
+    font-weight: bold;
+    background: -webkit-linear-gradient(#372929, #766363) ;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+
+
+}
+
+.counter-round span {
+    font-size: 10em;
+    background: -webkit-linear-gradient(#372929, #766363, #b1a7a7, #775757) ;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.admin-counter {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
