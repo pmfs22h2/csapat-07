@@ -61,7 +61,7 @@ export default function AdminAddProduct(props) {
 
     function onSubmit(event) {
         event.preventDefault();
-
+        if (validateTitle() && validatePrice())
         // 1. létrehozza a terméket firebase-n (url nélkül)
         productService.create(formData.title, formData.price, formData.categoryID)
             .then(data => {
@@ -75,22 +75,37 @@ export default function AdminAddProduct(props) {
         }
 
 
-    // function validateTitle(e) {
-    //     if (/^\d+$/(formData.price)) alert("Nem tartalmazhat csak számokat!");
-    //     else if (formData.price === "") alert("Nem lehet üres!");
-    //     else if (formData.price.length < 2) alert("Minimum két karakter hosszúnak lennie kell!")
-    //     else {
-    //         updateTitle();
-    //     }
-    // }
+    function validateTitle() {
+      	const title = formData.title;
+        if (title.match(/^\d+$/)) 
+        {
+          alert("A 'Terméknév' nem tartalmazhat csak számokat!");
+          return false;
+        }
+        
+      	if (title === "") {
+            alert("A 'Terméknév' nem lehet üres!");
+      		return false;
+        }
+        if (title.length < 2) {
+          alert("A 'Terméknév' minimum két karakter hosszú kell, hogy legyen!") 
+          return false;
+        }
 
-    // function validatePrice(e) {
-    //     if (isNaN(formData.price)) alert("Csak számokat tartalmazhat!");
-    //     else if (formData.price === "") alert("Nem lehet üres!");
-    //     else {
-    //         updatePrice();
-    //     }
-    // }
+      	return true;
+    }
+
+    function validatePrice() {
+      const price = formData.price;
+        if (isNaN(price)) {
+          alert("Az 'Ár' csak számokat tartalmazhat!");
+        	return false;
+        }
+        if (price === "") {
+          alert("Az 'Ár' nem lehet üres!");
+          return false;
+        }
+    }
 
     // képfeltöltéskor egyből megjeleníti a képet, még a végleges feltöltés előtt
     function previewImage(filetest) {
@@ -106,7 +121,7 @@ export default function AdminAddProduct(props) {
     return (
         <div className="add-product">
             <h2>Új termék hozzáadása</h2>
-            <label htmlFor="title">Terméknév:</label>
+            <label htmlFor="title">Terméknév: </label>
             <input
                 type="text"
                 name="title"
@@ -114,7 +129,7 @@ export default function AdminAddProduct(props) {
                 onChange={(e) => updateTitle(e)}
             />
             <br />
-            <label htmlFor="price">Ár:</label>
+            <label htmlFor="price">Ár: </label>
             <input
                 type="text"
                 name="price"

@@ -12,14 +12,15 @@ const AdminNavigation = () => {
             <div className='header-container'>
                 <div className='navbar'>
                     <Link to='/admin'>Admin</Link>
-                    <Link to='/admin/termekek'>Termék lista</Link>
+                    <Link to='/admin/termekek'>Terméklista</Link>
                     <Link to='/admin/termek-felvitel'>Termékfelvitel</Link>
-                    <Link to='/admin/vasarlok'>Felhasználók lista</Link>
-                    <Link to='/'><button onClick={() => setAdmin(false)}>Vissza</button></Link>
+                    <Link to='/admin/vasarlok'>Felhasználók listája</Link>
+                    <Link to='/admin/kategoriak/uj-kategoria'>Kategória felvitel</Link>
+                    {/* <Link to='/'><button onClick={() => setAdmin(false)}>Vissza</button></Link> */}
                 </div>
-                <Link to='/'>Vissza</Link>
-                <Link to='/admin/vasarlok'>Felhasználók lista</Link>
-                <Link to='/admin/kategoriak/uj-kategoria'>Kategória felvitel</Link>
+                <Link to='/'>Vissza a felhasználói oldalra</Link>
+                {/* <Link to='/admin/vasarlok'>Felhasználók lista</Link> */}
+
             </div>
         </>
     )

@@ -12,21 +12,21 @@ const Navigation = () => {
     return (
         <div className='header-container'>
             <div className='navbar'>
+                {admin && <Link to='/admin'>Admin</Link>}
                 <Link to='/'>Kezdőoldal</Link>
                 <Link to='/termekek'>Termékek</Link>
-                {admin && <Link to='/admin'>Admin</Link>}
-                <Link to='/kosar'>Kosár</Link>
-                {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>}
-                {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>}
+                {/* <Link to='/kosar'>Kosár</Link> */}
+                {/* {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>} */}
+                {/* {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>} */}
                 {!admin ? <Link to='/admin-belepes'>Admin Bejelentkezés</Link> : <></>}
-                <Link to='/megrendeleseim'>Megrendelések</Link>
+                {userData ? <Link to='/megrendeleseim'>Megrendelések</Link> : <></>}
             </div>
             <div className='user-login'>
                 {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
                 {(userData || admin) && <button onClick={() => { setUserData(null); setAdmin(false) }}>Kijelentkezés</button>}
             </div>
             <div className='nav-icons'>
-                <Link to="#"><FaUserAlt /></Link>
+                {!userData ? <Link to="/belepes"><FaUserAlt /></Link> : <></>}
                 <Link to="#"><FaHeart /></Link>
                 <Link to="/kosar"><FaShoppingBag /></Link>
             </div>
