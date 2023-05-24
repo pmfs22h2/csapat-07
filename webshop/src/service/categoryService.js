@@ -10,7 +10,6 @@ function createCategory(category) {
     })
         .then(res => res.json()) 
         .then(data => setCategoryId(data.name))
-      
 }
 
 function setCategoryId(id) {
@@ -23,10 +22,14 @@ function setCategoryId(id) {
     })
 }
 
-
+function readCategories() {
+    return fetch(`${API_URL}/categories.json`)
+        .then(res => res.json())
+}
 
 
 export default{
-    createCategory: createCategory
+    createCategory: createCategory,
+    readCategories: readCategories
     
 }
