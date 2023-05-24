@@ -109,7 +109,7 @@ const router = createBrowserRouter([
         element: <AdminCategories />
       },
       {
-        path: '/admin/kategoriak/:kategoriaId/modositas',
+        path: '/admin/kategoriak/:kategoriaId/szerkesztes',
         element: <AdminCategoryModify />                      
       },
       {
