@@ -18,11 +18,11 @@ const Products = () => {
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
     const [searchValue, setSearchValue] = useContext(SearchValue);
+    const [sortedItems, setSortedItems] = useState();
 
     // const [searchParams, setSearchParams] = useSearchParams();
     // const [sortByTitle, setSortByTitle] = useState({ sort: searchParams.get("sort") || "" });
 
-    const [sortedItems, setSortedItems] = useState();
 
     useEffect(() => {
         listProducts();
@@ -50,19 +50,15 @@ const Products = () => {
             sliceprod(prod)
 
         } else {
-            setSortedItems(products)
+            setSortedItems(...products)
+            sliceprod(products)
         }
     }, [selectValue]);
 
-    // function createProducts() {
-    //     const product = {
-    //         title: prompt("Adj meg egy nevet!"),
-    //         price: prompt("Adj meg egy árat!"),
-    //     }
-
-    //     productService.create(product)
-
-    // }
+    useEffect(() => {
+        const searchedProducts = products.filter(p => p.title.includes(searchValue))
+        sliceprod(searchedProducts)
+    }, [searchValue])
 
     function listProducts() {
         productService.read()
@@ -127,10 +123,10 @@ const Products = () => {
             
             {/* Itt ha a displayedProducts helyett products-ot adok át neki, működik a keresés az összes termékre. */}
             {/* Most így viszont csak az adott oldalon keres */}
-            <ProductList products={displayedProducts} searchValue={searchValue} />
+            <ProductList products={products} displayedProducts={displayedProducts} searchValue={searchValue} />
             <div className="pagination-buttons">
-                <button onClick={prevPage} disabled={from === 0}>Vissza</button>
-                <button onClick={nextPage} disabled={to === products.length}>Előre</button>
+                <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
+                <button onClick={nextPage} className={to === products.length ? "disabled" : ""} disabled={to === products.length}>Előre</button>
             </div>
         </div>
     )
