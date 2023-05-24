@@ -18,7 +18,7 @@ const AdminNavigation = () => {
                     <Link to='/admin/vasarlok'>Felhasználók lista</Link>
                     <Link to='/admin/megrendelesek'>Megrendelések</Link>
                     <Link to='/admin/kategoriak/uj-kategoria'>Kategória felvitel</Link>
-                    <Link to='/'><button onClick={() => setAdmin(false)}><FaArrowLeft/>Vissza</button> </Link>
+                    <Link to='/'><button className="back-button" onClick={() => setAdmin(false)}><FaArrowLeft/>Vissza</button> </Link>
                 </div>              
             </div>
         </>

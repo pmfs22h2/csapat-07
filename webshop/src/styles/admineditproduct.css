@@ -40,7 +40,8 @@
     border-color: #cec6c2;
     font-family: 'Poppins', sans-serif;
     padding:5px;
-    margin-left:5px;
+    margin-left:10px;
+    margin-top:20px;
 }
 .admin-save-button{
     border-radius: 5px;
@@ -56,4 +57,19 @@
     font-family: 'Poppins', sans-serif;
     padding:5px;
     margin-left:5px;
+}
+.new-input{
+    display:flex;
+    justify-content: center;
+    gap:20px;
+
+}
+
+.original-data{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    gap:10px;
+    margin-top:30px;
+    margin-bottom:30px;
 }

@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { AdminAuthContext } from "../../context/AdminAuthContext";
 import { useNavigate } from "react-router";
+import '../../styles/admin.css';
+import '../../styles/adminlogin.css';
 
 const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/'
 
@@ -27,19 +29,22 @@ const AdminLoginComp = () => {
 
     return (
         <>
-            <h1> Admin Bejelenkezés </h1>
-
+        
+            <h2 className="admin-h2"> Admin Bejelenkezés </h2>
+            <div className="admin-login">
             <form>
                 <p>
                     <label htmlFor="email"> E-mail: </label>
                     <input type="email" value={formData.email} required onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                 </p>
+                <br></br>
                 <p>
                     <label htmlFor="password"> Jelszó: </label>
                     <input type="password" value={formData.password} required minLength={6} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
                 </p>
-                <p><button type="submit" onClick={login}>Belépés</button></p>
+                <p><button className="admin-login-btn" type="submit" onClick={login}>Belépés</button></p>
             </form>
+            </div>
         </>
     )
 }

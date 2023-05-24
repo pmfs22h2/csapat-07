@@ -24,7 +24,6 @@ const EditProduct = () => {
   return (
     <div>
       <ProductForm product={product} id={id} />
-      <button className="admin-cancel-button" onClick={() => navigate('/admin/termekek')}>Mégsem</button>
     </div>
   );
 }
