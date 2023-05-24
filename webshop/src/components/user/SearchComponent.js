@@ -27,8 +27,8 @@ const SearchComponent = (props) => {
         <div>
             <div className="search">
                 Keresés: <input type="text" onChange={searchedProduct} value={searchValue} />
-                <button onClick={filter}>Keresés</button>
-                <button onClick={deleteSearchProducts}>x</button>
+                <button className="search-button" onClick={filter}>Keresés</button>
+                <button className="delete-button" onClick={deleteSearchProducts}>x</button>
             </div>
 
             <div>

@@ -1,5 +1,6 @@
 .select-option{
     padding:10px;
+    margin-bottom:20px;
 
 }
 .select-option option{
@@ -22,6 +23,7 @@
     border-color:#F1E4DD;
     margin-left:20px;
     font-family: 'Poppins', sans-serif;
+    margin-bottom:30px;
 }
 
 .search input[type=text] {
