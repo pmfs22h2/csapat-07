@@ -91,7 +91,7 @@ const AdminUserList = () => {
                 <option value="name-desc">Név szerint csökkenő</option>
             </select>
             </div>
-            <UserList users={webshopUsers} />
+            {/* <UserList users={webshopUsers} /> */}
             <AdminUserSearchComponent users={displayedUsers} />
             <UserList users={displayedUsers} />
             <div className="pagination-buttons">
