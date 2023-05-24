@@ -2,6 +2,7 @@ import categoryService from '../../service/categoryService';
 import { useEffect, useState } from 'react';
 import '../../styles/adminaddcategory.css';
 import { Link } from 'react-router-dom';
+import '../../styles/admintable.css';
 
 export default function AdminCatListComp() {
 
@@ -14,7 +15,7 @@ export default function AdminCatListComp() {
     console.log(category)
 
     return (
-        <table>
+        <table className='admintable'>
             {Object.values(category).map(cat => (
                 <tr>
                     <td>{cat.name}</td>
