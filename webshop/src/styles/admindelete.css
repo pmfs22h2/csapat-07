@@ -1,0 +1,9 @@
+.admin-delete-btn p{
+    padding:20px;
+}
+
+.admin-delete-btn{
+    display:flex;
+    justify-content: center;
+    padding:30px;
+}
