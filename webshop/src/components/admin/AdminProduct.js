@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import '../../styles/admintable.css';
+import '../../styles/admin.css';
 
 export default function AdminProduct(props) {
     return (
