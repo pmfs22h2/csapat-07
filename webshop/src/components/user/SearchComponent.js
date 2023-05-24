@@ -1,5 +1,6 @@
 import { useState } from "react"
 import '../../styles/search.css';
+import { FaTimes } from 'react-icons/fa';
 
 const SearchComponent = (props) => {
 
@@ -28,7 +29,7 @@ const SearchComponent = (props) => {
             <div className="search">
                 Keresés: <input type="text" onChange={searchedProduct} value={searchValue} />
                 <button className="search-button" onClick={filter}>Keresés</button>
-                <button className="delete-button" onClick={deleteSearchProducts}>x</button>
+                <button className="delete-button" onClick={deleteSearchProducts}><FaTimes /></button>
             </div>
 
             <div>
