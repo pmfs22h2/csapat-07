@@ -3,7 +3,7 @@ import API_URL from "../../../src/service/productService";
 import { useEffect, useState } from "react";
 import '../../styles/adminAddProduct.css';
 import { fileUpload } from "../../utils/fileUpload";
-import readCategories from "../../service/category-service";
+import categoryService from "../../service/categoryService";
 
 export default function AdminAddProduct(props) {
 
@@ -24,7 +24,7 @@ export default function AdminAddProduct(props) {
     const [selectValue, setSelectValue] = useState("categories");
 
     useEffect(() => {
-        readCategories()
+        categoryService.readCategories()
             .then(json => setCategoryData(json))
     }, []);
     // console.log(categoryData)

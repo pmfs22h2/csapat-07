@@ -6,6 +6,7 @@ import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
+import CategorySearch from "../../components/user/CategorySearch";
 
 const AdminProducts = () => {
 
@@ -99,6 +100,7 @@ const AdminProducts = () => {
                 <option value="price-asc">Ár szerint növekvő</option>
                 <option value="price-desc">Ár szerint csökkenő</option>
             </select>
+            <CategorySearch/>
             <p>Admin termék lista</p>
             <SearchComponent products={displayedProducts} />
             <AdminProductList products={displayedProducts} />

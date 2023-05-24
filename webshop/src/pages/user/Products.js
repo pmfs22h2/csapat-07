@@ -8,6 +8,7 @@ import SearchComponent from "../../components/user/SearchComponent";
 import "../../styles/pagination-buttons.css";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
+import CategorySearch from "../../components/user/CategorySearch";
 
 const Products = () => {
 
@@ -118,6 +119,7 @@ const Products = () => {
                         <option value="price-desc">Ár szerint csökkenő</option>
                     </select>
                 </div>
+                <CategorySearch/>
                 <div className="searchbar">
                     <SearchComponent products={products} />
                 </div>
