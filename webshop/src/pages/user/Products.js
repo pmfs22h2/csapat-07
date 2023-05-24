@@ -109,7 +109,7 @@ const Products = () => {
         <div className="page-container">
             <h2 className="product-h2">Terméklista</h2>
             <div className="top-bar">
-                <div className="sort-menu">
+                <div className="select-option">
                     <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                         <option value="order">Rendezés</option>
                         <option value="name-asc">Név szerint növekvő</option>
