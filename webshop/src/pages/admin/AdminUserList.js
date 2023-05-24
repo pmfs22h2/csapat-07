@@ -90,17 +90,10 @@ const AdminUserList = () => {
                 <option value="name-asc">Név szerint növekvő</option>
                 <option value="name-desc">Név szerint csökkenő</option>
             </select>
-<<<<<<< HEAD
             </div>
             {/* <UserList users={webshopUsers} /> */}
             <AdminUserSearchComponent users={displayedUsers} />
             <UserList users={displayedUsers} />
-=======
-            <AdminUserSearchComponent users={displayedUsers} />
-            <p>Admin felhasználók lista</p>
-            <UserList users={webshopUsers} />
-            {/* <UserList users={displayedUsers} /> */}
->>>>>>> generalupdates
             <div className="pagination-buttons">
                 <button onClick={prevPage} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} disabled={to === webshopUsers.length}>Előre</button>
