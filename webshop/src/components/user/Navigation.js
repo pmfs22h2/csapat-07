@@ -20,10 +20,10 @@ const Navigation = () => {
                 {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>}
                 {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>}
                 {!admin ? <Link to='/admin-belepes'>Admin Bejelentkezés</Link> : <></>}
-                <Link to='/megrendeleseim'>Megrendelések</Link>
+                {userData && <Link to='/megrendeleseim'>Megrendelések</Link>}
             </div>
             <div className='user-login'>
-                {userData ? `Bejelentkezve, mint: ${userData.name}` : "Még nem vagy bejelentkezve"}
+                {userData && `Bejelentkezve, mint: ${userData.name}`}
                 {(userData || admin) && <button onClick={() => { setUserData(null); setAdmin(false) }}>Kijelentkezés</button>}
             </div>
             <div className='nav-icons'>
