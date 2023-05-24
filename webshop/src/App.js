@@ -19,6 +19,7 @@ import Orders from './pages/user/Orders';
 
 import AdminUserList from './pages/admin/AdminUserList';
 import AdminDisplayOrders from './pages/admin/AdminDisplayOrders';
+import AdminOrderDetails from './components/admin/AdminOrderDetails';
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: '/admin/megrendelesek',
         element: <AdminDisplayOrders />
+      }, 
+      {
+        path: '/admin/megrendelesek/:orderId',
+        element: <AdminOrderDetails />
       }
 
     ]
