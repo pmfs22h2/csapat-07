@@ -55,6 +55,8 @@ export default function Products(props) {
                     <div className='product-title'>{props.product.title}</div>
                     <div className='product-price'>{props.product.price} HUF</div>
                     <button className="cart-button" onClick={addToCartClick}>Kosárba</button>
+                </div>
+                <div>
                     <ToastContainer />
                 </div>
             </div>

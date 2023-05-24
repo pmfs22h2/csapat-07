@@ -125,9 +125,9 @@ const Products = () => {
                 </div>
             </div>
             
-            {/* Itt nem működik a sortolás, mert nem a displayedProducts van neki átadva products props alatt - viszont úgy meg a keresés hiányos,
-            csak az adott oldal találatait adja ki */}
-            <ProductList products={products} searchValue={searchValue} />
+            {/* Itt ha a displayedProducts helyett products-ot adok át neki, működik a keresés az összes termékre. */}
+            {/* Most így viszont csak az adott oldalon keres */}
+            <ProductList products={displayedProducts} searchValue={searchValue} />
             <div className="pagination-buttons">
                 <button onClick={prevPage} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} disabled={to === products.length}>Előre</button>
