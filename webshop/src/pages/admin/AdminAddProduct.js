@@ -1,7 +1,7 @@
 import productService from "../../../src/service/productService";
 import API_URL from "../../../src/service/productService";
 import { useEffect, useState } from "react";
-import '../../styles/adminaddproduct.css';
+import '../../styles/adminAddProduct.css';
 import '../../styles/adminsortsearch.css';
 import { fileUpload } from "../../utils/fileUpload";
 import readCategories from "../../service/category-service";
