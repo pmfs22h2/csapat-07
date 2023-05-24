@@ -1,9 +1,11 @@
 import '../../styles/admin.css';
 
 const Admin = () => {
+
     return (
         <>
-            <p>Admin kezdőoldal</p>   
+            <h2 className="admin-h2">Admin kezdőoldal</h2>
+
         </>
     )
 }

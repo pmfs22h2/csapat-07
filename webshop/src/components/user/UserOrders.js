@@ -34,8 +34,7 @@ function UserOrders() {
 
     return (
         <div>
-
-            <h2>Felhasználó megrendelései</h2>
+            <h2 className="order-h2">Felhasználó megrendelései</h2>
             <table className="ordertable">
                 <thead>
                     <tr>
@@ -55,9 +54,9 @@ function UserOrders() {
                         </tr>
                     </>
                 )
-                    : "Még nem rendeltél semmit."
+                    : <div className="order-info">Még nem rendeltél semmit.</div>
                 )
-                    : "Bejelentkezés szükséges."
+                    : <div className="order-info">Bejelentkezés szükséges</div>
                 }
 
             </table>

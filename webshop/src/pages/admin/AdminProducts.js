@@ -6,6 +6,8 @@ import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
+import '../../styles/admintable.css';
+import '../../styles/search.css';
 
 const AdminProducts = () => {
 
@@ -14,8 +16,8 @@ const AdminProducts = () => {
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
-    const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
-    
+    const [sortedItems, setSortedItems] = useState();
+
     useEffect(() => {
         listProducts();
     }, [])
@@ -92,6 +94,8 @@ const AdminProducts = () => {
 
     return (
         <>
+        <h2 className="adminprodlist-h2">Admin termék lista</h2>
+        <div className="select-option">
             <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                 <option value="order">Rendezés</option>
                 <option value="name-asc">Név szerint növekvő</option>
@@ -99,7 +103,7 @@ const AdminProducts = () => {
                 <option value="price-asc">Ár szerint növekvő</option>
                 <option value="price-desc">Ár szerint csökkenő</option>
             </select>
-            <p>Admin termék lista</p>
+            </div>
             <SearchComponent products={displayedProducts} />
             <AdminProductList products={displayedProducts} />
             <div className="pagination-buttons">

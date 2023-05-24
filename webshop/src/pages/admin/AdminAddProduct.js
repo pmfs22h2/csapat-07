@@ -1,7 +1,10 @@
 import productService from "../../../src/service/productService";
+import API_URL from "../../../src/service/productService";
 import { useEffect, useState } from "react";
 import '../../styles/adminAddProduct.css';
+import '../../styles/adminsortsearch.css';
 import { fileUpload } from "../../utils/fileUpload";
+import readCategories from "../../service/category-service";
 
 export default function AdminAddProduct(props) {
 
@@ -10,12 +13,22 @@ export default function AdminAddProduct(props) {
     const [formData, setFormData] = useState({
         title: product.title,
         price: product.price,
-        img: ""
+        img: "",
+        categoryID: ""
     });
     const [file, setFile] = useState(null);
     const [uploadedUrl, setUploadedUrl] = useState(null);
 
-    const [previewImg, setPreviewImg] = useState("")
+    const [previewImg, setPreviewImg] = useState("");
+
+    const [categoryData, setCategoryData] = useState({});
+    const [selectValue, setSelectValue] = useState("categories");
+
+    useEffect(() => {
+        readCategories()
+            .then(json => setCategoryData(json))
+    }, []);
+    // console.log(categoryData)
 
     function handleImgUpload(e) {
         setFormData({
@@ -40,19 +53,28 @@ export default function AdminAddProduct(props) {
         })
     }
 
+    function updateCategory(e) {
+        setFormData({
+            ...formData,
+            categoryID: e.target.value
+        })
+    }
+
     function onSubmit(event) {
         event.preventDefault();
 
         // 1. létrehozza a terméket firebase-n (url nélkül)
-        productService.create(formData.title, formData.price)
-        .then(data => {
-            // 2. feltölti a képet storage-be, feltöltéskor visszaadja a kép azonosítóját ('url'), beállítja useState-nek
-            // 3. feltölti a visszakapott azonosítót az 1.lépésben postolt termékhez (data.id -> post által létrehozott id)
-            // (harmadik lépés a fileUpload függvényen belül)
-            fileUpload(file, setUploadedUrl, data.id)    
-        })
-    }
+        productService.create(formData.title, formData.price, formData.categoryID)
+            .then(data => {
+                // 2. feltölti a képet storage-be, feltöltéskor visszaadja a kép azonosítóját ('url'), beállítja useState-nek
+                // 3. feltölti a visszakapott azonosítót az 1.lépésben postolt termékhez (data.id -> post által létrehozott id)
+                // (harmadik lépés a fileUpload függvényen belül)
+                fileUpload(file, setUploadedUrl, data.id)
+            })
     
+
+        }
+
 
     // function validateTitle(e) {
     //     if (/^\d+$/(formData.price)) alert("Nem tartalmazhat csak számokat!");
@@ -77,44 +99,53 @@ export default function AdminAddProduct(props) {
         fileReader.onload = () => {
             setPreviewImg(fileReader.result)
         }
-        if(filetest) {
+        if (filetest) {
             fileReader.readAsDataURL(filetest);
-        }        
+        }
     }
 
     return (
-        <div className="add-product">
-            <h2>Új termék hozzáadása</h2>
+        
+        <div className="add-product">  
+        <h2 className="admin-h2">Új termék hozzáadása</h2>
             <label htmlFor="title">Terméknév:</label>
-            <input 
-                type="text" 
-                name="title" 
-                value={formData.title} 
-                onChange={(e) => updateTitle(e)} 
+            <input
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={(e) => updateTitle(e)}
             />
-            <br/>
+            <br />
             <label htmlFor="price">Ár:</label>
-            <input 
-                type="text" 
+            <input
+                type="text"
                 name="price"
-                value={formData.price} 
-                onChange={(e) => updatePrice(e)} 
+                value={formData.price}
+                onChange={(e) => updatePrice(e)}
             />
-            <br/>
-            <label htmlFor="img">Képt feltöltése a termékhez:</label>
-            <input 
-                type="file" 
+            <br />
+            <label>Kategória kiválasztása: </label>
+            <div className="select-option">
+            <select value={formData.categoryID} id="categories-list" onChange={(e) => updateCategory(e)} >
+                <option value="">Válassz egy kategóriát!</option>
+                {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
+            </select>
+            </div>
+
+            <br />
+            <label htmlFor="img">Kép feltöltése a termékhez: </label>
+            <input
+                type="file"
                 name="img"
-                onChange={(e) => handleImgUpload(e)} 
+                onChange={(e) => handleImgUpload(e)}
             />
-            
+
             <div className="uploaded-img">
-                {file && 
-                <><p>termék kép: </p><img src={previewImg} alt="" style={{ width: "300px" }} /></>}
+                {file &&
+                    <><p>termék kép: </p><img src={previewImg} alt="" style={{ width: "300px" }} /></>}
             </div>
             <br />
-            <button onClick={onSubmit}>Termék hozzáadása</button>
+            <button className="addp-button" onClick={onSubmit}>Termék hozzáadása</button>
         </div>
     )
-
 }

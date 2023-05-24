@@ -53,5 +53,5 @@ export function userLoginAuth(email, password) {
 
 export function getNameFromDatabase(id) {
     return fetch(`https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/customers/${id}.json`)
-    .then(resp => resp.json())
+        .then(resp => resp.json())
 }

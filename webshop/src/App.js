@@ -15,11 +15,15 @@ import Login from './pages/user/Login';
 import { AuthContext } from './context/AuthContext';
 import { useState } from 'react';
 import { CartContext } from './context/cartContext';
+import AdminLogin from './pages/admin/AdminLogin';
+import { AdminAuthContext } from './context/AdminAuthContext';
 import Orders from './pages/user/Orders';
-
 import AdminUserList from './pages/admin/AdminUserList';
 import AdminDisplayOrders from './pages/admin/AdminDisplayOrders';
 import AdminOrderDetails from './components/admin/AdminOrderDetails';
+import AdminCategories from './pages/admin/AdminCategories';
+import AdminAuth from './components/admin/AdminAuth';
+import { SearchValue } from './context/searchValueContext';
 
 const router = createBrowserRouter([
   {
@@ -51,7 +55,11 @@ const router = createBrowserRouter([
         element: <Login />
       },
       {
-        path:"/megrendeleseim",
+        path: '/admin-belepes',
+        element: <AdminLogin />
+      },
+      {
+        path: "/megrendeleseim",
         element: <Orders />
       }
     ]
@@ -59,7 +67,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: <AdminAuth><AdminLayout /></AdminAuth>,
     children: [
       {
         path: '/admin',
@@ -88,25 +96,33 @@ const router = createBrowserRouter([
       {
         path: '/admin/megrendelesek/:orderId',
         element: <AdminOrderDetails />
+      },
+      {
+        path: '/admin/kategoriak/uj-kategoria',
+        element: <AdminCategories />
       }
-
     ]
   }
 ])
 
-
 function App() {
   const [userData, setUserData] = useState(null);
   const [cart, setCart] = useState([]);
+  const [admin, setAdmin] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className="App">
-      <AuthContext.Provider value={{ userData, setUserData }}>
-        <CartContext.Provider value={{ cart, setCart }}>
-          <RouterProvider router={router}>
-          </RouterProvider>
-        </CartContext.Provider>
-      </AuthContext.Provider>
+      <SearchValue.Provider value={[searchValue, setSearchValue]}>
+        <AuthContext.Provider value={{ userData, setUserData }}>
+          <AdminAuthContext.Provider value={{ admin, setAdmin }}>
+            <CartContext.Provider value={{ cart, setCart }}>
+              <RouterProvider router={router}>
+              </RouterProvider>
+            </CartContext.Provider>
+          </AdminAuthContext.Provider>
+        </AuthContext.Provider>
+      </SearchValue.Provider>
     </div>
   );
 }
