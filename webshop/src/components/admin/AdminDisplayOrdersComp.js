@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react";
 import orderService from "../../service/orderService";
 import { Link } from 'react-router-dom';
+import userService from "../../service/userService";
 
 const AdminDisplayOrdersComp = () => {
 
     const [orders, setOrders] = useState([]);
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        userService.read()
+            .then(usersdata => setUsers(usersdata))
+    }, [orders])
+
+    console.log(users);
 
     useEffect(() => {
         orderService.getOrders()
@@ -36,7 +45,7 @@ const AdminDisplayOrdersComp = () => {
                             <td>{order.id}</td>
                             <td>{order.timestamp}</td>
                             <td>{order.uid}</td>
-                            <td>sample customer's name</td>
+                            <td>{users[order.uid].name}</td>
                             <td>
                                 <Link to={`/admin/megrendelesek/${order.id}`}>Adatlap</Link>
                             </td>
