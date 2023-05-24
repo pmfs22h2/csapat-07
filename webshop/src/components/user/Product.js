@@ -11,7 +11,7 @@ export default function Products(props) {
 
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const { userData } = useContext(AuthContext)
-    const { setCart } = useContext(CartContext);
+    const { cart, setCart } = useContext(CartContext);
 
     const addedToCartSuccess = () => {
         toast.success('Sikeresen a kosárba tetted a terméket!', {
@@ -34,19 +34,21 @@ export default function Products(props) {
 
         cartService.getCart(userData.uid)   // lekéri firebase-ről a cart-t 
             .then(cartlist => {
-                if (!cartlist || !(props.product.id in cartlist)) {   // ha a kosár üres vagy a termék nincs benne a kosárban..
-                    addToCartProduct = { [props.product.id]: 1 }
-                } else if (props.product.id in cartlist) {         // ha a termék benne van a kosárban, megnöveli a mennyiséget eggyel
-                    addToCartProduct = { [props.product.id]: cartlist[props.product.id] + 1 }
+                if(!cartlist || !(props.product.id in cartlist)) {   // ha a kosár üres vagy a termék nincs benne a kosárban..
+                    addToCartProduct = {[props.product.id] : 1}
+                } else if(props.product.id in cartlist)  {         // ha a termék benne van a kosárban, megnöveli a mennyiséget eggyel
+                    addToCartProduct = {[props.product.id] : cartlist[props.product.id] + 1}                
                 }
             })
-            .then(() => cartService.changeItem(addToCartProduct, userData.uid))     // módosítja a firebase kosár tartalmát  
+            .then(() => cartService.changeItem(addToCartProduct, userData.uid)    // módosítja a firebase kosár tartalmát  
             .then(() => cartService.getCart(userData.uid))                          // lekéri a módosított kosarat
-            .then((newcartlist) => {
-                const cart = getCartList(newcartlist).then(cart => setCart(cart))
-            })         // átadja a módosított kosár tartalmát a kosár context-nek
+            .then((cartlist) => {
+                const modifiedcart = getCartList(cartlist).then(modifiedcart => setCart(modifiedcart));
+            })       )                // átadja a módosított kosár tartalmát a kosár context-nek
+            
     }
 
+    console.log(cart, "addtocart");
     return (
         <>
             <div className="product">

@@ -99,3 +99,7 @@
 .disabled:hover {
     background-color: inherit
 }
+.cart-sum {
+    font-weight: bold;
+    border-top: 2px solid black;
+}

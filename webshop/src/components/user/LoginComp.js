@@ -16,7 +16,7 @@ const LoginComp = () => {
     const { setCart } = useContext(CartContext);
     const [formData, setFormData] = useState({
         email: "",
-        password: ""
+        password: "" 
     })
 
     function login(e) {

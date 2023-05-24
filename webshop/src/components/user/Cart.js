@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
 import { AuthContext } from "../../context/AuthContext";
+import sumCart from "../../utils/sumCart";
 import '../../styles/cart.css';
 import orderService from '../../service/orderService';
 import { ToastContainer, toast } from 'react-toastify';
@@ -82,8 +83,9 @@ function Cart() {
           <th>Termék ár összesen</th>
           <th></th>
         </tr>
-        {userData ? (cart ? cart.map(p =>
-          <>
+        {userData ? (cart ? 
+        
+        <>{cart.map(p =>          
             <tr>
               <td>{p.title}</td>
               <td>
@@ -93,14 +95,24 @@ function Cart() {
               </td>
               <td>{p.price}</td>
               <td>{p.amount * p.price}</td>
-              <td><button onClick={() => deleteFromCart(p.productId)} className="cart-amount-button">x</button></td>
-            </tr>
-          </>
-        )
-          : <div className="cart-info">Nincs termék a kosaradban.</div>
-        )
-          :
-          <div className="cart-info">Jelentkezz be a kosár megtekintéséhez!</div>}
+
+          <td><button onClick={() => deleteFromCart(p.productId)} className="cart-amount-button">x</button></td>
+
+            </tr>     
+        )     
+        }   
+          <tr className="cart-sum">
+            <td></td>
+            <td></td>
+            <td>Végösszeg:</td>
+            <td className="cart-sum">{sumCart(cart)}</td>
+          </tr>
+        </>
+        : <div className="cart-info">Nincs termék a kosaradban.</div>
+        )     
+        :
+        <div className="cart-info">Jelentkezz be a kosár megtekintéséhez!</div>
+      }
       </table>
       {userData && cart ? <button className="order-button" onClick={sendOrderButton}>Megrendelés</button> : <></>}
       <ToastContainer />

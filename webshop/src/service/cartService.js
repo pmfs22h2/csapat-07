@@ -8,7 +8,7 @@ const getCart = (userID) => {
 const changeItem = (product, userID) => {
     // const product = { [productId]: itemPiece };
     // console.log(product)
-    return fetch(`${API_URL}customers/${userID}/cart.json`, {
+    return fetch(`${API_URL}/customers/${userID}/cart.json`, {
         method: 'PATCH',
         headers: {
             'Content-type': 'application/json'
