@@ -37,7 +37,7 @@ const LoginComp = () => {
                         )
                     cartService.getCart(authResp.localId)
                         .then((cartlist) => {
-                            const cart = getCartList(cartlist)?.then(cart => setCart(cart))
+                            const cart = getCartList(cartlist).then(cart => setCart(cart))
                         })
                 } else {
                     toast.error(authResp.error.message);
