@@ -52,3 +52,9 @@ td{
     box-shadow:0 0 20px #eeddd3;
     font-weight:lighter;
 }
+
+.order-info{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}

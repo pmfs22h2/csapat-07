@@ -111,7 +111,7 @@ const Products = () => {
         <div className="page-container">
             <h2 className="product-h2">Terméklista</h2>
             <div className="top-bar">
-                <div className="sort-menu">
+                <div className="select-option">
                     <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                         <option value="order">Rendezés</option>
                         <option value="name-asc">Név szerint növekvő</option>
@@ -125,8 +125,9 @@ const Products = () => {
                 </div>
             </div>
             
-
-            <ProductList products={displayedProducts} searchValue={searchValue} />
+            {/* Itt nem működik a sortolás, mert nem a displayedProducts van neki átadva products props alatt - viszont úgy meg a keresés hiányos,
+            csak az adott oldal találatait adja ki */}
+            <ProductList products={products} searchValue={searchValue} />
             <div className="pagination-buttons">
                 <button onClick={prevPage} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} disabled={to === products.length}>Előre</button>

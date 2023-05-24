@@ -83,12 +83,14 @@ const AdminUserList = () => {
 
     return (
         <>
+        <h2 className="admin-h2">Admin felhasználók lista</h2>
+        <div className="select-option">
             <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                 <option value="order">Rendezés</option>
                 <option value="name-asc">Név szerint növekvő</option>
                 <option value="name-desc">Név szerint csökkenő</option>
             </select>
-            <p>Admin felhasználók lista</p>
+            </div>
             <UserList users={webshopUsers} />
             <AdminUserSearchComponent users={displayedUsers} />
             <UserList users={displayedUsers} />

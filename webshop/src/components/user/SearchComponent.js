@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react"
 import { SearchValue } from "../../context/searchValueContext";
+import '../../styles/search.css';
+import { FaTimes } from 'react-icons/fa';
 
 const SearchComponent = (props) => {
 
@@ -16,15 +18,30 @@ const SearchComponent = (props) => {
     //     console.log(filteredProducts);
     // }
 
-    // const deleteSearchProducts = () => {
-    //     setFilteredProducts(null);
-    //     setSearchValue('');
-    // }
+    const deleteSearchProducts = () => {
+        setSearchValue('');
+    }
 
     return (
-        <div>
-            Keresés: <input type="text" onChange={searchedProduct} value={searchValue} />
-        </div>
+        <>
+            <div className="search">
+                Keresés: <input type="text" onChange={searchedProduct} value={searchValue} />
+                {/* <button className="search-button" onClick={filter}>Keresés</button> */}
+                <button className="delete-button" onClick={deleteSearchProducts}><FaTimes /></button>
+            </div>
+{/* 
+            <div>
+                {
+                    filteredProducts && (
+                        filteredProducts?.length !== 0
+                            ?
+                            <><h1>Találatok:</h1> {filteredProducts?.map(products => <div key={crypto.randomUUID()}>{products.title}</div>)}</>
+                            :
+                            "Nincs ilyen termék!"
+                    )
+                }
+            </div> */}
+        </>
     )
 }
 

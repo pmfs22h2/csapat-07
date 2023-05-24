@@ -10,6 +10,7 @@ export default function AdminProductList(props) {
             <tr>
                 <th>Terméknév</th>
                 <th>Termék ár</th>
+                <th></th>
             </tr>
             </thead>
            
