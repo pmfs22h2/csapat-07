@@ -79,3 +79,27 @@
     display: flex;
     justify-content: center;
 }
+
+.cart-amount-button {
+    cursor: pointer;
+    border: none;
+    margin: 1rem;
+    padding: 0.4rem;
+    font-size: 1.1rem;
+}
+
+.cart-amount-button:hover {
+    background-color: #928076;
+}
+
+.disabled {
+    color:#d1ccc9
+}
+
+.disabled:hover {
+    background-color: inherit
+}
+.cart-sum {
+    font-weight: bold;
+    border-top: 2px solid black;
+}

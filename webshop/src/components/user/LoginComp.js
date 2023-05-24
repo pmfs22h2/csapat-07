@@ -16,7 +16,7 @@ const LoginComp = () => {
     const { setCart } = useContext(CartContext);
     const [formData, setFormData] = useState({
         email: "",
-        password: ""
+        password: "" 
     })
 
     function login(e) {
@@ -37,7 +37,7 @@ const LoginComp = () => {
                         )
                     cartService.getCart(authResp.localId)
                         .then((cartlist) => {
-                            setCart(getCartList(cartlist))
+                            const cart = getCartList(cartlist).then(cart => setCart(cart))
                         })
                 } else {
                     toast.error(authResp.error.message);

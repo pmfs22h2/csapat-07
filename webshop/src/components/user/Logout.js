@@ -11,8 +11,9 @@ const Logout = () => {
 
     function logout() {
         setUserData(null);
+        setCart([]);
         setAdmin(false);
-        setCart(null)
+        setCart([])
     }
 
     return (
