@@ -13,7 +13,7 @@ const AdminNavigation = () => {
             <div className='header-container'>
                 <div className='navbar'>
                     <Link to='/admin'>Admin</Link>
-                    <Link to='/admin/termekek'>Termék lista</Link>
+                    <Link to='/admin/termekek'>Terméklista</Link>
                     <Link to='/admin/termek-felvitel'>Termékfelvitel</Link>
                     <Link to='/admin/vasarlok'>Felhasználók lista</Link>
                     <Link to='/admin/megrendelesek'>Megrendelések</Link>
