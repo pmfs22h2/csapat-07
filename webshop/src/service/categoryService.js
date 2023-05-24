@@ -23,10 +23,15 @@ function setCategoryId(id) {
     })
 }
 
+function readCategories() {
+    return fetch(`${API_URL}categories.json`)
+        .then(res => res.json())
+}
+
 
 
 
 export default{
-    createCategory: createCategory
-    
+    createCategory: createCategory,
+    readCategories: readCategories
 }
