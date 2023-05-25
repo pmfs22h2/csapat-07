@@ -102,6 +102,19 @@
 .inside-box{
     display: flex;
     margin-top:20px;
+    flex-direction: column;
+}
+
+input[type="file"]{
+    display:none;
+}
+
+.img-upload-label{
+    border:2px solid #3E312A;
+    background-color: #eeddd3;
+    cursor:pointer;
+    padding:10px;
+    border-radius: 5px;
 }
 
 
