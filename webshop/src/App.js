@@ -24,6 +24,9 @@ import AdminOrderDetails from './components/admin/AdminOrderDetails';
 import AdminCategories from './pages/admin/AdminCategories';
 import AdminAuth from './components/admin/AdminAuth';
 import { SearchValue } from './context/searchValueContext';
+import ProductWizard from './pages/user/ProductWizard';
+import MainStepper from './components/user/ProductWizard/MainStepper';
+import IntroPage from './components/user/ProductWizard/IntroPage';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: '/termekek',
         element: <Products />
+      },
+      {
+        path: '/varazslo',
+        element: <IntroPage />
+      },
+      {
+        path: '/kerdesek',
+        element: <MainStepper />
       },
       {
         path: '/termekek/:id/torles',

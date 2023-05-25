@@ -16,6 +16,7 @@ const Navigation = () => {
                 {admin && <Link to='/admin'>Admin</Link>}
                 <Link to='/'>Kezdőoldal</Link>
                 <Link to='/termekek'>Termékek</Link>
+                <Link to='/varazslo'>Termék varázsló</Link>
                 {/* <Link to='/kosar'>Kosár</Link> */}
                 {/* {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>} */}
                 {/* {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>} */}
