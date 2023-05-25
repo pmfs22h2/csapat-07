@@ -9,6 +9,7 @@ import "../../styles/pagination-buttons.css";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
 import { SearchValue } from "../../context/searchValueContext";
+import CategorySearch from "../../components/admin/AdminCategorySearch";
 
 const Products = () => {
 
@@ -18,7 +19,7 @@ const Products = () => {
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
     const [searchValue, setSearchValue] = useContext(SearchValue);
-    const [sortedItems, setSortedItems] = useState();
+    const [sortedItems, setSortedItems] = useState([]);
 
     // const [searchParams, setSearchParams] = useSearchParams();
     // const [sortByTitle, setSortByTitle] = useState({ sort: searchParams.get("sort") || "" });
@@ -59,6 +60,12 @@ const Products = () => {
         const searchedProducts = products.filter(p => p.title.includes(searchValue))
         sliceprod(searchedProducts)
     }, [searchValue])
+
+    useEffect(() => {
+        sliceprod(sortedItems)
+      },[sortedItems])
+
+      console.log(sortedItems);
 
     function listProducts() {
         productService.read()
@@ -106,6 +113,7 @@ const Products = () => {
     return (
         <div className="page-container">
             <h2 className="product-h2">Terméklista</h2>
+            
             <div className="top-bar">
                 <div className="select-option">
                     <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
@@ -116,6 +124,7 @@ const Products = () => {
                         <option value="price-desc">Ár szerint csökkenő</option>
                     </select>
                 </div>
+                <CategorySearch products={products}setSortedItems={setSortedItems}/>
                 <div className="searchbar">
                     <SearchComponent products={products} />
                 </div>
