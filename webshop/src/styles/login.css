@@ -12,7 +12,7 @@
     margin: auto;
     margin-top:2rem;
     margin-bottom: 5rem;
-    background-image: url('./kep-bej13.jpeg');
+    background-image: url('./hatterkep-regisztracio2.jpg');
     background-size: cover;
     
   }
@@ -34,7 +34,7 @@
 
 .log-text{
     position: relative;
-    border-bottom: 2px solid #adadad;
+    /* border-bottom: 2px solid #adadad; */
     margin: 40px 0;
   }
 
@@ -46,7 +46,16 @@
     border: none;
     background: none;
     outline: none;
+    border-bottom: 1px solid #3E312A;
+    transition: border-color 0.8s, background-image 0.3s;
   }
+
+  .log-text input:focus{
+    outline: none;
+  border-bottom: 2px solid white;
+  width: 100%;
+  }
+
 
   .log-text label{
     position: absolute;
