@@ -1,42 +1,59 @@
 import { useState } from "react";
 
-const Step3 = ({ onNext }) => {
-    const [selectedOption, setSelectedOption] = useState('');
+const Step3 = ({ onNext, onPrevious }) => {
+    const [budget, setBudget] = useState('');
 
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
+    const handleBudgetChange = (event) => {
+        setBudget(event.target.value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Perform any necessary validation or data processing
-        // Call onNext to move to the next step
-        onNext();
+        // Validáció és adatkezelés
+        onNext({ budget });
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Step 1</h2>
-            <p>Question 1:</p>
-            <label>
-                Option 1
-                <input
-                    type="radio"
-                    value="option1"
-                    checked={selectedOption === 'option1'}
-                    onChange={handleOptionChange}
-                />
-            </label>
-            <label>
-                Option 2
-                <input
-                    type="radio"
-                    value="option2"
-                    checked={selectedOption === 'option2'}
-                    onChange={handleOptionChange}
-                />
-            </label>
-            <button type="submit">Next</button>
+            <h2>3. Költségvetés</h2>
+            <p>Válaszd ki, milyen anyagi ráfordítást preferálsz!</p>
+            <div>
+                <br/>
+                <label>
+                    <input
+                        type="radio"
+                        value="premium"
+                        checked={budget === 'premium'}
+                        onChange={handleBudgetChange}
+                    />
+                    Prémium
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        value="aranykozeput"
+                        checked={budget === 'aranykozeput'}
+                        onChange={handleBudgetChange}
+                    />
+                    Arany középút
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        value="penztarcarafriendly"
+                        checked={budget === 'penztarcarafriendly'}
+                        onChange={handleBudgetChange}
+                    />
+                    Pénztárcabarát
+                </label>
+            </div>
+            <br/>
+            <button type="button" onClick={onPrevious}>Vissza</button>
+            <button type="submit">Tovább</button>
         </form>
     );
 };

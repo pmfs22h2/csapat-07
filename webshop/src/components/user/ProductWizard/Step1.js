@@ -9,7 +9,6 @@ const Step1 = ({ onNext }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Validáció és adatkezelés
         onNext({ skinType });
     };
 
