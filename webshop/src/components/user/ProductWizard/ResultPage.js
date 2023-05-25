@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
-
-const ResultPage = ({ skinType, skinIssue, budget, onRestart }) => {
+const ResultPage = ({ skinType, skinIssue, budget }) => {
     return (
       <div>
-        <h2>Eredmények</h2>
+        <h2>Eredmény</h2>
         <p>Az általad kiválasztott szempontok:</p>
         <ul>
           <li>Bőrtípus: {skinType}</li>
