@@ -51,7 +51,7 @@ const Products = () => {
             sliceprod(prod)
 
         } else {
-            setSortedItems(...products)
+            setSortedItems(products)
             sliceprod(products)
         }
     }, [selectValue]);

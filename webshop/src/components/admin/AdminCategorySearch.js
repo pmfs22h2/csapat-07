@@ -26,6 +26,10 @@ export default function CategorySearch(props) {
     }, []);
 
     useEffect(() => {
+        if(selectCategory==""){
+            props.setSortedItems(props.products)
+            return
+        }
        const selectedProducts = props.products.filter(p=>(p.categoryID==selectCategory));
        props.setSortedItems(selectedProducts);
     },[selectCategory])
