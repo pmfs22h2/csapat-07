@@ -6,3 +6,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: medium;
 }
+
+.disabled {
+    color: rgb(190, 190, 190)
+}

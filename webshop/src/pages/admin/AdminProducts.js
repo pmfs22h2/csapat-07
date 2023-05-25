@@ -7,6 +7,9 @@ import sortProductsFromB from "../../utils/sortProductsFromB";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
 import categoryService from "../../service/categoryService";
+import '../../styles/admintable.css';
+import '../../styles/search.css';
+import CategorySearch from "../../components/admin/AdminCategorySearch";
 
 const AdminProducts = () => {
 
@@ -17,11 +20,16 @@ const AdminProducts = () => {
     const [selectValue, setSelectValue] = useState("order");
     const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
     const [categories, setCategories] = useState([]);
-    
+
     useEffect(() => {
         listProducts();
         categoryService.readCategories().then(cat => setCategories(cat))
     }, [])
+    console.log(sortedItems);
+
+    useEffect(() => {
+        sliceprod(sortedItems)
+    }, [sortedItems])
 
     function listProducts() {
         productService.read()
@@ -95,19 +103,24 @@ const AdminProducts = () => {
 
     return (
         <>
-            <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
-                <option value="order">Rendezés</option>
-                <option value="name-asc">Név szerint növekvő</option>
-                <option value="name-desc">Név szerint csökkenő</option>
-                <option value="price-asc">Ár szerint növekvő</option>
-                <option value="price-desc">Ár szerint csökkenő</option>
-            </select>
-            <p>Admin termék lista</p>
-            <SearchComponent products={displayedProducts} />
-            <AdminProductList products={displayedProducts} categories={categories} />
-            <div className="pagination-buttons">
-                <button onClick={prevPage} disabled={from === 0}>Vissza</button>
-                <button onClick={nextPage} disabled={to === products.length}>Előre</button>
+            <h2 className="adminprodlist-h2">Admin termék lista</h2>
+            <div className="admin-box">
+                <CategorySearch products={products} setSortedItems={setSortedItems} />
+                <div className="select-option">
+                    <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
+                        <option value="order">Rendezés</option>
+                        <option value="name-asc">Név szerint növekvő</option>
+                        <option value="name-desc">Név szerint csökkenő</option>
+                        <option value="price-asc">Ár szerint növekvő</option>
+                        <option value="price-desc">Ár szerint csökkenő</option>
+                    </select>
+                </div>
+                <SearchComponent products={displayedProducts} />
+                <AdminProductList products={displayedProducts} categories={categories} />
+                <div className="pagination-buttons">
+                    <button onClick={prevPage} disabled={from === 0}>Vissza</button>
+                    <button onClick={nextPage} disabled={to === products.length}>Előre</button>
+                </div>
             </div>
         </>
     )

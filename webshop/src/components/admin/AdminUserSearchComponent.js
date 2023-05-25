@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../../styles/adminsortsearch.css';
 
 const AdminUserSearchComponent = (props) => {
 
@@ -33,10 +34,10 @@ const AdminUserSearchComponent = (props) => {
 
     return (
         <div>
-            <div>
+            <div className="search">
                 Keresés: <input type="text" onChange={searchedUser} value={searchValue} />
-                <button onClick={filter}>Keresés</button>
-                <button onClick={deleteSearchUsers}>Törlés</button>
+                <button className="admin-search-button" onClick={filter}>Keresés</button>
+                <button className="admin-delete-button" onClick={deleteSearchUsers}>Törlés</button>
             </div>
 
             <div>

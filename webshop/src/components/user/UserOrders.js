@@ -10,7 +10,6 @@ function UserOrders() {
     const { userData, setUserData } = useContext(AuthContext);
     const [products, setProducts] = useState([]);
 
-
     useEffect(() => {
         orderService.getOrders()
             .then(list => {
@@ -35,8 +34,7 @@ function UserOrders() {
 
     return (
         <div>
-
-            <h2>Felhasználó megrendelései</h2>
+            <h2 className="order-h2">Felhasználó megrendelései</h2>
             <table className="ordertable">
                 <thead>
                     <tr>
@@ -52,13 +50,13 @@ function UserOrders() {
                             <td>{order.id}</td>
                             <td>{order.timestamp}</td>
                             <td>{Object.values(order.products).reduce((sum, n) => sum + n, 0)}</td>
-                            <td>{Object.keys(order.products).map(id => id in products ? products[id].price : 0).reduce((sum, n) => sum + Number(n), 0)}</td>
+                            <td>{Object.keys(order.products).map(id => id in products ? (products[id].price * order.products[id]) : 0).reduce((sum, n) => sum + Number(n), 0)}</td>
                         </tr>
                     </>
                 )
-                    : "Még nem rendeltél semmit."
+                    : <div className="order-info">Még nem rendeltél semmit.</div>
                 )
-                    : "Bejelentkezés szükséges."
+                    : <div className="order-info">Bejelentkezés szükséges</div>
                 }
 
             </table>
