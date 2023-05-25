@@ -27,6 +27,7 @@ import AdminCategoriesList from './pages/admin/AdminCategoriesList';
 import { SearchValue } from './context/searchValueContext';
 import AdminCategoryModify from './pages/admin/AdminCategoryModify';
 import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
+import NotFoundComp from './components/user/NotFoundComp';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "/megrendeleseim",
         element: <Orders />
+      },
+      {
+        path: "*",
+        element: <NotFoundComp />
       }
     ]
 
