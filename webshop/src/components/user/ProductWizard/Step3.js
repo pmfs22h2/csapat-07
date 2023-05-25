@@ -9,7 +9,6 @@ const Step3 = ({ onNext, onPrevious }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Validáció és adatkezelés
         onNext({ budget });
     };
 
