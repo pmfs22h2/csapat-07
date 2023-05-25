@@ -1,7 +1,23 @@
 .user-profile{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+}
+
+.user-data{
+    display:flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-left:300px;
+    
+}
+
+.hello{
+    padding: 15px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: lighter;
 }
 
 .userprofile-h2{
