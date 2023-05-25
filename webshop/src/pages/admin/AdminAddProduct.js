@@ -165,9 +165,11 @@ export default function AdminAddProduct(props) {
             <div className="box">
             <label htmlFor="img">Kép feltöltése a termékhez: </label>
             <div className="inside-box">
+                <label className="img-upload-label" htmlFor="img">Képfeltöltés</label>
             <input
                 type="file"
                 name="img"
+                id="img"
                 onChange={(e) => handleImgUpload(e)}
             />
 
