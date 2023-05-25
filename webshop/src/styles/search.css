@@ -55,3 +55,8 @@
     margin-left: 1px;
 }
 
+.admin-box{
+    display:flex;
+    justify-content: center;
+}
+

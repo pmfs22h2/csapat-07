@@ -101,6 +101,7 @@ const AdminProducts = () => {
     return (
         <>
         <h2 className="adminprodlist-h2">Admin termék lista</h2>
+        <div className="admin-box">
         <CategorySearch products={products}setSortedItems={setSortedItems}/>
         <div className="select-option">
             <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
@@ -112,6 +113,7 @@ const AdminProducts = () => {
             </select>
             </div>
             <SearchComponent products={displayedProducts} />
+            </div>
             <AdminProductList products={displayedProducts} />
             <div className="pagination-buttons">
                 <button onClick={prevPage} disabled={from === 0}>Vissza</button>

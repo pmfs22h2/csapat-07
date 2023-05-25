@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import categoryService from "../../service/categoryService";
 import AdminAddProduct from "../../pages/admin/AdminAddProduct";
+import '../../styles/adminsortsearch.css';
 
 
 
@@ -37,7 +38,7 @@ export default function CategorySearch(props) {
 
     return (
         <div>
-            <div className="sort-menu">
+            <div className="select-option">
             <select value={selectCategory} id="categories-list" onChange={(e) => updateCategory(e)} >
                 <option value="">Válassz egy kategóriát!</option>
                 {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
@@ -45,5 +46,6 @@ export default function CategorySearch(props) {
             </select>
                 </div>
         </div>
+       
     )
 }
