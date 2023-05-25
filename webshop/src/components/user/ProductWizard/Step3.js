@@ -14,42 +14,47 @@ const Step3 = ({ onNext, onPrevious, toast }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>3. Költségvetés</h2>
+            {/* <h2>3. Költségvetés</h2> */}
             <p>Válaszd ki, milyen anyagi ráfordítást preferálsz!</p>
             {toast && <p>válassz valamit</p>}
+            <div className="wizard-form-grid">
             <div>
                 <br/>
-                <label>
+                <label className="wizard-label">
                     <input
                         type="radio"
                         value="premium"
                         checked={budget === 'premium'}
                         onChange={handleBudgetChange}
                     />
-                    Prémium
+                    <label >prémium</label>
+                    <div class="selected"></div>
                 </label>
             </div>
             <div>
-                <label>
+                <label className="wizard-label">
                     <input
                         type="radio"
                         value="aranykozeput"
                         checked={budget === 'aranykozeput'}
                         onChange={handleBudgetChange}
                     />
-                    Arany középút
+                    <label >arany középút</label>
+                    <div class="selected"></div>
                 </label>
             </div>
             <div>
-                <label>
+                <label className="wizard-label">
                     <input
                         type="radio"
                         value="penztarcarafriendly"
                         checked={budget === 'penztarcarafriendly'}
                         onChange={handleBudgetChange}
                     />
-                    Pénztárcabarát
+                    <label >pénztárcabarát</label>
+                    <div class="selected"></div>
                 </label>
+            </div>
             </div>
             <br/>
             <button type="button" onClick={onPrevious}>Vissza</button>

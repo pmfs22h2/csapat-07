@@ -13,54 +13,60 @@ const Step1 = ({ onNext, toast }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>1. Bőrtípus</h2>
+        <form onSubmit={handleSubmit} className="wizard-form">
+            {/* <h2>1. Bőrtípus</h2> */}
             <p>Válaszd ki a bőrtípusod:</p>
             {toast && <p>válassz valamit</p>}
             <br />
-            <div>
-                <label>
+            <div className="wizard-form-grid">
+            <div className="right">
+                <label className="wizard-label">
                     <input
                         type="radio"
                         value="szaraz"
                         checked={skinType === 'szaraz'}
                         onChange={handleSkinTypeChange}
                     />
-                    Száraz
+                    <label >száraz</label>
+                    <div class="selected"></div>
                 </label>
             </div>
-            <div>
-                <label>
+            <div >
+                <label className="wizard-label">
                     <input
                         type="radio"
                         value="normal"
                         checked={skinType === 'normal'}
                         onChange={handleSkinTypeChange}
                     />
-                    Normál
+                    <label>normál</label>
+                    <div class="selected"></div>
                 </label>
             </div>
-            <div>
-                <label>
+            <div className="right">
+                <label className="wizard-label">
                     <input
                         type="radio"
                         value="zsiros"
                         checked={skinType === 'zsiros'}
                         onChange={handleSkinTypeChange}
                     />
-                    Zsíros
+                    <label>zsíros</label>
+                    <div class="selected"></div>
                 </label>
             </div>
-            <div>
-                <label>
+            <div className="left">
+                <label className="wizard-label">
                     <input
                         type="radio"
                         value="kombinalt"
                         checked={skinType === 'kombinalt'}
                         onChange={handleSkinTypeChange}
                     />
-                    Kombinált
+                    <label>kombinalt</label>
+                    <div class="selected"></div>
                 </label>
+            </div>
             </div>
             <br />
             <button type="submit">Tovább</button>

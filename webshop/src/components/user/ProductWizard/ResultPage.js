@@ -40,7 +40,7 @@ const ResultPage = (props) => {
       </ul>
 
       <p>Köszönjük, hogy igénybe vetted szolgáltatásainkat, kellemes időtöltést nálunk!</p>
-      <p><button onClick={props.restartTest}>újra kitöltöm a tesztet: </button></p>
+      <p><button onClick={props.restartTest}>újra kitöltöm a tesztet</button></p>
     </div>
   );
 };

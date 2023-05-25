@@ -14,64 +14,71 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
   
     return (
       <form onSubmit={handleSubmit}>
-        <h2>2. Probléma</h2>
+        {/* <h2>2. Probléma</h2> */}
         <p>Milyen problémára keresel megoldást?</p>
         {toast && <p>válassz valamit</p>}
         <br/>
-        <div>
-          <label>
+        <div className="wizard-form-grid">
+        <div className="right">
+          <label className="wizard-label">
             <input
               type="radio"
               value="aging"
               checked={skinIssue === 'aging'}
               onChange={handleSkinIssueChange}
             />
-            Aging
+            <label >aging</label>
+            <div class="selected"></div>
           </label>
         </div>
         <div>
-          <label>
+          <label  className="wizard-label">
             <input
               type="radio"
               value="erzekenyseg"
               checked={skinIssue === 'erzekenyseg'}
               onChange={handleSkinIssueChange}
             />
-            Érzékenység
+            <label>érzékenység</label>
+            <div class="selected"></div>
           </label>
         </div>
         <div>
-          <label>
+          <label className="wizard-label">
             <input
               type="radio"
               value="vizhiany"
               checked={skinIssue === 'vizhiany'}
               onChange={handleSkinIssueChange}
             />
-            Vízhiány
+            <label>vízhiány</label>
+            <div class="selected"></div>
           </label>
         </div>
         <div>
-          <label>
+          <label  className="wizard-label">
             <input
               type="radio"
               value="pattanasok"
               checked={skinIssue === 'pattanasok'}
               onChange={handleSkinIssueChange}
             />
-            Pattanások
+            <label>pattanások</label>
+            <div class="selected"></div>
           </label>
         </div>
         <div>
-          <label>
+          <label className="wizard-label">
             <input
               type="radio"
               value="nincsproblema"
               checked={skinIssue === 'nincsproblema'}
               onChange={handleSkinIssueChange}
             />
-            Nincs problémám
+            <label>nincs pronlémám</label>
+            <div class="selected"></div>
           </label>
+        </div>
         </div>
         <br/>
         <button type="button" onClick={onPrevious}>Vissza</button>

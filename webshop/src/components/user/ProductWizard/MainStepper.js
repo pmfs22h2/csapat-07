@@ -4,6 +4,7 @@ import Step2 from './Step2';
 import Step3 from './Step3';
 import ResultPage from './ResultPage';
 import { useState } from 'react';
+import '../../../styles/ProductWizard/stepper.css'
 
 const MainStepper = () => {
 
@@ -46,12 +47,16 @@ const MainStepper = () => {
     };
 
     return (
-        <div>
+        <div className='wizard-container'>
+            <section>
             <Stepper
-                steps={['Step 1', 'Step 2', 'Step 3', 'Result']}
+                steps={[{title: 'bőrtípus'}, {title: 'probléma'},{title: 'költségvetés'}, {title: 'eredmény'}]}
                 activeStep={currentStep}
+                activeColor="#b99888"
+                completeColor="#b99888"
             />
             {renderStep()}
+            </section>
         </div>
     );
 };
