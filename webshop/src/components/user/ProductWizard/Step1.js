@@ -15,8 +15,9 @@ const Step1 = ({ onNext }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Step 1: Bőrtípus</h2>
+            <h2>1. Bőrtípus</h2>
             <p>Válaszd ki a bőrtípusod:</p>
+            <br />
             <div>
                 <label>
                     <input
@@ -61,6 +62,7 @@ const Step1 = ({ onNext }) => {
                     Kombinált
                 </label>
             </div>
+            <br />
             <button type="submit">Tovább</button>
         </form>
     );

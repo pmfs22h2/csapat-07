@@ -1,44 +1,71 @@
 import { useState } from "react";
 
-const Step2 = ({ onNext }) => {
-    const [selectedOption, setSelectedOption] = useState('');
+const Step1 = ({ onNext }) => {
+    const [skinType, setSkinType] = useState('');
 
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
+    const handleSkinTypeChange = (event) => {
+        setSkinType(event.target.value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Perform any necessary validation or data processing
-        // Call onNext to move to the next step
-        onNext();
+        // Validáció és adatkezelés
+        onNext({ skinType });
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Step 2</h2>
-            <p>Question 1:</p>
-            <label>
-                Option 1
-                <input
-                    type="radio"
-                    value="option1"
-                    checked={selectedOption === 'option1'}
-                    onChange={handleOptionChange}
-                />
-            </label>
-            <label>
-                Option 2
-                <input
-                    type="radio"
-                    value="option2"
-                    checked={selectedOption === 'option2'}
-                    onChange={handleOptionChange}
-                />
-            </label>
-            <button type="submit">Next</button>
+            <h2>2. Probléma</h2>
+            <p>Milyen problémára keresel megoldást?</p>
+            <br />
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        value="szaraz"
+                        checked={skinType === 'szaraz'}
+                        onChange={handleSkinTypeChange}
+                    />
+                    Száraz
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        value="normal"
+                        checked={skinType === 'normal'}
+                        onChange={handleSkinTypeChange}
+                    />
+                    Normál
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        value="zsiros"
+                        checked={skinType === 'zsiros'}
+                        onChange={handleSkinTypeChange}
+                    />
+                    Zsíros
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        value="kombinalt"
+                        checked={skinType === 'kombinalt'}
+                        onChange={handleSkinTypeChange}
+                    />
+                    Kombinált
+                </label>
+            </div>
+            <br />
+            <button type="submit">Tovább</button>
         </form>
     );
 };
 
-export default Step2;
+export default Step1;

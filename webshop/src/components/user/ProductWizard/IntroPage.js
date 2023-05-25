@@ -4,8 +4,16 @@ import { Link } from "react-router-dom";
 const IntroPage = () => {
     return (
         <>
-            <div>Helló, ez itt a rutinvarázsló!</div>
-            <Link to="/kerdesek">Kezdjük!</Link>
+            <h2>Termék varázsló</h2>
+            <p>
+                Mit szólnál hozzá, ha egy gyors és interaktív kérdőív segítségével segítetnénk
+                neked megtalálni a számodra legmegfelelőbb terméket?
+            </p>
+            <p>
+                Mindössze annyi a dolgod, hogy válaszolsz 3 kérdésre, mi pedig kiválasztjuk a hozzád és
+                igényeidhez leginkább passzoló terméket kínálatunkból!
+            </p>
+            <Link to="/kerdesek">Induljon a varázslat!</Link>
         </>
     )
 }
