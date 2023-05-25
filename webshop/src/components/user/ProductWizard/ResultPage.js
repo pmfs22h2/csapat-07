@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import productService from "../../../service/productService";
+import { Link } from "react-router-dom";
+import MainStepper from "./MainStepper";
 
-const ResultPage = ({ skinType, skinIssue, budget }) => {
+const ResultPage = (props) => {
 
   const [products, setProducts] = useState([]);
 
@@ -25,9 +27,9 @@ const ResultPage = ({ skinType, skinIssue, budget }) => {
       <h2>Eredmény</h2>
       <p>Az általad kiválasztott szempontok:</p>
       <ul>
-        <li>Bőrtípus: {skinType}</li>
-        <li>Bőrprobléma: {skinIssue}</li>
-        <li>Anyagi keret: {budget}</li>
+        <li>Bőrtípus: {props.formData.skinType} </li>
+        <li>Bőrprobléma: {props.formData.skinIssue}</li>
+        <li>Anyagi keret: {props.formData.budget} </li>
       </ul>
 
       <h3>Ajánlott termékek:</h3>
@@ -38,6 +40,7 @@ const ResultPage = ({ skinType, skinIssue, budget }) => {
       </ul>
 
       <p>Köszönjük, hogy igénybe vetted szolgáltatásainkat, kellemes időtöltést nálunk!</p>
+      <p><button onClick={props.restartTest}>újra kitöltöm a tesztet: </button></p>
     </div>
   );
 };

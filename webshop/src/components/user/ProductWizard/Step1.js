@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Step1 = ({ onNext }) => {
+const Step1 = ({ onNext, toast }) => {
     const [skinType, setSkinType] = useState('');
 
     const handleSkinTypeChange = (event) => {
@@ -16,6 +16,7 @@ const Step1 = ({ onNext }) => {
         <form onSubmit={handleSubmit}>
             <h2>1. Bőrtípus</h2>
             <p>Válaszd ki a bőrtípusod:</p>
+            {toast && <p>válassz valamit</p>}
             <br />
             <div>
                 <label>

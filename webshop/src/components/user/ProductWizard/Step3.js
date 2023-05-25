@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Step3 = ({ onNext, onPrevious }) => {
+const Step3 = ({ onNext, onPrevious, toast }) => {
     const [budget, setBudget] = useState('');
 
     const handleBudgetChange = (event) => {
@@ -16,6 +16,7 @@ const Step3 = ({ onNext, onPrevious }) => {
         <form onSubmit={handleSubmit}>
             <h2>3. Költségvetés</h2>
             <p>Válaszd ki, milyen anyagi ráfordítást preferálsz!</p>
+            {toast && <p>válassz valamit</p>}
             <div>
                 <br/>
                 <label>

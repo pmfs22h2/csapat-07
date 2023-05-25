@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Step2 = ({ onNext, onPrevious }) => {
+const Step2 = ({ onNext, onPrevious, toast }) => {
     const [skinIssue, setSkinIssue] = useState('');
   
     const handleSkinIssueChange = (event) => {
@@ -16,6 +16,7 @@ const Step2 = ({ onNext, onPrevious }) => {
       <form onSubmit={handleSubmit}>
         <h2>2. Probléma</h2>
         <p>Milyen problémára keresel megoldást?</p>
+        {toast && <p>válassz valamit</p>}
         <br/>
         <div>
           <label>

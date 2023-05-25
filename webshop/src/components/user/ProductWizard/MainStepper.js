@@ -9,26 +9,37 @@ const MainStepper = () => {
 
     const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState({});
+    const [toast, setToast] = useState("")
 
     const handleNext = (data) => {
-        setFormData({ ...formData, ...data });
-        setCurrentStep(currentStep + 1);
+        if(Object.values(data) == "") setToast("válassz valamit!")
+        else {
+            setFormData(prev => ({ ...prev, ...data }));
+            setCurrentStep(currentStep + 1);
+            setToast("")
+            console.log(formData, 'formdata');
+        }
     };
 
     const handlePrevious = () => {
         setCurrentStep(currentStep - 1);
     };
 
+    const restartTest = () => {
+        setFormData({})
+        setCurrentStep(0)
+    }
+
     const renderStep = () => {
         switch (currentStep) {
             case 0:
-                return <Step1 onNext={handleNext} />;
+                return <Step1 onNext={handleNext} toast={toast}/>;
             case 1:
-                return <Step2 onNext={handleNext} onPrevious={handlePrevious} />;
+                return <Step2 onNext={handleNext} onPrevious={handlePrevious} toast={toast}/>;
             case 2:
-                return <Step3 onNext={handleNext} onPrevious={handlePrevious} />;
+                return <Step3 onNext={handleNext} onPrevious={handlePrevious} toast={toast}/>;
             case 3:
-                return <ResultPage formData={formData} />;
+                return <ResultPage formData={formData} restartTest={restartTest}/>;
             default:
                 return null;
         }
