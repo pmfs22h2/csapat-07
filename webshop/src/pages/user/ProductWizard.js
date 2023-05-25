@@ -1,5 +1,0 @@
-const ProductWizard = () => {
-
-}
-
-export default

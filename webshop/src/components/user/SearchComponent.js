@@ -1,35 +1,35 @@
-import { createContext, useContext, useState } from "react"
-import { SearchValue } from "../../context/searchValueContext";
-import '../../styles/search.css';
-import { FaTimes } from 'react-icons/fa';
+import { useState } from "react"
 
 const SearchComponent = (props) => {
 
-    // const [filteredProducts, setFilteredProducts] = useState(null);
-    const [searchValue, setSearchValue] = useContext(SearchValue);
+    const [filteredProducts, setFilteredProducts] = useState(null);
+
+    const [searchValue, setSearchValue] = useState('');
 
     const searchedProduct = (e) => {
         setSearchValue(e.target.value);
+        console.log(searchValue);
     }
 
-    // const filter = () => {
-    //     const filteredProductsArray = props.products.filter(product => product.title.toLowerCase().includes(searchValue));
-    //     setFilteredProducts(filteredProductsArray);
-    //     console.log(filteredProducts);
-    // }
+    const filter = () => {
+        const filteredProductsArray = props.products.filter(product => product.title.toLowerCase().includes(searchValue));
+        setFilteredProducts(filteredProductsArray);
+        console.log(filteredProducts);
+    }
 
     const deleteSearchProducts = () => {
-        setSearchValue('');
+        setFilteredProducts(null);
+        setSearchValue("");
     }
 
     return (
-        <>
-            <div className="search">
+        <div>
+            <div>
                 Keresés: <input type="text" onChange={searchedProduct} value={searchValue} />
-                {/* <button className="search-button" onClick={filter}>Keresés</button> */}
-                <button className="delete-button" onClick={deleteSearchProducts}><FaTimes /></button>
+                <button onClick={filter}>Keresés</button>
+                <button onclick={deleteSearchProducts}>x</button>
             </div>
-{/* 
+
             <div>
                 {
                     filteredProducts && (
@@ -37,11 +37,11 @@ const SearchComponent = (props) => {
                             ?
                             <><h1>Találatok:</h1> {filteredProducts?.map(products => <div key={crypto.randomUUID()}>{products.title}</div>)}</>
                             :
-                            "Nincs ilyen termék!"
+                            "nincs ilyen termék"
                     )
                 }
-            </div> */}
-        </>
+            </div>
+        </div>
     )
 }
 

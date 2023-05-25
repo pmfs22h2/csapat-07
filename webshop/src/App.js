@@ -14,19 +14,8 @@ import UserRegistration from './pages/user/UserRegistration';
 import Login from './pages/user/Login';
 import { AuthContext } from './context/AuthContext';
 import { useState } from 'react';
-import { CartContext } from './context/cartContext';
-import AdminLogin from './pages/admin/AdminLogin';
-import { AdminAuthContext } from './context/AdminAuthContext';
-import Orders from './pages/user/Orders';
+
 import AdminUserList from './pages/admin/AdminUserList';
-import AdminDisplayOrders from './pages/admin/AdminDisplayOrders';
-import AdminOrderDetails from './components/admin/AdminOrderDetails';
-import AdminCategories from './pages/admin/AdminCategories';
-import AdminAuth from './components/admin/AdminAuth';
-import AdminCategoriesList from './pages/admin/AdminCategoriesList';
-import { SearchValue } from './context/searchValueContext';
-import AdminCategoryModify from './pages/admin/AdminCategoryModify';
-import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
 
 const router = createBrowserRouter([
   {
@@ -56,21 +45,13 @@ const router = createBrowserRouter([
       {
         path: '/belepes',
         element: <Login />
-      },
-      {
-        path: '/admin-belepes',
-        element: <AdminLogin />
-      },
-      {
-        path: "/megrendeleseim",
-        element: <Orders />
       }
     ]
 
   },
   {
     path: "/admin",
-    element: <AdminAuth><AdminLayout /></AdminAuth>,
+    element: <AdminLayout />,
     children: [
       {
         path: '/admin',
@@ -91,53 +72,22 @@ const router = createBrowserRouter([
       {
         path: '/admin/vasarlok',
         element: <AdminUserList />
-      },
-      {
-        path: '/admin/megrendelesek',
-        element: <AdminDisplayOrders />
-      }, 
-      {
-        path: '/admin/megrendelesek/:orderId',
-        element: <AdminOrderDetails />
-      },
-      {
-        path: '/admin/kategoriak',
-        element: <AdminCategoriesList />
-      },
-      {
-        path: '/admin/kategoriak/uj-kategoria',
-        element: <AdminCategories />
-      },
-      {
-        path: '/admin/kategoriak/:kategoriaId/szerkesztes',
-        element: <AdminCategoryModify />                      
-      },
-      {
-        path: '/admin/kategoriak/:kategoriaId/torles',
-        element: <AdminCategoryDelete />                      
       }
+
     ]
   }
 ])
 
+
 function App() {
   const [userData, setUserData] = useState(null);
-  const [cart, setCart] = useState([]);
-  const [admin, setAdmin] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className="App">
-      <SearchValue.Provider value={[searchValue, setSearchValue]}>
-        <AuthContext.Provider value={{ userData, setUserData }}>
-          <AdminAuthContext.Provider value={{ admin, setAdmin }}>
-            <CartContext.Provider value={{ cart, setCart }}>
-              <RouterProvider router={router}>
-              </RouterProvider>
-            </CartContext.Provider>
-          </AdminAuthContext.Provider>
-        </AuthContext.Provider>
-      </SearchValue.Provider>
+      <AuthContext.Provider value={{ userData, setUserData }}>
+        <RouterProvider router={router}>
+        </RouterProvider>
+      </AuthContext.Provider>
     </div>
   );
 }

@@ -1,42 +1,23 @@
 import productService from "../../../src/service/productService";
 import API_URL from "../../../src/service/productService";
-import { useEffect, useState } from "react";
-import '../../styles/adminAddProduct.css';
-import '../../styles/adminsortsearch.css';
-import { fileUpload } from "../../utils/fileUpload";
-import categoryService from "../../service/categoryService";
+import { useState } from "react";
 
 export default function AdminAddProduct(props) {
 
-    const product = props.product ? props.product : { name: "", price: "", title: "" };
+    const product = props.product ? props.product : { name: "", price: null };
 
     const [formData, setFormData] = useState({
         title: product.title,
-        price: product.price,
-        img: "",
-        categoryID: ""
+        price: product.price
     });
-    const [file, setFile] = useState(null);
-    const [uploadedUrl, setUploadedUrl] = useState(null);
 
-    const [previewImg, setPreviewImg] = useState("");
-
-    const [categoryData, setCategoryData] = useState({});
-    const [selectValue, setSelectValue] = useState("categories");
-
-    useEffect(() => {
-        categoryService.readCategories()
-            .then(json => setCategoryData(json))
-    }, []);
-    // console.log(categoryData)
-
-    function handleImgUpload(e) {
-        setFormData({
-            ...formData,
-            img: e.target.files[0].name
-        })
-        setFile(e.target.files[0])
-        previewImage(e.target.files[0])
+    function onSubmit(event) {
+        event.preventDefault();
+        {
+            productService.create(formData)
+            return fetch(`${ API_URL }products.json`)
+                .then(res => console.log(res))
+        }
     }
 
     function updateTitle(e) {
@@ -53,135 +34,29 @@ export default function AdminAddProduct(props) {
         })
     }
 
-    function updateCategory(e) {
-        setFormData({
-            ...formData,
-            categoryID: e.target.value
-        })
-    }
+    // function validateTitle(e) {
+    //     if (/^\d+$/(formData.price)) alert("Nem tartalmazhat csak számokat!");
+    //     else if (formData.price === "") alert("Nem lehet üres!");
+    //     else if (formData.price.length < 2) alert("Minimum két karakter hosszúnak lennie kell!")
+    //     else {
+    //         updateTitle();
+    //     }
+    // }
 
-    function onSubmit(event) {
-        event.preventDefault();
-        if (validateTitle() && validatePrice())
-        // 1. létrehozza a terméket firebase-n (url nélkül)
-        productService.create(formData.title, formData.price, formData.categoryID)
-            .then(data => {
-                // 2. feltölti a képet storage-be, feltöltéskor visszaadja a kép azonosítóját ('url'), beállítja useState-nek
-                // 3. feltölti a visszakapott azonosítót az 1.lépésben postolt termékhez (data.id -> post által létrehozott id)
-                // (harmadik lépés a fileUpload függvényen belül)
-                fileUpload(file, setUploadedUrl, data.id)
-            })
-    
-
-        }
-
-
-    function validateTitle() {
-      	const title = formData.title;
-        if (title.match(/^\d+$/)) 
-        {
-          alert("A 'Terméknév' nem tartalmazhat csak számokat!");
-          return false;
-        }
-        
-      	if (title === "") {
-            alert("A 'Terméknév' nem lehet üres!");
-      		return false;
-        }
-        if (title.length < 2) {
-          alert("A 'Terméknév' minimum két karakter hosszú kell, hogy legyen!") 
-          return false;
-        }
-
-      	return true;
-    }
-
-    function validatePrice() {
-      const price = formData.price;
-        if (isNaN(price)) {
-          alert("Az 'Ár' csak számokat tartalmazhat!");
-        	return false;
-        }
-        if (price === "") {
-          alert("Az 'Ár' nem lehet üres!");
-          return false;
-        }
-    }
-
-    // képfeltöltéskor egyből megjeleníti a képet, még a végleges feltöltés előtt
-    function previewImage(filetest) {
-        const fileReader = new FileReader()
-        fileReader.onload = () => {
-            setPreviewImg(fileReader.result)
-        }
-        if (filetest) {
-            fileReader.readAsDataURL(filetest);
-        }
-    }
+    // function validatePrice(e) {
+    //     if (isNaN(formData.price)) alert("Csak számokat tartalmazhat!");
+    //     else if (formData.price === "") alert("Nem lehet üres!");
+    //     else {
+    //         updatePrice();
+    //     }
+    // }
 
     return (
-        
-        <div className="add-product">  
-        <h2 className="admin-h2">Termékfelvitel</h2>
-        <div className="box-container">
-        <div className="box">
-            <label>Új termék adatai: </label>
-            <div className="inside-box">
-            <label htmlFor="title">Terméknév:</label>
-            <input
-                type="text"
-                name="title"
-                value={formData.title}
-                onChange={(e) => updateTitle(e)}
-            />
-            <br />
-            <label htmlFor="price">Ár: </label>
-            <input
-                type="text"
-                name="price"
-                value={formData.price}
-                onChange={(e) => updatePrice(e)}
-            />
-            </div>
-            </div>
-            </div>
-            <br />
-            <div className="box-container">
-            <div className="box2">
-            <label>Kategória kiválasztása: </label>
-            <div className="inside-box">
-            <div className="select-option">
-            <select value={formData.categoryID} id="categories-list" onChange={(e) => updateCategory(e)} >
-                <option value="">Válassz egy kategóriát!</option>
-                {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
-            </select>
-            </div>
-            </div>
-            </div>
-            </div>
-
-            <br />
-            <div className="box-container">
-            <div className="box">
-            <label htmlFor="img">Kép feltöltése a termékhez: </label>
-            <div className="inside-box">
-                <label className="img-upload-label" htmlFor="img">Képfeltöltés</label>
-            <input
-                type="file"
-                name="img"
-                id="img"
-                onChange={(e) => handleImgUpload(e)}
-            />
-
-            <div className="uploaded-img">
-                {file &&
-                    <><p>termék kép: </p><img src={previewImg} alt="" style={{ width: "300px" }} /></>}
-            </div>
-            </div>
-            <br />
-            </div>
-            </div>
-            <button className="addp-button" onClick={onSubmit}>Termék hozzáadása</button>
-        </div>
+        <>
+            <p>Terméknév: <input type="text" value={formData.title} onChange={updateTitle} /></p>
+            <p>Ár: <input type="text" value={formData.price} onChange={updatePrice} /></p>
+            <button onClick={onSubmit}>Termék hozzáadása</button>
+        </>
     )
+
 }

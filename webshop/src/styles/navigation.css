@@ -10,7 +10,6 @@
 
     background-color: #F6EDE8;
     padding: 1rem;
-    border-bottom: 2px solid #ECDBD1;
 }
 
 .navbar {
@@ -32,22 +31,5 @@
 
 .nav-icons {
     display: flex;
-    gap: 1em;
-}
-
-.badge {
-    padding: 0.5em;
-    background-color: #D9B6A4;
-    color: white;
-    font-size: 0.5rem;
-    border-radius: 50%;
-    position: relative;
-    text-decoration: none;
-    top: -0.8rem;
-    right: -10px;
-}
-.back-button{
-    border:none;
-    font-size:1rem;
-    cursor: pointer;
+    gap: 1em;;
 }

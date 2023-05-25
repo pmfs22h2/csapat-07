@@ -1,13 +1,10 @@
-import { Link } from 'react-router-dom';
-import Cart from '../../components/user/Cart';
-import cartService from '../../service/cartService';
-
 const Cartpage = () => {
-  return (
-    <div>
-      <Cart/>
-    </div>
-  )
+    return (
+        <>
+            <h2>Kosár oldal</h2>
+            
+        </>
+    )
 }
 
 export default Cartpage;

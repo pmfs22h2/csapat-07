@@ -10,12 +10,11 @@ export default function AdminProductList(props) {
             <tr>
                 <th>Terméknév</th>
                 <th>Termék ár</th>
-                <th>Termék kategória</th>
             </tr>
             </thead>
            
         <tbody>
-        {props.products?.map(product => <AdminProduct key={crypto.randomUUID()} product={product} category={props.categories[product.categoryID]}/> )}
+        {props.products?.map(product => <AdminProduct key={crypto.randomUUID()} product={product} /> )}
         
         </tbody>
         </table>

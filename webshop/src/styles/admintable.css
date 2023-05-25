@@ -7,9 +7,7 @@
     border-radius: 10px 10px 0 0;
     overflow: hidden;
     box-shadow:0 0 20px #eeddd3;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 80px;
-    background-color: #F6EDE8;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 th {
     background-color: whitesmoke;  /* fejléc*/
@@ -19,7 +17,9 @@ th {
     padding: 12px 15px;
     font-size:20px;
 }
-
+tr:hover {
+    background-color: #E8D2C6;               /* sorok színezése*/
+}
 td{
     padding: 12px 15px;                  /* thead*/
 }
@@ -30,27 +30,4 @@ td{
 }
 .admintable tbody tr:last-of-type {                    /* alsó színes sáv táblázat alján*/
     border-bottom:5px solid  #e8d1c5 ;
-}
-
-.admin-button{
-    padding:20px;
-    border: none;
-}
-
-.admin-link{
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-}
-.adminprodlist-h2{
-    background-size: 130px;
-    background-repeat: no-repeat;
-    background-position: 43%;
-    box-shadow: #3E312A;
-    padding: 15px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    font-size: 20px;
-    background-color: white;
-    box-shadow: 0 0 20px #eeddd3;
-    font-weight: lighter;
 }
