@@ -18,18 +18,13 @@ const AdminProducts = () => {
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
-    const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
+    const [sortedItems, setSortedItems] = useState();
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         listProducts();
         categoryService.readCategories().then(cat => setCategories(cat))
     }, [])
-    console.log(sortedItems);
-
-    useEffect(() => {
-        sliceprod(sortedItems)
-    }, [sortedItems])
 
     function listProducts() {
         productService.read()
@@ -116,11 +111,11 @@ const AdminProducts = () => {
                     </select>
                 </div>
                 <SearchComponent products={displayedProducts} />
-                <AdminProductList products={displayedProducts} categories={categories} />
-                <div className="pagination-buttons">
-                    <button onClick={prevPage} disabled={from === 0}>Vissza</button>
-                    <button onClick={nextPage} disabled={to === products.length}>Előre</button>
-                </div>
+            </div>
+            <AdminProductList products={displayedProducts} categories={categories} />
+            <div className="pagination-buttons">
+                <button onClick={prevPage} disabled={from === 0}>Vissza</button>
+                <button onClick={nextPage} disabled={to === products.length}>Előre</button>
             </div>
         </>
     )

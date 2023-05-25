@@ -48,7 +48,7 @@ export default function ProductForm({ id, product }) {
                     <p>Termék azonosítója: {id} </p>
                     <p>Termék neve: {product.title} </p>
                     <p>Termék ára: {product.price} </p>
-                    <p>Termék kategóriája: {product.categoryID} </p>
+                    <p>Termék kategóriája: {formData.categoryID} </p>
                     <p>Termék új neve: <input type="text" onChange={(e) => setFormData({ ...formData, title: e.target.value })} value={formData.title} placeholder='Termék új neve' /></p>
                     <p>Termék új ára: <input type="text" onChange={(e) => setFormData({ ...formData, price: e.target.value })} value={formData.price} placeholder='Termék új ára' /></p>
                     <p>Termék új kategóriája:
