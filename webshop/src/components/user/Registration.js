@@ -18,12 +18,12 @@ export default function Registration() {
         e.preventDefault();
         if (!formData.name || !formData.email || !formData.password) {
             toast.error('Minden mezőt kötelező kitölteni!', {
-                position: toast.POSITION.BOTTOM_CENTER
+                position: toast.POSITION.TOP_CENTER
             });
             return;
         } else if (!formData.email.includes('@') || !formData.email.includes('.')) {
             toast.error('Az e-mail cím formátuma érvénytelen!', {
-                position: toast.POSITION.BOTTOM_CENTER
+                position: toast.POSITION.TOP_CENTER
             });
             return;
         }
@@ -32,11 +32,11 @@ export default function Registration() {
             registerUserAuth(formData);
             setRegistrationSuccess(true);
             toast.success("Sikeres regisztráció!", {
-                position: toast.POSITION.BOTTOM_CENTER
+                position: toast.POSITION.TOP_CENTER
             });
         } catch (error) {
             toast.error('Hiba a regisztráció során!', {
-                position: toast.POSITION.BOTTOM_CENTER
+                position: toast.POSITION.TOP_CENTER
             });
             console.error(error);
         }
@@ -74,7 +74,6 @@ export default function Registration() {
                 </p>
                 <button className="reg-button" type="submit" onClick={register}>Küldés</button>
             </form>
-            <ToastContainer />
         </div>
     )
 }

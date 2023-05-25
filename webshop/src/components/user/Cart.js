@@ -115,7 +115,6 @@ function Cart() {
       }
       </table>
       {userData && cart ? <button className="order-button" onClick={sendOrderButton}>Megrendelés</button> : <></>}
-      <ToastContainer />
     </div>
   )
 }

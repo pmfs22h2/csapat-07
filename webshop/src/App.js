@@ -27,6 +27,8 @@ import AdminCategoriesList from './pages/admin/AdminCategoriesList';
 import { SearchValue } from './context/searchValueContext';
 import AdminCategoryModify from './pages/admin/AdminCategoryModify';
 import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -95,7 +97,7 @@ const router = createBrowserRouter([
       {
         path: '/admin/megrendelesek',
         element: <AdminDisplayOrders />
-      }, 
+      },
       {
         path: '/admin/megrendelesek/:orderId',
         element: <AdminOrderDetails />
@@ -110,11 +112,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin/kategoriak/:kategoriaId/szerkesztes',
-        element: <AdminCategoryModify />                      
+        element: <AdminCategoryModify />
       },
       {
         path: '/admin/kategoriak/:kategoriaId/torles',
-        element: <AdminCategoryDelete />                      
+        element: <AdminCategoryDelete />
       }
     ]
   }
@@ -134,6 +136,7 @@ function App() {
             <CartContext.Provider value={{ cart, setCart }}>
               <RouterProvider router={router}>
               </RouterProvider>
+              <ToastContainer />
             </CartContext.Provider>
           </AdminAuthContext.Provider>
         </AuthContext.Provider>

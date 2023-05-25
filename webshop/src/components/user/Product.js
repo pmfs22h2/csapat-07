@@ -29,23 +29,23 @@ export default function Products(props) {
         }
 
         setIsAddedToCart(true);
-        addedToCartSuccess();
         let addToCartProduct;
 
         cartService.getCart(userData.uid)   // lekéri firebase-ről a cart-t 
             .then(cartlist => {
-                if(!cartlist || !(props.product.id in cartlist)) {   // ha a kosár üres vagy a termék nincs benne a kosárban..
-                    addToCartProduct = {[props.product.id] : 1}
-                } else if(props.product.id in cartlist)  {         // ha a termék benne van a kosárban, megnöveli a mennyiséget eggyel
-                    addToCartProduct = {[props.product.id] : cartlist[props.product.id] + 1}                
+                if (!cartlist || !(props.product.id in cartlist)) {   // ha a kosár üres vagy a termék nincs benne a kosárban..
+                    addToCartProduct = { [props.product.id]: 1 }
+                } else if (props.product.id in cartlist) {         // ha a termék benne van a kosárban, megnöveli a mennyiséget eggyel
+                    addToCartProduct = { [props.product.id]: cartlist[props.product.id] + 1 }
                 }
             })
             .then(() => cartService.changeItem(addToCartProduct, userData.uid)    // módosítja a firebase kosár tartalmát  
-            .then(() => cartService.getCart(userData.uid))                          // lekéri a módosított kosarat
-            .then((cartlist) => {
-                const modifiedcart = getCartList(cartlist).then(modifiedcart => setCart(modifiedcart));
-            })       )                // átadja a módosított kosár tartalmát a kosár context-nek
-            
+                .then(() => cartService.getCart(userData.uid))                          // lekéri a módosított kosarat
+                .then((cartlist) => {
+                    const modifiedcart = getCartList(cartlist).then(modifiedcart => setCart(modifiedcart));
+                    addedToCartSuccess();
+                }))                // átadja a módosított kosár tartalmát a kosár context-nek
+
     }
 
     console.log(cart, "addtocart");
@@ -61,7 +61,6 @@ export default function Products(props) {
                     <button className="cart-button" onClick={addToCartClick}>Kosárba</button>
                 </div>
                 <div>
-                    <ToastContainer />
                 </div>
             </div>
         </>

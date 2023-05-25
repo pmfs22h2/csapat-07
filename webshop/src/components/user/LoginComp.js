@@ -16,7 +16,7 @@ const LoginComp = () => {
     const { setCart } = useContext(CartContext);
     const [formData, setFormData] = useState({
         email: "",
-        password: "" 
+        password: ""
     })
 
     function login(e) {
@@ -40,7 +40,9 @@ const LoginComp = () => {
                             const cart = getCartList(cartlist).then(cart => setCart(cart))
                         })
                 } else {
-                    toast.error(authResp.error.message);
+                    toast.error("Hibás vagy hiányos belépési adatok!", {
+                        position: toast.POSITION.TOP_CENTER
+                    });
                 }
             })
     }
@@ -75,7 +77,6 @@ const LoginComp = () => {
                 </div>
             </>
         }
-            <ToastContainer />
         </>
     )
 }
