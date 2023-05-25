@@ -8,6 +8,7 @@ import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
 import '../../styles/admintable.css';
 import '../../styles/search.css';
+import CategorySearch from "../../components/admin/AdminCategorySearch";
 
 const AdminProducts = () => {
 
@@ -16,11 +17,16 @@ const AdminProducts = () => {
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
-    const [sortedItems, setSortedItems] = useState();
+    const [sortedItems, setSortedItems] = useState([]);
 
     useEffect(() => {
         listProducts();
     }, [])
+    console.log(sortedItems);
+
+    useEffect(() => {
+      sliceprod(sortedItems)
+    },[sortedItems])
 
     function listProducts() {
         productService.read()
@@ -95,6 +101,7 @@ const AdminProducts = () => {
     return (
         <>
         <h2 className="adminprodlist-h2">Admin termék lista</h2>
+        <CategorySearch products={products}setSortedItems={setSortedItems}/>
         <div className="select-option">
             <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                 <option value="order">Rendezés</option>
