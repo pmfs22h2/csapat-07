@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import productService from "../../service/productService";
-import readCategories from "../../service/category-service";
+import readCategories from "../../service/categoryService";
+import categoryService from "../../service/categoryService";
 
 export default function ProductForm({ id, product }) {
 
@@ -9,7 +10,7 @@ export default function ProductForm({ id, product }) {
     const [categoryData, setCategoryData] = useState({});
 
     useEffect(() => {
-        readCategories()
+        categoryService.readCategories()
             .then(json => setCategoryData(json))
     }, []);
     
@@ -48,8 +49,8 @@ export default function ProductForm({ id, product }) {
             <p>Termék új neve: <input type="text" onChange={(e) => setFormData({ ...formData, title: e.target.value })} value={formData.title} placeholder='Termék új neve' /></p>
             <p>Termék új ára: <input type="text" onChange={(e) => setFormData({ ...formData, price: e.target.value })} value={formData.price} placeholder='Termék új ára' /></p>
             <p>Termék új kategóriája:
-                <select  id="categories-list" onChange={(e) => updateCategory(e)} >
-                    <option value="">{product.categoryID}</option>
+                <select value={formData.categoryID} id="categories-list" onChange={(e) => updateCategory(e)} >
+                    <option value="">Válassz kategóriát!</option>
                     {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
                 </select >
             </p>

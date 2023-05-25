@@ -6,6 +6,7 @@ import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
+import categoryService from "../../service/categoryService";
 
 const AdminProducts = () => {
 
@@ -15,9 +16,11 @@ const AdminProducts = () => {
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
     const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
+    const [categories, setCategories] = useState([]);
     
     useEffect(() => {
         listProducts();
+        categoryService.readCategories().then(cat => setCategories(cat))
     }, [])
 
     function listProducts() {
@@ -101,7 +104,7 @@ const AdminProducts = () => {
             </select>
             <p>Admin termék lista</p>
             <SearchComponent products={displayedProducts} />
-            <AdminProductList products={displayedProducts} />
+            <AdminProductList products={displayedProducts} categories={categories} />
             <div className="pagination-buttons">
                 <button onClick={prevPage} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} disabled={to === products.length}>Előre</button>
