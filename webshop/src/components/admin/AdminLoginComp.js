@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { AdminAuthContext } from "../../context/AdminAuthContext";
 import { useNavigate } from "react-router";
+import { toast } from 'react-toastify';
 
 const API_URL = 'https://csapat-07-default-rtdb.europe-west1.firebasedatabase.app/'
 
@@ -17,11 +18,13 @@ const AdminLoginComp = () => {
 
     function login(e) {
         e.preventDefault();
-        if (formData.email == email && formData.password == password) {
+        if (formData.email === email && formData.password === password) {
             setAdmin(true);
             navigate('/admin')
         } else {
-            console.error("Ennek a felhasználónak nincsenek admini jogosultságai.");
+            toast.error("Ennek a felhasználónak nincsenek admin jogosultságai!", {
+                position: toast.POSITION.TOP_CENTER
+            });
         }
     }
 
