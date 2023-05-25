@@ -5,9 +5,20 @@
     background-image: url('../../styles/ProductWizard/wizard-background.jpg') ;
     background-position: center;
     background-size: cover;
-    padding-top: 5rem;
+    /* padding-top: 5rem; */
+    margin-block: auto;
+    display: flow-root;
+
 }
 
+/* .margin-helper {
+    display: flow-root;
+    margin: 10px
+} */
+
+.wizard-container section {
+    /* középre */
+}
 .wizard-container p {
     font-size: 1.4rem;
     margin-top: 1rem ;
@@ -79,7 +90,7 @@ input[type="radio"] {
     /* border-image-source: linear-gradient(-45deg, #743ad5, #d53a9d); */
 }
 
-label {
+.wizard-form label {
     font-size: 2rem;
     /* margin-top: -6px; */
     text-align: center;

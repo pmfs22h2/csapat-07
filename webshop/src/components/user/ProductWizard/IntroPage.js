@@ -4,7 +4,7 @@ import '../../../styles/ProductWizard/intropage.css';
 
 const IntroPage = () => {
     return (
-        <>
+        <section className="wizard-intro">
             <h2>Termék varázsló</h2>
             <p><img src="https://images.pexels.com/photos/6707334/pexels-photo-6707334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /></p>
             <div className="intro-container">
@@ -19,7 +19,7 @@ const IntroPage = () => {
             </div>
             <br />
             <Link to="/kerdesek">Induljon a varázslat!</Link>
-        </>
+        </section>
     )
 }
 
