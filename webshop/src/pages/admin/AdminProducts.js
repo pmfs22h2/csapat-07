@@ -4,6 +4,12 @@ import AdminProductList from "../../components/admin/AdminProductList";
 import SearchComponent from "../../components/user/SearchComponent";
 import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB";
+import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
+import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
+import categoryService from "../../service/categoryService";
+import '../../styles/admintable.css';
+import '../../styles/search.css';
+import CategorySearch from "../../components/admin/AdminCategorySearch";
 
 const AdminProducts = () => {
 
@@ -12,10 +18,12 @@ const AdminProducts = () => {
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
-    const [sortedItems, setSortedItems] = useState();   // sortedItems és setSortedItems kell? nem használjuk sehol
-    
+    const [sortedItems, setSortedItems] = useState();
+    const [categories, setCategories] = useState([]);
+
     useEffect(() => {
         listProducts();
+        categoryService.readCategories().then(cat => setCategories(cat))
     }, [])
 
     function listProducts() {
@@ -72,6 +80,17 @@ const AdminProducts = () => {
             const prod = sortProductsFromA(products)
             setSortedItems(sortProductsFromA(products))
             sliceprod(prod)
+
+        } else if (selectValue === "price-desc") {
+            const prod = sortProductsFromHighest(products)
+            setSortedItems(sortProductsFromHighest(products))
+            sliceprod(prod)
+
+        } else if (selectValue === "price-asc") {
+            const prod = sortProductsFromLowest(products)
+            setSortedItems(sortProductsFromLowest(products))
+            sliceprod(prod)
+
         } else {
             setSortedItems(products)
         }
@@ -79,16 +98,21 @@ const AdminProducts = () => {
 
     return (
         <>
-            <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
-                <option value="order">Rendezés</option>
-                <option value="name-asc">Név szerint növekvő</option>
-                <option value="name-desc">Név szerint csökkenő</option>
-                <option value="price-asc">Ár szerint növekvő</option>
-                <option value="price-desc">Ár szerint csökkenő</option>
-            </select>
-            <p>Admin termék lista</p>
-            <SearchComponent products={displayedProducts} />
-            <AdminProductList products={displayedProducts} />
+            <h2 className="adminprodlist-h2">Admin termék lista</h2>
+            <div className="admin-box">
+                <CategorySearch products={products} setSortedItems={setSortedItems} />
+                <div className="select-option">
+                    <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
+                        <option value="order">Rendezés</option>
+                        <option value="name-asc">Név szerint növekvő</option>
+                        <option value="name-desc">Név szerint csökkenő</option>
+                        <option value="price-asc">Ár szerint növekvő</option>
+                        <option value="price-desc">Ár szerint csökkenő</option>
+                    </select>
+                </div>
+                <SearchComponent products={displayedProducts} />
+            </div>
+            <AdminProductList products={displayedProducts} categories={categories} />
             <div className="pagination-buttons">
                 <button onClick={prevPage} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} disabled={to === products.length}>Előre</button>
