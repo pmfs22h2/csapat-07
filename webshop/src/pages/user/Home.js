@@ -25,14 +25,24 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="center-content">
-                        <h3>Miért válassz minket?</h3>
-                        <ul>
-                            <li>- Kiváló minőségű termékek</li>
-                            <li>- Személyre szabott ajánlások</li>
-                            <li>- Trendi újdonságok</li>
-                            <li>- Gyors és megbízható szállítás</li>
-                        </ul>
+                        <div className="center-outer-container">
+                            <div className="center-container">
+                                <div className="image-container">
+                                    <img id="right-img" src="https://images.pexels.com/photos/5113060/pexels-photo-5113060.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                                </div>
+                                <div className="reasons-points">
+                                    <p id="question">Miért válassz minket?</p>
+                                    <p className="bold">Kiváló minőségű termékek</p>
+                                    <p>Számunkra fontos a minőség</p>
+                                    <p className="bold">Személyre szabott ajánlások</p>
+                                    <p>Nálunk Te vagy az első! </p>
+                                    <p className="bold">Megbízhatóság</p>
+                                    <p>100% elégedettségi garancia!</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <h2>Kiemelt termékek</h2>
                     <div class="product-grid">
                         <div class="product-card">
