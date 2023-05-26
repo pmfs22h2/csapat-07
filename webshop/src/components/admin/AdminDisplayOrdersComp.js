@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import orderService from "../../service/orderService";
 import { Link } from 'react-router-dom';
 import userService from "../../service/userService";
+import '../../styles/admin.css';
 
 const AdminDisplayOrdersComp = () => {
 
@@ -28,7 +29,7 @@ const AdminDisplayOrdersComp = () => {
 
     return (
         <div>
-            <h2>Vásárlók megrendelései</h2>
+            <h2 className="admin-h2">Vásárlók megrendelései</h2>
             <table className="ordertable">
                 <thead>
                     <tr>

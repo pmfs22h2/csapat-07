@@ -23,7 +23,10 @@ import AdminDisplayOrders from './pages/admin/AdminDisplayOrders';
 import AdminOrderDetails from './components/admin/AdminOrderDetails';
 import AdminCategories from './pages/admin/AdminCategories';
 import AdminAuth from './components/admin/AdminAuth';
+import AdminCategoriesList from './pages/admin/AdminCategoriesList';
 import { SearchValue } from './context/searchValueContext';
+import AdminCategoryModify from './pages/admin/AdminCategoryModify';
+import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
 
 const router = createBrowserRouter([
   {
@@ -98,8 +101,20 @@ const router = createBrowserRouter([
         element: <AdminOrderDetails />
       },
       {
+        path: '/admin/kategoriak',
+        element: <AdminCategoriesList />
+      },
+      {
         path: '/admin/kategoriak/uj-kategoria',
         element: <AdminCategories />
+      },
+      {
+        path: '/admin/kategoriak/:kategoriaId/szerkesztes',
+        element: <AdminCategoryModify />                      
+      },
+      {
+        path: '/admin/kategoriak/:kategoriaId/torles',
+        element: <AdminCategoryDelete />                      
       }
     ]
   }

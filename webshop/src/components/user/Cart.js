@@ -108,10 +108,10 @@ function Cart() {
             <td className="cart-sum">{sumCart(cart)}</td>
           </tr>
         </>
-        : <div className="cart-info">Nincs termék a kosaradban.</div>
+        : <td colspan="4" className="cart-info">Nincs termék a kosaradban.</td>
         )     
         :
-        <div className="cart-info">Jelentkezz be a kosár megtekintéséhez!</div>
+        <td colspan="4" className="cart-info">Jelentkezz be a kosár megtekintéséhez!</td>
       }
       </table>
       {userData && cart ? <button className="order-button" onClick={sendOrderButton}>Megrendelés</button> : <></>}
