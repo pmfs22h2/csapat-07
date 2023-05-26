@@ -63,21 +63,27 @@
     line-height: 1.4;
 }
 
-.greeting-text {
+.greeting-outer-container {
+    width: 60%;
     margin: 0 auto;
-    max-width: 50vw;
-    padding: 5rem;
+    padding: 3.5rem;
+}
+
+.greeting-container {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
 }
 
 .greeting-text {
     flex: 1;
 }
 
-/* .greeting-text img {
-        max-width: 100%;
-        height: auto;
-        float: right;
-} */
+.greeting-img img {
+    flex: 1;
+    text-align: right;
+    max-height: 400px;
+}
 
 .center-content {
     max-width: 100%;
@@ -87,7 +93,6 @@
 }
 
 .center-content img {
-    
     max-height: 100%;
     position: relative;
     bottom: 260px;

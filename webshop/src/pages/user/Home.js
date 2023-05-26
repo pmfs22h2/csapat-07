@@ -13,9 +13,16 @@ const Home = () => {
             </header>
             <body>
                 <div class="main-content">
-                    <div className="greeting-text">
-                        <h1>Üdvözlünk a webshopunkban!</h1>
-                        <p>Szépségrutinod új szintre emelése és a ragyogó, egészséges bőr elérésének kulcsa csak néhány kattintásra van Tőled! Elkötelezett csapatunkkal együtt összegyűjtöttük a legjobb minőségű és leghatékonyabb bőrápolási termékeket, hogy segítsünk Neked megtalálni az ideális termékeket és elhozzuk hozzád a legújabb trendeket. </p>
+                    <div className="greeting-outer-container">
+                        <div className="greeting-container">
+                            <div className="greeting-text">
+                                <h1>Üdvözlünk a webshopunkban!</h1>
+                                <p>Szépségrutinod új szintre emelése és a ragyogó, egészséges bőr elérésének kulcsa csak néhány kattintásra van Tőled! Elkötelezett csapatunkkal együtt összegyűjtöttük a legjobb minőségű és leghatékonyabb bőrápolási termékeket, hogy segítsünk Neked megtalálni az ideális termékeket és elhozzuk hozzád a legújabb trendeket. </p>
+                            </div>
+                            <div className="greeting-img">
+                                <img src="https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg" />
+                            </div>
+                        </div>
                     </div>
                     <div className="center-content">
                         <h3>Miért válassz minket?</h3>
@@ -25,7 +32,6 @@ const Home = () => {
                             <li>- Trendi újdonságok</li>
                             <li>- Gyors és megbízható szállítás</li>
                         </ul>
-                        <img src="https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg" />
                     </div>
                     <h2>Kiemelt termékek</h2>
                     <div class="product-grid">
