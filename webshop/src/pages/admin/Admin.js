@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import Counter from '../../components/admin/Counter';
 import '../../styles/admin.css';
 import productService from '../../service/productService';
 import userServie from '../../service/userService'
 import orderServie from '../../service/orderService'
-import Counter2 from '../../components/admin/Counter2';
+import Counter from '../../components/admin/Counter';
 
 const Admin = () => {
 
@@ -22,12 +21,10 @@ const Admin = () => {
         
     }, [])
 
-    console.log(productsAmount);
-
     return (
         <>
             <h2 className="admin-h2">Admin kezdőoldal</h2>
-            <Counter2
+            <Counter
                 productsAmount={productsAmount} 
                 customersAmount={customersAmount}
                 ordersAmount={ordersAmount}
