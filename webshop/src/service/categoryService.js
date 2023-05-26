@@ -23,10 +23,37 @@ function setCategoryId(id) {
     })
 }
 
+function readCategories() {
+    return fetch(`${API_URL}/categories.json`)
+        .then(res => res.json())
+}
 
+function deleteCategory(id) {
+    return fetch(`${API_URL}/categories/${id}.json`, {
+        method: 'DELETE',
+    }
+    )
+        .then(res => res.json())
+}
 
+// function updateCategory(id) {
+//     if (!id) {
+//       return null;
+//     }
+ 
+//     return fetch(`${API_URL}categories/${id}.json`, {
+//       method: 'PATCH',
+//       headers: {
+//         'Content-type': 'application/json'
+//       },
+//     //   body: JSON.stringify({id:category.id,name:category.name})
+//     })
+//     .then(res => res.json())
+//   }
 
-export default{
-    createCategory: createCategory
-    
+export default {
+    createCategory: createCategory,
+    readCategories: readCategories,
+    deleteCategory: deleteCategory,
+    // updateCategory: updateCategory
 }

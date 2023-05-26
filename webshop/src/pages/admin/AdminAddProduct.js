@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import '../../styles/adminAddProduct.css';
 import '../../styles/adminsortsearch.css';
 import { fileUpload } from "../../utils/fileUpload";
-import readCategories from "../../service/category-service";
+import readCategories from "../../service/categoryService";
 
 export default function AdminAddProduct(props) {
 

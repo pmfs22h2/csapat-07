@@ -5,7 +5,7 @@ import ProductForm from "./ProductForm";
 import { setCategoryID } from "../../service/categoryService";
 import { useEffect, useState } from "react";
 
-export default function AdminEditCategories() {
+export default function AdminEditCategory() {
 
     const { id } = useParams()
     const [category, setCategory] = useState({});

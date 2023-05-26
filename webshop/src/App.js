@@ -24,6 +24,7 @@ import AdminOrderDetails from './components/admin/AdminOrderDetails';
 import AdminCategories from './pages/admin/AdminCategories';
 import AdminAuth from './components/admin/AdminAuth';
 import { SearchValue } from './context/searchValueContext';
+import AdminCategoryModify from './pages/admin/AdminCategoryModify';
 
 const router = createBrowserRouter([
   {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
       {
         path: '/admin/kategoriak/uj-kategoria',
         element: <AdminCategories />
+      },
+      {
+        path: '/admin/kategoriak/:kategoriaId/szerkesztes',
+        element: <AdminCategoryModify />                      
       }
     ]
   }
