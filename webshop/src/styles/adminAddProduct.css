@@ -17,8 +17,10 @@
 }
 
 .add-product label {
-    font-size: 15px;
+    font-size: 16px;
     margin-left:20px;
+    font-weight: bolder;
+   
 }
 
 .add-product input {
@@ -30,11 +32,12 @@
     border-color:#F1E4DD;
     margin-left:20px;
     font-family: 'Poppins', sans-serif;
+    background-color: #E3C8BB;
     
 }
 .addp-input[type=text] {
     font-family: 'Poppins', sans-serif;
-    color: #3E312A;
+    color: #F6EDE8;
     font-size: 14px;
 
 }
@@ -71,11 +74,13 @@
     margin-bottom: 30px;
     margin-top: 10px;
     font-size: 20px;
-    background-color: white;
+    background-color: #F6EDE8;
     box-shadow: 0 0 20px #eeddd3;
     font-weight: lighter;
     width: 800px;
     align-items: center;
+
+
 
 }
 .box2{
@@ -87,7 +92,7 @@
     margin-bottom: 30px;
     margin-top: 10px;
     font-size: 20px;
-    background-color: white;
+    background-color: #F6EDE8;
     box-shadow: 0 0 20px #eeddd3;
     font-weight: lighter;
     width: 800px;

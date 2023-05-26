@@ -1,0 +1,74 @@
+
+.user-data{
+    display:flex;
+    justify-content: center;
+}
+
+.user-data-box{
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+    padding:11px;
+    gap:10px;
+    background-image: url('./fekvo6.jpg');
+    background-position: left;
+    background-size: 800px;
+    margin-bottom:50px;
+    font-family: 'Poppins', sans-serif;
+    width:800px;
+}
+
+.small-box{
+    display:flex;
+    flex-direction: row;
+    padding:12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hello{
+    display:inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    
+}
+
+.userprofile-h2{
+    background-size: 130px;
+    background-repeat: no-repeat;
+    background-position: 43%;
+    box-shadow: #3E312A;
+    padding: 15px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    font-size: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px #eeddd3;
+    font-weight: lighter;
+}
+
+
+.user-h2{
+    color:#3E312A;
+    font-family: 'Poppins', sans-serif;
+    margin-top:-20px;
+    margin-right:800px;
+    font-size:16px;
+    font-weight: lighter;
+}
+
+.hello p{
+    color:#3E312A;
+    padding:10px; 
+    font-family: 'Poppins', sans-serif; 
+     
+}
+
+label{
+    margin-right:10px;
+    font-weight: bolder;
+}
+
+
+
+
+
