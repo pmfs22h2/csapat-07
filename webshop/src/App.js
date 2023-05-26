@@ -25,6 +25,7 @@ import AdminCategories from './pages/admin/AdminCategories';
 import AdminAuth from './components/admin/AdminAuth';
 import { SearchValue } from './context/searchValueContext';
 import AdminCategoryModify from './pages/admin/AdminCategoryModify';
+import AdminCategoriesList from './pages/admin/AdminCategoriesList';
 
 const router = createBrowserRouter([
   {
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
         path: '/admin/megrendelesek',
         element: <AdminDisplayOrders />
       }, 
+      {
+        path: '/admin/kategoriak',
+        element: <AdminCategoriesList />
+      },
       {
         path: '/admin/megrendelesek/:orderId',
         element: <AdminOrderDetails />
