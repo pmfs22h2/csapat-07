@@ -22,12 +22,19 @@
     color: #3E312A;
     background-color: #F6EDE8;
     text-decoration: none;
-    ;
+    
 }
 
 .user-login {
     display: flex;
+    justify-content: space-evenly;
     gap: 1rem;
+    
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F6EDE8;
+    
+    border-bottom: 2px solid #ECDBD1;
 }
 
 .nav-icons {

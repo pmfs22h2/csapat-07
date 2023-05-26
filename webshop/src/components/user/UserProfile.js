@@ -16,6 +16,7 @@ const UserProfile = () => {
         <div className="user-profile">
             <div>
             <img src={kep5.jpg} alt="kep5" style={{ width: '200px', }}/>
+            <img src='https://www.pexels.com/hu-hu/foto/no-lany-reggel-visszaverodes-4046314/' />
             </div>
             <div className="user-data">
                 <h3>Név:</h3>
