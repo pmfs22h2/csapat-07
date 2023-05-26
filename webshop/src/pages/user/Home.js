@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 const Home = () => {
 
-    
+
     return (
         <>
             <header>
@@ -13,10 +13,20 @@ const Home = () => {
             </header>
             <body>
                 <div class="main-content">
-                    <h1>Üdvözlünk a Skincare Webshopban!</h1>
-                    <p>Itt megtalálhatod a legjobb bőrápolási termékeket, amire szükséged lehet a ragyogó és egészséges bőr érdekében.</p>
-                    <img src="https://images.pexels.com/photos/3735631/pexels-photo-3735631.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-
+                    <div className="greeting-text">
+                        <h1>Üdvözlünk a webshopunkban!</h1>
+                        <p>Szépségrutinod új szintre emelése és a ragyogó, egészséges bőr elérésének kulcsa csak néhány kattintásra van Tőled! Elkötelezett csapatunkkal együtt összegyűjtöttük a legjobb minőségű és leghatékonyabb bőrápolási termékeket, hogy segítsünk Neked megtalálni az ideális termékeket és elhozzuk hozzád a legújabb trendeket. </p>
+                    </div>
+                    <div className="center-content">
+                        <h3>Miért válassz minket?</h3>
+                        <ul>
+                            <li>- Kiváló minőségű termékek</li>
+                            <li>- Személyre szabott ajánlások</li>
+                            <li>- Trendi újdonságok</li>
+                            <li>- Gyors és megbízható szállítás</li>
+                        </ul>
+                        <img src="https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg" />
+                    </div>
                     <h2>Kiemelt termékek</h2>
                     <div class="product-grid">
                         <div class="product-card">

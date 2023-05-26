@@ -1,6 +1,6 @@
 .main-content {
     background-color: #FFFFFF;
-    padding: 2rem;
+    /* padding: 2rem; */
 }
 
 .main-content h1 {
@@ -10,6 +10,7 @@
 }
 
 .main-content p {
+    display: flex;
     color: #605A55;
     line-height: 1.6;
 }
@@ -60,4 +61,35 @@
 .product-card p {
     color: #605A55;
     line-height: 1.4;
+}
+
+.greeting-text {
+    margin: 0 auto;
+    max-width: 50vw;
+    padding: 5rem;
+}
+
+.greeting-text {
+    flex: 1;
+}
+
+/* .greeting-text img {
+        max-width: 100%;
+        height: auto;
+        float: right;
+} */
+
+.center-content {
+    max-width: 100%;
+    height: 300px;
+    background-color: #A68371;
+    text-align: center;
+}
+
+.center-content img {
+    
+    max-height: 100%;
+    position: relative;
+    bottom: 260px;
+    left: 700px;
 }
