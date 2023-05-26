@@ -1,7 +1,7 @@
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import '../../styles/userprofile.css';
-import kep5 from '../../styles/kep5.jpg';
+import csaj from '../../styles/pics/csaj.jpeg';
 
 const UserProfile = () => {
     const { userData } = useContext(AuthContext);
@@ -9,36 +9,38 @@ const UserProfile = () => {
     return (
         <>
         <h2 className="userprofile-h2">Felhasználói adatlap</h2>
-        <div className="hello">
-        <h3>Szia Liviteszt2!</h3>
-        <p>Örülünk , hogy újra benéztél hozzánk!</p>
+        <div className="user-h2">
+        <h2>Szia {userData.name}!</h2>
         </div>
-        <div className="user-profile">
-            <div>
-            <img src={kep5.jpg} alt="kep5" style={{ width: '200px', }}/>
-            <img src='https://www.pexels.com/hu-hu/foto/no-lany-reggel-visszaverodes-4046314/' />
-            </div>
+        <div className="hello">
+        <p>Örülünk , hogy újra benéztél hozzánk! </p>
+        <p>Kellemes böngészést kívánunk és jó vásárlást nálunk!</p>
+        </div>
             <div className="user-data">
-                <h3>Név:</h3>
+            <img src={csaj} alt="kep5" style={{ width: '200px'}}/>
+            <div className="user-data-box">
+                <div className="small-box">
+                <label>Név:</label>
                 <p>{userData.name}</p>
                 </div>
-                <div className="user-data">
-                <h3>E-mail:</h3>
+                <div className="small-box">
+                <label>E-mail:</label>
                 <p>{userData.email}</p>
                 </div>
-                <div className="user-data">
-                <h3>Cím:</h3>
+                <div className="small-box">
+                <label>Cím:</label>
                 <p>1036 Budapest, Csemete utca 10.</p>
                 </div>
-                <div className="user-data">
-                <h3>Tel:</h3>
+                <div className="small-box">
+                <label>Tel:</label>
                 <p>+36 20 446 9194</p>
-                <div className="user-data">
-                <h3>Tagsági azonosítóm:</h3>
-                <p>123456789</p>
                 </div>
-                </div>    
-        </div>
+                <div className="small-box">
+                <label>Tagsági azonosító:</label>
+                <p>ABC123456789</p>
+                </div>
+            </div>
+            </div>
         </>
     )
 }
