@@ -6,9 +6,9 @@ function createCategory(category) {
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify({name: category})
+        body: JSON.stringify({ name: category })
     })
-        .then(res => res.json()) 
+        .then(res => res.json())
         .then(data => setCategoryId(data.name))
 }
 
@@ -18,7 +18,7 @@ function setCategoryId(id) {
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify({id})
+        body: JSON.stringify({ id })
     })
 }
 
@@ -57,6 +57,7 @@ export function updateCategory(id, category) {
         body: JSON.stringify({ id: category.id, name: category.name })
     })
         .then(res => res.json())
+    /* .then(product => setProductId(product.name)) */
 }
 
 export default {

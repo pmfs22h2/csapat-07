@@ -1,9 +1,10 @@
-import EditCategory from "../../components/admin/EditCategory";
+import AdminEditCategories from "./AdminEditCategory"
+import AdminEditCategory from "./AdminEditCategory";
 
 const AdminCategoryModify = () => {
     return (
         <>
-            <EditCategory />
+            <AdminEditCategory />
         </>
     )
 }

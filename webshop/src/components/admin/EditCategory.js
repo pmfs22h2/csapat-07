@@ -6,22 +6,24 @@ import { useEffect, useState } from "react";
 
 const EditCategory = () => {
 
-    const { id } = useParams()
-    const [category, setCategory] = useState({});
+  const { id } = useParams()
+  const [category, setCategory] = useState({});
+  const [editedCategory, setEditedCategory] = useState();
+  
+// const category = {"name": "asd", "id": "123"}
+  useEffect(() => {
+    getCategory(id).then(data => setCategory(data))
+  
+  }, [id])
 
-    useEffect(() => {
-      getCategory(id).then(data => setCategory(data))
-        
-      }, [id])
-    
-      const navigate = useNavigate()
-    
-      return (
-        <div>
-          <CategoryForm category={category} id={id} />
-          <button onClick={() => navigate('/admin/kategoriak')} className="button">Mégsem</button>
-        </div>
-      );
-    }
+  const navigate = useNavigate()
 
-    export default EditCategory;
+  return (
+      <div>
+        <CategoryForm category={category} id={id} />
+        <button onClick={() => navigate('/admin/kategoriak')} className="button">Mégsem</button>
+      </div>
+  );
+}
+
+export default EditCategory;

@@ -20,8 +20,8 @@ export default function AdminCatListComp() {
                 <tr>
                     <td>{cat.name}</td>
                     <td>{cat.id}</td>
-                    <button className="admin-button"><Link className="admin-link" to={`/admin/kategoriak/${category.id}/torles`} >Törlés</Link></button>
-                    <button className="admin-button"><Link className="admin-link" to={`/admin/kategoriak/${category.id}/szerkesztes`} >Szerkesztés</Link></button>
+                    <button className="admin-button"><Link className="admin-link" to={`/admin/kategoriak/${cat.id}/torles`} >Törlés</Link></button>
+                    <button className="admin-button"><Link className="admin-link" to={`/admin/kategoriak/${cat.id}/szerkesztes`} >Szerkesztés</Link></button>
                 </tr>
             ))}
         </table>
