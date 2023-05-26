@@ -36,13 +36,33 @@ function deleteCategory(id) {
 }
 
 export function getCategory(id) {
-    return fetch(`${API_URL}categories/${id}.json`)
-    .then(res => res.json())
-  }
+    console.log("GET")
+    return fetch(`${API_URL}/categories/${id}.json`, {
+        method: 'GET',
+    }
+    )
+        .then(res => res.json())
+}
+
+export function updateCategory(id, category) {
+    if (!id) {
+        return null;
+    }
+
+    return fetch(`${API_URL}/categories/${id}.json`, {
+        method: 'PATCH',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ id: category.id, name: category.name })
+    })
+        .then(res => res.json())
+}
 
 export default {
     createCategory: createCategory,
     readCategories: readCategories,
     deleteCategory: deleteCategory,
-    getCategory: getCategory
+    getCategory: getCategory,
+    updateCategory: updateCategory
 }

@@ -1,11 +1,12 @@
 import EditCategory from "../../components/admin/EditCategory";
 
-const AdminCategoryModify = () => {
+const AdminEditCategory = () => {
     return (
         <>
+            <p>Admin termékmódosítás</p>
             <EditCategory />
         </>
     )
 }
 
-export default AdminCategoryModify;
+export default AdminEditCategory;
