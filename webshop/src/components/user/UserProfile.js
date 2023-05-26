@@ -1,6 +1,7 @@
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import '../../styles/userprofile.css';
+import kep5 from '../../styles/kep5.jpg';
 
 const UserProfile = () => {
     const { userData } = useContext(AuthContext);
@@ -13,7 +14,9 @@ const UserProfile = () => {
         <p>Örülünk , hogy újra benéztél hozzánk!</p>
         </div>
         <div className="user-profile">
-            {/* <img src="../../styles/kep5.jpeg"/> */}
+            <div>
+            <img src={kep5.jpg} alt="kep5" style={{ width: '200px', }}/>
+            </div>
             <div className="user-data">
                 <h3>Név:</h3>
                 <p>{userData.name}</p>
