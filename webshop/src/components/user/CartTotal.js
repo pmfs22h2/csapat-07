@@ -17,5 +17,5 @@ export default function CartTotal() {
     console.log(sum)
     console.log(cart, "cartcontext")
     // console.log(cart[0], "cartcontext - cart[0]")
-    return (<>{sum}</>)
+    return (<span className="badge">{sum}</span>)
 }

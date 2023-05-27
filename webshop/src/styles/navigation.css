@@ -11,6 +11,7 @@
     background-color: #F6EDE8;
     padding: 1rem;
     border-bottom: 2px solid #ECDBD1;
+    align-items: center;
 }
 
 .navbar {
@@ -28,6 +29,7 @@
 .nav-icons {
     display: flex;
     gap: 1em;
+    align-items: center;
 }
 
 .badge {
@@ -38,8 +40,8 @@
     border-radius: 50%;
     position: relative;
     text-decoration: none;
-    top: -0.8rem;
-    right: -10px;
+    top: 0.4rem;
+    right: 4px;
 }
 .back-button{
     border:none;
