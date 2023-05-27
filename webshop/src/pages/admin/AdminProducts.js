@@ -128,11 +128,15 @@ const AdminProducts = () => {
                 <option value="price-desc">Ár szerint csökkenő</option>
             </select>
             </div>
-            <SearchComponent products={displayedProducts} />
+                <SearchComponent products={displayedProducts} />
+            </div>
+            <div className="pagination-buttons">
+                <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
+                <button onClick={nextPage} className={to === sortedItems.length ? "disabled" : ""} disabled={to === sortedItems.length}>Előre</button>
             </div>
             <AdminProductList products={displayedProducts} />
             <div className="pagination-buttons">
-            <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
+                <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} className={to === sortedItems.length ? "disabled" : ""} disabled={to === sortedItems.length}>Előre</button>
             </div>
         </>
