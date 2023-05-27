@@ -9,9 +9,10 @@
     gap: 1rem;
 
     background-color: #F6EDE8;
-    padding: 1rem;
+    padding: 1.4rem;
     border-bottom: 2px solid #ECDBD1;
     align-items: center;
+    position:relative;
 }
 
 .navbar {
@@ -83,4 +84,15 @@
     margin-left:15px;
     border:none;
     
+  }
+
+  .logo1uj{
+    display: flex;
+    justify-content: left;
+    gap: 1rem;
+    margin-top:20px;
+    margin-bottom:-20px;
+    position:absolute;
+    left:20px;
+    top:-20px;
   }

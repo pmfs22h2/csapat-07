@@ -1,41 +1,46 @@
-
-.user-data{
-    display:flex;
+.user-data {
+    display: flex;
     justify-content: center;
-   
+
 }
 
-.user-data-box{
-    display:flex;
+.user-data-box {
+    display: flex;
     flex-direction: column;
     justify-content: left;
-    padding:11px;
-    gap:10px;
+    padding: 11px;
+    gap: 10px;
     background-image: url('./fekvo6.jpg');
     background-position: left;
     background-size: 800px;
-    margin-bottom:50px;
+    margin-bottom: 50px;
     font-family: 'Poppins', sans-serif;
-    width:800px;
+    width: 800px;
     /* opacity:0.7; */
+    background-image: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.small-box{
-    display:flex;
+.small-box {
+    display: flex;
     flex-direction: row;
-    padding:12px;
+    padding: 12px;
     font-family: 'Poppins', sans-serif;
     /* opacity:1; */
 }
 
-.hello{
-    display:inline-block;
+.hello {
+    display: inline-block;
     margin-top: 10px;
     font-size: 16px;
-    
+
 }
 
-.userprofile-h2{
+.userprofile-h2 {
     background-size: 130px;
     background-repeat: no-repeat;
     background-position: 43%;
@@ -50,28 +55,23 @@
 }
 
 
-.user-h2{
-    color:#3E312A;
+.user-h2 {
+    color: #3E312A;
     font-family: 'Poppins', sans-serif;
-    margin-top:-20px;
-    margin-right:800px;
-    font-size:16px;
+    margin-top: -20px;
+    margin-right: 800px;
+    font-size: 16px;
     font-weight: lighter;
 }
 
-.hello p{
-    color:#3E312A;
-    padding:10px; 
-    font-family: 'Poppins', sans-serif; 
-     
+.hello p {
+    color: #3E312A;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
-label{
-    margin-right:10px;
+label {
+    margin-right: 10px;
     font-weight: bolder;
 }
-
-
-
-
-
