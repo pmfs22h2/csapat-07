@@ -5,6 +5,7 @@ import '../../styles/adminAddProduct.css';
 import '../../styles/adminsortsearch.css';
 import { fileUpload } from "../../utils/fileUpload";
 import readCategories from "../../service/categoryService";
+import categoryService from "../../service/categoryService";
 
 export default function AdminAddProduct(props) {
 
@@ -25,7 +26,7 @@ export default function AdminAddProduct(props) {
     const [selectValue, setSelectValue] = useState("categories");
 
     useEffect(() => {
-        readCategories()
+        categoryService.readCategories()
             .then(json => setCategoryData(json))
     }, []);
     // console.log(categoryData)
@@ -62,7 +63,7 @@ export default function AdminAddProduct(props) {
 
     function onSubmit(event) {
         event.preventDefault();
-
+        if (validateTitle() && validatePrice())
         // 1. létrehozza a terméket firebase-n (url nélkül)
         productService.create(formData.title, formData.price, formData.categoryID)
             .then(data => {
@@ -76,22 +77,37 @@ export default function AdminAddProduct(props) {
         }
 
 
-    // function validateTitle(e) {
-    //     if (/^\d+$/(formData.price)) alert("Nem tartalmazhat csak számokat!");
-    //     else if (formData.price === "") alert("Nem lehet üres!");
-    //     else if (formData.price.length < 2) alert("Minimum két karakter hosszúnak lennie kell!")
-    //     else {
-    //         updateTitle();
-    //     }
-    // }
+    function validateTitle() {
+      	const title = formData.title;
+        if (title.match(/^\d+$/)) 
+        {
+          alert("A 'Terméknév' nem tartalmazhat csak számokat!");
+          return false;
+        }
+        
+      	if (title === "") {
+            alert("A 'Terméknév' nem lehet üres!");
+      		return false;
+        }
+        if (title.length < 2) {
+          alert("A 'Terméknév' minimum két karakter hosszú kell, hogy legyen!") 
+          return false;
+        }
 
-    // function validatePrice(e) {
-    //     if (isNaN(formData.price)) alert("Csak számokat tartalmazhat!");
-    //     else if (formData.price === "") alert("Nem lehet üres!");
-    //     else {
-    //         updatePrice();
-    //     }
-    // }
+      	return true;
+    }
+
+    function validatePrice() {
+      const price = formData.price;
+        if (isNaN(price)) {
+          alert("Az 'Ár' csak számokat tartalmazhat!");
+        	return false;
+        }
+        if (price === "") {
+          alert("Az 'Ár' nem lehet üres!");
+          return false;
+        }
+    }
 
     // képfeltöltéskor egyből megjeleníti a képet, még a végleges feltöltés előtt
     function previewImage(filetest) {
@@ -107,7 +123,11 @@ export default function AdminAddProduct(props) {
     return (
         
         <div className="add-product">  
-        <h2 className="admin-h2">Új termék hozzáadása</h2>
+        <h2 className="admin-h2">Termékfelvitel</h2>
+        <div className="box-container">
+        <div className="box">
+            <label>Új termék adatai: </label>
+            <div className="inside-box">
             <label htmlFor="title">Terméknév:</label>
             <input
                 type="text"
@@ -116,27 +136,41 @@ export default function AdminAddProduct(props) {
                 onChange={(e) => updateTitle(e)}
             />
             <br />
-            <label htmlFor="price">Ár:</label>
+            <label htmlFor="price">Ár: </label>
             <input
                 type="text"
                 name="price"
                 value={formData.price}
                 onChange={(e) => updatePrice(e)}
             />
+            </div>
+            </div>
+            </div>
             <br />
+            <div className="box-container">
+            <div className="box2">
             <label>Kategória kiválasztása: </label>
+            <div className="inside-box">
             <div className="select-option">
             <select value={formData.categoryID} id="categories-list" onChange={(e) => updateCategory(e)} >
                 <option value="">Válassz egy kategóriát!</option>
                 {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
             </select>
             </div>
+            </div>
+            </div>
+            </div>
 
             <br />
+            <div className="box-container">
+            <div className="box">
             <label htmlFor="img">Kép feltöltése a termékhez: </label>
+            <div className="inside-box">
+                <label className="img-upload-label" htmlFor="img">Képfeltöltés</label>
             <input
                 type="file"
                 name="img"
+                id="img"
                 onChange={(e) => handleImgUpload(e)}
             />
 
@@ -144,7 +178,10 @@ export default function AdminAddProduct(props) {
                 {file &&
                     <><p>termék kép: </p><img src={previewImg} alt="" style={{ width: "300px" }} /></>}
             </div>
+            </div>
             <br />
+            </div>
+            </div>
             <button className="addp-button" onClick={onSubmit}>Termék hozzáadása</button>
         </div>
     )
