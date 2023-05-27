@@ -17,9 +17,13 @@ import '../../styles/admindelete.css';
 
      return (
         <div className="admin-del-btn">
+          <div className="admin-del-btn-box">
          <p>Biztosan törölni szeretnéd?</p>
+         <div className="admin-buttons">
          <button className="admin-delete-button"onClick={()=>productDelete(id)}>Törlés</button>
          <button className="admin-cancel-button" onClick={() => navigate('/admin/termekek')}>Mégsem</button>
+         </div>
+        </div>
         </div>
       );
     }

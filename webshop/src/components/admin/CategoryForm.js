@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { getCategory, updateCategory } from "../../service/categoryService";
+import '../../styles/categoryform.css';
 
 export default function CategoryForm({ id, category }) {
 
@@ -23,10 +24,20 @@ export default function CategoryForm({ id, category }) {
 
     return (
         <>
-            <p>Kategória azonosítója: {id} </p>
-            <p>Kategória neve: {category.name} </p>
-            <p>Kategória új neve: <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value })} value={formData.name} placeholder='Kategória új neve' /></p>
-        <button onClick={(e) => clickUpdateCategory(e)} className ="button">Mentés</button>
+        <div className="cat-form">
+            <div className="cat-form-box">
+            <label>Kategória azonosítója: {id} </label>
+            <label>Kategória neve: {category.name} </label>
+            <label>Kategória új neve: <input
+             type="text" 
+             onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+             value={formData.name} placeholder='Kategória új neve' /></label>
+            <div className="admin-buttons">
+        <button className="cat-button-save" onClick={(e) => clickUpdateCategory(e)} >Mentés</button>
+        <button className="cat-button-cancel" onClick={() => navigate('/admin/kategoriak')} >Mégsem</button>
+        </div>
+        </div>
+        </div>
         </>
     )
 }

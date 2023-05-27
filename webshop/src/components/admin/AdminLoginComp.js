@@ -32,6 +32,7 @@ const AdminLoginComp = () => {
         
             <h2 className="admin-h2"> Admin Bejelenkezés </h2>
             <div className="admin-login">
+                <div className="admin-login-box">
             <form>
                 <p>
                     <label htmlFor="email"> E-mail: </label>
@@ -44,6 +45,7 @@ const AdminLoginComp = () => {
                 </p>
                 <p><button className="admin-login-btn" type="submit" onClick={login}>Belépés</button></p>
             </form>
+            </div>
             </div>
         </>
     )

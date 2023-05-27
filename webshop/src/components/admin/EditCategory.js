@@ -21,7 +21,6 @@ const EditCategory = () => {
   return (
       <div>
         <CategoryForm category={category} id={id} />
-        <button onClick={() => navigate('/admin/kategoriak')} className="button">Mégsem</button>
       </div>
   );
 }

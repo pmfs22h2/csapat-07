@@ -16,6 +16,14 @@ export default function AdminCatListComp() {
 
     return (
         <table className='admintable'>
+            <thead>
+                    <tr>
+                        <th>Kategória neve</th>
+                        <th>Kategória #</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
             {Object.values(category).map(cat => (
                 <tr>
                     <td>{cat.name}</td>
@@ -24,6 +32,7 @@ export default function AdminCatListComp() {
                     <button className="admin-button"><Link className="admin-link" to={`/admin/kategoriak/${cat.id}/szerkesztes`} >Szerkesztés</Link></button>
                 </tr>
             ))}
+            </tbody>
         </table>
     )
 

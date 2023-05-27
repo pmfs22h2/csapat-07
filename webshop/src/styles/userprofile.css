@@ -39,7 +39,7 @@
 .small-box {
     display: flex;
     flex-direction: row;
-    padding: 12px;
+    padding: 10px;
     font-family: 'Poppins', sans-serif;
 
 }
