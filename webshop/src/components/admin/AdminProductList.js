@@ -5,6 +5,7 @@ import SearchComponent from "../../components/user/SearchComponent";
 export default function AdminProductList(props) {
     return (
         <>
+        <div className="admin-background">
         <table className= "admintable">
             <thead>
             <tr>
@@ -20,6 +21,7 @@ export default function AdminProductList(props) {
         
         </tbody>
         </table>
+        </div>
         </>
     )
 }
