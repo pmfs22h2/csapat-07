@@ -63,7 +63,7 @@ const Step1 = ({ onNext, toast }) => {
                         checked={skinType === 'kombinált'}
                         onChange={handleSkinTypeChange}
                     />
-                    <label>kombinalt</label>
+                    <label>kombinált</label>
                     <div class="selected"></div>
                 </label>
             </div>
