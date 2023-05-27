@@ -47,13 +47,21 @@ const Home = () => {
                     <div class="product-grid">
                         <div class="product-card">
                             <img src="https://images.pexels.com/photos/4841525/pexels-photo-4841525.jpeg" alt="" />
-                            <h3>Kímélő hidratáló</h3>
-                            <p>Intenzíven táplál és hidratál.</p>
+                            <div className="product-label">
+                                <p>Kímélő hidratáló</p>
+                            </div>
                         </div>
                         <div class="product-card">
                             <img src="https://images.pexels.com/photos/11179690/pexels-photo-11179690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-                            <h3>Szérum</h3>
-                            <p>Lágy és könnyű textúra.</p>
+                            <div className="product-label">
+                                <p>Szérum</p>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <img src="https://images.pexels.com/photos/4173342/pexels-photo-4173342.jpeg" alt="" />
+                            <div className="product-label">
+                                <p>Szérum</p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -34,9 +34,9 @@
 }
 
 .product-card {
-    background-color: #F6EDE8;
+    /* background-color: #F6EDE8; */
     padding: 1rem;
-    border: 1px solid #ECDBD1;
+    /* border: 1px solid #ECDBD1; */
     width: 300px;
     height: 400px;
     display: flex;
@@ -120,6 +120,22 @@
 .bold {
     font-weight: 550;
     font-size: medium;
+}
+
+.product-card img {
+    position: relative;
+}
+
+.product-label {
+    background-color: #F6EDE8;
+}
+
+.product-label p {
+    background-color: #F6EDE8;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
 }
 
 /* .center-content {
