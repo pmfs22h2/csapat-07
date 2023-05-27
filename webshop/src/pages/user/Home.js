@@ -43,6 +43,20 @@ const Home = () => {
                         </div>
                     </div>
 
+                    <div className="services-outer-container">
+                        <div className="services-container">
+                            <div className="services-text">
+                                <h2>Amit kínálunk:</h2>
+                                <p>Nálunk megtalálod a  leginnovatívabb bőrápolási termékeket: széles választékunkban megtalálhatók arcápolók, hidratálók, szérumok, maszkok és még sok más, melyek kielégítik minden bőrtípus igényeit.</p>
+                                <p>Elhoztuk Neked a vezető márkák leghatékony anti-aging termékeit, amelyek segítenek visszaadni bőröd fiatalos ragyogását. Speciális termékkínálatunk segít kezelni a különböző bőrproblémákat, mint például akné, pigmentáció vagy érzékenység.</p>
+                                <h4>Fedezd fel termékeinket és kezdd el ápolni bőrödet a legjobb minőségű termékekkel - hidd el, hálás lesz érte!</h4>
+                            </div>
+                            <div className="services-img">
+                                <img src="https://images.pexels.com/photos/5313585/pexels-photo-5313585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                            </div>
+                        </div>
+                    </div>
+
                     <h2>Kiemelt termékek</h2>
                     <div class="product-grid">
                         <div class="product-card">
@@ -60,7 +74,7 @@ const Home = () => {
                         <div class="product-card">
                             <img src="https://images.pexels.com/photos/4173342/pexels-photo-4173342.jpeg" alt="" />
                             <div className="product-label">
-                                <p>Szérum</p>
+                                <p>Retinol</p>
                             </div>
                         </div>
                     </div>

@@ -150,10 +150,27 @@
     border: 1px solid #fee0d1;
 }
 
+.services-outer-container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 3.5rem;
+}
 
+.services-container {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
 
+.services-text {
+    flex: 1;
+}
 
-
+.services-img img {
+    flex: 1;
+    text-align: right;
+    max-height: 400px;
+}
 
 
 
