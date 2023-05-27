@@ -6,7 +6,6 @@ import { getProduct } from "../../service/productService";
 import { useEffect, useState } from "react";
 import '../../styles/admineditproduct.css';
 
-
 const EditProduct = () => {
   const { id } = useParams()
   const [product, setProduct] = useState({});
@@ -18,8 +17,6 @@ const EditProduct = () => {
   }, [id])
 
   const navigate = useNavigate()
-
- 
 
   return (
     <div>

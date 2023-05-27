@@ -4,9 +4,6 @@ import '../../styles/adminsortsearch.css';
 import '../../styles/admindelete.css';
 
 
-
-
-
  const DeleteProduct = () => {
    const {id}=useParams()
    console.log(id);
@@ -17,8 +14,6 @@ import '../../styles/admindelete.css';
            navigate('/admin/termekek','DELETE', json);
           })}
     }
-    
-     
 
      return (
         <div className="admin-del-btn">
