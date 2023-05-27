@@ -16,6 +16,14 @@ export default function AdminCatListComp() {
 
     return (
         <table className='admintable'>
+            <thead>
+                    <tr>
+                        <th>Kategória neve</th>
+                        <th>Kategória #</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
             {Object.values(category).map(cat => (
                 <tr>
                     <td>{cat.name}</td>
@@ -24,27 +32,8 @@ export default function AdminCatListComp() {
                     <button className="admin-button"><Link className="admin-link" to={`/admin/kategoriak/${cat.id}/szerkesztes`} >Szerkesztés</Link></button>
                 </tr>
             ))}
+            </tbody>
         </table>
     )
-
-
-
-    // <>
-    // <div className="add-categories">
-    // <form>
-    // <h2 className= "admin-h2">Termékkategória hozzáadása</h2>
-    //     <label htmlFor="name">Kategória név:</label>
-    //     <input 
-    //         type="text" 
-    //         name="name" 
-    //         value={categoryName.name} 
-    //         onChange={(e) => handleChange(e)} 
-    //     />
-    //     <br></br>
-    //     <button className="cat-button" onClick={(e) => handleClick(e)} type ="submit">Kategória létrehozása</button>
-    // </form>
-    // </div>
-    // </>
-
 
 }

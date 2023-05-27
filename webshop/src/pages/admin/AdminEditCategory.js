@@ -1,11 +1,11 @@
-import EditProduct from "../../components/admin/EditProduct";
+import EditCategory from "../../components/admin/EditCategory";
 
 
-const AdminEditProduct = () => {
+const AdminEditCategory = () => {
     return (
         <>
-            <h2 className="admin-h2">Admin termékmódosítás</h2>
-            <EditProduct />
+            <p>Admin termékmódosítás</p>
+            <EditCategory />
         </>
     )
 }
@@ -14,4 +14,4 @@ const AdminEditProduct = () => {
 // mentés gombra kattintva a termék adatai frissülnek és a termék listára irányít
 //mégsem gombra kattintva a termék listára irányít
 
-export default AdminEditProduct;
+export default AdminEditCategory;

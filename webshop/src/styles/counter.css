@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+}
+
+.counter-round {
+    border: 1px solid black;
+    width: 15em;
+    /* height: 15rem; */
+    /* border-radius: 50%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 3px solid rgb(129, 91, 97);
+    color: rgb(63, 37, 41);
+    /* background-color: rgba(213, 182, 188, 0.793); */
+    /* position: relative; */
+
+}
+
+.counter-round {
+    --border-size: 3px;
+    --border-angle: 0turn;
+    --border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    height:300px;
+    margin-top:100px;
+    /* width: 60vmin;
+    height: 50vmin; */
+    /* border-radius: 20%; */
+    /* 
+     background-image:  */
+    /* conic-gradient(
+        from var(--border-angle),
+        rgb(219, 170, 203),
+        rgb(219, 170, 203) 50%,
+        rgb(219, 170, 203)
+      ); */
+    /* conic-gradient(from var(--border-angle), transparent 20%, rgb(214, 161, 202), rgb(61, 24, 32)); */
+    /* background-size: calc(100% - (var(--border-size) * 2))
+        calc(100% - (var(--border-size) * 2)),
+      cover;  */
+    /* background-position: center center;
+    background-repeat: no-repeat; */
+
+    animation: bg-spin 3s linear infinite;
+}
+
+@keyframes bg-spin {
+    to {
+        --border-angle: 1turn;
+    }
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 2turn;
+}
+
+
+
+/* counter-round p {
+    /* color: rgb(129, 91, 97); */
+/* font-weight: bold; */
+/* background: -webkit-linear-gradient(#372929, #766363) ;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; */
+/* font-size: 1.9rem; */
+/* position: absolute; */
+
+
+
+.counter-round span {
+    font-size: 10em;
+    background: -webkit-linear-gradient(#372929, #766363, #2b1c1c, #775757);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.admin-counter {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    background-image: url('./kepuj1.avif');
+    background-size: cover;
+    background-position: left;
+    height:500px;
+    margin-top:-50px;
+}
+
+.counter-round p {
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+}

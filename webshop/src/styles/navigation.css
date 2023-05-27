@@ -9,8 +9,10 @@
     gap: 1rem;
 
     background-color: #F6EDE8;
-    padding: 1rem;
+    padding: 1.4rem;
     border-bottom: 2px solid #ECDBD1;
+    align-items: center;
+    position:relative;
 }
 
 .navbar {
@@ -25,21 +27,10 @@
     
 }
 
-.user-login {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1rem;
-    
-    line-height: 1.5;
-    font-family: 'Poppins', sans-serif;
-    background-color: #F6EDE8;
-    
-    border-bottom: 2px solid #ECDBD1;
-}
-
 .nav-icons {
     display: flex;
     gap: 1em;
+    align-items: center;
 }
 
 .badge {
@@ -50,8 +41,8 @@
     border-radius: 50%;
     position: relative;
     text-decoration: none;
-    top: -0.8rem;
-    right: -10px;
+    top: 0.4rem;
+    right: 4px;
 }
 .back-button{
     border:none;
@@ -93,4 +84,15 @@
     margin-left:15px;
     border:none;
     
+  }
+
+  .logo1uj{
+    display: flex;
+    justify-content: left;
+    gap: 1rem;
+    margin-top:20px;
+    margin-bottom:-20px;
+    position:absolute;
+    left:20px;
+    top:-20px;
   }

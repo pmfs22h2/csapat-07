@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import '../../styles/adminAddProduct.css';
 import '../../styles/adminsortsearch.css';
 import { fileUpload } from "../../utils/fileUpload";
+import readCategories from "../../service/categoryService";
 import categoryService from "../../service/categoryService";
 
 export default function AdminAddProduct(props) {
@@ -122,7 +123,7 @@ export default function AdminAddProduct(props) {
     return (
         
         <div className="add-product">  
-        <h2 className="admin-h2">Termékfelvitel</h2>
+        <h2 className="adminaddproduct-h2">Termékfelvitel</h2>
         <div className="box-container">
         <div className="box">
             <label>Új termék adatai: </label>
@@ -147,7 +148,7 @@ export default function AdminAddProduct(props) {
             </div>
             <br />
             <div className="box-container">
-            <div className="box2">
+            <div className="box">
             <label>Kategória kiválasztása: </label>
             <div className="inside-box">
             <div className="select-option">

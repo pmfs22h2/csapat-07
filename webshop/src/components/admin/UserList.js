@@ -15,6 +15,8 @@ export default function UserList(props) {
                 </thead>
 
                 <tbody>
+                    {Object.values(props.users).length==0 && "nincs ilyen felhasználó"}
+
                     {props.users && Object.values(props.users)?.map(user => <UserData key={crypto.randomUUID()} user={user} />)}
                 </tbody>
             </table>

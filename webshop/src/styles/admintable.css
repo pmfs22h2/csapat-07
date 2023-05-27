@@ -1,54 +1,62 @@
 .admintable {
-    border-collapse: collapse;     /* collapse: A szomszédos cellák keretei összevonásra kerülnek.*/
+    border-collapse: collapse;
+    /* collapse: A szomszédos cellák keretei összevonásra kerülnek.*/
     margin: 0 auto;
     font-size: 0.9em;
-    min-width:600px;
+    min-width: 600px;
     border: 1px solid black;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
-    box-shadow:0 0 20px #eeddd3;
+    box-shadow: 0 0 20px #eeddd3;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 80px;
     background-color: #F6EDE8;
 }
+
 th {
-    background-color: whitesmoke;  /* fejléc*/
+    background-color: whitesmoke;
+    /* fejléc*/
     color: #2A211C;
-    text-align:middle;
+    text-align: middle;
     font-weight: bold;
     padding: 12px 15px;
-    font-size:20px;
+    font-size: 20px;
 }
 
-td{
-    padding: 12px 15px;                  /* thead*/
+td {
+    padding: 12px 15px;
+    /* thead*/
 }
 
-.admintable tbody tr{
-    border-bottom: 1px solid #eeddd3;          /* elválasztó vonalak soroknál*/
+.admintable tbody tr {
+    border-bottom: 1px solid #eeddd3;
+    /* elválasztó vonalak soroknál*/
     padding: 30px 30px;
 }
-.admintable tbody tr:last-of-type {                    /* alsó színes sáv táblázat alján*/
-    border-bottom:5px solid  #e8d1c5 ;
+
+.admintable tbody tr:last-of-type {
+    /* alsó színes sáv táblázat alján*/
+    border-bottom: 5px solid #e8d1c5;
 }
 
-.admin-button{
-    padding:20px;
+.admin-button {
+    padding: 20px;
     border: none;
 }
 
-.admin-link{
+.admin-link {
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
-.adminprodlist-h2{
+
+.adminprodlist-h2 {
     background-size: 130px;
     background-repeat: no-repeat;
     background-position: 43%;
     box-shadow: #3E312A;
     padding: 15px;
     margin-bottom: 50px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     font-size: 20px;
     background-color: white;
     box-shadow: 0 0 20px #eeddd3;
