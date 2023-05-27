@@ -8,17 +8,12 @@ const UserProfile = () => {
 
     return (
         <>
-        <h2 className="userprofile-h2">Felhasználói adatlap</h2>
-        <div className="user-h2">
-        <h2>Szia {userData.name}!</h2>
-        </div>
-        <div className="hello">
-        <p>Örülünk , hogy újra benéztél hozzánk! </p>
-        <p>Kellemes böngészést kívánunk és jó vásárlást nálunk!</p>
-        </div>
             <div className="user-data">  
-            <img src={csaj} alt="kep5" style={{ width: '200px'}}/>
             <div className="user-data-box">
+            <img src={csaj} alt="kep5" style={{ width: '170px'}}/>
+            <h2>Szia {userData.name}!</h2>
+            <p>Örülünk , hogy újra benéztél hozzánk! </p>
+            <p>Kellemes böngészést kívánunk és jó vásárlást nálunk!</p>
                 <div className="small-box">
                 <label>Név:</label>
                 <p>{userData.name}</p>
