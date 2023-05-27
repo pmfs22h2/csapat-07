@@ -5,7 +5,6 @@ import userService from "../../service/userService";
 import '../../styles/admin.css';
 
 import AdminUserSearchComponent from "../../components/admin/AdminUserSearchComponent";
-import sortOrdersFromA from "../../utils/sortOrdersFromA";
 import sortUsersFromB from "../../utils/sortUsersFromB";
 import AdminOrderDetails from "./AdminOrderDetails";
 
@@ -34,15 +33,15 @@ const AdminDisplayOrdersComp = () => {
                     ...order
                 }));
                 setOrders(ordersList);
-               
+
                 setSortedItems(ordersList)
                 const manUsLength = ordersList.length;
 
                 if (manUsLength < to) {
-                   setTo(manUsLength);
-                   setdisplayedOrders(ordersList);
+                    setTo(manUsLength);
+                    setdisplayedOrders(ordersList);
                 } else {
-                   setdisplayedOrders(ordersList.slice(from, to));
+                    setdisplayedOrders(ordersList.slice(from, to));
                 }
             })
     }, [])
@@ -73,10 +72,34 @@ const AdminDisplayOrdersComp = () => {
         setdisplayedOrders(array.slice(increasedFrom, increasedTo));
     }
 
+    const sortOrdersFromA = (orders) => {
+        let newOrders = [...orders]
+        console.log(orders)
+        return newOrders.sort((a, b) => users[a.uid].name.localeCompare(users[b.uid].name, 'hu-HU'));
+    };
+
+    const sortOrdersFromB = (orders) => {
+        let newOrders = [...orders]
+        console.log(orders)
+        return newOrders.sort((a, b) => users[b.uid].name.localeCompare(users[a.uid].name, 'hu-HU'));
+    };
+
+    const sortOrdersDateFromA = (orders) => {
+        let newOrders = [...orders]
+        console.log(orders)
+        return newOrders.sort((a, b) => a.timestamp.localeCompare(b.timestamp, 'hu-HU'));
+    };
+
+    const sortOrdersDateFromB = (orders) => {
+        let newOrders = [...orders]
+        console.log(orders)
+        return newOrders.sort((a, b) => b.timestamp.localeCompare(a.timestamp, 'hu-HU'));
+    };
+
     useEffect(() => {
         if (selectValue === "name-desc") {
-            const prod = sortUsersFromB(orders)
-            setSortedItems(sortUsersFromB(orders))
+            const prod = sortOrdersFromB(orders)
+            setSortedItems(sortOrdersFromB(orders))
             sliceprod(prod)
 
         } else if (selectValue === "name-asc") {
@@ -84,15 +107,15 @@ const AdminDisplayOrdersComp = () => {
             setSortedItems(sortOrdersFromA(orders))
             sliceprod(prod)
 
-        // } else if (selectValue === "date-asc") {
-        //     const prod = sortUsersFromA(orders)
-        //     setSortedItems(sortUsersFromA(orders))
-        //     sliceprod(prod)
+        } else if (selectValue === "date-desc") {
+            const prod = sortOrdersDateFromB(orders)
+            setSortedItems(sortOrdersDateFromB(orders))
+            sliceprod(prod)
 
-        // } else if (selectValue === "date-asc") {
-        //     const prod = sortUsersFromA(orders)
-        //     setSortedItems(sortUsersFromA(orders))
-        //     sliceprod(prod)
+        } else if (selectValue === "date-asc") {
+            const prod = sortOrdersDateFromA(orders)
+            setSortedItems(sortOrdersDateFromA(orders))
+            sliceprod(prod)
 
         } else {
             setSortedItems(orders)
@@ -136,7 +159,7 @@ const AdminDisplayOrdersComp = () => {
                             <td>{order.id}</td>
                             <td>{order.timestamp}</td>
                             <td>{order.uid}</td>
-                            {/* <td>{users[order.uid].name}</td> */}
+                            <td>{users[order.uid].name}</td>
                             <td>
                                 <Link to={`/admin/megrendelesek/${order.id}`}>Adatlap</Link>
                             </td>
