@@ -23,9 +23,7 @@
     pointer-events: none;
   }
 
-  /* .login-link{
-    color:white;
-  } */
+ 
 
   .login-form form{
     padding: 0 40px;
@@ -34,7 +32,7 @@
 
 .log-text{
     position: relative;
-    /* border-bottom: 2px solid #adadad; */
+    border-bottom: 2px solid #F6EDE8;
     margin: 40px 0;
   }
 
@@ -46,15 +44,9 @@
     border: none;
     background: none;
     outline: none;
-    border-bottom: 1px solid #3E312A;
-    transition: border-color 0.8s, background-image 0.3s;
   }
 
-  .log-text input:focus{
-    outline: none;
-  border-bottom: 2px solid white;
-  width: 100%;
-  }
+
 
 
   .log-text label{
@@ -87,4 +79,20 @@
     .log-button:hover{
         border-color: white;
         transition: .5s;
+      }
+
+      .effect-1 ~ .focus-border {     /*effekt vonal*/
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #A08E85;
+        transition: 0.4s;
+        margin-bottom:-2px;
+      }
+      
+      .effect-1:focus ~ .focus-border {   /*effekt vonal*/
+        width: 100%;
+        transition: 0.4s;
       }

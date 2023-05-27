@@ -16,7 +16,7 @@ const UserProfile = () => {
         <p>Örülünk , hogy újra benéztél hozzánk! </p>
         <p>Kellemes böngészést kívánunk és jó vásárlást nálunk!</p>
         </div>
-            <div className="user-data">
+            <div className="user-data">  
             <img src={csaj} alt="kep5" style={{ width: '200px'}}/>
             <div className="user-data-box">
                 <div className="small-box">
