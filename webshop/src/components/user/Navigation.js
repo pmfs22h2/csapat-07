@@ -13,18 +13,18 @@ const Navigation = () => {
     return (
         <div className='header-container'>
             <div className='navbar'>
-                {admin && <Link to='/admin'>Admin</Link>}
-                <Link to='/'>Kezdőoldal</Link>
-                <Link to='/termekek'>Termékek</Link>
+                {admin && <Link to='/admin' className="nav-link">Admin</Link>}
+                <Link to='/' className="nav-link">Kezdőoldal</Link>
+                <Link to='/termekek' className="nav-link">Termékek</Link>
                 {/* <Link to='/kosar'>Kosár</Link> */}
                 {/* {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>} */}
                 {/* {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>} */}
-                {!admin ? <Link to='/admin-belepes'>Admin Bejelentkezés</Link> : <></>}
-                {userData && <Link to='/megrendeleseim'>Megrendelések</Link>}
+                {!admin ? <Link to='/admin-belepes' className="nav-link">Admin Bejelentkezés</Link> : <></>}
+                {userData && <Link to='/megrendeleseim' className="nav-link">Megrendelések</Link>}
             </div>
             <div className='user-login'>
                 {userData && `Bejelentkezve, mint: ${userData.name}`}
-                {(userData || admin) && <button onClick={() => { setUserData(null); setAdmin(false) }}>Kijelentkezés</button>}
+                {(userData || admin) && <button className="logout" onClick={() => { setUserData(null); setAdmin(false) }}>Kijelentkezés</button>}
             </div>
             <div className='nav-icons'>
                 {!userData ? <Link to="/belepes"><FaUserAlt /></Link> : <></>}

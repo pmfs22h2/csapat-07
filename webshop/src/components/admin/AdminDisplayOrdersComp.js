@@ -9,6 +9,10 @@ import SearchComponent from "../user/SearchComponent";
 import sortOrdersFromNew from "../../utils/sortOrdersFromNew";
 import sortOrdersFromOld from "../../utils/sortOrdersFromOld";
 
+import AdminUserSearchComponent from "../../components/admin/AdminUserSearchComponent";
+import sortUsersFromB from "../../utils/sortUsersFromB";
+import AdminOrderDetails from "./AdminOrderDetails";
+
 const AdminDisplayOrdersComp = () => {
 
     const [orders, setOrders] = useState([]);
@@ -25,6 +29,11 @@ const AdminDisplayOrdersComp = () => {
         userService.read().then(user => setUsers(user))
     }, [])
 
+    // useEffect(() => {
+    //     userService.read()
+    //         .then(usersdata => setUsers(usersdata))
+    // }, [orders])
+
     function listOrders() {
         orderService.getOrders()
             .then(order => {
@@ -32,7 +41,7 @@ const AdminDisplayOrdersComp = () => {
                 setOrders(manipulatedOrders);
                 setSortedItems(manipulatedOrders)
                 const manOrdersLenght = manipulatedOrders.length;
-
+    
                 if (manOrdersLenght < to) {
                     setTo(manOrdersLenght);
                     setDisplayedOrders(manipulatedOrders);
@@ -43,34 +52,6 @@ const AdminDisplayOrdersComp = () => {
         // .then(() => userService.read(user => setUsers(user)))
     }
 
-    useEffect(() => {
-        // rendezés
-        // if (selectValue === "name-desc") {
-        //     const prod = sortUsersFromA(searchedProducts)
-        //     setSortedItems(sortUsersFromA(searchedProducts))
-        //     sliceprod(prod)
-
-        // } else if (selectValue === "name-asc") {
-        //     const prod = sortUsersFromA(searchedProducts)
-        //     setSortedItems(sortUsersFromA(searchedProducts))
-        //     sliceprod(prod)
-
-         if (selectValue === "date-desc") {
-            const prod = sortOrdersFromOld(orders)
-            setSortedItems(sortOrdersFromOld(orders))
-            sliceprod(prod)
-         }
-        else if (selectValue === "date-asc") {
-            const prod = sortOrdersFromNew(orders)
-            setSortedItems(sortOrdersFromNew(orders))
-            sliceprod(prod)
-
-        } else {
-            setSortedItems(orders)
-            sliceprod(orders)
-        }        
-
-    }, [selectValue, searchValue])
 
     function prevPage() {
         let decreasedFrom = from - 9;
@@ -94,31 +75,86 @@ const AdminDisplayOrdersComp = () => {
         let increasedFrom = 0;
         let increasedTo = 9;
         setFrom(increasedFrom);
+
         if(array.length < 9) setTo(array.length)
         else setTo(increasedTo);
         setDisplayedOrders(array.slice(increasedFrom, increasedTo));
     }
+    
 
+    const sortOrdersFromA = (orders) => {
+        let newOrders = [...orders]
+        console.log(orders)
+        return newOrders.sort((a, b) => users[a.uid].name.localeCompare(users[b.uid].name, 'hu-HU'));
+    };
 
-    console.log(users, 'users');
+    const sortOrdersFromB = (orders) => {
+        let newOrders = [...orders]
+        console.log(orders)
+        return newOrders.sort((a, b) => users[b.uid].name.localeCompare(users[a.uid].name, 'hu-HU'));
+    };
+
+    const sortOrdersDateFromA = (orders) => {
+        let newOrders = [...orders]
+        console.log(orders)
+        return newOrders.sort((a, b) => a.timestamp.localeCompare(b.timestamp, 'hu-HU'));
+    };
+
+    const sortOrdersDateFromB = (orders) => {
+        let newOrders = [...orders]
+        console.log(orders)
+        return newOrders.sort((a, b) => b.timestamp.localeCompare(a.timestamp, 'hu-HU'));
+    };
+
+    useEffect(() => {
+        if (selectValue === "name-desc") {
+            const prod = sortOrdersFromB(orders)
+            setSortedItems(sortOrdersFromB(orders))
+            sliceprod(prod)
+
+        } else if (selectValue === "name-asc") {
+            const prod = sortOrdersFromA(orders)
+            setSortedItems(sortOrdersFromA(orders))
+            sliceprod(prod)
+
+        } else if (selectValue === "date-desc") {
+            const prod = sortOrdersDateFromB(orders)
+            setSortedItems(sortOrdersDateFromB(orders))
+            sliceprod(prod)
+
+        } else if (selectValue === "date-asc") {
+            const prod = sortOrdersDateFromA(orders)
+            setSortedItems(sortOrdersDateFromA(orders))
+            sliceprod(prod)
+
+        } else {
+            setSortedItems(orders)
+        }
+    }, [selectValue]);
+
 
     return (
+        <>
         <div>
             <h2 className="admin-h2">Vásárlók megrendelései</h2>
-            <div className="top-bar">
-                <div className="select-option">
-                    <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
-                        <option value="order">Rendezés</option>
-                        {/* <option value="name-asc">Név szerint növekvő</option>
-                        <option value="name-desc">Név szerint csökkenő</option> */}
-                        <option value="date-asc">Dátum szerint növekvő</option>
-                        <option value="date-desc">Dátum szerint csökkenő</option>
-                    </select>
-                </div>
-                {/* <div className="searchbar">
-                    <SearchComponent orders={orders} />
-                </div> */}
+
+
+            <div className="select-option">
+                <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
+                    <option value="order">Rendezés</option>
+                    <option value="name-asc">Név szerint növekvő</option>
+                    <option value="name-desc">Név szerint csökkenő</option>
+                    <option value="date-asc">Dátum szerint növekvő</option>
+                    <option value="date-desc">Dátum szerint csökkenő</option>                </select>
             </div>
+
+            <div className="pagination-buttons">
+                <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
+                <button onClick={nextPage} className={to === sortedItems.length ? "disabled" : ""} disabled={to === sortedItems.length}>Előre</button>
+            </div>
+       
+
+
             <table className="ordertable">
                 <thead>
                     <tr>
@@ -143,11 +179,13 @@ const AdminDisplayOrdersComp = () => {
                     ))}
                 </tbody>
             </table>
+
             <div className="pagination-buttons">
                 <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} className={to === sortedItems.length ? "disabled" : ""} disabled={to === sortedItems.length}>Előre</button>
             </div>
         </div>
+        </>
     );
 }
 
