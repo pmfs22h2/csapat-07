@@ -1,6 +1,10 @@
 .user-data {
     display: flex;
     justify-content: center;
+    background-image: url('./fekvo8.jpg');
+    background-position: left;
+    background-size: 2000px;
+
 
 }
 
@@ -10,27 +14,29 @@
     justify-content: left;
     padding: 11px;
     gap: 10px;
-    background-image: url('./fekvo6.jpg');
-    background-position: left;
-    background-size: 800px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     font-family: 'Poppins', sans-serif;
     width: 800px;
-    /* opacity:0.7; */
-    background-image: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.45);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-top:80px;
 }
+
+.user-data img{
+    margin-top:80px;
+}
+
 
 .small-box {
     display: flex;
     flex-direction: row;
     padding: 12px;
     font-family: 'Poppins', sans-serif;
-    /* opacity:1; */
+
 }
 
 .hello {
