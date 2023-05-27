@@ -22,7 +22,7 @@ const Navigation = () => {
                 {!admin ? <Link to='/admin-belepes' className="nav-link">Admin Bejelentkezés</Link> : <></>}
                 {userData && <Link to='/megrendeleseim' className="nav-link">Megrendelések</Link>}
             </div>
-            <div className='user-login'>
+            <div className="nav-link" >
                 {userData && `Bejelentkezve, mint: ${userData.name}`}
                 {(userData || admin) && <button className="logout" onClick={() => { setUserData(null); setAdmin(false) }}>Kijelentkezés</button>}
             </div>
