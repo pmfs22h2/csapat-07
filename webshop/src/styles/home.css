@@ -107,6 +107,7 @@
 
 .reasons-points {
     flex: 1;
+    color: #F6EDE8;
 }
 
 .image-container {
@@ -122,21 +123,47 @@
     font-size: medium;
 }
 
+.product-card {
+    padding: 40px;
+}
+
 .product-card img {
     position: relative;
+    max-width: 300px;
 }
 
 .product-label {
     background-color: #F6EDE8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-label p {
     background-color: #F6EDE8;
-    justify-content: center;
     padding: 10px;
     text-align: center;
     font-weight: 500;
+    position: absolute;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: 1px solid #fee0d1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* .center-content {
     max-width: 100%;
