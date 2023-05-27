@@ -1,4 +1,3 @@
-import AdminEditCategories from "./AdminEditCategory"
 import AdminEditCategory from "./AdminEditCategory";
 
 const AdminCategoryModify = () => {

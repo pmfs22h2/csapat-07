@@ -24,7 +24,7 @@ export default function CategoryForm({ id, category }) {
     return (
         <>
             <p>Kategória azonosítója: {id} </p>
-            <p>Kategória neve: {formData.name} </p>
+            <p>Kategória neve: {category.name} </p>
             <p>Kategória új neve: <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value })} value={formData.name} placeholder='Kategória új neve' /></p>
         <button onClick={(e) => clickUpdateCategory(e)} className ="button">Mentés</button>
         </>
