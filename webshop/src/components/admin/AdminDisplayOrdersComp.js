@@ -46,7 +46,7 @@ const AdminDisplayOrdersComp = () => {
                             <td>{order.id}</td>
                             <td>{order.timestamp}</td>
                             <td>{order.uid}</td>
-                            <td>{users[order.uid].name}</td>
+                            <td>{users[order.uid]?.name}</td>
                             <td>
                                 <Link to={`/admin/megrendelesek/${order.id}`}>Adatlap</Link>
                             </td>
