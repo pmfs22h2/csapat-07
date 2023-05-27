@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { FaUserAlt, FaShoppingBag, FaHeart } from "react-icons/fa";
 import CartTotal from "./CartTotal";
 import { AdminAuthContext } from '../../context/AdminAuthContext';
+import logo1uj from '../../styles/pics/logo1uj.png';
 
 const Navigation = () => {
     const { userData, setUserData } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const Navigation = () => {
 
     return (
         <div className='header-container'>
+            <img className="logo1uj" src={logo1uj} alt="logo1uj" style={{ width: '150px'}}/>
             <div className='navbar'>
                 {admin && <Link to='/admin' className="nav-link">Admin</Link>}
                 <Link to='/' className="nav-link">Kezdőoldal</Link>
@@ -22,7 +24,7 @@ const Navigation = () => {
                 {!admin ? <Link to='/admin-belepes' className="nav-link">Admin Bejelentkezés</Link> : <></>}
                 {userData && <Link to='/megrendeleseim' className="nav-link">Megrendelések</Link>}
             </div>
-            <div className='user-login'>
+            <div className="nav-link" >
                 {userData && `Bejelentkezve, mint: ${userData.name}`}
                 {(userData || admin) && <button className="logout" onClick={() => { setUserData(null); setAdmin(false) }}>Kijelentkezés</button>}
             </div>
@@ -31,9 +33,7 @@ const Navigation = () => {
                 <Link to="#"><FaHeart /></Link>
                 <Link to="/kosar" style={{textDecoration: 'none'}}><FaShoppingBag />
                 {userData && 
-                <div className='badge'>
-                    <CartTotal />
-                </div>
+                <CartTotal />
                 }                
                 </Link>
             </div>
