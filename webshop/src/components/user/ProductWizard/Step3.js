@@ -23,8 +23,8 @@ const Step3 = ({ onNext, onPrevious, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="premium"
-                        checked={budget === 'premium'}
+                        value="prémium"
+                        checked={budget === 'prémium'}
                         onChange={handleBudgetChange}
                     />
                     <label >prémium</label>
@@ -35,8 +35,8 @@ const Step3 = ({ onNext, onPrevious, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="aranykozeput"
-                        checked={budget === 'aranykozeput'}
+                        value="arany középút"
+                        checked={budget === 'arany középút'}
                         onChange={handleBudgetChange}
                     />
                     <label >arany középút</label>
@@ -47,8 +47,8 @@ const Step3 = ({ onNext, onPrevious, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="penztarcarafriendly"
-                        checked={budget === 'penztarcarafriendly'}
+                        value="pénztárcabarát"
+                        checked={budget === 'pénztárcabarát'}
                         onChange={handleBudgetChange}
                     />
                     <label >pénztárcabarát</label>

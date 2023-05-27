@@ -23,8 +23,8 @@ const Step1 = ({ onNext, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="szaraz"
-                        checked={skinType === 'szaraz'}
+                        value="száraz"
+                        checked={skinType === 'száraz'}
                         onChange={handleSkinTypeChange}
                     />
                     <label >száraz</label>
@@ -35,8 +35,8 @@ const Step1 = ({ onNext, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="normal"
-                        checked={skinType === 'normal'}
+                        value="normál"
+                        checked={skinType === 'normál'}
                         onChange={handleSkinTypeChange}
                     />
                     <label>normál</label>
@@ -47,8 +47,8 @@ const Step1 = ({ onNext, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="zsiros"
-                        checked={skinType === 'zsiros'}
+                        value="zsíros"
+                        checked={skinType === 'zsíros'}
                         onChange={handleSkinTypeChange}
                     />
                     <label>zsíros</label>
@@ -59,8 +59,8 @@ const Step1 = ({ onNext, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="kombinalt"
-                        checked={skinType === 'kombinalt'}
+                        value="kombinált"
+                        checked={skinType === 'kombinált'}
                         onChange={handleSkinTypeChange}
                     />
                     <label>kombinalt</label>

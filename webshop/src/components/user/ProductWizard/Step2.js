@@ -35,8 +35,8 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
           <label  className="wizard-label">
             <input
               type="radio"
-              value="erzekenyseg"
-              checked={skinIssue === 'erzekenyseg'}
+              value="érzekenység"
+              checked={skinIssue === 'érzékenység'}
               onChange={handleSkinIssueChange}
             />
             <label>érzékenység</label>
@@ -47,8 +47,8 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
           <label className="wizard-label">
             <input
               type="radio"
-              value="vizhiany"
-              checked={skinIssue === 'vizhiany'}
+              value="vízhiány"
+              checked={skinIssue === 'vízhiány'}
               onChange={handleSkinIssueChange}
             />
             <label>vízhiány</label>
@@ -59,8 +59,8 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
           <label  className="wizard-label">
             <input
               type="radio"
-              value="pattanasok"
-              checked={skinIssue === 'pattanasok'}
+              value="pattanások"
+              checked={skinIssue === 'pattanások'}
               onChange={handleSkinIssueChange}
             />
             <label>pattanások</label>
@@ -71,11 +71,11 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
           <label className="wizard-label">
             <input
               type="radio"
-              value="nincsproblema"
-              checked={skinIssue === 'nincsproblema'}
+              value="nincs probléma"
+              checked={skinIssue === 'nincs probléma'}
               onChange={handleSkinIssueChange}
             />
-            <label>nincs pronlémám</label>
+            <label>nincs problémám</label>
             <div class="selected"></div>
           </label>
         </div>

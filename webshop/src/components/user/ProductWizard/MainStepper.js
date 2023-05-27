@@ -13,7 +13,7 @@ const MainStepper = () => {
     const [toast, setToast] = useState("")
 
     const handleNext = (data) => {
-        if(Object.values(data) == "") setToast("válassz valamit!")
+        if(Object.values(data) == "") setToast("Válassz valamit!")
         else {
             setFormData(prev => ({ ...prev, ...data }));
             setCurrentStep(currentStep + 1);
