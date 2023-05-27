@@ -31,6 +31,7 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+    padding-bottom: 70px;
 }
 
 .product-card {
@@ -129,7 +130,18 @@
 
 .product-card img {
     position: relative;
+}
+
+.highlited-product {
     max-width: 300px;
+    max-height: 300px;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.highlited-product:hover {
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .product-label {
@@ -145,6 +157,7 @@
     text-align: center;
     font-weight: 500;
     position: absolute;
+    bottom: -23px;
     padding-bottom: 10px;
     padding-top: 10px;
     border: 1px solid #fee0d1;
@@ -171,6 +184,8 @@
     text-align: right;
     max-height: 400px;
 }
+
+
 
 
 
