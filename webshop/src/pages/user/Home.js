@@ -28,7 +28,7 @@ const Home = () => {
                         <div className="center-outer-container">
                             <div className="center-container">
                                 <div className="image-container">
-                                    <img id="right-img" src="https://images.pexels.com/photos/5113060/pexels-photo-5113060.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                                    <img id="left-img" src="https://images.pexels.com/photos/5113060/pexels-photo-5113060.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                                 </div>
                                 <div className="reasons-points">
                                     <p id="question">Miért válassz minket?</p>
