@@ -56,7 +56,6 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-
                     <h2>Kiemelt termékek</h2>
                     <div class="product-grid">
                         <div class="highlited-product">
