@@ -18,9 +18,10 @@ export default function AdminAddCategories() {
    
     return (
         <>
+        <h2 className= "adminaddcategories-h2">Termékkategória hozzáadása</h2>
         <div className="add-categories">
-        <form>
-        <h2 className= "admin-h2">Termékkategória hozzáadása</h2>
+        <div className="add-categories-box">
+            <form>
             <label htmlFor="name">Kategória név:</label>
             <input 
                 type="text" 
@@ -30,7 +31,9 @@ export default function AdminAddCategories() {
             />
             <br></br>
             <button className="cat-button" onClick={(e) => handleClick(e)} type ="submit">Kategória létrehozása</button>
-        </form>
+            </form>
+            
+            </div>
         </div>
         </>
         

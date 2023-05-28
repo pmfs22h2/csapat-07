@@ -102,6 +102,10 @@ const router = createBrowserRouter([
         element: <AdminDisplayOrders />
       }, 
       {
+        path: '/admin/kategoriak',
+        element: <AdminCategoriesList />
+      },
+      {
         path: '/admin/megrendelesek/:orderId',
         element: <AdminOrderDetails />
       },
@@ -114,7 +118,7 @@ const router = createBrowserRouter([
         element: <AdminCategories />
       },
       {
-        path: '/admin/kategoriak/:kategoriaId/szerkesztes',
+        path: '/admin/kategoriak/:id/szerkesztes',
         element: <AdminCategoryModify />                      
       },
       {
