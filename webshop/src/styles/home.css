@@ -108,7 +108,12 @@
 
 .reasons-points {
     flex: 1;
+}
+
+.reasons-points p {
     color: #F6EDE8;
+    font-size: 15px;
+    font-weight: 100;
 }
 
 .image-container {
@@ -117,11 +122,16 @@
 
 #question {
     font-weight: 800;
+    text-shadow: 1px 1px 2px rgb(148, 134, 134);
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .bold {
-    font-weight: 550;
+    font-weight: 500 !important;
     font-size: medium;
+    color: #F6EDE8;
+    text-shadow: 1px 1px 2px rgb(148, 134, 134);
 }
 
 .product-card {

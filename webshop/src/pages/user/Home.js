@@ -33,11 +33,11 @@ const Home = () => {
                                 <div className="reasons-points">
                                     <p id="question">Miért válassz minket?</p>
                                     <p className="bold">Kiváló minőségű termékek</p>
-                                    <p>Számunkra fontos a minőség</p>
+                                    <p>- Számunkra fontos a minőség</p>
                                     <p className="bold">Személyre szabott ajánlások</p>
-                                    <p>Nálunk Te vagy az első! </p>
+                                    <p>- Nálunk Te vagy az első! </p>
                                     <p className="bold">Megbízhatóság</p>
-                                    <p>100% elégedettségi garancia!</p>
+                                    <p>- 100% elégedettségi garancia!</p>
                                 </div>
                             </div>
                         </div>
