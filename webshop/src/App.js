@@ -28,6 +28,7 @@ import { SearchValue } from './context/searchValueContext';
 import AdminCategoryModify from './pages/admin/AdminCategoryModify';
 import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
 import NotFoundComp from './components/user/NotFoundComp';
+import About from './pages/user/About';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: '/termekek/:id/torles',
         element: <AdminDeleteProduct />
+      },
+      {
+        path: '/about',
+        element: <About />
       },
       {
         path: '/kosar',
