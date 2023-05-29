@@ -16,7 +16,7 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
       <form onSubmit={handleSubmit} className="wizard-form">
         {/* <h2>2. Probléma</h2> */}
         <p>Milyen problémára keresel megoldást?</p>
-        {toast && <p>válassz valamit</p>}
+        {toast && <p>Nem választottál!</p>}
         <br/>
         <div className="wizard-form-grid">
         <div className="right">
@@ -75,7 +75,7 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
               checked={skinIssue === 'nincsproblema'}
               onChange={handleSkinIssueChange}
             />
-            <label>nincs pronlémám</label>
+            <label>nincs problémám</label>
             <div class="selected"></div>
           </label>
         </div>
