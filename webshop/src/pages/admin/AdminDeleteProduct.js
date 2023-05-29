@@ -5,7 +5,6 @@ import DeleteProduct from '../../components/admin/DeleteProduct.js'
 const AdminDeleteProduct = () => {
     return (
         <>
-            <p>Admin termék törlése</p>
            < DeleteProduct />
         </>
     )
