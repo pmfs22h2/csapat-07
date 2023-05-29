@@ -28,6 +28,7 @@ import { SearchValue } from './context/searchValueContext';
 import AdminCategoryModify from './pages/admin/AdminCategoryModify';
 import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
 import NotFoundComp from './components/user/NotFoundComp';
+import Contactpage from './pages/user/ContactPage';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/megrendeleseim",
         element: <Orders />
+      },
+      {
+        path: "/kapcsolat",
+        element: <Contactpage />
       },
       {
         path: "*",
