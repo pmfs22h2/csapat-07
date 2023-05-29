@@ -7,21 +7,23 @@
     background-size: cover;
     /* padding-top: 5rem; */
     margin-block: auto;
-    display: flow-root;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
-/* .margin-helper {
-    display: flow-root;
-    margin: 10px
-} */
+.margin-helper {
+    /* display: flow-root; */
+    margin: 2rem
+}
 
 .wizard-container section {
     padding: 20px;
 }
 .wizard-container p {
     font-size: 1.4rem;
-    margin-top: 1rem ;
+    margin-top: 2rem ;
 }
 
 .wizard-container button {
@@ -51,16 +53,18 @@ input[type="radio"] {
     margin: 0;
   }
 
-.wizard-container section {
-    background: rgba( 255, 255, 255, 0.6 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 5.5px );
-    -webkit-backdrop-filter: blur( 6.5px );
+  .wizard-container section {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+     width: 70%; 
+}
+
+.wizard-container section h3 {
+    margin-top: 1.5rem
 }
 
 .wizard-form-grid {

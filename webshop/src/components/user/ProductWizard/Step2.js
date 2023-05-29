@@ -34,7 +34,7 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
           <label  className="wizard-label">
             <input
               type="radio"
-              value="érzekenység"
+              value="érzékenység"
               checked={skinIssue === 'érzékenység'}
               onChange={handleSkinIssueChange}
             />

@@ -5,6 +5,7 @@ import Step3 from './Step3';
 import ResultPage from './ResultPage';
 import { useState } from 'react';
 import '../../../styles/ProductWizard/stepper.css'
+import "../../../styles/ProductWizard/result.css"
 
 const MainStepper = () => {
 
@@ -50,8 +51,7 @@ const MainStepper = () => {
 
     return (
         <div className='wizard-container'>
-            <div className='margin-helper'>
-                <section>
+                <section className='margin-helper'>
                     <Stepper
                         steps={[{ title: 'bőrtípus' }, { title: 'probléma' }, { title: 'költségvetés' }, { title: 'eredmény' }]}
                         activeStep={currentStep}
@@ -60,7 +60,6 @@ const MainStepper = () => {
                     />
                     {renderStep()}
                 </section>
-            </div>
         </div>
     );
 };
