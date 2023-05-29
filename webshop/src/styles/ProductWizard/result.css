@@ -1,0 +1,14 @@
+.wizard-result-products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .wizard-result-data > * {
+    display: inline-block;
+} */
+
+/* .wizard-result-data p {
+    margin: 0;
+    text-align: start;
+} */

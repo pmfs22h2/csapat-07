@@ -48,8 +48,7 @@ const MainStepper = () => {
 
     return (
         <div className='wizard-container'>
-            <div className='margin-helper'>
-            <section>
+            <section className='margin-helper'>
             <Stepper
                 steps={[{title: 'bőrtípus'}, {title: 'probléma'},{title: 'költségvetés'}, {title: 'eredmény'}]}
                 activeStep={currentStep}
@@ -58,7 +57,6 @@ const MainStepper = () => {
             />
             {renderStep()}
             </section>
-            </div>
         </div>
     );
 };
