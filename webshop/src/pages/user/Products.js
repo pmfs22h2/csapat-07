@@ -24,14 +24,19 @@ const Products = () => {
     function updateCategory(e) {
         setSelectCategory(e.target.value)
     }
+    console.log(to, "to");
 
     useEffect(() => {
         listProducts();
     }, [])
 
     useEffect(() => {
+        console.log("effect");
+        console.log(products, "p");
+        let searchedProducts;
         // keresés
-        let searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))
+        if(searchValue != "") {console.log("nem"); searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))}
+        else searchedProducts = products
 
         // kategória szűrés
         if(selectCategory != "") {
@@ -60,6 +65,7 @@ const Products = () => {
             sliceprod(prod)
 
         } else {
+            console.log(searchedProducts, "searched");
             setSortedItems(searchedProducts)
             sliceprod(searchedProducts)
         }        
@@ -75,9 +81,12 @@ const Products = () => {
                 const manProdLenght = manipulatedProducts.length;
 
                 if (manProdLenght < to) {
+                    console.log(manProdLenght, 'manprod');
                     setTo(manProdLenght);
                     setDisplayedProducts(manipulatedProducts);
                 } else {
+                    setTo(9)
+                    console.log(to, "too");
                     setDisplayedProducts(manipulatedProducts.slice(from, to));
                 }
             })
@@ -89,16 +98,25 @@ const Products = () => {
 
         setFrom(decreasedFrom);
         setTo(decreasedTo);
+        console.log(sortedItems);
         setDisplayedProducts(sortedItems.slice(decreasedFrom, decreasedTo));
     }
 
     function nextPage() {
         let increasedFrom = from + 9;
+        console.log(sortedItems, "sorted");
         let increasedTo = sortedItems.length >= to + 9 ? to + 9 : sortedItems.length;
+        // console.log(increasedFrom, "increasedfrom");
+        // console.log(increasedFrom, "increasedto");
+        // console.log(from, "from");
+        // console.log(to, "to");
 
         setFrom(increasedFrom);
         setTo(increasedTo);
+        console.log(sortedItems);
+
         setDisplayedProducts(sortedItems.slice(increasedFrom, increasedTo));
+       
     }
 
     function sliceprod(array) {
