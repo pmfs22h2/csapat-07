@@ -15,7 +15,7 @@ const Step2 = ({ onNext, onPrevious, toast }) => {
     return (
       <form onSubmit={handleSubmit} className="wizard-form">
         <p>Milyen problémára keresel megoldást?</p>
-        {toast && <p>{toast}</p>}
+        {toast && <p className="warning">{toast}</p>}
         <br/>
         <div className="wizard-form-grid">
         <div className="right">

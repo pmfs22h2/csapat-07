@@ -122,4 +122,7 @@ input[type="radio"] {
     border-radius: 10px;
 }
 
+.warning {
+    color: rgb(205, 14, 14);
+}
   
