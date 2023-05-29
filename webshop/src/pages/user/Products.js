@@ -31,12 +31,13 @@ const Products = () => {
     }, [])
 
     useEffect(() => {
-        console.log("effect");
-        console.log(products, "p");
-        let searchedProducts;
+        // console.log("effect");
+        // console.log(products, "p");
+        if(products.length == 0) return;
+        let searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))
         // keresés
-        if(searchValue != "") {console.log("nem"); searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))}
-        else searchedProducts = products
+        // if(searchValue != "") {searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))}
+        
 
         // kategória szűrés
         if(selectCategory != "") {
@@ -85,7 +86,7 @@ const Products = () => {
                     setTo(manProdLenght);
                     setDisplayedProducts(manipulatedProducts);
                 } else {
-                    setTo(9)
+                    // setTo(9)
                     console.log(to, "too");
                     setDisplayedProducts(manipulatedProducts.slice(from, to));
                 }

@@ -3,7 +3,7 @@ import '../../styles/admintable.css';
 import '../../styles/admin.css';
 
 export default function AdminProduct(props) {
-    console.log(props)
+    // console.log(props)
     return (
         <tr>
             <td>{props.product.title}</td>
