@@ -13,12 +13,14 @@ const MainStepper = () => {
     const [toast, setToast] = useState("")
 
     const handleNext = (data) => {
-        if(Object.values(data) == "") setToast("Válassz valamit!")
+        if (Object.values(data) == "") {
+            setToast("Egy opció kiválasztása kötelező!");
+        }
         else {
             setFormData(prev => ({ ...prev, ...data }));
             setCurrentStep(currentStep + 1);
             setToast("")
-            console.log(formData, 'formdata');
+            console.log(toast, 'formdata');
         }
     };
 
@@ -34,13 +36,13 @@ const MainStepper = () => {
     const renderStep = () => {
         switch (currentStep) {
             case 0:
-                return <Step1 onNext={handleNext} toast={toast}/>;
+                return <Step1 onNext={handleNext} toast={toast} />;
             case 1:
-                return <Step2 onNext={handleNext} onPrevious={handlePrevious} toast={toast}/>;
+                return <Step2 onNext={handleNext} onPrevious={handlePrevious} toast={toast} />;
             case 2:
-                return <Step3 onNext={handleNext} onPrevious={handlePrevious} toast={toast}/>;
+                return <Step3 onNext={handleNext} onPrevious={handlePrevious} toast={toast} />;
             case 3:
-                return <ResultPage formData={formData} restartTest={restartTest}/>;
+                return <ResultPage formData={formData} restartTest={restartTest} />;
             default:
                 return null;
         }
@@ -49,15 +51,15 @@ const MainStepper = () => {
     return (
         <div className='wizard-container'>
             <div className='margin-helper'>
-            <section>
-            <Stepper
-                steps={[{title: 'bőrtípus'}, {title: 'probléma'},{title: 'költségvetés'}, {title: 'eredmény'}]}
-                activeStep={currentStep}
-                activeColor="#b99888"
-                completeColor="#b99888"
-            />
-            {renderStep()}
-            </section>
+                <section>
+                    <Stepper
+                        steps={[{ title: 'bőrtípus' }, { title: 'probléma' }, { title: 'költségvetés' }, { title: 'eredmény' }]}
+                        activeStep={currentStep}
+                        activeColor="#b99888"
+                        completeColor="#b99888"
+                    />
+                    {renderStep()}
+                </section>
             </div>
         </div>
     );
