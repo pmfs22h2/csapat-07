@@ -1,7 +1,8 @@
 import categoryService from '../../service/categoryService';
 import { useState } from 'react';
 import '../../styles/adminaddcategory.css';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function AdminAddCategories() {
 
@@ -13,7 +14,10 @@ export default function AdminAddCategories() {
 
     function handleClick(e) {
         e.preventDefault()
-        categoryService.createCategory(categoryName)
+        categoryService.createCategory(categoryName);
+        toast.success("Sikeres kategória felvitel!", {
+            position: toast.POSITION.TOP_CENTER
+        });
     }
    
     return (

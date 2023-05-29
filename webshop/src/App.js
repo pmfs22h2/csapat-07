@@ -28,6 +28,8 @@ import { SearchValue } from './context/searchValueContext';
 import AdminCategoryModify from './pages/admin/AdminCategoryModify';
 import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
 import NotFoundComp from './components/user/NotFoundComp';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -147,6 +149,7 @@ function App() {
           </AdminAuthContext.Provider>
         </AuthContext.Provider>
       </SearchValue.Provider>
+      <ToastContainer />
     </div>
   );
 }
