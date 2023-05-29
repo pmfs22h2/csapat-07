@@ -17,7 +17,7 @@ const Footer = () => {
 					<div className="footer-col">
 						<h4 className="line">Rólunk</h4>
 						<ul>
-							<li><a href="#">rólunk</a></li>
+							<li><a href="/about">rólunk</a></li>
 							<li><a href="#">impresszum</a></li>
 							<li><a href="#">adatvédelmi nyilatkozat</a></li>
 							<li><a href="#">kapcsolat</a></li>
