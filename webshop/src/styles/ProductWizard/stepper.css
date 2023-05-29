@@ -17,7 +17,7 @@
 } */
 
 .wizard-container section {
-    /* középre */
+    padding: 20px;
 }
 .wizard-container p {
     font-size: 1.4rem;
@@ -92,7 +92,7 @@ input[type="radio"] {
 }
 
 .wizard-form label {
-    font-size: 2rem;
+    font-size: 1.3rem;
     /* margin-top: -6px; */
     text-align: center;
     visibility: visible;
@@ -109,8 +109,8 @@ input[type="radio"] {
 
 .wizard-label:hover {
     border-image-source: linear-gradient(-45deg, #D9B6A4, #b99888);
-    background-image: linear-gradient(-45deg, #5f4a40, #916f5f);
-    border-radius: 10px;
+    background-image: linear-gradient(-45deg, #9d8277, #d7b8a8);
+    border-radius: 3px;
  }
 
 .wizard-label input[type="radio"]:checked ~ .selected {
