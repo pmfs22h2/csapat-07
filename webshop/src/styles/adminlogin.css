@@ -2,7 +2,7 @@
     background-image: url('./kepuj1.avif');
     background-position: left;
     background-size: 2000px;
-    height:260px;
+    height:250px;
     display: flex;
     justify-content: center;
     margin-top:-50px;
@@ -71,6 +71,7 @@
     border-radius: 5px;
     border-color:#F1E4DD;
     font-family: 'Poppins', sans-serif;
+    
 
 }
 .admin-login input[type=email] {
@@ -78,6 +79,7 @@
     color: #3E312A;
     font-size: 15px;
     margin-left:15px;
+   
 
 }
 
@@ -86,5 +88,4 @@
     color: #3E312A;
     font-size: 15px;
     margin-left:15px;
-
 }
