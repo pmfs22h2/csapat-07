@@ -49,7 +49,7 @@ const Contact = () => {
                 <p>Email: skincare@skincare.com</p>
                 <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10650.422158402735!2d11.57407!3d48.13713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75f527811f8d%3A0x8c7438eb676c71f6!2sSEPHORA%20CORNER%20M%C3%9CNCHEN!5e0!3m2!1shu!2sde!4v1685440113253!5m2!1shu!2sde"
-              height="450"
+              height="350"
               width="650"
               frameBorder="0"
               style={{ border: 0 }}
