@@ -3,14 +3,6 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
 	return (
-		// <footer classNameName="footer">
-		//     <div classNameName="footer-container">
-		//     <p>Sample text</p>
-		//     <p>Networking links</p>
-		//     <p>Icons</p>
-		//     </div>
-		// </footer>
-
 		<footer className="footer">
 			<div className="container">
 				<div className="row">

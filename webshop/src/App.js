@@ -32,6 +32,9 @@ import About from './pages/user/About';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Contactpage from './pages/user/ContactPage';
+import ProductWizard from './pages/user/ProductWizard';
+import MainStepper from './components/user/ProductWizard/MainStepper';
+import IntroPage from './components/user/ProductWizard/IntroPage';
 
 
 const router = createBrowserRouter([
@@ -50,6 +53,14 @@ const router = createBrowserRouter([
       {
         path: '/termekek',
         element: <Products />
+      },
+      {
+        path: '/varazslo',
+        element: <IntroPage />
+      },
+      {
+        path: '/kerdesek',
+        element: <MainStepper />
       },
       {
         path: '/termekek/:id/torles',

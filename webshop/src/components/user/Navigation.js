@@ -17,8 +17,9 @@ const Navigation = () => {
             <div className='navbar'>
                 {admin && <Link to='/admin' className="nav-link">Admin</Link>}
                 <Link to='/' className="nav-link">Kezdőoldal</Link>
-                <Link to="/about">Rólunk</Link>
+                <Link to="/about" className="nav-link">Rólunk</Link>
                 <Link to='/termekek' className="nav-link">Termékek</Link>
+                <Link to='/varazslo' className="nav-link">Termék varázsló</Link>
                 <Link to='/kapcsolat' className="nav-link">Kapcsolat</Link>
                 {/* <Link to='/kosar'>Kosár</Link> */}
                 {/* {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>} */}
