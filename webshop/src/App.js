@@ -29,6 +29,8 @@ import AdminCategoryModify from './pages/admin/AdminCategoryModify';
 import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
 import NotFoundComp from './components/user/NotFoundComp';
 import About from './pages/user/About';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -111,7 +113,7 @@ const router = createBrowserRouter([
         element: <AdminCategoriesList />
       },
       {
-        path: '/admin/megrendelesek/:orderId',
+        path: '/admin/megrendelesek/:orderId/adatlap',
         element: <AdminOrderDetails />
       },
       {
@@ -152,6 +154,7 @@ function App() {
           </AdminAuthContext.Provider>
         </AuthContext.Provider>
       </SearchValue.Provider>
+      <ToastContainer />
     </div>
   );
 }

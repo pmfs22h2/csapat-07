@@ -19,7 +19,10 @@ const Navigation = () => {
                 <Link to='/' className="nav-link">Kezdőoldal</Link>
                 <Link to="/about">Rólunk</Link>
                 <Link to='/termekek' className="nav-link">Termékek</Link>
-                {!admin ? <Link to='/admin-belepes' className="nav-link">Admin Bejelentkezés</Link> : <></>}
+                {/* <Link to='/kosar'>Kosár</Link> */}
+                {/* {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>} */}
+                {/* {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>} */}
+                {/* {!admin ? <Link to='/admin-belepes' className="nav-link">Admin Bejelentkezés</Link> : <></>} */}
                 {userData && <Link to='/megrendeleseim' className="nav-link">Megrendelések</Link>}
             </div>
             <div className="nav-link" >
@@ -28,7 +31,7 @@ const Navigation = () => {
             </div>
             <div className='nav-icons'>
                 {!userData ? <Link to="/belepes"><FaUserAlt /></Link> : <></>}
-                <Link to="#"><FaHeart /></Link>
+                {!admin ? <Link to="/admin-belepes" className="nav-link"><FaHeart /></Link> :<></> }
                 <Link to="/kosar" style={{textDecoration: 'none'}}><FaShoppingBag />
                 {userData && 
                 <CartTotal />

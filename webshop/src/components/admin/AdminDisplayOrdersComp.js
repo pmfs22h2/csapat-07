@@ -172,7 +172,7 @@ const AdminDisplayOrdersComp = () => {
                             <td>{order.uid}</td>
                             <td>{users[order.uid]?.name}</td>
                             <td>
-                                <Link to={`/admin/megrendelesek/${order.id}`}>Adatlap</Link>
+                                <Link to={`/admin/megrendelesek/${order.id}/adatlap`}>Adatlap</Link>
                             </td>
                         </tr>
                     ))}

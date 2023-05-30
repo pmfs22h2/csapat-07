@@ -34,6 +34,7 @@ const AdminUserList = () => {
                     setTo(manUsLength);
                     setdisplayedUsers(manipulatedUsers);
                  } else {
+                    setTo(9)
                     setdisplayedUsers(manipulatedUsers.slice(from, to));
                  }
             })
@@ -81,6 +82,7 @@ const AdminUserList = () => {
             sliceprod(prod)
 
         } else {
+            // setTo(9)
             setSortedItems(searchedUser)
             sliceprod(searchedUser)
         }
