@@ -34,6 +34,8 @@ const AdminProducts = () => {
 
 
     useEffect(() => {
+        if(products.length == 0) return
+        console.log("effect");
         // keresés
         let searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))
 
@@ -66,7 +68,8 @@ const AdminProducts = () => {
         } else {
             setSortedItems(searchedProducts)
             sliceprod(searchedProducts)
-        }        
+        } 
+        console.log(searchedProducts, "searchedprod");       
 
     }, [selectValue, selectCategory, searchValue])
 
@@ -81,11 +84,12 @@ const AdminProducts = () => {
                 setProducts(manipulatedProducts);
                 setSortedItems(manipulatedProducts)
                 const manProdLenght = manipulatedProducts.length;
-
+                console.log(manipulatedProducts, "manprod");
                 if (manProdLenght < to) {
                     setTo(manProdLenght);
                     setDisplayedProducts(manipulatedProducts);
                 } else {
+                    console.log(to, "to");
                     setDisplayedProducts(manipulatedProducts.slice(from, to));
                 }
             })
