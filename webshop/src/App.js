@@ -31,6 +31,8 @@ import NotFoundComp from './components/user/NotFoundComp';
 import About from './pages/user/About';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Contactpage from './pages/user/ContactPage';
+
 
 const router = createBrowserRouter([
   {
@@ -72,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "/megrendeleseim",
         element: <Orders />
+      },
+      {
+        path: "/kapcsolat",
+        element: <Contactpage />
       },
       {
         path: "*",

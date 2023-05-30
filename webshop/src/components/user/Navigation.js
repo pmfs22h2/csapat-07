@@ -19,6 +19,7 @@ const Navigation = () => {
                 <Link to='/' className="nav-link">Kezdőoldal</Link>
                 <Link to="/about">Rólunk</Link>
                 <Link to='/termekek' className="nav-link">Termékek</Link>
+                <Link to='/kapcsolat' className="nav-link">Kapcsolat</Link>
                 {/* <Link to='/kosar'>Kosár</Link> */}
                 {/* {!userData ? <Link to='/regisztracio'>Regisztráció</Link> : <></>} */}
                 {/* {!userData ? <Link to='/belepes'>Bejelentkezés</Link> : <></>} */}
