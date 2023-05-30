@@ -32,12 +32,13 @@
     flex-basis: 60%;
     padding:40px 60px;
     border-bottom:1px solid #E8D2C6;
+    background-color: #F6EDE8;
     
 }
 .contact-right{
     flex-basis: 40%;
     padding:40px;
-    background-color:#E8D2C6; 
+    background-color:#F1E4DD; 
     font-family: 'Poppins', sans-serif;
     
 }
@@ -95,6 +96,8 @@ textarea {
   cursor: pointer;
   outline: none;
   border-color: #cec6c2;
+  margin-top:20px;
+  margin-bottom:-20px;
 }
 
 .button2:hover {        /*gomb effekt*/
