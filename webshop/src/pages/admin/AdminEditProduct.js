@@ -4,7 +4,7 @@ import EditProduct from "../../components/admin/EditProduct";
 const AdminEditProduct = () => {
     return (
         <>
-            <p>Admin termékmódosítás</p>
+            <h2 className="admin-h2">Admin termékmódosítás</h2>
             <EditProduct />
         </>
     )

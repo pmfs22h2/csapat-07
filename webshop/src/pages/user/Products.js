@@ -1,6 +1,5 @@
 import productService from "../../../src/service/productService"
 import { useContext, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom"
 import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB"
 import ProductList from "../../components/user/ProductList";
@@ -9,6 +8,7 @@ import "../../styles/pagination-buttons.css";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
 import { SearchValue } from "../../context/searchValueContext";
+import CategorySearch from "../../components/admin/AdminCategorySearch";
 
 const Products = () => {
 
@@ -18,60 +18,76 @@ const Products = () => {
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
     const [searchValue, setSearchValue] = useContext(SearchValue);
-    const [sortedItems, setSortedItems] = useState();
+    const [sortedItems, setSortedItems] = useState([]);
+    const [selectCategory, setSelectCategory] = useState("");
 
-    // const [searchParams, setSearchParams] = useSearchParams();
-    // const [sortByTitle, setSortByTitle] = useState({ sort: searchParams.get("sort") || "" });
-
+    function updateCategory(e) {
+        setSelectCategory(e.target.value)
+    }
+    console.log(to, "to");
 
     useEffect(() => {
         listProducts();
     }, [])
 
     useEffect(() => {
+        // console.log("effect");
+        // console.log(products, "p");
+        if(products.length == 0) return;
+        let searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))
+        // keresés
+        // if(searchValue != "") {searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))}
+        
+
+        // kategória szűrés
+        if(selectCategory != "") {
+            searchedProducts = searchedProducts.filter(p=>(p.categoryID==selectCategory));
+        }
+
+        // rendezés
         if (selectValue === "name-desc") {
-            const prod = sortProductsFromB(products)
-            setSortedItems(sortProductsFromB(products))
+            const prod = sortProductsFromB(searchedProducts)
+            setSortedItems(sortProductsFromB(searchedProducts))
             sliceprod(prod)
 
         } else if (selectValue === "name-asc") {
-            const prod = sortProductsFromA(products)
-            setSortedItems(sortProductsFromA(products))
+            const prod = sortProductsFromA(searchedProducts)
+            setSortedItems(sortProductsFromA(searchedProducts))
             sliceprod(prod)
 
         } else if (selectValue === "price-desc") {
-            const prod = sortProductsFromHighest(products)
-            setSortedItems(sortProductsFromHighest(products))
+            const prod = sortProductsFromHighest(searchedProducts)
+            setSortedItems(sortProductsFromHighest(searchedProducts))
             sliceprod(prod)
 
         } else if (selectValue === "price-asc") {
-            const prod = sortProductsFromLowest(products)
-            setSortedItems(sortProductsFromLowest(products))
+            const prod = sortProductsFromLowest(searchedProducts)
+            setSortedItems(sortProductsFromLowest(searchedProducts))
             sliceprod(prod)
 
         } else {
-            setSortedItems(...products)
-            sliceprod(products)
-        }
-    }, [selectValue]);
+            console.log(searchedProducts, "searched");
+            setSortedItems(searchedProducts)
+            sliceprod(searchedProducts)
+        }        
 
-    useEffect(() => {
-        const searchedProducts = products.filter(p => p.title.includes(searchValue))
-        sliceprod(searchedProducts)
-    }, [searchValue])
+    }, [selectValue, selectCategory, searchValue])
 
     function listProducts() {
         productService.read()
             .then(product => {
-                let manipulatedProducts = productService.manipulateProductObject(product);
+                let manipulatedProducts = Object.values(product);
                 setProducts(manipulatedProducts);
                 setSortedItems(manipulatedProducts)
                 const manProdLenght = manipulatedProducts.length;
 
                 if (manProdLenght < to) {
+                    console.log(manProdLenght, 'manprod');
                     setTo(manProdLenght);
                     setDisplayedProducts(manipulatedProducts);
                 } else {
+                    // setTo(9)
+                    console.log(to, "too");
                     setDisplayedProducts(manipulatedProducts.slice(from, to));
                 }
             })
@@ -83,29 +99,40 @@ const Products = () => {
 
         setFrom(decreasedFrom);
         setTo(decreasedTo);
+        console.log(sortedItems);
         setDisplayedProducts(sortedItems.slice(decreasedFrom, decreasedTo));
     }
 
     function nextPage() {
         let increasedFrom = from + 9;
+        console.log(sortedItems, "sorted");
         let increasedTo = sortedItems.length >= to + 9 ? to + 9 : sortedItems.length;
+        // console.log(increasedFrom, "increasedfrom");
+        // console.log(increasedFrom, "increasedto");
+        // console.log(from, "from");
+        // console.log(to, "to");
 
         setFrom(increasedFrom);
         setTo(increasedTo);
+        console.log(sortedItems);
+
         setDisplayedProducts(sortedItems.slice(increasedFrom, increasedTo));
+       
     }
 
     function sliceprod(array) {
         let increasedFrom = 0;
         let increasedTo = 9;
         setFrom(increasedFrom);
-        setTo(increasedTo);
+        if(array.length < 9) setTo(array.length)
+        else setTo(increasedTo);
         setDisplayedProducts(array.slice(increasedFrom, increasedTo));
     }
 
     return (
         <div className="page-container">
             <h2 className="product-h2">Terméklista</h2>
+            
             <div className="top-bar">
                 <div className="select-option">
                     <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
@@ -116,6 +143,7 @@ const Products = () => {
                         <option value="price-desc">Ár szerint csökkenő</option>
                     </select>
                 </div>
+                <CategorySearch selectCategory={selectCategory} update={updateCategory} products={products} setSortedItems={setSortedItems}/>
                 <div className="searchbar">
                     <SearchComponent products={products} />
                 </div>
@@ -126,7 +154,7 @@ const Products = () => {
             <ProductList products={products} displayedProducts={displayedProducts} searchValue={searchValue} />
             <div className="pagination-buttons">
                 <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
-                <button onClick={nextPage} className={to === products.length ? "disabled" : ""} disabled={to === products.length}>Előre</button>
+                <button onClick={nextPage} className={to === sortedItems.length ? "disabled" : ""} disabled={to === sortedItems.length}>Előre</button>
             </div>
         </div>
     )

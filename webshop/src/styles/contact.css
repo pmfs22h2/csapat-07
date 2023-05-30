@@ -1,0 +1,113 @@
+.contact-h2 {
+    background-size: 130px;
+    background-repeat: no-repeat;
+    background-position: 43%;
+    box-shadow: #3E312A;
+    padding: 15px;
+    /* margin-bottom: 30px; */
+    /* margin-top: 30px; */
+    font-size: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px #eeddd3;
+    font-weight: lighter;
+}
+
+.contact {
+    background-color: #ECDBD1;
+    text-align: center;
+    padding: 30px;
+   
+    
+}
+
+.contact-box {
+    display: flex;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    position:relative;
+    border-bottom:1 px solid #3E312A;
+    margin-bottom:80px;
+}
+.contact-left{
+    flex-basis: 60%;
+    padding:40px 60px;
+    border-bottom:1px solid #ECDBD1;
+    background-color: #FAF6F4;
+    
+}
+.contact-right{
+    flex-basis: 40%;
+    padding:40px;
+    background-color:#F1E4DD; 
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.contact-right p{
+    display:flex;
+    justify-content: left;
+    padding:10px;
+}
+
+.contact-input-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+    font-family: 'Poppins', sans-serif;
+}
+.contact-input-row .contact-input-group{
+    flex-basis:45%;
+}
+.contact-input{
+    width:100%;
+    border: none;
+    border-bottom: 1px solid #ECDBD1;
+    outline: none;
+    padding-bottom:5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+textarea {
+    width: 100%;
+    border: 1 px solid #ccc;
+    outline:none;
+    padding:10px;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+    
+.contact-label {
+    margin-bottom:6px;
+    display: block;
+    color:#D9B6A4;
+    font-family: 'Poppins', sans-serif;
+    display:flex;
+    justify-content: left;
+}
+
+.button2 {
+  width: 550px;
+  height: 50px;
+  border: 1px solid;
+  background: #f6f3f2;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #3E312A;
+  cursor: pointer;
+  outline: none;
+  border-color: #cec6c2;
+  margin-top:20px;
+  margin-bottom:-20px;
+}
+
+.button2:hover {        /*gomb effekt*/
+    border-color: white;
+    transition: .5s;
+  }
+
+.contact-h3{
+    padding:20px;
+    margin-bottom:20px;
+    color:black;
+    
+}

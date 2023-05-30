@@ -1,0 +1,74 @@
+.user-data {
+    display: flex;
+    justify-content: center;
+    background-image: url('./fekvo8.jpg');
+    background-position: left;
+    background-size: 2000px;
+
+
+}
+
+.user-data-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 11px;
+    gap: 10px;
+    margin-bottom: 100px;
+    font-family: 'Poppins', sans-serif;
+    width: 750px;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-top:80px;
+    position:relative;
+}
+
+
+.user-data img{
+    margin-top:150px;
+    position:absolute;
+    left:550px;
+    bottom:20px;
+}
+
+
+.small-box {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+.userprofile-h2 {
+    background-size: 130px;
+    background-repeat: no-repeat;
+    background-position: 43%;
+    box-shadow: #3E312A;
+    padding: 15px;
+    /* margin-bottom: 30px; */
+    /* margin-top: 30px; */
+    font-size: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px #eeddd3;
+    font-weight: lighter;
+}
+
+
+.hello p {
+    color: #3E312A;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+label {
+    margin-right: 10px;
+    font-weight: bolder;
+}

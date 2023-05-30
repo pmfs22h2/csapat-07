@@ -5,6 +5,12 @@ function read() {
         .then(res => res.json())
 }
 
+function readUser(uid) {
+    return fetch(`${API_URL}customers/${uid}.json`)
+        .then(res => res.json())
+}
+
 export default {
     read: read,
+    readUser: readUser
 }

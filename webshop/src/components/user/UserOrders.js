@@ -50,7 +50,7 @@ function UserOrders() {
                             <td>{order.id}</td>
                             <td>{order.timestamp}</td>
                             <td>{Object.values(order.products).reduce((sum, n) => sum + n, 0)}</td>
-                            <td>{Object.keys(order.products).map(id => id in products ? products[id].price : 0).reduce((sum, n) => sum + Number(n), 0)}</td>
+                            <td>{Object.keys(order.products).map(id => id in products ? (products[id].price * order.products[id]) : 0).reduce((sum, n) => sum + Number(n), 0)}</td>
                         </tr>
                     </>
                 )

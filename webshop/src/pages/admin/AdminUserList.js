@@ -4,6 +4,9 @@ import AdminUserSearchComponent from "../../components/admin/AdminUserSearchComp
 import sortUsersFromA from "../../utils/sortUsersFromA";
 import sortUsersFromB from "../../utils/sortUsersFromB";
 import userService from "../../service/userService";
+import SearchComponent from "../../components/user/SearchComponent";
+import { SearchValue } from "../../context/searchValueContext";
+import { useContext } from "react";
 
 const AdminUserList = () => {
 
@@ -12,19 +15,16 @@ const AdminUserList = () => {
     const [to, setTo] = useState(9);
     const [displayedUsers, setdisplayedUsers] = useState([]);
     const [selectValue, setSelectValue] = useState("order");
-    const [sortedItems, setSortedItems] = useState();
+    const [sortedItems, setSortedItems] = useState([]);
+    const [searchValue, setSearchValue] = useContext(SearchValue);
 
     useEffect(() => {
-        userService.read()
-            .then(users => setWebshopUsers(users))
-        console.log(webshopUsers)
         listUsers();
     }, [])
 
     function listUsers() {
         userService.read()
             .then(users => {
-                // objec.values
                 let manipulatedUsers = Object.values(users);
                 setWebshopUsers(manipulatedUsers);
                 setSortedItems(manipulatedUsers)
@@ -34,6 +34,7 @@ const AdminUserList = () => {
                     setTo(manUsLength);
                     setdisplayedUsers(manipulatedUsers);
                  } else {
+                    setTo(9)
                     setdisplayedUsers(manipulatedUsers.slice(from, to));
                  }
             })
@@ -61,25 +62,31 @@ const AdminUserList = () => {
         let increasedFrom = 0;
         let increasedTo = 9;
         setFrom(increasedFrom);
-        setTo(increasedTo);
+        if(array.length < 9) setTo(array.length)
+        else setTo(increasedTo);
         setdisplayedUsers(array.slice(increasedFrom, increasedTo));
     }
 
     useEffect(() => {
+        //keresés
+        let searchedUser = webshopUsers.filter(u => u.name.toLowerCase().includes(searchValue))
+
         if (selectValue === "name-desc") {
-            const prod = sortUsersFromB(webshopUsers)
-            setSortedItems(sortUsersFromB(webshopUsers))
+            const prod = sortUsersFromB(searchedUser)
+            setSortedItems(sortUsersFromB(searchedUser))
             sliceprod(prod)
 
         } else if (selectValue === "name-asc") {
-            const prod = sortUsersFromA(webshopUsers)
-            setSortedItems(sortUsersFromA(webshopUsers))
+            const prod = sortUsersFromA(searchedUser)
+            setSortedItems(sortUsersFromA(searchedUser))
             sliceprod(prod)
 
         } else {
-            setSortedItems(webshopUsers)
+            // setTo(9)
+            setSortedItems(searchedUser)
+            sliceprod(searchedUser)
         }
-    }, [selectValue]);
+    }, [selectValue, searchValue]);
 
     return (
         <>
@@ -92,11 +99,14 @@ const AdminUserList = () => {
             </select>
             </div>
             {/* <UserList users={webshopUsers} /> */}
-            <AdminUserSearchComponent users={displayedUsers} />
-            <UserList users={displayedUsers} />
+            {/* <AdminUserSearchComponent users={displayedUsers} /> */}
+            <div className="searchbar">
+                    <SearchComponent users={webshopUsers} />
+                </div>
+            <UserList users={displayedUsers} searchValue={searchValue}/>
             <div className="pagination-buttons">
-                <button onClick={prevPage} disabled={from === 0}>Vissza</button>
-                <button onClick={nextPage} disabled={to === webshopUsers.length}>Előre</button>
+                <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
+                <button onClick={nextPage} className={to === sortedItems.length ? "disabled" : ""} disabled={to === sortedItems.length}>Előre</button>
             </div>
         </>
     )

@@ -1,0 +1,73 @@
+.admin-del-btn{
+    background-image: url('./pics/aloe16.jpg');
+    background-position: left;
+    background-size: 2000px;
+    height:300px;
+    display: flex;
+    justify-content: center;
+    margin-bottom:50px;
+    margin-top:30px;
+
+.admin-del-btn-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #3E312A;
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #F6EDE8;
+    box-shadow: 0 0 20px #eeddd3;
+    font-weight: lighter;
+    width: 800px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+}
+.admin-del-btn p{
+    margin-top:20px;
+    font-size:18px;
+  
+}
+
+.admin-delete-button{
+    border-radius: 5px;
+    border: 1px solid;
+    background: #FAF6F4;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #3E312A;
+    font-weight: 20px;
+    cursor: pointer;
+    outline: none;
+    border-color: #cec6c2;
+    font-family: 'Poppins', sans-serif;
+    padding:10px 100px;
+    margin-left:5px;
+    margin-bottom:20px;
+    
+}
+
+.admin-cancel-button{
+    border-radius: 5px;
+    border: 1px solid;
+    background: #FAF6F4;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #3E312A;
+    font-weight: 20px;
+    cursor: pointer;
+    outline: none;
+    border-color: #cec6c2;
+    font-family: 'Poppins', sans-serif;
+    padding:5px;
+    margin-left:5px;
+}

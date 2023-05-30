@@ -4,7 +4,7 @@ import '../../styles/admin.css';
 import ProductForm from "./ProductForm";
 import { getProduct } from "../../service/productService";
 import { useEffect, useState } from "react";
-
+import '../../styles/admineditproduct.css';
 
 const EditProduct = () => {
   const { id } = useParams()
@@ -18,12 +18,9 @@ const EditProduct = () => {
 
   const navigate = useNavigate()
 
- 
-
   return (
     <div>
       <ProductForm product={product} id={id} />
-      <button onClick={() => navigate('/admin/termekek')} className="button">Mégsem</button>
     </div>
   );
 }

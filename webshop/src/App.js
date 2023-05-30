@@ -23,10 +23,19 @@ import AdminDisplayOrders from './pages/admin/AdminDisplayOrders';
 import AdminOrderDetails from './components/admin/AdminOrderDetails';
 import AdminCategories from './pages/admin/AdminCategories';
 import AdminAuth from './components/admin/AdminAuth';
+import AdminCategoriesList from './pages/admin/AdminCategoriesList';
 import { SearchValue } from './context/searchValueContext';
+import AdminCategoryModify from './pages/admin/AdminCategoryModify';
+import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
+import NotFoundComp from './components/user/NotFoundComp';
+import About from './pages/user/About';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Contactpage from './pages/user/ContactPage';
 import ProductWizard from './pages/user/ProductWizard';
 import MainStepper from './components/user/ProductWizard/MainStepper';
 import IntroPage from './components/user/ProductWizard/IntroPage';
+
 
 const router = createBrowserRouter([
   {
@@ -36,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
+      },
+      {
+        path: '/about',
+        element: <About />
       },
       {
         path: '/termekek',
@@ -72,6 +85,14 @@ const router = createBrowserRouter([
       {
         path: "/megrendeleseim",
         element: <Orders />
+      },
+      {
+        path: "/kapcsolat",
+        element: <Contactpage />
+      },
+      {
+        path: "*",
+        element: <NotFoundComp />
       }
     ]
 
@@ -105,12 +126,28 @@ const router = createBrowserRouter([
         element: <AdminDisplayOrders />
       }, 
       {
-        path: '/admin/megrendelesek/:orderId',
+        path: '/admin/kategoriak',
+        element: <AdminCategoriesList />
+      },
+      {
+        path: '/admin/megrendelesek/:orderId/adatlap',
         element: <AdminOrderDetails />
+      },
+      {
+        path: '/admin/kategoriak',
+        element: <AdminCategoriesList />
       },
       {
         path: '/admin/kategoriak/uj-kategoria',
         element: <AdminCategories />
+      },
+      {
+        path: '/admin/kategoriak/:id/szerkesztes',
+        element: <AdminCategoryModify />                      
+      },
+      {
+        path: '/admin/kategoriak/:kategoriaId/torles',
+        element: <AdminCategoryDelete />                      
       }
     ]
   }
@@ -134,6 +171,7 @@ function App() {
           </AdminAuthContext.Provider>
         </AuthContext.Provider>
       </SearchValue.Provider>
+      <ToastContainer />
     </div>
   );
 }

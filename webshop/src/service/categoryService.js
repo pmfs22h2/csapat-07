@@ -6,11 +6,10 @@ function createCategory(category) {
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify({name: category})
+        body: JSON.stringify({ name: category })
     })
-        .then(res => res.json()) 
+        .then(res => res.json())
         .then(data => setCategoryId(data.name))
-      
 }
 
 function setCategoryId(id) {
@@ -19,14 +18,52 @@ function setCategoryId(id) {
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify({id})
+        body: JSON.stringify({ id })
     })
 }
 
+function readCategories() {
+    return fetch(`${API_URL}/categories.json`)
+        .then(res => res.json())
+}
 
+function deleteCategory(id) {
+    return fetch(`${API_URL}/categories/${id}.json`, {
+        method: 'DELETE',
+    }
+    )
+        .then(res => res.json())
+}
 
+export function getCategory(id) {
+    console.log("GET")
+    return fetch(`${API_URL}/categories/${id}.json`, {
+        method: 'GET',
+    }
+    )
+        .then(res => res.json())
+}
 
-export default{
-    createCategory: createCategory
-    
+export function updateCategory(id, category) {
+    if (!id) {
+        return null;
+    }
+
+    return fetch(`${API_URL}/categories/${id}.json`, {
+        method: 'PATCH',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ id: category.id, name: category.name })
+    })
+        .then(res => res.json())
+    /* .then(product => setProductId(product.name)) */
+}
+
+export default {
+    createCategory: createCategory,
+    readCategories: readCategories,
+    deleteCategory: deleteCategory,
+    getCategory: getCategory,
+    updateCategory: updateCategory
 }
