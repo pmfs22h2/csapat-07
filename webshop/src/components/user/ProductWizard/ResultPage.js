@@ -1,16 +1,25 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import productService from "../../../service/productService";
 import { Link } from "react-router-dom";
 import MainStepper from "./MainStepper";
 import Products from "../Product";
+import WizardContext from '../../../context/WizardContext';
 
 const ResultPage = (props) => {
-
+  const { priceTag, setPriceTag } = useContext(WizardContext);
   const [products, setProducts] = useState([]);
 
-  function getRandomItems(array, count) {
-    const shuffled = array.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
+  function getWizardResult(productList) {
+    let result = [];
+    let idToBeFound = priceTag[props.formData.budget];
+   
+    for (let product of productList) {
+      if (product.categoryID === idToBeFound) {
+        result.push(product);
+      }
+    }
+    
+    return result;
   }
 
   useEffect(() => {
@@ -18,8 +27,8 @@ const ResultPage = (props) => {
       .then(data => {
         const productsArray = Object.keys(data).map(key => ({ id: key, ...data[key] }));
         console.log(productsArray);
-        const randomProducts = getRandomItems(productsArray, 3);
-        setProducts(randomProducts);
+        const randomProducts = getWizardResult(productsArray);
+        setProducts(randomProducts.slice(0,3));
       })
   }, []);
 
@@ -31,7 +40,7 @@ const ResultPage = (props) => {
       <h3>Ajánlott termékek:</h3>
       <div className="wizard-result-products">
         {products.map((product) => (
-          <Products product={product}/>
+          <Products product={product} />
           // <li key={product.id}>- {product.title}, {product.price} HUF</li>
         ))}
       </div>
@@ -49,7 +58,7 @@ const ResultPage = (props) => {
     </>
   );
 
-  
+
 };
 
 export default ResultPage;

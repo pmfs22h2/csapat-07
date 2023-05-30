@@ -22,11 +22,11 @@ const Step3 = ({ onNext, onPrevious, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="prémium"
-                        checked={budget === 'prémium'}
+                        value="Prémium $$$"
+                        checked={budget === 'Prémium $$$'}
                         onChange={handleBudgetChange}
                     />
-                    <label >prémium</label>
+                    <label >Prémium $$$</label>
                     <div class="selected"></div>
                 </label>
             </div>
@@ -34,11 +34,11 @@ const Step3 = ({ onNext, onPrevious, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="arany középút"
-                        checked={budget === 'arany középút'}
+                        value="Normál árfekvés $$"
+                        checked={budget === 'Normál árfekvés $$'}
                         onChange={handleBudgetChange}
                     />
-                    <label >arany középút</label>
+                    <label >Normál árfekvés $$</label>
                     <div class="selected"></div>
                 </label>
             </div>
@@ -46,11 +46,11 @@ const Step3 = ({ onNext, onPrevious, toast }) => {
                 <label className="wizard-label">
                     <input
                         type="radio"
-                        value="pénztárcabarát"
-                        checked={budget === 'pénztárcabarát'}
+                        value="Pénztárcabarát $"
+                        checked={budget === 'Pénztárcabarát $'}
                         onChange={handleBudgetChange}
                     />
-                    <label >pénztárcabarát</label>
+                    <label >Pénztárcabarát $</label>
                     <div class="selected"></div>
                 </label>
             </div>
