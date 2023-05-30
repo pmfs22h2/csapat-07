@@ -35,6 +35,7 @@ import Contactpage from './pages/user/ContactPage';
 import ProductWizard from './pages/user/ProductWizard';
 import MainStepper from './components/user/ProductWizard/MainStepper';
 import IntroPage from './components/user/ProductWizard/IntroPage';
+import WizardContext from './context/WizardContext';
 
 
 const router = createBrowserRouter([
@@ -124,7 +125,7 @@ const router = createBrowserRouter([
       {
         path: '/admin/megrendelesek',
         element: <AdminDisplayOrders />
-      }, 
+      },
       {
         path: '/admin/kategoriak',
         element: <AdminCategoriesList />
@@ -143,11 +144,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin/kategoriak/:id/szerkesztes',
-        element: <AdminCategoryModify />                      
+        element: <AdminCategoryModify />
       },
       {
         path: '/admin/kategoriak/:kategoriaId/torles',
-        element: <AdminCategoryDelete />                      
+        element: <AdminCategoryDelete />
       }
     ]
   }
@@ -158,19 +159,22 @@ function App() {
   const [cart, setCart] = useState([]);
   const [admin, setAdmin] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const [priceTag, setPriceTag] = useState({});
 
   return (
     <div className="App">
-      <SearchValue.Provider value={[searchValue, setSearchValue]}>
-        <AuthContext.Provider value={{ userData, setUserData }}>
-          <AdminAuthContext.Provider value={{ admin, setAdmin }}>
-            <CartContext.Provider value={{ cart, setCart }}>
-              <RouterProvider router={router}>
-              </RouterProvider>
-            </CartContext.Provider>
-          </AdminAuthContext.Provider>
-        </AuthContext.Provider>
-      </SearchValue.Provider>
+      <WizardContext.Provider value={{ priceTag, setPriceTag }}>
+        <SearchValue.Provider value={[searchValue, setSearchValue]}>
+          <AuthContext.Provider value={{ userData, setUserData }}>
+            <AdminAuthContext.Provider value={{ admin, setAdmin }}>
+              <CartContext.Provider value={{ cart, setCart }}>
+                <RouterProvider router={router}>
+                </RouterProvider>
+              </CartContext.Provider>
+            </AdminAuthContext.Provider>
+          </AuthContext.Provider>
+        </SearchValue.Provider>
+      </WizardContext.Provider>
       <ToastContainer />
     </div>
   );
