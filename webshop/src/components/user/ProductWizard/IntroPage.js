@@ -6,14 +6,29 @@ import categoryService from "../../../service/categoryService";
 import WizardContext from "../../../context/WizardContext";
 
 const IntroPage = () => {
-    
-    const {priceTag, setPriceTag} = useContext(WizardContext);
+
+    const { priceTag, setPriceTag } = useContext(WizardContext);
+
+    const buildObjectForTags = (rawObjFromDb) => {
+        const entries = Object.entries(rawObjFromDb)
+
+        let result = {};
+
+        for (let entry of entries) {
+            result[entry[1].name] = entry[1].id;    // ha új v. régi kulcsot akarok új értékkel ellátni objektumnál, így állítom be: objektum[kulcs] = érték
+        }
+        return result;
+    }
 
     useEffect(() => {
         categoryService.readCategories()
-        .then(data => console.log(data))
-    })
-    
+            .then(data => {
+                console.log(data);
+                let obj = buildObjectForTags(data);
+                setPriceTag(obj);       // contextbe beletettem a kategóriákat id-val
+            })
+    }, [])
+
     return (
         <section className="wizard-intro">
             <h2>Termék varázsló</h2>
