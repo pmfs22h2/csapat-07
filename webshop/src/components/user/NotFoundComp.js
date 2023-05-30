@@ -5,7 +5,7 @@ const NotFoundComp = () => {
         <div>
             <h1>Hoppá! Eltévedtél?</h1>
             <p>Az általad keresett oldal nem létezik.</p>
-            <img src="https://imagizer.imageshack.com/v2/798x356q90/922/PuFR3Q.png" alt=""/>
+            <img src="https://imagizer.imageshack.com/img923/7401/V44Qqu.png" alt="" style={{width: "650px"}}/>
         </div>
     );
 }
