@@ -40,16 +40,16 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
+        path: '/about',
+        element: <About />
+      },
+      {
         path: '/termekek',
         element: <Products />
       },
       {
         path: '/termekek/:id/torles',
         element: <AdminDeleteProduct />
-      },
-      {
-        path: '/about',
-        element: <About />
       },
       {
         path: '/kosar',
