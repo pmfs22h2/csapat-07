@@ -100,8 +100,11 @@
 
 .original-data p{
     display: flex;
+    justify-content:left;
+    align-items: baseline;
     flex-direction: row;
-    margin-left:30px;
+    /* margin-left:30px; */
+    padding:20px;
 }
 
 .admin-cat-new{
