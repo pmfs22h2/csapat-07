@@ -30,6 +30,7 @@ import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
 import NotFoundComp from './components/user/NotFoundComp';
 import Contactpage from './pages/user/ContactPage';
 
+
 const router = createBrowserRouter([
   {
     path: '/',
