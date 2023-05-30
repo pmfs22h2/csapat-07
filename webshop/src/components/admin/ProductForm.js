@@ -56,24 +56,32 @@ export default function ProductForm({ id, product }) {
         <>
             <div className="admin-edit-product">
                 <div className="original-data">
-                    <p>Termék azonosítója: {id} </p>
+                    <fieldset>
+                        <label htmlFor="id">Termék azonosítója:</label> 
+                        <input id="id" value={id} disabled={true}/> 
+                    </fieldset>
                     {/* <p>Termék neve: {product.title} </p>
                     <p>Termék ára: {product.price} </p> */}
-                    <p>Termék kategóriája: {findCategoryName(product)} </p>
-                    <p>Termék új neve: <input type="text" onChange={(e) => setFormData({ ...formData, title: e.target.value })} value={formData.title} placeholder='Termék új neve' /></p>
-                    <p>Termék új ára: <input type="text" onChange={(e) => setFormData({ ...formData, price: e.target.value })} value={formData.price} placeholder='Termék új ára' /></p>
+                    {/* <p>Termék kategóriája: {findCategoryName(product)} </p> */}
+                    <fieldset>
+                        <label htmlFor="newtitle">Termék új neve: </label>
+                        <input id="newtitle" type="text" onChange={(e) => setFormData({ ...formData, title: e.target.value })} value={formData.title} placeholder='Termék új neve' />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="price">Termék új ára:</label>
+                        <input id="price" type="text" onChange={(e) => setFormData({ ...formData, price: e.target.value })} value={formData.price} placeholder='Termék új ára' />
+                    </fieldset>
     
-                    <div className="admin-cat-new">Termék új kategóriája:
-                    <div class="select-option">
+                    <fieldset className="admin-cat-new select-option">
+                        <label> Termék kategória </label>
                         <select value={formData.categoryID} id="categories-list" onChange={(e) => updateCategory(e)} >   
                             <option value="">Válassz kategóriát!</option>
                             {Object.values(categoryData).map(cat => <option value={cat.id}>{cat.name}</option>)}
                         </select >
-                        </div>
-                    </div>
+                    </fieldset>
                     <div className="admin-buttons">
-                    <button className="admin-save-button" onClick={(e) => clickUpdateProduct(e)}>Mentés</button>
                     <button className="admin-cancel-button" onClick={() => navigate('/admin/termekek')}>Mégsem</button>
+                    <button className="admin-save-button" onClick={(e) => clickUpdateProduct(e)}>Mentés</button>
                     </div>
                 </div>
             </div>

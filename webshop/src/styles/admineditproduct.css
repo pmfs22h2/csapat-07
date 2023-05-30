@@ -14,10 +14,11 @@
     margin-top:-50px;
 }
 
-.admin-edit-product p {
+.admin-edit-product label {
     height: 30px;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
+    text-align: left;
 }
 
 .admin-edit-product input {
@@ -35,6 +36,10 @@
     color: #3E312A;
     font-size: 16px;
 
+}
+
+.admin-edit-product :disabled {
+    background-color: rgb(196, 196, 196);
 }
 
 .admin-cancel-button{
@@ -88,24 +93,47 @@
     background-color: #F6EDE8;
     box-shadow: 0 0 20px #eeddd3;
     font-weight: lighter;
-    width: 800px;
-    align-items:center;
+    width: 40%;
+    align-items:stretch;
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.original-data p{
+.original-data fieldset{
     display: flex;
-    flex-direction: row;
-    margin-left:30px;
+    justify-content: space-between;
+    padding:10px;
+    margin-bottom:20px;
+    border: none;
+    border-bottom: 2px solid rgb(10, 15, 10);
+    width: 90%;
+    /* align-self: center; */
 }
+
+.original-data input:focus {
+    background-color: #F6EDE8;
+    border: 1px solid #c0937b; 
+    outline: none;
+}
+
+
+/* .original-data p{
+    display: flex;
+    justify-content:left;
+    align-items: baseline;
+    flex-direction: row;
+    /* margin-left:30px; */
+    /* padding:20px; */
+ 
 
 .admin-cat-new{
     display:flex;
+    justify-content:baseline;
+    align-items: baseline;
     flex-direction: row;
     font-size:16px;
     padding:20px;

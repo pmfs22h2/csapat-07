@@ -31,9 +31,10 @@ const IntroPage = () => {
 
     return (
         <section className="wizard-intro">
-            <h2>Termék varázsló</h2>
-            <p><img src="https://images.pexels.com/photos/6707334/pexels-photo-6707334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /></p>
+            <h2 className="wizard-h2">Termék varázsló</h2>
+            <div className="intro-big-container">
             <div className="intro-container">
+            <p><img src="https://images.pexels.com/photos/6707334/pexels-photo-6707334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" style={{width: "400px"}} /></p>
                 <p>
                     Mit szólnál hozzá, ha egy gyors és interaktív kérdőív segítségével segítetnénk
                     neked megtalálni a számodra legmegfelelőbb termékeket?
@@ -43,8 +44,9 @@ const IntroPage = () => {
                     igényeidhez leginkább passzoló termékeket kínálatunkból!
                 </p>
             </div>
+            </div>
             <br />
-            <Link to="/kerdesek">Induljon a varázslat!</Link>
+            <Link className="wizard-link" to="/kerdesek">Induljon a varázslat!</Link>
         </section>
     )
 }

@@ -30,7 +30,7 @@ const AdminLoginComp = () => {
     return (
         <>
         
-            <h2 className="admin-h2"> Admin Bejelenkezés </h2>
+            <h2 className="admin-h2"> Admin Bejelentkezés </h2>
             <div className="admin-login">
                 <div className="admin-login-box">
             <form>
