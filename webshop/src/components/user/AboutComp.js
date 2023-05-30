@@ -2,7 +2,7 @@ import '../../styles/about.css';
 
 const AboutComp = () => {
     return (
-        <div>
+        <div className="about-container">
             <h2 className="cast-h2">Stáblista</h2>
             <div className="about-us">
                 <div class="director">
