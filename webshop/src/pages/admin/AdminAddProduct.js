@@ -63,8 +63,11 @@ export default function AdminAddProduct(props) {
 
     function onSubmit(event) {
         event.preventDefault();
+        console.log(validateTitle());
+        console.log(validatePrice());
         if (validateTitle() && validatePrice())
         // 1. létrehozza a terméket firebase-n (url nélkül)
+        console.log("submit");
         productService.create(formData.title, formData.price, formData.categoryID)
             .then(data => {
                 // 2. feltölti a képet storage-be, feltöltéskor visszaadja a kép azonosítóját ('url'), beállítja useState-nek
@@ -107,6 +110,7 @@ export default function AdminAddProduct(props) {
           alert("Az 'Ár' nem lehet üres!");
           return false;
         }
+        return true
     }
 
     // képfeltöltéskor egyből megjeleníti a képet, még a végleges feltöltés előtt
