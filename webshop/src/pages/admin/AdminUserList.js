@@ -90,7 +90,7 @@ const AdminUserList = () => {
 
     return (
         <>
-        <h2 className="admin-h2">Admin felhasználók lista</h2>
+        <h2 className="admin-h2">Felhasználók lista</h2>
         <div className="select-option">
             <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                 <option value="order">Rendezés</option>
