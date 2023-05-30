@@ -13,10 +13,9 @@ const Navigation = () => {
 
     return (
         <div className='header-container'>
-            <img className="logo1uj" src={logo1uj} alt="logo1uj" style={{ width: '150px'}}/>
+            <Link to='/'> <img className="logo1uj" src={logo1uj} alt="logo1uj" style={{ width: '150px'}}/></Link>
             <div className='navbar'>
                 {admin && <Link to='/admin' className="nav-link">Admin</Link>}
-                <Link to='/' className="nav-link">Kezdőoldal</Link>
                 <Link to="/about" className="nav-link">Rólunk</Link>
                 <Link to='/termekek' className="nav-link">Termékek</Link>
                 <Link to='/varazslo' className="nav-link">Termék varázsló</Link>

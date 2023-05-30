@@ -106,6 +106,8 @@
 
 .admin-cat-new{
     display:flex;
+    justify-content:baseline;
+    align-items: baseline;
     flex-direction: row;
     font-size:16px;
     padding:20px;
