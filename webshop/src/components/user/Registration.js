@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { registerUserAuth } from "../../service/auth-service";
 import "../../styles/registration.css";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Registration() {
@@ -77,7 +77,6 @@ export default function Registration() {
                 </p>
                 <button className="reg-button" type="submit" onClick={register}>Küldés</button>
             </form>
-            <ToastContainer />
         </div>
     )
 }
