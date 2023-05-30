@@ -106,7 +106,7 @@ const router = createBrowserRouter([
         element: <AdminCategoriesList />
       },
       {
-        path: '/admin/megrendelesek/:orderId',
+        path: '/admin/megrendelesek/:orderId/adatlap',
         element: <AdminOrderDetails />
       },
       {
