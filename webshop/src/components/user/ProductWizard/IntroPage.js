@@ -1,8 +1,19 @@
 import MainStepper from "./MainStepper";
 import { Link } from "react-router-dom";
 import '../../../styles/ProductWizard/intropage.css';
+import { useContext, useEffect } from "react";
+import categoryService from "../../../service/categoryService";
+import WizardContext from "../../../context/WizardContext";
 
 const IntroPage = () => {
+    
+    const {priceTag, setPriceTag} = useContext(WizardContext);
+
+    useEffect(() => {
+        categoryService.readCategories()
+        .then(data => console.log(data))
+    })
+    
     return (
         <section className="wizard-intro">
             <h2>Termék varázsló</h2>
