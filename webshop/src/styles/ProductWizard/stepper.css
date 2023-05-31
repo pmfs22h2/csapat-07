@@ -30,10 +30,11 @@
    border: none;
    padding: 0.8rem;
    cursor: pointer;
-   background-color: #8d7467;
+   background-color: #ECDBD1;
    border-radius: 5px;
    margin: 1rem;
    font-weight: bold;
+   padding:10px 20px;
 }
 
 .wizard-container button:hover {
@@ -127,4 +128,6 @@ input[type="radio"] {
 .warning {
     color: rgb(205, 14, 14);
 }
+
+
   
