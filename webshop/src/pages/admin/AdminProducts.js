@@ -6,6 +6,7 @@ import sortProductsFromA from "../../utils/sortProductsFromA";
 import sortProductsFromB from "../../utils/sortProductsFromB";
 import sortProductsFromHighest from "../../utils/sortProductsFromHighest";
 import sortProductsFromLowest from "../../utils/sortProductsFromLowest";
+import categoryService from "../../service/categoryService";
 import '../../styles/admintable.css';
 import '../../styles/search.css';
 import CategorySearch from "../../components/admin/AdminCategorySearch";
@@ -18,17 +19,23 @@ const AdminProducts = () => {
     const [from, setFrom] = useState(0);
     const [to, setTo] = useState(9);
     const [displayedProducts, setDisplayedProducts] = useState([]);
-    const [selectValue, setSelectValue] = useState("order");
+ 
     const [sortedItems, setSortedItems] = useState([]);
     const [selectCategory, setSelectCategory] = useState("");
     const [searchValue, setSearchValue] = useContext(SearchValue);
+    const [selectValue, setSelectValue] = useState("order");
+    const [categories, setCategories] = useState([]);
+
 
     useEffect(() => {
         listProducts();
+        categoryService.readCategories().then(cat => setCategories(cat))
     }, [])
-    console.log(sortedItems);
+
 
     useEffect(() => {
+        if(products.length == 0) return
+        console.log("effect");
         // keresés
         let searchedProducts = products.filter(p => p.title.toLowerCase().includes(searchValue))
 
@@ -61,7 +68,8 @@ const AdminProducts = () => {
         } else {
             setSortedItems(searchedProducts)
             sliceprod(searchedProducts)
-        }        
+        } 
+        console.log(searchedProducts, "searchedprod");       
 
     }, [selectValue, selectCategory, searchValue])
 
@@ -76,11 +84,12 @@ const AdminProducts = () => {
                 setProducts(manipulatedProducts);
                 setSortedItems(manipulatedProducts)
                 const manProdLenght = manipulatedProducts.length;
-
+                console.log(manipulatedProducts, "manprod");
                 if (manProdLenght < to) {
                     setTo(manProdLenght);
                     setDisplayedProducts(manipulatedProducts);
                 } else {
+                    console.log(to, "to");
                     setDisplayedProducts(manipulatedProducts.slice(from, to));
                 }
             })
@@ -134,7 +143,7 @@ const AdminProducts = () => {
                 <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} className={to === sortedItems.length ? "disabled" : ""} disabled={to === sortedItems.length}>Előre</button>
             </div>
-            <AdminProductList products={displayedProducts} />
+            <AdminProductList products={displayedProducts} categories={categories}/>
             <div className="pagination-buttons">
                 <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
                 <button onClick={nextPage} className={to === sortedItems.length ? "disabled" : ""} disabled={to === sortedItems.length}>Előre</button>

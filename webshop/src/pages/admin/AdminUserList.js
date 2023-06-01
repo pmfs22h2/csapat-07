@@ -34,6 +34,7 @@ const AdminUserList = () => {
                     setTo(manUsLength);
                     setdisplayedUsers(manipulatedUsers);
                  } else {
+                    setTo(9)
                     setdisplayedUsers(manipulatedUsers.slice(from, to));
                  }
             })
@@ -81,6 +82,7 @@ const AdminUserList = () => {
             sliceprod(prod)
 
         } else {
+            // setTo(9)
             setSortedItems(searchedUser)
             sliceprod(searchedUser)
         }
@@ -88,7 +90,7 @@ const AdminUserList = () => {
 
     return (
         <>
-        <h2 className="admin-h2">Admin felhasználók lista</h2>
+        <h2 className="admin-h2">Felhasználók lista</h2>
         <div className="select-option">
             <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                 <option value="order">Rendezés</option>

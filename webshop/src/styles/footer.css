@@ -19,6 +19,7 @@
 body {
 	line-height: 1.5;
 	font-family: 'Poppins', sans-serif;
+	
 }
 
 * {
@@ -26,6 +27,7 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	color: #3E312A;
+	
 }
 
 .container {
@@ -45,8 +47,10 @@ ul {
 
 .footer {
 	background-color: #F6EDE8;
-	padding: 5rem 0;
-	border-top:2px solid #ECDBD1;
+	padding: 2rem 0;
+	border-top: 2px solid #ECDBD1;
+	
+	
 }
 
 .footer-col {
@@ -63,25 +67,26 @@ ul {
 	position: relative;
 }
 
-.line::after {       /* vonalak cím alatt*/
+.line::after {
+	/* vonalak cím alatt*/
 	content: '';
 	position: absolute;
 	bottom: -2px;
-    left: 0;
-    width:100%;
-    height: 2px;
-    background-color: #E3C8BB;
-    transform-origin: bottom left;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #E3C8BB;
+	transform-origin: bottom left;
+	transform: scaleX(0);
+	transition: transform 0.3s ease-in-out;
 
 }
 
 .line:hover::after {
-    transform: scaleX(1);
-    width: 50px;
-	margin-left:80px;
-  }
+	transform: scaleX(1);
+	width: 50px;
+	margin-left: 80px;
+}
 
 .footer-col ul li:not(:last-child) {
 	margin-bottom: 0.6rem;
@@ -120,20 +125,20 @@ ul {
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
-	line-height:45px;
+	line-height: 45px;
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
 	background-color: #E3C8BB;
-	margin:5px;
+	margin: 5px;
 	color: white;
 	text-decoration: none;
 	transition: background-color 0.3s ease-in-out;
-  }
-  
-  .footer-col .social-links a:hover {
+}
+
+.footer-col .social-links a:hover {
 	background-color: #D9B6A4;
-  }
+}
 
 /* responsive
 @media(max-width: 767px){

@@ -3,21 +3,13 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
 	return (
-		// <footer classNameName="footer">
-		//     <div classNameName="footer-container">
-		//     <p>Sample text</p>
-		//     <p>Networking links</p>
-		//     <p>Icons</p>
-		//     </div>
-		// </footer>
-
 		<footer className="footer">
 			<div className="container">
 				<div className="row">
 					<div className="footer-col">
 						<h4 className="line">Rólunk</h4>
 						<ul>
-							<li><a href="#">rólunk</a></li>
+							<li><a href="/about">rólunk</a></li>
 							<li><a href="#">impresszum</a></li>
 							<li><a href="#">adatvédelmi nyilatkozat</a></li>
 							<li><a href="#">kapcsolat</a></li>

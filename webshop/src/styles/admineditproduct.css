@@ -4,10 +4,21 @@
     flex-direction: column;
 } */
 
-.admin-edit-product p {
+.admin-edit-product{
+    background-image: url('./pics/aloe13.jpg');
+    background-position: left;
+    background-size: 2000px;
+    height:550px;
+    display: flex;
+    justify-content: center;
+    margin-top:-50px;
+}
+
+.admin-edit-product label {
     height: 30px;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
+    text-align: left;
 }
 
 .admin-edit-product input {
@@ -23,8 +34,12 @@
 .admin-edit-product input[type=text] {
     font-family: 'Poppins', sans-serif;
     color: #3E312A;
-    font-size: 14px;
+    font-size: 16px;
 
+}
+
+.admin-edit-product :disabled {
+    background-color: rgb(196, 196, 196);
 }
 
 .admin-cancel-button{
@@ -39,7 +54,7 @@
     outline: none;
     border-color: #cec6c2;
     font-family: 'Poppins', sans-serif;
-    padding:5px;
+    padding:10px 100px;
     margin-left:10px;
     margin-top:20px;
 }
@@ -55,8 +70,9 @@
     outline: none;
     border-color: #cec6c2;
     font-family: 'Poppins', sans-serif;
-    padding:5px;
-    margin-left:5px;
+    padding:10px 100px;
+    margin-left:10px;
+    margin-top:20px;
 }
 .new-input{
     display:flex;
@@ -66,10 +82,63 @@
 }
 
 .original-data{
-    display:flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
-    gap:10px;
-    margin-top:30px;
-    margin-bottom:30px;
+    border: 1px solid #3E312A;
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #F6EDE8;
+    box-shadow: 0 0 20px #eeddd3;
+    font-weight: lighter;
+    width: 40%;
+    align-items:stretch;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+.original-data fieldset{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+    margin-bottom:20px;
+    border: none;
+    border-bottom: 2px solid rgb(10, 15, 10);
+    width: 90%;
+    /* align-self: center; */
+}
+
+.original-data input:focus {
+    background-color: #F6EDE8;
+    border: 1px solid #c0937b; 
+    outline: none;
+}
+
+
+/* .original-data p{
+    display: flex;
+    justify-content:left;
+    align-items: baseline;
+    flex-direction: row;
+    /* margin-left:30px; */
+    /* padding:20px; */
+ 
+
+.admin-cat-new{
+    display:flex;
+    justify-content:baseline;
+    align-items: baseline;
+    flex-direction: row;
+    font-size:16px;
+    padding:20px;
+}
+
+/* .admin-buttons{
+    margin-top:30px;
+} */

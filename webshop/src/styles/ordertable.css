@@ -21,9 +21,11 @@ th {
     color: #3E312A;
     font-weight:lighter;
 }
-tr:hover {
+
+/* tr:hover {
     background-color: #E8D2C6;               /* sorok színezése*/
-}
+ */
+
 td{
     padding: 20px 20px; 
     background-color: #F6EDE8;                 /* thead*/
@@ -44,7 +46,7 @@ td{
 .order-h2{
     padding:15px;
     margin-bottom:50px;
-    margin-top:50px;
+    /* margin-top:50px; */
     /* border-bottom:1px solid #3E312A; */
     font-size:25px;
     /* border-top:1px solid #3E312A; */

@@ -1,7 +1,9 @@
+import AdminEditCategory from "./AdminEditCategory";
+
 const AdminCategoryModify = () => {
     return (
         <>
-            {"hello"}
+            <AdminEditCategory />
         </>
     )
 }

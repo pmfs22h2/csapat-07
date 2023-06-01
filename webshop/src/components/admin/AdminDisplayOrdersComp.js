@@ -137,8 +137,6 @@ const AdminDisplayOrdersComp = () => {
         <>
         <div>
             <h2 className="admin-h2">Vásárlók megrendelései</h2>
-
-
             <div className="select-option">
                 <select value={selectValue} id="ordered-list" onChange={(e) => setSelectValue(e.target.value)} >
                     <option value="order">Rendezés</option>
@@ -147,6 +145,7 @@ const AdminDisplayOrdersComp = () => {
                     <option value="date-asc">Dátum szerint növekvő</option>
                     <option value="date-desc">Dátum szerint csökkenő</option>                </select>
             </div>
+       
 
             <div className="pagination-buttons">
                 <button onClick={prevPage} className={from === 0 ? "disabled" : ""} disabled={from === 0}>Vissza</button>
@@ -173,7 +172,7 @@ const AdminDisplayOrdersComp = () => {
                             <td>{order.uid}</td>
                             <td>{users[order.uid]?.name}</td>
                             <td>
-                                <Link to={`/admin/megrendelesek/${order.id}`}>Adatlap</Link>
+                                <Link to={`/admin/megrendelesek/${order.id}/adatlap`}>Adatlap</Link>
                             </td>
                         </tr>
                     ))}

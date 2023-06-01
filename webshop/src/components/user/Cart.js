@@ -93,8 +93,8 @@ function Cart() {
                 {p.amount}
                 <button  onClick={() => incraiseAmount(p.productId)} className="cart-amount-button">+</button>
               </td>
-              <td>{p.price}</td>
-              <td>{p.amount * p.price}</td>
+              <td>{p.price} HUF</td>
+              <td>{p.amount * p.price} HUF</td>
 
           <td><button onClick={() => deleteFromCart(p.productId)} className="cart-amount-button">x</button></td>
 
@@ -105,7 +105,7 @@ function Cart() {
             <td></td>
             <td></td>
             <td>Végösszeg:</td>
-            <td className="cart-sum">{sumCart(cart)}</td>
+            <td className="cart-sum">{sumCart(cart)} HUF</td>
           </tr>
         </>
         : <td colspan="4" className="cart-info">Nincs termék a kosaradban.</td>

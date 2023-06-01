@@ -1,0 +1,90 @@
+.cat-form {
+    background-image: url('./pics/aloe12.jpg');
+    background-position: top;
+    background-size: 2000px;
+    height:450px;
+    display: flex;
+    justify-content: center;
+    /* margin-top:-50px; */
+}
+
+.cat-form-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #3E312A;
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: #F6EDE8;
+    box-shadow: 0 0 20px #eeddd3;
+    font-weight: lighter;
+    width: 800px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.cat-form-box label{
+    font-size: 16px;
+    display:flex;
+    justify-content: center;
+}
+
+.cat-form-box input{
+    padding: 0 15px;
+    height: 30px;
+    font-size: 16px;
+    border: 1 px solid #F1E4DD;
+    border-radius: 5px;
+    border-color: #F1E4DD;
+    margin-left: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    text-align: center;
+}
+
+.cat-button-save {
+    border-radius: 5px;
+    border: 1px solid;
+    background: #FAF6F4;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #3E312A;
+    font-weight: 20px;
+    cursor: pointer;
+    outline: none;
+    border-color: #cec6c2;
+    font-family: 'Poppins', sans-serif;
+    padding:10px 100px;
+    margin-left:10px;
+    margin-top:20px;
+   
+}
+
+.cat-button-cancel{
+    border-radius: 5px;
+    border: 1px solid;
+    background: #FAF6F4;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #3E312A;
+    font-weight: 20px;
+    cursor: pointer;
+    outline: none;
+    border-color: #cec6c2;
+    font-family: 'Poppins', sans-serif;
+    padding:10px 100px;
+    margin-left:10px;
+    margin-top:20px;
+}
+
+.cat-button:hover {
+    border-color: white;
+    transition: .5s;
+}

@@ -27,6 +27,16 @@ import AdminCategoriesList from './pages/admin/AdminCategoriesList';
 import { SearchValue } from './context/searchValueContext';
 import AdminCategoryModify from './pages/admin/AdminCategoryModify';
 import AdminCategoryDelete from './pages/admin/AdminCategoryDelete';
+import NotFoundComp from './components/user/NotFoundComp';
+import About from './pages/user/About';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Contactpage from './pages/user/ContactPage';
+import ProductWizard from './pages/user/ProductWizard';
+import MainStepper from './components/user/ProductWizard/MainStepper';
+import IntroPage from './components/user/ProductWizard/IntroPage';
+import WizardContext from './context/WizardContext';
+
 
 const router = createBrowserRouter([
   {
@@ -38,8 +48,20 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
+        path: '/about',
+        element: <About />
+      },
+      {
         path: '/termekek',
         element: <Products />
+      },
+      {
+        path: '/varazslo',
+        element: <IntroPage />
+      },
+      {
+        path: '/kerdesek',
+        element: <MainStepper />
       },
       {
         path: '/termekek/:id/torles',
@@ -64,6 +86,14 @@ const router = createBrowserRouter([
       {
         path: "/megrendeleseim",
         element: <Orders />
+      },
+      {
+        path: "/kapcsolat",
+        element: <Contactpage />
+      },
+      {
+        path: "*",
+        element: <NotFoundComp />
       }
     ]
 
@@ -95,9 +125,13 @@ const router = createBrowserRouter([
       {
         path: '/admin/megrendelesek',
         element: <AdminDisplayOrders />
-      }, 
+      },
       {
-        path: '/admin/megrendelesek/:orderId',
+        path: '/admin/kategoriak',
+        element: <AdminCategoriesList />
+      },
+      {
+        path: '/admin/megrendelesek/:orderId/adatlap',
         element: <AdminOrderDetails />
       },
       {
@@ -109,12 +143,12 @@ const router = createBrowserRouter([
         element: <AdminCategories />
       },
       {
-        path: '/admin/kategoriak/:kategoriaId/szerkesztes',
-        element: <AdminCategoryModify />                      
+        path: '/admin/kategoriak/:id/szerkesztes',
+        element: <AdminCategoryModify />
       },
       {
         path: '/admin/kategoriak/:kategoriaId/torles',
-        element: <AdminCategoryDelete />                      
+        element: <AdminCategoryDelete />
       }
     ]
   }
@@ -125,19 +159,23 @@ function App() {
   const [cart, setCart] = useState([]);
   const [admin, setAdmin] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const [priceTag, setPriceTag] = useState({});
 
   return (
     <div className="App">
-      <SearchValue.Provider value={[searchValue, setSearchValue]}>
-        <AuthContext.Provider value={{ userData, setUserData }}>
-          <AdminAuthContext.Provider value={{ admin, setAdmin }}>
-            <CartContext.Provider value={{ cart, setCart }}>
-              <RouterProvider router={router}>
-              </RouterProvider>
-            </CartContext.Provider>
-          </AdminAuthContext.Provider>
-        </AuthContext.Provider>
-      </SearchValue.Provider>
+      <WizardContext.Provider value={{ priceTag, setPriceTag }}>
+        <SearchValue.Provider value={[searchValue, setSearchValue]}>
+          <AuthContext.Provider value={{ userData, setUserData }}>
+            <AdminAuthContext.Provider value={{ admin, setAdmin }}>
+              <CartContext.Provider value={{ cart, setCart }}>
+                <RouterProvider router={router}>
+                </RouterProvider>
+              </CartContext.Provider>
+            </AdminAuthContext.Provider>
+          </AuthContext.Provider>
+        </SearchValue.Provider>
+      </WizardContext.Provider>
+      <ToastContainer />
     </div>
   );
 }

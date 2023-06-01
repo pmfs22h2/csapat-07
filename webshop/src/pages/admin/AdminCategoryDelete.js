@@ -12,10 +12,14 @@ const AdminCategoryDelete = () => {
     }
 
     return (
-        <div className="App">
-            <button onClick={() => deleteCat(kategoriaId)}>Törlés</button>
+        <div className="admin-del-btn">
+          <div className="admin-del-btn-box">
             <p>Biztosan törölni szeretnéd?</p>
-            <button onClick={() => navigate('/admin/kategoriak')} className="button">Mégsem</button>
+            <div className="admin-buttons">
+            <button className="admin-cancel-button" onClick={() => navigate('/admin/kategoriak')} >Mégsem</button>
+            <button className="admin-delete-button" onClick={() => deleteCat(kategoriaId)}>Törlés</button>
+            </div>
+        </div>
         </div>
     );
 }

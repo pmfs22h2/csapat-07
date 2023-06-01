@@ -41,8 +41,14 @@ function getOrders() {
         .then(res => res.json())
 }
 
+function getOrder(orderid) {
+    return fetch(`${API_URL_ORDERS}/${orderid}.json`)
+        .then(res => res.json())
+}
+
 export default {
     sendOrder,
     deleteCart,
-    getOrders
+    getOrders,
+    getOrder
 }
